@@ -1,2 +1,4 @@
-document.write("Halllo Leute");
-console.log("Hallo");
+import "leaflet";
+import "leaflet/dist/leaflet.css";
+
+import "./startseite.js"
