@@ -13,7 +13,7 @@ L.tileLayer('https://ahrensburg.city/karte/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 let laden = new XMLHttpRequest;
-laden.open('GET', './geoserver/Geoserver/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Geoserver%3Aahrensburg&maxFeatures=50&outputFormat=application%2Fjson', true);
+laden.open('GET', './geoserver/ahrensburg/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ahrensburg%3Astart&maxFeatures=50&outputFormat=application%2Fjson', true);
 laden.onload = function () {
     if (laden.status == 200) {
 
