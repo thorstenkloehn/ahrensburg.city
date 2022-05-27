@@ -25,7 +25,7 @@
 
     function onEachFeature(feature, layer) {
          // does this feature have a property named popupContent?
-        properties.popupContent = properties.popupcontent;
+
          if (feature.properties && feature.properties.popupContent) {
              layer.bindPopup(feature.properties.popupContent);
          }
@@ -44,7 +44,6 @@
       laden.onload = function () {
           if (laden.status == 200) {
               L.geoJSON(JSON.parse(laden.responseText), {
-
                   onEachFeature: onEachFeature
               }).addTo(map);
           }
