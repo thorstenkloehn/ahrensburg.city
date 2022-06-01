@@ -40,10 +40,8 @@
 
      let laden = new XMLHttpRequest;
 
-     /*
+
       laden.open('GET', './geoserver/ahrensburg/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ahrensburg%3AListe_der_Kulturdenkmale&maxFeatures=50&outputFormat=application%2Fjson', true);
-      */
-    laden.open('GET', './geoserver/ahrensburg/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ahrensburg%3AGruendenkmal&maxFeatures=50&outputFormat=application%2Fjson', true);
 
     laden.onload = function () {
 
