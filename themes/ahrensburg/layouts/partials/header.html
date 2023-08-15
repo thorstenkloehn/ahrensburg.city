@@ -1,0 +1,7 @@
+<ul>
+    {{ range .menu.items }}
+        <li>
+            <a href="{{ .url }}">{{ .label }}</a>
+        </li>
+    {{ end }}
+</ul>
