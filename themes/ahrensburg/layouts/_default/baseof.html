@@ -1,23 +1,25 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-    <meta charset="utf-8">
-    <title>{{ block "title" . }}
-      <!-- Blocks may include default content. -->
-      {{ .Site.Title }}
-    {{ end }}</title>
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-  </head>
+   
+    {{partial "head" .}}
+
 
   <body>
-    <!-- Code that all your templates share, like a header -->
-    {{ block "main" . }}
-      <!-- The part of the page that begins to differ between templates -->
-    {{ end }}
-    {{ block "footer" . }}
-    <!-- More shared code, perhaps a footer but that can be overridden if need be in  -->
-    {{ end }}
-    <script src="./js/bootstrap.min.js"></script>
-  </body>
-</html>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2 " >
+          Menü
+          <ul class="list-group">{{range .Site.Menus.main}}<li class="nav-item"><a class="nav-link" href="{{.URL}}">{{.Name}}</a></li>{{end}}</ul>
+ </div>
+        <div class="col-md-9">
+          <h1>{{ .Content}}</h1>
+        </div>
+      </div>
+    
+
+
+    </div>
+
+    </body>
+    </html>

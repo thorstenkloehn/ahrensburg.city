@@ -1,4 +1,6 @@
-baseURL = 'http://example.org/'
+
 languageCode = 'en-us'
 title = 'Ahrensburg.city'
 theme = 'ahrensburg'
+relativeUrls = true
+
