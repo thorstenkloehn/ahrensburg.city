@@ -1,13 +1,13 @@
 ---
-title: "Datenschutz"
+title: Datenschutz
 date: 2023-08-17T04:57:27+02:00
 draft: false
-type: "page"
-menu: 
+type: page
+menu:
   main:
-    name: "Datenschutz"
+    name: Datenschutz
     weight: 3
-    
+slug: datenschutz
 ---
 
 # Datenschutz
