@@ -71,7 +71,7 @@ Ahrensburg wurde 1314 erstmals urkundlich erwähnt. Der Name Ahrensburg leitet s
 - Donnerstag Geschlossen
 - Freitag	22:00–04:00
 - Samstag	22:00–04:00
-
+- Sonntag: Geschlossen
 #### Diskotheken
 
 ##### N1club
@@ -88,4 +88,3 @@ Ahrensburg wurde 1314 erstmals urkundlich erwähnt. Der Name Ahrensburg leitet s
 - Freitag: 22:00–05:00
 - Samstag: 22:00–05:00
 - Sonntag: Geschlossen
-

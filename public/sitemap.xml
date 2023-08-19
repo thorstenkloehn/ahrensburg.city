@@ -2,17 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/datenschutz/</loc>
+    <loc>https://ahrensburg.city/datenschutz/</loc>
     <lastmod>2023-08-17T04:57:27+02:00</lastmod>
   </url><url>
-    <loc>/impressum/</loc>
+    <loc>https://ahrensburg.city/impressum/</loc>
     <lastmod>2023-08-16T23:22:31+02:00</lastmod>
   </url><url>
-    <loc>/</loc>
+    <loc>https://ahrensburg.city/</loc>
     <lastmod>2023-08-15T11:13:10+02:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>https://ahrensburg.city/categories/</loc>
   </url><url>
-    <loc>/tags/</loc>
+    <loc>https://ahrensburg.city/tags/</loc>
   </url>
 </urlset>

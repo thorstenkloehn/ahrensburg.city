@@ -1,6 +1,5 @@
-
+baseURL = 'https://ahrensburg.city'
 languageCode = 'de-de'
-title = 'Ahrensburg.city'
-theme = 'ahrensburg'
-relativeUrls = true
+title = 'ahrensburg.city'
+theme =["github.com/thorstenkloehn/ahrensburg-themen"]
 
