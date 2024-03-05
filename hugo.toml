@@ -1,5 +1,0 @@
-baseURL = 'https://ahrensburg.city'
-languageCode = 'de-de'
-title = 'ahrensburg.city'
-theme =["github.com/thorstenkloehn/ahrensburg-themen"]
-
