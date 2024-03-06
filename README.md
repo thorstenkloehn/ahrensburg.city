@@ -1,5 +1,9 @@
 ## Ahrensburg.city Installieren
 ## Installieren von Ahrensburg.city
+```bash
+cd $HOME
+sudo apt install snapd
+
 ## cerbort Installation
 ```bash
 sudo snap install --classic certbot
@@ -18,7 +22,7 @@ sudo certbot certonly --standalone -d ahrensburg.city -d www.ahrensburg.city
 ### Build von Ahrensburg.city
 ```
 cd $HOME
-gh repo clone thorstenkloehn/ahrensburg.city
+git clone https://github.com/thorstenkloehn/ahrensburg.city.git
 cd ahrensburg.city
 npm install
 npm run build
