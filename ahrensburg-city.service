@@ -1,0 +1,13 @@
+[Unit]
+Description=ahrensburg.city
+After=network.target
+
+[Service]
+Type=simple
+User=thorsten
+WorkingDirectory=/home/thorsten/ahrensburg.city
+ExecStart=/usr/bin/npm run start
+Restart=on-failure  
+
+[Install]
+WantedBy=multi-user.target
