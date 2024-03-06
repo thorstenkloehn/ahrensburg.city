@@ -1,22 +1,16 @@
-## Ahrensburg.city Installieren
+# Ahrensburg.city Installieren
 ## Installieren von Ahrensburg.city
 ```bash
 cd $HOME
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&\
+sudo apt-get install -y nodejs
 sudo apt install snapd
-
-## cerbort Installation
-```bash
-sudo snap install --classic certbot
-sudo ln -s /snap/bin/certbot /usr/bin/certbot
-```
-## Zertifikat erstellen
-```bash
+sudo apt install git
+sudo apt-get install nginx
 sudo rm /etc/nginx/sites-enabled/default
 sudo systemctl stop nginx
-```
-
-## Cerbort Konfigurieren
-```
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
 sudo certbot certonly --standalone -d ahrensburg.city -d www.ahrensburg.city
 ```
 ### Build von Ahrensburg.city
@@ -33,11 +27,7 @@ sudo cp ahrensburg-city.service /etc/systemd/system/ahrensburg-city.service
 sudo systemctl enable ahrensburg-city
 sudo systemctl start ahrensburg-city
 ```
-### Nginx Installieren
-```
-sudo apt update
-sudo apt install nginx
-```
+
 ### Nginx Einrichten
 ```
 sudo cp ahrensburg-city.conf /etc/nginx/conf.d/ahrensburg-city.conf
