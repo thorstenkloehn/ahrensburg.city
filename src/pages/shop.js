@@ -7,13 +7,13 @@ function HomePage({ data }) {
         <div>
             <br></br>
             <ul>
-  {data.map(item => (
-    <li key={item.osm_id}> 
-      {item.name} - {item.addr_street} - {item.addr_city}
-    </li>
-  ))}
-</ul>
-      </div>
+                {data.map(item => (
+                    <li key={item.osm_id}>
+                        {item.name} - {item.addr_street} - {item.addr_city}
+                    </li>
+                ))}
+            </ul>
+        </div>
     );
 }
 
