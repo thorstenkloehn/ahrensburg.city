@@ -34,3 +34,7 @@ sudo cp ahrensburg-city.conf /etc/nginx/conf.d/ahrensburg-city.conf
 sudo nginx -t
 sudo systemctl restart nginx
 ```
+### config daten kopieren
+```
+cp env.local.example .env.local
+```
