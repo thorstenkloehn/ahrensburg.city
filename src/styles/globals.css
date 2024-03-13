@@ -2,10 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-h1 { font-size: 2em; line-height: 2.34em 37.44px;}
-h2 { font-size: 1.5em; line-height: 1.75em 28px; }
-h3 { font-size: 1.17em; line-height: 1.37em 22px;}
-h4 { font-size: 1em ; line-height: 1.17em 18.72px;}
-h5 { font-size: 0.83em ; line-height: 0.97em 15.52px;}
-h6 { font-size: 0.67em ; line-height: 0.78em 12.48px;}
-code {color:bisque; background-color: black; padding: 0.5em; border-radius: 0.5em;}
+@layer base {
+  
+    h1 {@apply text-4xl font-bold};
+    h2 {@apply text-3xl font-bold};
+    h3 {@apply text-2xl font-bold};
+    h4 {@apply text-xl font-bold};
+    h5 {@apply text-lg font-bold};
+    code {@apply font-mono bg-black text-white p-1 rounded inline-block text-sm my-2 break-all};
+    ul {@apply list-disc list-inside};
+}
+
+

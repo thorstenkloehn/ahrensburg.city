@@ -7,7 +7,8 @@ export default function Layout({ children }) {
       <br></br>
       <Link href="/Installieren">Entwicklungumgebung</Link> - 
       <Link href="/Installieren/Server">Server</Link> - 
-      <Link href="/Installieren/Server_Mieten">Server Mieten</Link> -
+      <Link href="/Installieren/Server_Mieten">Server Mieten</Link> - 
+      <Link href="/Installieren/Hosting">Hosting</Link> -
       <br></br>
       <br></br>
       {children}

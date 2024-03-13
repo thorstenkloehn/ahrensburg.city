@@ -1,10 +1,13 @@
 import { Html, Head, Main, NextScript } from "next/document";
 import Link from "next/link";
 
+
 export default function Document() {
   return (
     <Html lang="de">
-      <Head />
+      <Head>
+      <title>ahrensburg.city</title>
+       </Head>
       <body>
       <div class="container mx-auto">
       <nav>
