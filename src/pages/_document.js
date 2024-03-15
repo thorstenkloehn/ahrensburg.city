@@ -18,12 +18,7 @@ export default function Document() {
   <li class="mr-3">
         <Link href="/shop">Läden</Link>
         </li>
-
-        <li class="mr-3">
-        <Link href="/Installieren">Installieren</Link>
-        </li>
-  
-  <li class="mr-3">
+ <li class="mr-3">
         <Link href="/Impressum">Impressum</Link>
         </li>
         <li class="mr-3">
