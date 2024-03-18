@@ -174,5 +174,9 @@ sudo cp ahrensburg-city.service /etc/systemd/system/ahrensburg-city.service
 sudo systemctl enable ahrensburg-city
 sudo systemctl start ahrensburg-city
 ```
+### config daten kopieren
+```bash 
+cp env.local.example .env.local
+```
 
 
