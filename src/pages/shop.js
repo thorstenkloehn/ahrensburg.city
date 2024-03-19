@@ -5,6 +5,7 @@ function HomePage({ data }) {
 
     return (
         <div>
+            <h1>Läden in Ahrensburg</h1>
             <br></br>
             <ul>
                 {data.map(item => (

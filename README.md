@@ -1,5 +1,4 @@
-# Switch2osm
-Switch2osm ist eine Anleitung um OpenStreetMap auf einem eigenen Server zu installieren.
+# Ahrensburg.city
 ## Installieren Ubunto 22.04
 ### Nutzer erstellen
 Neuen Nutzer erstellen
@@ -178,5 +177,4 @@ sudo systemctl start ahrensburg-city
 ```bash 
 cp env.local.example .env.local
 ```
-
 
