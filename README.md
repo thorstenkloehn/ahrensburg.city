@@ -179,31 +179,3 @@ sudo systemctl start ahrensburg-city
 cp env.local.example .env.local
 ```
 
-## Mediawiki Installieren
-```bash
-
-sudo apt update
-sudo apt install nginx mysql-server php php-fpm php-mysql php-gd php-xml php-mbstring php-zip php-json php-intl php-curl php-imagick imagemagick -y
-
-sudo mysql_secure_installation
-sudo mysql
-CREATE DATABASE mediawiki;
-CREATE USER 'mediawiki'@'localhost' IDENTIFIED BY 'password';
-oder ALTER USER 'mediawiki'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON mediawiki.* TO 'mediawiki'@'localhost';
-FLUSH PRIVILEGES;
-exit
-```
-## Mediawiki Download
-```bash
-cd /tmp
-wget https://releases.wikimedia.org/mediawiki/1.41/mediawiki-1.41.0.tar.gz
-sudo tar -xvzf mediawiki-1.41.0.tar.gz -C /var/www/html 
-sudo mv /var/www/html/mediawiki-1.41.0 /var/www/html/mediawiki
-sudo chown -R www-data:www-data /var/www/html/mediawiki
-sudo chmod -R 755 /var/www/html/mediawiki
-```
-## nginx konfigurieren
-```bash
-sudo cp ahrensburg-city.conf /etc/nginx/conf.d/ahrensburg-city.conf
-
