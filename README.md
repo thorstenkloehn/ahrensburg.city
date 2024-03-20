@@ -181,5 +181,6 @@ cp env.local.example .env.local
 
 ## Restart
 ```bash
+cp ahrensburg.conf /etc/nginx/sites-available/ahrensburg.conf
 sudo systemctl restart ahrensburg-city
 ```
