@@ -179,3 +179,7 @@ sudo systemctl start ahrensburg-city
 cp env.local.example .env.local
 ```
 
+## Restart
+```bash
+sudo systemctl restart ahrensburg-city
+```
