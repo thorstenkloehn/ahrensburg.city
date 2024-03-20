@@ -1,7 +1,7 @@
 import React from 'react'; // Add the missing import statement for React
 import { Pool } from 'pg';
 
-function HomePage({ data }) {
+function Shop({ data }) {
 
     return (
         <div>
@@ -50,4 +50,4 @@ WHERE Shop IS NOT NULL AND tags -> 'addr:city' = 'Ahrensburg';
     }
 }
 
-export default HomePage;
+export default Shop;
