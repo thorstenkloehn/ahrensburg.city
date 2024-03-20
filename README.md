@@ -14,11 +14,14 @@ ssh _renderd@
 ### Vorbereitung
 #### Nodejs
 * [Anleitung](https://github.com/nodesource/distributions) Erste Eineichrichtung
+#### Weitere Pakete
 ```bash
 sudo apt update
 sudo apt upgrade
 sudo apt install screen locate libapache2-mod-tile renderd git tar unzip wget bzip2 apache2 lua5.1 mapnik-utils python3-mapnik python3-psycopg2 python3-yaml gdal-bin fonts-noto-cjk fonts-noto-hinted fonts-noto-unhinted fonts-unifont fonts-hanazono postgresql postgresql-contrib postgis postgresql-14-postgis-3 postgresql-14-postgis-3-scripts osm2pgsql net-tools curl osmosis
 ```
+### mongodb
+* [Anleitung](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/)
 ### Postgres
 Posdtgres Datenbank erstellen
 ```bash
