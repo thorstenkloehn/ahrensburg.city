@@ -1,5 +1,13 @@
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: default
+title: Startseite
+importance: 20
+---
 # Ahrensburg.city
-## Installieren Ubunto 22.04
+## Installieren Ubuntu 22.04
 ### Nutzer erstellen
 Neuen Nutzer erstellen
 ```bash
@@ -20,6 +28,7 @@ sudo apt update
 sudo apt upgrade
 sudo apt install screen locate libapache2-mod-tile renderd git tar unzip wget bzip2 apache2 lua5.1 mapnik-utils python3-mapnik python3-psycopg2 python3-yaml gdal-bin fonts-noto-cjk fonts-noto-hinted fonts-noto-unhinted fonts-unifont fonts-hanazono postgresql postgresql-contrib postgis postgresql-14-postgis-3 postgresql-14-postgis-3-scripts osm2pgsql net-tools curl osmosis
 ```
+
 ### Postgres
 Posdtgres Datenbank erstellen
 ```bash
@@ -212,4 +221,3 @@ sudo chown -R www-data:www-data /var/www/html
 sudo find /var/www/html -type d -exec chmod 750 {} \;
 sudo find /var/www/html -type f -exec chmod 640 {} \;
 ```
-

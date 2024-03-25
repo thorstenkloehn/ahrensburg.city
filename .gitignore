@@ -34,3 +34,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+doc/.sass-cache
+doc/.jekyll-cache
+doc/.jekyll-metadata
+doc/vendor
+doc/_site
+
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
+_site
