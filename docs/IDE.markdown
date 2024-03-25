@@ -96,7 +96,7 @@ gh auth login
 ### Programmiersprachen Installieren
 https://github.com/thorstenkloehn/Allgemein.git
 #### Rust Installieren
-```bashGitHub Copilot
+```bash
 sudo apt  install curl 
 sudo apt install build-essential
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -140,7 +140,21 @@ cd Hugo
 ```
 ### Weblinks
 - [Hugo](https://gohugo.io/)
-
+## jekyll
+### Installieren Sie Jekyll mit folgendem Befehl.
+```bash
+sudo apt-get install ruby-full build-essential zlib1g-dev
+echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
+echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+gem install jekyll bundler
+```
+## Gatsby cli
+### Installieren Sie Gatsby.
+```bash
+npm init gatsby
+```
  ## Datenbank
 ### PostgreSQL
 #### Installation
