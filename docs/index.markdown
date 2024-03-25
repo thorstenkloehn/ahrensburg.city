@@ -136,8 +136,6 @@ sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 sudo certbot certonly --standalone -d ahrensburg.city -d www.ahrensburg.city
 sudo certbot certonly --standalone -d karte.ahrensburg.city
-sudo certbot certonly --standalone -d wiki.ahrensburg.city
-sudo certbot certonly --standalone -d blog.ahrensburg.city
 ```
 Neuen Nutzer erstellen
 ```bash
