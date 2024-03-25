@@ -134,6 +134,7 @@ sudo rm /etc/nginx/sites-enabled/default
 sudo systemctl stop nginx
 sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo systemctl stop nginx
 sudo certbot certonly --standalone -d ahrensburg.city -d www.ahrensburg.city
 sudo certbot certonly --standalone -d karte.ahrensburg.city
 ```
@@ -186,12 +187,14 @@ sudo systemctl start ahrensburg-city
 ### config daten kopieren
 ```bash 
 cp env.local.example .env.local
+nano .env.local
 ```
 
 ## Restart
 ```bash
 sudo cp ahrensburg-city.conf /etc/nginx/conf.d/ahrensburg-city.conf
 sudo systemctl restart ahrensburg-city
+sudo systemctl restart nginx
 ```
 
 #
