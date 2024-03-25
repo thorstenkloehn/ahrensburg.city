@@ -125,21 +125,6 @@ code --install-extension  ms-ossdata.vscode-postgresql
 code --install-extension formulahendry.code-runner
 code --install-extension  ms-vscode.cpptools-extension-pack
 ```
-## Hugo
-- Installieren Sie Hugo mit folgendem Befehl.
-```bash
-sudo snap install hugo
-```
-- Erstellen Sie ein neues Projekt mit folgendem Befehl.
-```bash
-hugo new site Hugo
-```
-- Wechseln Sie in das Verzeichnis mit folgendem Befehl.
-```bash
-cd Hugo
-```
-### Weblinks
-- [Hugo](https://gohugo.io/)
 ## jekyll
 ### Installieren Sie Jekyll mit folgendem Befehl.
 ```bash
