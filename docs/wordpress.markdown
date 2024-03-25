@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Wordprees
+title: Wordpress
 permalink: /Wordpress/
 importance: 18
 ---
