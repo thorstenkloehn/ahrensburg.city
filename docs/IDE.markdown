@@ -112,16 +112,12 @@ sudo apt-get install -y nodejs
 sudo snap install code --classic
 ```
 ### Pflugin
-```bash 
-code .
-```
 - Starten Sie VS Code Quick Open ( Ctrl+P), fügen Sie den folgenden Befehl ein und drücken Sie die Eingabetaste.
 ```bash
 code --install-extension GitHub.copilot
 code --install-extension rust-lang.rust-analyzer
 code --install-extension ckolkman.vscode-postgres
 code --install-extension  ms-ossdata.vscode-postgresql
-
 ```
 ## jekyll
 ### Installieren Sie Jekyll mit folgendem Befehl.
