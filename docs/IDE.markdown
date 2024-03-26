@@ -119,11 +119,9 @@ code .
 ```bash
 code --install-extension GitHub.copilot
 code --install-extension rust-lang.rust-analyzer
-code --install-extension eliostruyf.vscode-hugo-themer
 code --install-extension ckolkman.vscode-postgres
 code --install-extension  ms-ossdata.vscode-postgresql
-code --install-extension formulahendry.code-runner
-code --install-extension  ms-vscode.cpptools-extension-pack
+
 ```
 ## jekyll
 ### Installieren Sie Jekyll mit folgendem Befehl.
@@ -139,6 +137,11 @@ gem install jekyll bundler
 ### Installieren Sie Gatsby.
 ```bash
 npm init gatsby
+```
+## Hugo
+### Installieren Sie Hugo.
+```bash
+sudo snap install hugo
 ```
  ## Datenbank
 ### PostgreSQL
@@ -163,12 +166,12 @@ sudo apt-get install osm2pgsql osmosis
 
 ### Datenbank erstellen
 ```bash
-## Neuen Benutzer anlegen
 sudo adduser thorsten
 sudo usermod -aG sudo thorsten
+```
 
 ## Benutzer thorsten zu Gruppe postgres hinzufügen
-
+```bash
 
 sudo -u postgres -i
 createuser thorsten
@@ -179,7 +182,9 @@ CREATE EXTENSION postgis;
 CREATE EXTENSION hstore;
 ALTER TABLE geometry_columns OWNER TO thorsten;
 ALTER TABLE spatial_ref_sys OWNER TO thorsten;
+```
 ## Passwort für den Benutzer postgres setzen
+```bash
 \password thorsten
 \q
 exit
@@ -227,12 +232,7 @@ QT_DEBUG_PLUGINS=1 anki
 ```bash
 1436550454 1933645497 1463041493 1190756458
 ```
-## quarto Installieren
-```bash
-wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.550/quarto-1.4.550-linux-amd64.deb
-sudo dpkg -i quarto-1.4.550-linux-amd64.deb
-code --install-extension quarto.quarto
-```
+
 ## Golang Installieren
 ```bash
 wget https://go.dev/dl/go1.22.0.linux-amd64.tar.gz
@@ -304,6 +304,11 @@ sudo make altinstall
 * Quelle: [Download](https://www.python.org/downloads)
 * Quelle: [Installieren Anleitung](https://wiki.ubuntuusers.de/Python/)
 
+## Lumi Installieren
+```bash
+wget https://github.com/Lumieducation/Lumi/releases/download/v0.10.0/lumi_0.10.0_amd64.deb
+sudo dpkg -i lumi_0.10.0_amd64.deb
+```
 
 
 
