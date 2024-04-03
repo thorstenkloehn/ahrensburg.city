@@ -1,13 +1,15 @@
 import "./globals.css";
-import Link from "next/link";
 import Navigation from "../components/Navigation";
-
 export default function RootLayout({ children }) {
   return (
-    <div className="container mx-auto">
-      <Navigation />
-        {children}
-      </div>
-  
-  );
+    <html lang="en">
+      <body>
+      <div className="container mx-auto">
+        {/* Layout UI */}
+        <Navigation />
+        <main>{children}</main>
+        </div>
+      </body>
+    </html>
+  )
 }
