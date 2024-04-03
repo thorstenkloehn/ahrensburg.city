@@ -37,9 +37,4 @@
         font-family: 'Arial', sans-serif;
         width: 200px;
     }
-    code [class*="language-"] {
-        @apply text-sm;
-        font-family: 'Arial', sans-serif;
-        width: 200px;
-    }
 }
