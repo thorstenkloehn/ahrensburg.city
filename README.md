@@ -186,3 +186,5 @@ cp env.local.example .env.local
 sudo cp ahrensburg-city.conf /etc/nginx/conf.d/ahrensburg-city.conf
 sudo systemctl restart ahrensburg-city
 ```
+
+## Hallo
