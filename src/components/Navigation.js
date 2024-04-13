@@ -1,7 +1,10 @@
 import Link from 'next/link';
+import ButtonErstellen from './buttonerstellen';
+
 export default function Navigation() {
     return (
-       <nav className="flex">
+        <>
+        <nav className="flex md:flex hidden">
             <ul className="list-none flex flex-row">
             <li>
                 <Link href="/" className="text-blue-500">
@@ -39,8 +42,9 @@ export default function Navigation() {
             
             </ul>
         </nav>
-
+        <nav1>
+        <ButtonErstellen />
+        </nav1>
+</>
         );
 }
-
-

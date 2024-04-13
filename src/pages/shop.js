@@ -19,7 +19,6 @@ function Shop({ data }) {
         </div>
     );
 }
-
 export async function getStaticProps() {
     const pool = new Pool({
         user: process.env.DB_USER,
