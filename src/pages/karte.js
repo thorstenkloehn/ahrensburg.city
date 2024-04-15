@@ -1,7 +1,16 @@
 import React from 'react';
 import Head from 'next/head';
 
+/**
+ * Represents the MapPage component.
+ * @class
+ * @extends React.Component
+ */
 export default class MapPage extends React.Component {
+  /**
+   * Lifecycle method called after the component has been rendered to the DOM.
+   * Initializes the map and sets up the tile layer.
+   */
   componentDidMount() {
     const L = require('leaflet');
     require('leaflet-hash');
@@ -17,6 +26,10 @@ export default class MapPage extends React.Component {
     var hash = new L.Hash(map);
   }
 
+  /**
+   * Renders the MapPage component.
+   * @returns {JSX.Element} The rendered MapPage component.
+   */
   render() {
     return (
       <div>

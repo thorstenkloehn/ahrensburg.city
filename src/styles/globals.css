@@ -32,12 +32,12 @@
         font-family: 'Arial', sans-serif;
     }
     pre {
-        @apply text-sm border rounded;
-
-    font-family: 'Arial', sans-serif;
-    width: 100;
-    overflow-x: auto;
-    overflow-y: auto;
+        @apply text-sm border rounded w-full;
+    
+        font-family: 'Arial', sans-serif;
+        overflow-x: auto;
+        overflow-y: auto;
     }
+    
   
 }

@@ -19,6 +19,10 @@ function Shop({ data }) {
         </div>
     );
 }
+/**
+ * Retrieves static props for the shop page.
+ * @returns {Promise<{props: {data: any[]}}>} The static props object containing the data.
+ */
 export async function getStaticProps() {
     const pool = new Pool({
         user: process.env.DB_USER,
