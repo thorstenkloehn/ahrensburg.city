@@ -1,11 +1,53 @@
 
 # SSGs - Static Site Generators
 SSGs ist eine Software, die statische Webseiten generiert. Sie sind besonders geejsonnen für Webseiten, die nicht oft geändert werden müssen. SSGs sind besonders schnell und sicher, da sie keine Datenbanken benötigen. Sie sind besonders geeignet für Blogs, Dokumentationen, Portfolios und andere Webseiten, die hauptsächlich aus Text und Bildern bestehen.
+## Jekyll
+Jekyll ist besonders geeignet für Blogs, persönliche Projekte und kleine bis mittlere Websites. Es ist auch eine gute Wahl für Projekte, die eng mit GitHub integriert sind, da es eine nahtlose Integration mit GitHub Pages bietet.
+
 ## Hugo
-Hugo ist ein SSG, das in Go geschrieben ist. Es ist sehr schnell und einfach zu benutzen. Hugo ist besonders geeignet für größere Webseiten und Webseiten, die viele Seiten haben.
+Hugo ist besonders geeignet für größere Websites und Websites mit vielen Seiten. Es ist bekannt für seine Geschwindigkeit, was es zu einer guten Wahl für Projekte macht, die eine schnelle Generierung von Seiten erfordern.
+
 ## Gatsby
-Gatsby ist ein SSG, das in JavaScript geschrieben ist. Es ist sehr flexibel und hat viele Plugins. Gatsby ist besonders geeignet für Webseiten, die viele interaktive Elemente haben.
+Gatsby ist besonders geeignet für Websites mit vielen interaktiven Elementen. Dank seiner Flexibilität und der großen Anzahl an verfügbaren Plugins ist es eine gute Wahl für komplexe Projekte.
+
 ## Next.js
-Next.js ist ein SSG, das in JavaScript geschrieben ist. Es ist sehr flexibel und hat viele Plugins. Next.js ist besonders geeignet für Webseiten, die viele interaktive Elemente haben und die auf React basieren.
+Next.js ist besonders geeignet für Websites mit vielen interaktiven Elementen und Websites, die auf React basieren. Es bietet serverseitiges Rendering und generiert statische Websites, was es zu einer guten Wahl für performante, SEO-freundliche Websites macht.
+
+## Installation
+### Jekyll
+#### Ruby Installieren
+```bash
+# Installieren Sie Ruby und einige zusätzliche Pakete
+sudo apt-get install ruby-full build-essential zlib1g-dev
+```
+Vermeiden Sie die Installation von RubyGems-Paketen (sogenannte Gems) als Root-Benutzer. Richten Sie stattdessen ein Gem-Installationsverzeichnis für Ihr Benutzerkonto ein. Die folgenden Befehle fügen Umgebungsvariablen zu Ihrer ~/.bashrc-Datei hinzu, um den Installationspfad für Gems zu konfigurieren:
+```bash
+echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
+echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+Schließlich installieren Sie Jekyll und Bundler:
+```bash
+gem install jekyll bundler
+```
+Das war's! Sie sind jetzt bereit, Jekyll zu verwenden.
+
+### Hugo Installieren
+```bash
+sudo snap install hugo
+```
+
+### Jekyll Themen erstellen
+```bash
+jekyll new-theme my-theme
+```
+### Hugo Themen erstellen
+```bash
+hugo new theme my-theme
+```
+
+
+
 
 

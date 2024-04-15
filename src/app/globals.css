@@ -37,6 +37,8 @@
         font-family: 'Arial', sans-serif;
         overflow-x: auto;
         overflow-y: auto;
+        background-color: black;
+    color: white;
     }
     
   
