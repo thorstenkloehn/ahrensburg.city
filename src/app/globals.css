@@ -40,6 +40,10 @@
         background-color: black;
     color: white;
     }
+    a {
+
+        @apply text-base text-blue-500;
+    }
     
   
 }
