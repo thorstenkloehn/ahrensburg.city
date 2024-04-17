@@ -12,7 +12,7 @@ export default function DocsLayout({ children }) {
               <li><Link href="/doc/Server_Mieten">Server Mieten</Link></li>
               <li><Link href="/doc/Analysetool">Analysetool</Link></li>
               <li><Link href="/doc/SSGs">SSGs</Link></li>
-              <li><Link href="doc/Webentwicklung">Webentwicklung</Link></li>
+              <li><Link href="/doc/Webentwicklung">Webentwicklung</Link></li>
             </ul>
           </div>
           <div className="flex-grow pl-7 w-full">{children}</div>
