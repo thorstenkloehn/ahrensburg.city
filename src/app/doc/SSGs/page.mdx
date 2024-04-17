@@ -1,7 +1,8 @@
 
 # SSGs - Static Site Generators
 SSGs ist eine Software, die statische Webseiten generiert. Sie sind besonders geejsonnen für Webseiten, die nicht oft geändert werden müssen. SSGs sind besonders schnell und sicher, da sie keine Datenbanken benötigen. Sie sind besonders geeignet für Blogs, Dokumentationen, Portfolios und andere Webseiten, die hauptsächlich aus Text und Bildern bestehen.
-
+## Jekyll
+Jekyll ist besonders geeignet für Blogs und kleine Websites. Es ist bekannt für seine Einfachheit und Flexibilität, was es zu einer guten Wahl für Anfänger macht.
 ## Hugo
 Hugo ist besonders geeignet für größere Websites und Websites mit vielen Seiten. Es ist bekannt für seine Geschwindigkeit, was es zu einer guten Wahl für Projekte macht, die eine schnelle Generierung von Seiten erfordern.
 
@@ -12,6 +13,20 @@ Gatsby ist besonders geeignet für Websites mit vielen interaktiven Elementen. D
 Next.js ist besonders geeignet für Websites mit vielen interaktiven Elementen und Websites, die auf React basieren. Es bietet serverseitiges Rendering und generiert statische Websites, was es zu einer guten Wahl für performante, SEO-freundliche Websites macht.
 
 ## Installation
+### Jekyll Installieren
+Installieren von Ruby.
+
+```bash
+sudo apt-get install ruby-full build-essential zlib1g-dev
+```
+Vermeiden Sie die Installation von RubyGems-Paketen (genannt Gems) als Root-Benutzer. Richten Sie stattdessen ein Gem-Installationsverzeichnis für Ihr Benutzerkonto ein. Die folgenden Befehle fügen Umgebungsvariablen zu Ihrer ~/.bashrc-Datei hinzu, um den Gem-Installationspfad zu konfigurieren:
+```bash
+echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
+echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+Schließlich installieren Sie Jekyll und Bundler:
 
 ### Hugo Installieren
 ```bash
@@ -23,7 +38,11 @@ hugo new theme my-theme
 cd my-theme
 
 ```
-
+### Jekyll theme erstellen
+```bash
+jekyll new-theme my-theme
+cd my-theme
+```
 ### hugo erstellen
 ```bash
 hugo new site my-site
