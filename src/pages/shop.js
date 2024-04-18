@@ -8,8 +8,7 @@ function Shop({ data }) {
         <div>
              <title>Läden in Ahrensburg</title>
             <h1>Läden in Ahrensburg</h1>
-            <br></br>
-            <ul>
+            Leider kann ich die Hausnummer nicht anzeigen, da Next.js diese nicht ausgeben will. Aber hier sind die Läden in Ahrensburg: <br></br>  <ul>
                 {data.map(item => (
                     <li key={item.osm_id}>
                         {item.name} - {item.addr_street} - {item.addr_city}

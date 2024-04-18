@@ -37,6 +37,7 @@ export default class MapPage extends React.Component {
           <title>Karte</title>
           <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3/dist/leaflet.css" />
         </Head>
+      
         <div id="map" style={{ height: '100vh' }}></div>
       </div>
     );
