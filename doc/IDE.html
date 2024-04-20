@@ -1,0 +1,244 @@
+<!DOCTYPE html><html lang="de"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/ahrensburg.city/_next/static/css/120231dca87db683.css" crossorigin="" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/ahrensburg.city/_next/static/chunks/webpack-f5e26460450986bf.js" crossorigin=""/><script src="/ahrensburg.city/_next/static/chunks/fd9d1056-05dc8861795ddd9c.js" async="" crossorigin=""></script><script src="/ahrensburg.city/_next/static/chunks/69-17324a00d232d87e.js" async="" crossorigin=""></script><script src="/ahrensburg.city/_next/static/chunks/main-app-9bbd8e09be271beb.js" async="" crossorigin=""></script><script src="/ahrensburg.city/_next/static/chunks/250-adf0a7bb9f124f5f.js" async=""></script><script src="/ahrensburg.city/_next/static/chunks/app/doc/layout-8029ee2770e0067e.js" async=""></script><script src="/ahrensburg.city/_next/static/chunks/app/layout-6cc9c9f32ce3e31e.js" async=""></script><link rel="icon" href="/ahrensburg.city/favicon.ico" type="image/x-icon" sizes="16x16"/><script src="/ahrensburg.city/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js" crossorigin="" noModule=""></script></head><body><div class="container mx-auto"><nav class="flex md:flex hidden"><ul class="list-none flex flex-row"><li><a class="text-blue-500" href="/ahrensburg.city">Startseite</a></li><li><a class="text-blue-500 p-4" href="/ahrensburg.city/karte">Karte</a></li><li><a class="text-blue-500 p-4" href="/ahrensburg.city/shop">Läden</a></li><li><a class="text-blue-500 p-4" href="/ahrensburg.city/doc">Dokumentation</a></li><li><a class="text-blue-500 p-4" href="/ahrensburg.city/Impressum">Impressum</a></li><li><a class="text-blue-500 p-4" href="/ahrensburg.city/Datenschutz">Datenschutz</a></li></ul></nav><nav1><button class="md:hidden bg-blue-500 text-white">Menü</button></nav1><main><div class="flex"><div class="w-5/20"><ul class="flex flex-col space-y-1"><li><a href="/ahrensburg.city/doc">Server</a></li><li><a href="/ahrensburg.city/doc/IDE">IDE</a></li><li><a href="/ahrensburg.city/doc/Server_Mieten">Server Mieten</a></li><li><a href="/ahrensburg.city/doc/Analysetool">Analysetool</a></li><li><a href="/ahrensburg.city/doc/Webentwicklung">Webentwicklung</a></li></ul></div><div class="flex-grow pl-7 w-full"><h2>Voraussetzungen</h2>
+<ul>
+<li>[x] Ubuntu 18.04 LTS oder höher</li>
+<li>[x] Root Zugriff</li>
+<li>[x] SSH Zugriff</li>
+<li>[x] Internet Verbindung</li>
+</ul>
+<h2>Ubuntu 18.04 LTS oder höher</h2>
+<p>Browser öffnen und auf <a href="https://ubuntu.com/download/desktop">Ubuntu</a> gehen und die gewünschte Version herunterladen.</p>
+<h3>usb-stick erstellen</h3>
+<h4>Windows</h4>
+<ul>
+<li>[x] <a href="https://rufus.ie/">Rufus</a> herunterladen</li>
+<li>[x] Rufus starten</li>
+<li>[x] USB-Stick auswählen</li>
+<li>[x] ISO-Image auswählen</li>
+<li>[x] Starten</li>
+</ul>
+<h4>Ubuntu Deskop</h4>
+<ul>
+<li>USB-Stick einstecken</li>
+<li>Programm Startmedienerstellen öffnen</li>
+<li>ISO-Image auswählen</li>
+<li>USB-Stick auswählen</li>
+<li>Starten</li>
+</ul>
+<h3>Ubuntu installieren</h3>
+<ul>
+<li>USB-Stick einstecken</li>
+<li>PC neustarten</li>
+<li>Bootmenü öffnen</li>
+<li>USB-Stick auswählen</li>
+<li>Ubuntu installieren</li>
+<li>Sprache auswählen</li>
+<li>Tastatur auswählen</li>
+<li>Installationstyp auswählen</li>
+<li>Benutzerdaten eingeben</li>
+<li>Installation starten</li>
+<li>Neustarten</li>
+</ul>
+<h2>ubunru</h2>
+<h2>Root Zugriff</h2>
+<h3>Root aktivieren</h3>
+<ul>
+<li>Terminal öffnen</li>
+<li>sudo passwd root</li>
+<li>Passwort eingeben</li>
+<li>Passwort wiederholen</li>
+<li>Neustarten</li>
+</ul>
+<h3>Root anmelden</h3>
+<ul>
+<li>Terminal öffnen</li>
+<li><code>su</code> eingeben</li>
+<li>Passwort eingeben</li>
+</ul>
+<h2>Vorbereitung</h2>
+<h3>Aktualisieren</h3>
+<ul>
+<li>Öffne Sie das Terminal und auf ihrem Ubuntu-Desktop</li>
+<li>Führen Sie folgenden Befehl aus,um System zu aktualisieren.</li>
+</ul>
+<pre><code class="language-bash">sudo apt-get update 
+sudo apt-get upgrade
+</code></pre>
+<h3>Google Chrome Installieren</h3>
+<pre><code class="language-bash">wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+ sudo dpkg -i google-chrome-stable_current_amd64.deb
+</code></pre>
+<h4>Ubuntu 20.04 Lts gh installieren</h4>
+<pre><code class="language-bash">type -p curl &gt;/dev/null || (sudo apt update &amp;&amp; sudo apt install curl -y)
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+&amp;&amp; sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+&amp;&amp; echo &quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main&quot; | sudo tee /etc/apt/sources.list.d/github-cli.list &gt; /dev/null \
+&amp;&amp; sudo apt update \
+&amp;&amp; sudo apt install gh -y
+</code></pre>
+<h5>Webadresse ist</h5>
+<ul>
+<li><a href="https://cli.github.com/">Download gh</a></li>
+</ul>
+<h3>Git Installieren</h3>
+<pre><code class="language-bash">sudo apt-get install git  gh
+git config --global user.email &quot;you@example.com&quot;
+git config --global user.name &quot;Your Name&quot;
+
+</code></pre>
+<h4>gh Konfigurieren</h4>
+<pre><code class="language-bash">gh auth login
+</code></pre>
+<h3>Programmiersprachen Installieren</h3>
+<p>https://github.com/thorstenkloehn/Allgemein.git</p>
+<h4>Rust Installieren</h4>
+<pre><code class="language-bash">sudo apt  install curl 
+sudo apt install build-essential
+curl --proto &#x27;=https&#x27; --tlsv1.2 -sSf https://sh.rustup.rs | sh
+</code></pre>
+<h4>Nodejs Installieren</h4>
+<pre><code class="language-bash">curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &amp;&amp;\
+sudo apt-get install -y nodejs
+</code></pre>
+<h2>Visual Studio Code</h2>
+<h3>Installieren</h3>
+<pre><code class="language-bash">sudo snap install code --classic
+</code></pre>
+<h3>Pflugin</h3>
+<ul>
+<li>Starten Sie VS Code Quick Open ( Ctrl+P), fügen Sie den folgenden Befehl ein und drücken Sie die Eingabetaste.</li>
+</ul>
+<pre><code class="language-bash">code --install-extension GitHub.copilot
+code --install-extension rust-lang.rust-analyzer
+code --install-extension ckolkman.vscode-postgres
+code --install-extension  ms-ossdata.vscode-postgresql
+</code></pre>
+<h2>Datenbank</h2>
+<h3>PostgreSQL</h3>
+<h4>Installation</h4>
+<pre><code class="language-bash">sudo apt-get install postgresql-all
+</code></pre>
+<h3>PosgreSQL Version zeigen</h3>
+<pre><code class="language-bash">psql --version
+</code></pre>
+<h3>Postgis Installation in Ubuntu 23.04</h3>
+<pre><code class="language-bash">sudo apt install postgis postgresql-16-postgis-3 postgresql-16-postgis-3-scripts
+</code></pre>
+<h3>Installation von osm2pgsql und osmosis</h3>
+<pre><code class="language-bash">sudo apt-get install osm2pgsql osmosis
+</code></pre>
+<h3>Datenbank erstellen</h3>
+<pre><code class="language-bash">sudo adduser thorsten
+sudo usermod -aG sudo thorsten
+</code></pre>
+<h2>Benutzer thorsten zu Gruppe postgres hinzufügen</h2>
+<pre><code class="language-bash">
+sudo -u postgres -i
+createuser thorsten
+createdb -E UTF8 -O thorsten thorsten
+psql
+\c thorsten
+CREATE EXTENSION postgis;
+CREATE EXTENSION hstore;
+ALTER TABLE geometry_columns OWNER TO thorsten;
+ALTER TABLE spatial_ref_sys OWNER TO thorsten;
+</code></pre>
+<h2>Passwort für den Benutzer postgres setzen</h2>
+<pre><code class="language-bash">\password thorsten
+\q
+exit
+
+</code></pre>
+<h3>Datenbank mit osm2pgsql befüllen</h3>
+<pre><code class="language-bash">wget https://download.geofabrik.de/europe/germany/schleswig-holstein-latest.osm.pbf
+osmosis --read-pbf file=schleswig-holstein-latest.osm.pbf --bounding-box left=10.23 right=10.33 top=53.71 bottom=53.61 --write-pbf file=ahrensburg.pbf
+osm2pgsql  -d thorsten --create  -G --hstore  ahrensburg.pbf
+</code></pre>
+<h3>Datenbank Löschen</h3>
+<pre><code class="language-bash">sudo -u postgres -i
+psql
+GRANT ALL PRIVILEGES ON DATABASE thorsten TO postgres;
+drop database thorsten;
+\q
+</code></pre>
+<h2>Anki</h2>
+<p>Anki ist ein Programm zum Lernen von Vokabeln und anderen Inhalten. Es ist für Windows, Linux und Mac OS X verfügbar. Anki ist Open Source und kostenlos. Es ist auch für Android und iOS verfügbar, aber diese Versionen sind nicht kostenlos.</p>
+<h3>Anforderungen</h3>
+<pre><code class="language-bash">sudo apt install libxcb-xinerama0 libxcb-cursor0
+
+</code></pre>
+<h3>Anki herunterladen</h3>
+<pre><code class="language-bash">wget https://github.com/ankitects/anki/releases/download/23.12.1/anki-23.12.1-linux-qt6.tar.zst
+</code></pre>
+<h3>Anki installieren</h3>
+<pre><code class="language-bash">tar xaf anki-23.12.1-linux-qt6.tar.zst
+cd  anki-23.12.1-linux-qt6
+sudo ./install.sh
+QT_DEBUG_PLUGINS=1 anki
+</code></pre>
+<h3>Erweiterungen</h3>
+<h4>Erweiterungen installieren</h4>
+<pre><code class="language-bash">1436550454 1933645497 1463041493 1190756458
+</code></pre>
+<h2>Golang Installieren</h2>
+<pre><code class="language-bash">wget https://go.dev/dl/go1.22.0.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.22.0.linux-amd64.tar.gz
+</code></pre>
+<h3>Golang Konfigurieren</h3>
+<pre><code class="language-bash">nano ~/.bashrc
+</code></pre>
+<h3>Golang Konfigurieren</h3>
+<pre><code class="language-bash">export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go 
+export PATH=$PATH:$GOPATH/bin
+</code></pre>
+<h3>Golang Konfigurieren</h3>
+<pre><code class="language-bash">source ~/.bashrc
+</code></pre>
+<h2>Python Installieren</h2>
+<pre><code class="language-bash">sudo apt install python3 python3-pip python3-venv
+</code></pre>
+<h2>Python vscode Erweiterungen</h2>
+<pre><code class="language-bash">code --install-extension ms-python.python
+code --install-extension ms-toolsai.jupyter
+code --install-extension ms-vscode-remote.vscode-remote-extensionpack
+code --install-extension ms-toolsai.jupyter-keymap
+code --install-extension ms-toolsai.vscode-jupyter-cell-tags
+code --install-extension ms-toolsai.vscode-jupyter-slideshow
+code --install ms-dotnettools.dotnet-interactive-vscode
+</code></pre>
+<h2>Python Virtual Environment</h2>
+<pre><code class="language-bash">python3 -m venv .venv
+source .venv/bin/activate
+</code></pre>
+<h2>nginx Installieren</h2>
+<pre><code class="language-bash">sudo apt install nginx
+code --install-extension ahmadalli.vscode-nginx-conf
+code --install-extension  shanoor.vscode-nginx
+</code></pre>
+<h2>Python Vorasusetzungen</h2>
+<h3>Ubuntu</h3>
+<pre><code class="language-bash">sudo apt-get install build-essential libssl-dev zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev  libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev tk-dev libffi-dev uuid-dev#
+</code></pre>
+<h4>hinunterladen von Python</h4>
+<pre><code class="language-bash">wget https://www.python.org/ftp/python/3.12.2/Python-3.12.2.tgz
+</code></pre>
+<h4>entpacken von Python</h4>
+<pre><code class="language-bash">tar -xvf Python-3.12.2.tgz
+</code></pre>
+<h4>wechseln in das Python Verzeichnis</h4>
+<pre><code class="language-bash">cd Python-3.12.2
+</code></pre>
+<h4>Installieren von Python</h4>
+<pre><code class="language-bash">./configure
+make
+sudo make altinstall 
+</code></pre>
+<h4>Quellangabe</h4>
+<ul>
+<li>Quelle: <a href="https://www.python.org/downloads">Download</a></li>
+<li>Quelle: <a href="https://wiki.ubuntuusers.de/Python/">Installieren Anleitung</a></li>
+</ul>
+<h2>Lumi Installieren</h2>
+<pre><code class="language-bash">wget https://github.com/Lumieducation/Lumi/releases/download/v0.10.0/lumi_0.10.0_amd64.deb
+sudo dpkg -i lumi_0.10.0_amd64.deb
+</code></pre></div></div></main></div><script src="/ahrensburg.city/_next/static/chunks/webpack-f5e26460450986bf.js" crossorigin="" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])</script><script>self.__next_f.push([1,"1:HL[\"/ahrensburg.city/_next/static/css/120231dca87db683.css\",\"style\",{\"crossOrigin\":\"\"}]\n0:\"$L2\"\n"])</script><script>self.__next_f.push([1,"3:I[7690,[],\"\"]\n5:I[5613,[],\"\"]\n6:I[1778,[],\"\"]\n7:I[5250,[\"250\",\"static/chunks/250-adf0a7bb9f124f5f.js\",\"508\",\"static/chunks/app/doc/layout-8029ee2770e0067e.js\"],\"\"]\n8:I[5430,[\"250\",\"static/chunks/250-adf0a7bb9f124f5f.js\",\"185\",\"static/chunks/app/layout-6cc9c9f32ce3e31e.js\"],\"\"]\na:I[8955,[],\"\"]\nb:[]\n"])</script><script>self.__next_f.push([1,"2:[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/ahrensburg.city/_next/static/css/120231dca87db683.css\",\"precedence\":\"next\",\"crossOrigin\":\"\"}]],[\"$\",\"$L3\",null,{\"buildId\":\"LeEYr59u-R1t4CUulvaAs\",\"assetPrefix\":\"/ahrensburg.city\",\"initialCanonicalUrl\":\"/doc/IDE\",\"initialTree\":[\"\",{\"children\":[\"doc\",{\"children\":[\"IDE\",{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],\"initialSeedData\":[\"\",{\"children\":[\"doc\",{\"children\":[\"IDE\",{\"children\":[\"__PAGE__\",{},[\"$L4\",[[\"$\",\"h2\",null,{\"children\":\"Voraussetzungen\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"[x] Ubuntu 18.04 LTS oder höher\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"[x] Root Zugriff\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"[x] SSH Zugriff\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"[x] Internet Verbindung\"}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"Ubuntu 18.04 LTS oder höher\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"Browser öffnen und auf \",[\"$\",\"a\",null,{\"href\":\"https://ubuntu.com/download/desktop\",\"children\":\"Ubuntu\"}],\" gehen und die gewünschte Version herunterladen.\"]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"usb-stick erstellen\"}],\"\\n\",[\"$\",\"h4\",null,{\"children\":\"Windows\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"[x] \",[\"$\",\"a\",null,{\"href\":\"https://rufus.ie/\",\"children\":\"Rufus\"}],\" herunterladen\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"[x] Rufus starten\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"[x] USB-Stick auswählen\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"[x] ISO-Image auswählen\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"[x] Starten\"}],\"\\n\"]}],\"\\n\",[\"$\",\"h4\",null,{\"children\":\"Ubuntu Deskop\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"USB-Stick einstecken\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Programm Startmedienerstellen öffnen\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"ISO-Image auswählen\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"USB-Stick auswählen\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Starten\"}],\"\\n\"]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Ubuntu installieren\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"USB-Stick einstecken\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"PC neustarten\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Bootmenü öffnen\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"USB-Stick auswählen\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Ubuntu installieren\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Sprache auswählen\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Tastatur auswählen\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Installationstyp auswählen\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Benutzerdaten eingeben\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Installation starten\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Neustarten\"}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"ubunru\"}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"Root Zugriff\"}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Root aktivieren\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Terminal öffnen\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"sudo passwd root\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Passwort eingeben\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Passwort wiederholen\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Neustarten\"}],\"\\n\"]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Root anmelden\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Terminal öffnen\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"su\"}],\" eingeben\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Passwort eingeben\"}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"Vorbereitung\"}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Aktualisieren\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Öffne Sie das Terminal und auf ihrem Ubuntu-Desktop\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Führen Sie folgenden Befehl aus,um System zu aktualisieren.\"}],\"\\n\"]}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"sudo apt-get update \\nsudo apt-get upgrade\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Google Chrome Installieren\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb\\n sudo dpkg -i google-chrome-stable_current_amd64.deb\\n\"}]}],\"\\n\",[\"$\",\"h4\",null,{\"children\":\"Ubuntu 20.04 Lts gh installieren\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"type -p curl \u003e/dev/null || (sudo apt update \u0026\u0026 sudo apt install curl -y)\\ncurl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \\\\\\n\u0026\u0026 sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \\\\\\n\u0026\u0026 echo \\\"deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main\\\" | sudo tee /etc/apt/sources.list.d/github-cli.list \u003e /dev/null \\\\\\n\u0026\u0026 sudo apt update \\\\\\n\u0026\u0026 sudo apt install gh -y\\n\"}]}],\"\\n\",[\"$\",\"h5\",null,{\"children\":\"Webadresse ist\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"https://cli.github.com/\",\"children\":\"Download gh\"}]}],\"\\n\"]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Git Installieren\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"sudo apt-get install git  gh\\ngit config --global user.email \\\"you@example.com\\\"\\ngit config --global user.name \\\"Your Name\\\"\\n\\n\"}]}],\"\\n\",[\"$\",\"h4\",null,{\"children\":\"gh Konfigurieren\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"gh auth login\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Programmiersprachen Installieren\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"https://github.com/thorstenkloehn/Allgemein.git\"}],\"\\n\",[\"$\",\"h4\",null,{\"children\":\"Rust Installieren\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"sudo apt  install curl \\nsudo apt install build-essential\\ncurl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\\n\"}]}],\"\\n\",[\"$\",\"h4\",null,{\"children\":\"Nodejs Installieren\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - \u0026\u0026\\\\\\nsudo apt-get install -y nodejs\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"Visual Studio Code\"}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Installieren\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"sudo snap install code --classic\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Pflugin\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Starten Sie VS Code Quick Open ( Ctrl+P), fügen Sie den folgenden Befehl ein und drücken Sie die Eingabetaste.\"}],\"\\n\"]}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"code --install-extension GitHub.copilot\\ncode --install-extension rust-lang.rust-analyzer\\ncode --install-extension ckolkman.vscode-postgres\\ncode --install-extension  ms-ossdata.vscode-postgresql\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"Datenbank\"}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"PostgreSQL\"}],\"\\n\",[\"$\",\"h4\",null,{\"children\":\"Installation\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"sudo apt-get install postgresql-all\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"PosgreSQL Version zeigen\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"psql --version\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Postgis Installation in Ubuntu 23.04\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"sudo apt install postgis postgresql-16-postgis-3 postgresql-16-postgis-3-scripts\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Installation von osm2pgsql und osmosis\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"sudo apt-get install osm2pgsql osmosis\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Datenbank erstellen\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"sudo adduser thorsten\\nsudo usermod -aG sudo thorsten\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"Benutzer thorsten zu Gruppe postgres hinzufügen\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"\\nsudo -u postgres -i\\ncreateuser thorsten\\ncreatedb -E UTF8 -O thorsten thorsten\\npsql\\n\\\\c thorsten\\nCREATE EXTENSION postgis;\\nCREATE EXTENSION hstore;\\nALTER TABLE geometry_columns OWNER TO thorsten;\\nALTER TABLE spatial_ref_sys OWNER TO thorsten;\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"Passwort für den Benutzer postgres setzen\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"\\\\password thorsten\\n\\\\q\\nexit\\n\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Datenbank mit osm2pgsql befüllen\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"wget https://download.geofabrik.de/europe/germany/schleswig-holstein-latest.osm.pbf\\nosmosis --read-pbf file=schleswig-holstein-latest.osm.pbf --bounding-box left=10.23 right=10.33 top=53.71 bottom=53.61 --write-pbf file=ahrensburg.pbf\\nosm2pgsql  -d thorsten --create  -G --hstore  ahrensburg.pbf\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Datenbank Löschen\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"sudo -u postgres -i\\npsql\\nGRANT ALL PRIVILEGES ON DATABASE thorsten TO postgres;\\ndrop database thorsten;\\n\\\\q\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"Anki\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"Anki ist ein Programm zum Lernen von Vokabeln und anderen Inhalten. Es ist für Windows, Linux und Mac OS X verfügbar. Anki ist Open Source und kostenlos. Es ist auch für Android und iOS verfügbar, aber diese Versionen sind nicht kostenlos.\"}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Anforderungen\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"sudo apt install libxcb-xinerama0 libxcb-cursor0\\n\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Anki herunterladen\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"wget https://github.com/ankitects/anki/releases/download/23.12.1/anki-23.12.1-linux-qt6.tar.zst\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Anki installieren\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"tar xaf anki-23.12.1-linux-qt6.tar.zst\\ncd  anki-23.12.1-linux-qt6\\nsudo ./install.sh\\nQT_DEBUG_PLUGINS=1 anki\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Erweiterungen\"}],\"\\n\",[\"$\",\"h4\",null,{\"children\":\"Erweiterungen installieren\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"1436550454 1933645497 1463041493 1190756458\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"Golang Installieren\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"wget https://go.dev/dl/go1.22.0.linux-amd64.tar.gz\\nsudo tar -C /usr/local -xzf go1.22.0.linux-amd64.tar.gz\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Golang Konfigurieren\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"nano ~/.bashrc\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Golang Konfigurieren\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"export PATH=$PATH:/usr/local/go/bin\\nexport GOPATH=$HOME/go \\nexport PATH=$PATH:$GOPATH/bin\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Golang Konfigurieren\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"source ~/.bashrc\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"Python Installieren\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"sudo apt install python3 python3-pip python3-venv\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"Python vscode Erweiterungen\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"code --install-extension ms-python.python\\ncode --install-extension ms-toolsai.jupyter\\ncode --install-extension ms-vscode-remote.vscode-remote-extensionpack\\ncode --install-extension ms-toolsai.jupyter-keymap\\ncode --install-extension ms-toolsai.vscode-jupyter-cell-tags\\ncode --install-extension ms-toolsai.vscode-jupyter-slideshow\\ncode --install ms-dotnettools.dotnet-interactive-vscode\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"Python Virtual Environment\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"python3 -m venv .venv\\nsource .venv/bin/activate\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"nginx Installieren\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"sudo apt install nginx\\ncode --install-extension ahmadalli.vscode-nginx-conf\\ncode --install-extension  shanoor.vscode-nginx\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"Python Vorasusetzungen\"}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"Ubuntu\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"sudo apt-get install build-essential libssl-dev zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev  libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev tk-dev libffi-dev uuid-dev#\\n\"}]}],\"\\n\",[\"$\",\"h4\",null,{\"children\":\"hinunterladen von Python\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"wget https://www.python.org/ftp/python/3.12.2/Python-3.12.2.tgz\\n\"}]}],\"\\n\",[\"$\",\"h4\",null,{\"children\":\"entpacken von Python\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"tar -xvf Python-3.12.2.tgz\\n\"}]}],\"\\n\",[\"$\",\"h4\",null,{\"children\":\"wechseln in das Python Verzeichnis\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"cd Python-3.12.2\\n\"}]}],\"\\n\",[\"$\",\"h4\",null,{\"children\":\"Installieren von Python\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"./configure\\nmake\\nsudo make altinstall \\n\"}]}],\"\\n\",[\"$\",\"h4\",null,{\"children\":\"Quellangabe\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Quelle: \",[\"$\",\"a\",null,{\"href\":\"https://www.python.org/downloads\",\"children\":\"Download\"}]]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"Quelle: \",[\"$\",\"a\",null,{\"href\":\"https://wiki.ubuntuusers.de/Python/\",\"children\":\"Installieren Anleitung\"}]]}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"Lumi Installieren\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"wget https://github.com/Lumieducation/Lumi/releases/download/v0.10.0/lumi_0.10.0_amd64.deb\\nsudo dpkg -i lumi_0.10.0_amd64.deb\\n\"}]}]],null]]},[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"doc\",\"children\",\"IDE\",\"children\"],\"loading\":\"$undefined\",\"loadingStyles\":\"$undefined\",\"loadingScripts\":\"$undefined\",\"hasLoading\":false,\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L6\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\",\"styles\":null}]]},[null,[\"$\",\"div\",null,{\"className\":\"flex\",\"children\":[[\"$\",\"div\",null,{\"className\":\"w-5/20\",\"children\":[\"$\",\"ul\",null,{\"className\":\"flex flex-col space-y-1\",\"children\":[[\"$\",\"li\",null,{\"children\":[\"$\",\"$L7\",null,{\"href\":\"/doc\",\"children\":\"Server\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"$L7\",null,{\"href\":\"/doc/IDE\",\"children\":\"IDE\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"$L7\",null,{\"href\":\"/doc/Server_Mieten\",\"children\":\"Server Mieten\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"$L7\",null,{\"href\":\"/doc/Analysetool\",\"children\":\"Analysetool\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"$L7\",null,{\"href\":\"/doc/Webentwicklung\",\"children\":\"Webentwicklung\"}]}]]}]}],[\"$\",\"div\",null,{\"className\":\"flex-grow pl-7 w-full\",\"children\":[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"doc\",\"children\"],\"loading\":\"$undefined\",\"loadingStyles\":\"$undefined\",\"loadingScripts\":\"$undefined\",\"hasLoading\":false,\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L6\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\",\"styles\":null}]}]]}],null]]},[null,[\"$\",\"html\",null,{\"lang\":\"de\",\"children\":[\"$\",\"body\",null,{\"children\":[\"$\",\"div\",null,{\"className\":\"container mx-auto\",\"children\":[[[\"$\",\"nav\",null,{\"className\":\"flex md:flex hidden\",\"children\":[\"$\",\"ul\",null,{\"className\":\"list-none flex flex-row\",\"children\":[[\"$\",\"li\",null,{\"children\":[\"$\",\"$L7\",null,{\"href\":\"/\",\"className\":\"text-blue-500\",\"children\":\"Startseite\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"$L7\",null,{\"href\":\"/karte\",\"className\":\"text-blue-500 p-4\",\"children\":\"Karte\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"$L7\",null,{\"href\":\"/shop\",\"className\":\"text-blue-500 p-4\",\"children\":\"Läden\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"$L7\",null,{\"href\":\"/doc\",\"className\":\"text-blue-500 p-4\",\"children\":\"Dokumentation\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"$L7\",null,{\"href\":\"/Impressum\",\"className\":\"text-blue-500 p-4\",\"children\":\"Impressum\"}]}],[\"$\",\"li\",null,{\"children\":[\"$\",\"$L7\",null,{\"href\":\"/Datenschutz\",\"className\":\"text-blue-500 p-4\",\"children\":\"Datenschutz\"}]}]]}]}],[\"$\",\"nav1\",null,{\"children\":[\"$\",\"$L8\",null,{}]}]],[\"$\",\"main\",null,{\"children\":[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\"],\"loading\":\"$undefined\",\"loadingStyles\":\"$undefined\",\"loadingScripts\":\"$undefined\",\"hasLoading\":false,\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L6\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":\"404\"}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"notFoundStyles\":[],\"styles\":null}]}]]}]}]}],null]],\"initialHead\":[false,\"$L9\"],\"globalErrorComponent\":\"$a\",\"missingSlots\":\"$Wb\"}]]\n"])</script><script>self.__next_f.push([1,"9:[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"1\",{\"charSet\":\"utf-8\"}],[\"$\",\"link\",\"2\",{\"rel\":\"icon\",\"href\":\"/ahrensburg.city/favicon.ico\",\"type\":\"image/x-icon\",\"sizes\":\"16x16\"}]]\n4:null\n"])</script><script>self.__next_f.push([1,""])</script></body></html>
