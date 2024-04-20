@@ -1,0 +1,13 @@
+{
+  "/_not-found": "app/_not-found.js",
+  "/Datenschutz/page": "app/Datenschutz/page.js",
+  "/Impressum/page": "app/Impressum/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js",
+  "/doc/Analysetool/page": "app/doc/Analysetool/page.js",
+  "/doc/Django/page": "app/doc/Django/page.js",
+  "/doc/IDE/page": "app/doc/IDE/page.js",
+  "/doc/Server_Mieten/page": "app/doc/Server_Mieten/page.js",
+  "/doc/Webentwicklung/page": "app/doc/Webentwicklung/page.js",
+  "/doc/page": "app/doc/page.js"
+}
