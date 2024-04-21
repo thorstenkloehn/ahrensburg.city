@@ -7,7 +7,8 @@ export default function DocsLayout({ children }) {
           <div className="w-5/20">
             <ul className="flex flex-col space-y-1">
               <li><Link href="/Ahrensburg">Nachtleben</Link></li>
-         
+              <li><Link href="/Ahrensburg/Amt">Amt</Link></li>
+              <li><Link href="/Ahrensburg/Bauwerke">Bauwerke</Link></li>
               </ul>
           </div>
           <div className="flex-grow pl-7 w-full">{children}</div>
