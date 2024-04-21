@@ -12,6 +12,10 @@ export default function Navigation() {
                 </Link>
             </li>
             <li>
+                <Link href="/Ahrensburg" className="text-blue-500 p-4">
+                Über Ahrensburg
+                </Link></li>
+            <li>
                 <Link href="/karte" className="text-blue-500 p-4">
                 Karte
                 </Link>

@@ -15,6 +15,7 @@ const ButtonErstellen = () => {
             {isOpen && (
           <div className="absolute bg-white text-black p-4 flex flex-col">
           <Link href="/" className="block">Startseite</Link>
+          <Link href="/Ahrensburg" className="block">Über Ahrensburg</Link>
           <Link href="/karte" className="block">Karte</Link>
           <Link href="/shop" className="block">Läden</Link>
           <Link href="/doc" className="block">Dokumentation</Link>
