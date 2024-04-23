@@ -163,9 +163,11 @@ exit
 ```
 ### Datenbank mit osm2pgsql befüllen
 ```bash
+cd $HOME
 wget https://download.geofabrik.de/europe/germany/schleswig-holstein-latest.osm.pbf
-osmosis --read-pbf file=schleswig-holstein-latest.osm.pbf --bounding-box left=10.23 right=10.33 top=53.71 bottom=53.61 --write-pbf file=ahrensburg.pbf
-osm2pgsql  -d thorsten --create  -G --hstore  ahrensburg.pbf
+osmosis --read-pbf file=schleswig-holstein-latest.osm.pbf --bounding-box left=10.1141 right=10.3716 top=53.7136 bottom=53.6249 --write-pbf file=ahrensburg.pbf
+chmod o+rx ~
+sudo -u _renderd osm2pgsql -d gis --create --slim  -G --hstore --tag-transform-script ~/src/openstreetmap-carto/openstreetmap-carto.lua -C 2500 --number-processes 1 -S ~/src/openstreetmap-carto/openstreetmap-carto.style ~/data/ahrensburg.pbf
 ```
 
 
