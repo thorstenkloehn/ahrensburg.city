@@ -63,18 +63,6 @@ sudo apt-get upgrade
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
  sudo dpkg -i google-chrome-stable_current_amd64.deb
  ```
-#### Ubuntu 20.04 Lts gh installieren
-```bash
-type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-&& sudo apt update \
-&& sudo apt install gh -y
-```
-##### Webadresse ist
-- [Download gh](https://cli.github.com/)
-
 ### Git Installieren
 ```bash
 sudo apt-get install git  gh
@@ -87,8 +75,7 @@ git config --global user.name "Your Name"
 ```bash
 gh auth login
 ```
-### Programmiersprachen Installieren
-https://github.com/thorstenkloehn/Allgemein.git
+
 #### Rust Installieren
 ```bash
 sudo apt  install curl 
@@ -112,6 +99,12 @@ code --install-extension GitHub.copilot
 code --install-extension rust-lang.rust-analyzer
 code --install-extension ckolkman.vscode-postgres
 code --install-extension  ms-ossdata.vscode-postgresql
+code --install-extension ms-dotnettools.csdevkit
+code --install-exension vscjava.vscode-java-pack
+code --install-extension vmware.vscode-boot-dev-pack
+code --install-extension  ms-vscode-remote.remote-ssh
+
+
 ```
 
 ## Datenbank
@@ -225,6 +218,17 @@ export PATH=$PATH:$GOPATH/bin
 ```bash
 source ~/.bashrc
 ```
+### Java Installieren
+```bash
+sudo apt install openjdk-21-jdk
+sudo apt-install maven
+sudo apt install gradle
+```
+### dotnet Installieren
+```bash
+sudo apt-get update && \
+  sudo apt-get install -y dotnet-sdk-8.0
+
 ## Python Installieren
 ```bash
 sudo apt install python3 python3-pip python3-venv
