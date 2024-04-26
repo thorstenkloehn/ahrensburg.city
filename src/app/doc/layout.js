@@ -11,9 +11,8 @@ export default function DocsLayout({ children }) {
               <li><Link href="/doc/github_pages">Github Pages</Link></li>
               <li><Link href="/doc/Server_Mieten">Server Mieten</Link></li>
               <li><Link href="/doc/Analysetool">Analysetool</Link></li>
-              <li><Link href="/doc/Webentwicklung">Webentwicklung</Link></li>
-              <li><Link href="/doc/HeadlessCMS">Headless CMS</Link></li>
-              <li></li>
+              <li><Link href="/doc/Fullstack">Fullstack</Link></li>
+              <li><Link href="/doc/Next.js">Next.js</Link></li>
               </ul>
           </div>
           <div className="flex-grow pl-7 w-full">{children}</div>
