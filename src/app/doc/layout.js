@@ -13,6 +13,8 @@ export default function DocsLayout({ children }) {
               <li><Link href="/doc/Analysetool">Analysetool</Link></li>
               <li><Link href="/doc/Fullstack">Fullstack</Link></li>
               <li><Link href="/doc/Next.js">Next.js</Link></li>
+              <li><Link href="/doc/Strapi">Strapi</Link></li>
+              <li><Link href="/doc/Webentwicklung">Webentwicklung</Link> </li>
               </ul>
           </div>
           <div className="flex-grow pl-7 w-full">{children}</div>
