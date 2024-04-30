@@ -198,7 +198,7 @@ Welche Operatoren gibt es in JavaScript? Zuweisungsoperatoren
 ```
 ## Kontrollstrukturen in GO
  ```
- Wenn Bedingung und Anweisung
+ Wenn Bedingung und Anweisung in Go
  {{c1::if Bedingung {}}
 {{c1::Anweisung} }}
 
@@ -208,3 +208,92 @@ Wenn Bedingung und Anweisung und sonst in Go
 {{c1::else {}}
 {{c1::Anweisung} }}
 
+Wenn Bedingung und Anweisung und sonst wenn in Go
+{{c1::if Bedingung {}}
+{{c1::Anweisung} }}
+{{c1::else if Bedingung {}}
+{{c1::Anweisung} }}
+
+Wenn Bedigung und Anweisung in JavaScript
+{{c1::if (Bedingung) {}}
+  {{c1::Anweisung;}}
+  {{c1::} }}
+
+Wenn Bedingung und Anweisung und sonst in JavaScript
+{{c1::if (Bedingung) {}}
+  {{c1::Anweisung;}}
+  {{c1::} else {}}
+  {{c1::Anweisung;}}
+  {{c1::} }}
+
+Wenn Bedingung und Anweisung und sonst wenn in JavaScript
+{{c1::if (Bedingung) {}}
+  {{c1::Anweisung;}}
+  {{c1::} else if (Bedingung) {}}
+  {{c1::Anweisung;}}
+  {{c1::} }}
+
+Auswahlanweisung in Go
+{{c1::switch Ausdruck {}}
+  {{c1::case Bedingung:}}
+    {{c1::Anweisung}}
+  {{c1::default:}}
+    {{c1::Anweisung}}
+{{c1::} }}
+
+Auswahlanweisung in JavaScript
+{{c1::switch (Ausdruck) {}}
+  {{c1::case Bedingung:}}
+    {{c1::Anweisung}}
+    {{c1::break;}}
+  {{c1::default:}}
+    {{c1::Anweisung}}
+    {{c1::break;}}
+{{c1::} }}
+
+Kopfschleife in Go einfach
+{{c1::for Bedingung {}}
+{{c1::Anweisung}}
+{{c1::} }}
+
+Schleife in Go mit Initialisierung, Bedingung und Zählung
+{{c1::for Variable erstellen; Bedingung; Zählung {}}
+{{c1::Anweisung}}
+{{c1::} }}
+
+Endlosschleife in Go
+{{c1::for {}}
+{{c1::Anweisung}}
+{{c1::} }}
+
+ Bereichsschleife in Go
+{{c1::for index, Wert := range Feld {}}
+{{c1::Anweisung}}
+{{c1::} }}
+
+Kopfgesteuerte Schleifen in JavaScript
+{{c1::while (Bedingung) {}}
+{{c1::Anweisung}}
+{{c1::} }}
+
+Fußgesteuerte Schleifen in JavaScript
+{{c1::do {}}
+{{c1::Anweisung}}
+{{c1::} while (Bedingung);}}
+
+Schleife in Javascript mit Initialisierung, Bedingung und Zählung
+{{c1::for (Variable erstellen; Bedingung; Zählung) {}}
+{{c1::Anweisung}}
+{{c1::} }}
+
+Bereichsschleife in JavaScript
+{{c1::for (index, Wert in Feld {}}
+{{c1::Anweisung}}
+{{c1::} }}
+
+Iterationsschleifen in JavaScript
+{{c1::for (Variable of Feld {}}
+{{c1::Anweisung}}
+{{c1::} }}
+
+```
