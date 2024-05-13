@@ -248,10 +248,50 @@ json Ausgeben in JavaScript
 {{c1::JSON.stringify(Objekt)}}
 json in Objekt umwandeln in JavaScript
 {{c1::JSON.parse(json)}}
+Variable erstellen in TypeScript
+{{c1::let VariableName: Datentyp = Wert}}
+Datentype Zahl in TypeScript
+{{c1::number}}
+Datentype Zeichenkette in TypeScript
+{{c1::string}}
+Datentype Wahrheitswert in TypeScript
+{{c1::boolean}}
+Datentype kein Wert in TypeScript
+{{c1::null}}
+Datentype undefiniert in TypeScript
+{{c1::undefined}}
+Feld erstellen in TypeScript
+{{c1::let Feld: Datentyp[] = [Wert1, Wert2, Wert3]}}
+Geordenliste erstellen in TypeScript
+{{c1::let Tuple: [Datentyp, Datentyp] = [Wert1, Wert2]}}
+Objekt erstellen in TypeScript
+{{c1::let Objekt: {Schlüssel: Datentyp} = {Schlüssel: Wert}}}
+kein Wert in TypeScript
+{{c1::void}}
+Union in TypeScript für mehrere Datentypen
+{{c1::Datentyp1 | Datentyp2}}
+neuer Datentyp in TypeScript erstellen
+{{c1::type Typ = Datentyp}}
+externe Paket  in JavaScript
+{{c1::module.exports = Variable}}
+Konfigdatei in 11ty
+{{c1::.eleventy.js}}
+Konfigdatei in Next.js
+{{c1::next.config.js}}
+Konfigdatei in eleventy
+{{c1::module.exports = function(eleventyConfig) {}}
+
+    {{c1::return { }}
+      {{c1::dir: { }}
+        {{c1::input: "src", }} // Verzeichnis für Eingabedateien (.11ty.js, .md, usw.) -src
+        {{c1::output: "_site", }} // Verzeichnis für Ausgabedateien (generierte HTML) _site
+      {{c1::}, }}
+    {{c1::}; }}
+  {{c1::}; }}
 
 
 
-```
+``` 
 
 
 

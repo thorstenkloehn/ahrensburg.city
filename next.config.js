@@ -4,7 +4,7 @@ const withMDX = require('@next/mdx')()
 const nextConfig = {
   // Configure `pageExtensions` to include MDX files
  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
- /*
+ 
  basePath: '/ahrensburg.city',
  assetPrefix: '/ahrensburg.city/',
 
@@ -18,7 +18,7 @@ const nextConfig = {
  
   // Optional: Change the output directory `out` -> `dist`
  distDir: 'out',
- */
+ 
 }
  
 
