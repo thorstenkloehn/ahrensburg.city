@@ -1,24 +1,40 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meine Hugo-Seite</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body>
-    <!-- Dein HTML-Inhalt hier -->
-    <label for="linkListToggle" class="cursor-pointer px-5 py-2 bg-blue-500 text-white rounded">Link-Liste öffnen</label>
-    <input type="checkbox" id="linkListToggle" class="hidden">
-    <ul id="linkList" class="hidden">
-        <li><a href="https://ahrensburg.city" class="text-blue-500">Startseite</a></li>
-        <li><a href="#" class="text-blue-500">Link 2</a></li>
-        <li><a href="#" class="text-blue-500">Link 3</a></li>
-    </ul>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+      html, body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      #map {
+        /* configure the size of the map */
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
     <script>
-        document.getElementById('linkListToggle').addEventListener('change', function() {
-            document.getElementById('linkList').classList.toggle('hidden', !this.checked);
-        });
+      // initialize Leaflet
+      var map = L.map('map').setView({lon: 0, lat: 0}, 2);
+
+      // add the OpenStreetMap tiles
+      L.tileLayer('http://www.ahrensburg.city/hot/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+      }).addTo(map);
+
+      // show the scale bar on the lower left corner
+      L.control.scale({imperial: true, metric: true}).addTo(map);
+
+      // show a marker on the map
+      L.marker({lon: 0, lat: 0}).bindPopup('The center of the world').addTo(map);
     </script>
-</body>
+  </body>
 </html>

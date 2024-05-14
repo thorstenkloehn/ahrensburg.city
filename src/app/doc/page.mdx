@@ -1,194 +1,145 @@
-## Ubuntu 24.04 LTS Installation
+# Ubuntu 20.04
+Diese Seite beschreibt, wie man alle notwendige Software installiert, einrichtet und konfiguriert, um einen eigenen Kachelserver zu betreiben. Diese Schritt-für-Schritt-Anleitung wurde für Ubuntu Linux 20.04 LTS (Focal Fossa) geschrieben und im Mai 2020 getestet.
+## Software installation
+Der OSM-Kachelserver-Stack ist eine Sammlung von Programmen und Bibliotheken, die zusammenarbeiten, um einen Kachelserver zu erstellen. Wie so oft bei OpenStreetMap gibt es viele Wege, dieses Ziel zu erreichen, und fast alle Komponenten haben Alternativen, die verschiedene spezifische Vor- und Nachteile haben. Dieses Tutorial beschreibt die gängigste Version, die der auf den Haupt-Kachelservern von OpenStreetMap.org ähnlich ist.
 
-Diese Seite beschreibt, wie man alle notwendige Software installiert, einrichtet und konfiguriert, um einen eigenen Kachelserver zu betreiben. Diese Schritt-für-Schritt-Anleitung wurde für Ubuntu Linux 24.04 (Noble Numbat) geschrieben und im April 2024 getestet.
-## Softwareinstallation
-Der OSM-Kachelserver-Stack ist eine Sammlung von Programmen und Bibliotheken, die zusammenarbeiten, um einen Kachelserver zu erstellen. Wie so oft bei OpenStreetMap gibt es viele Wege, dieses Ziel zu erreichen, und fast alle Komponenten haben Alternativen, die verschiedene spezifische Vor- und Nachteile haben. Dieses Tutorial beschreibt die gängigste Version, die der auf den Haupt-Kachelserven von OpenStreetMap.org ähnlich ist.
+Er besteht aus 5 Hauptkomponenten: mod_tile, renderd, mapnik, osm2pgsql und einer PostgreSQL/PostGIS-Datenbank. Mod_tile ist ein Apache-Modul, das zwischengespeicherte Kacheln bereitstellt und entscheidet, welche Kacheln neu gerendert werden müssen - entweder weil sie noch nicht zwischengespeichert sind oder weil sie veraltet sind. Renderd bietet ein Prioritätswarteschlangensystem für verschiedene Arten von Anfragen, um die Last von Renderanfragen zu verwalten und auszugleichen. Mapnik ist die Softwarebibliothek, die das eigentliche Rendern durchführt und von renderd verwendet wird.
 
-Er besteht aus 5 Hauptkomponenten: mod_tile, renderd, mapnik, osm2pgsql und einer PostgreSQL/PostGIS-Datenbank. Mod_tile ist ein Apache-Modul, das zwischengespeicherte Kacheln bereitstellt und entscheidet, welche Kacheln neu gerendert werden müssen - entweder weil sie noch nicht zwischengespeichert sind oder weil sie veraltet sind. Renderd bietet ein Prioritätswarteschlangensystem für verschiedene Arten von Anfragen, um die Last von Renderanfragen zu verwalten und zu glätten. Mapnik ist die Softwarebibliothek, die das eigentliche Rendern durchführt und von renderd verwendet wird.
+Beachten Sie, dass diese Anweisungen gegen einen neu installierten Ubuntu 20.04 Server geschrieben und getestet wurden. Wenn Sie bereits andere Versionen einiger Software installiert haben (vielleicht haben Sie von einer früheren Ubuntu-Version aktualisiert, oder Sie haben einige PPAs zum Laden eingerichtet), dann müssen Sie möglicherweise einige Anpassungen vornehmen.
 
-Dank der Arbeit der Debian- und Ubuntu-Maintainer, die neuesten Versionen dieser Pakete in Ubuntu 24.04 zu integrieren, sind diese Anweisungen etwas kürzer als einige frühere Versionen.
+Dieser Leitfaden geht davon aus, dass Sie alles von einem Nicht-Root-Benutzer über "sudo" ausführen. Der standardmäßig verwendete Nicht-Root-Benutzername ist unten "renderaccount" - Sie können diesen lokal erstellen, wenn Sie möchten, oder Skripte bearbeiten, um auf einen anderen Benutzernamen zu verweisen, wenn Sie möchten. Wenn Sie den Benutzer "renderaccount" erstellen, müssen Sie ihn zur Gruppe der Benutzer hinzufügen, die zu Root sudo können. Von Ihrem normalen Nicht-Root-Benutzerkonto aus:
 
-Diese Anweisungen wurden geschrieben und gegen einen neu installierten Ubuntu 24.04 Server getestet. Wenn Sie bereits andere Versionen einiger Software installiert haben (vielleicht haben Sie von einer früheren Version aktualisiert, oder Sie haben einige PPAs zum Laden eingerichtet), dann müssen Sie möglicherweise einige Anpassungen vornehmen.
-
-Um diese Komponenten zu erstellen, müssen zunächst eine Vielzahl von Abhängigkeiten installiert werden.
-
-Dieser Leitfaden geht davon aus, dass Sie alles von einem Nicht-Root-Benutzer über "sudo" ausführen. Versuchen Sie nicht, alles unten als Root zu tun; es wird nicht funktionieren.
-
-Aktualisieren Sie zunächst Ihre Paketliste und installieren Sie die erforderlichen Pakete:
-## Nutzer erstellen bei Ubuntu 24.04 LTS
-
-Um einen neuen Nutzer in Ubuntu 24.04 LTS zu erstellen, können Sie die folgenden Schritte ausführen:
-
-1. Öffnen Sie ein Terminalfenster.
-
-
-2. Führen Sie den folgenden Befehl aus, um einen neuen Nutzer zu erstellen:
 ```bash
-sudo adduser --force-badname _renderd
-sudo usermod -aG sudo _renderd
+sudo -i
+sudo adduser renderaccount
+usermod -aG sudo renderaccount
 exit
+exit
+ssh renderaccount@yourserver
+sudo apt-get update 
+sudo apt-get upgrade
+sudo apt-get install curl
 ```
-### Login als neuer Nutzer
-
-Der gegebene Codeblock zeigt, wie man sich als ein bestimmter Nutzer in einem Linux-System einloggt. Der Befehl `ssh` wird verwendet, um eine sichere Shell-Sitzung zu starten.
-
-```bash
-ssh _renderd@localhost
-```
-### System aktualisieren und upgraden
-
-Um Ihr Ubuntu-System zu aktualisieren und zu upgraden, können Sie die folgenden Befehle verwenden:
-
-1. **System aktualisieren**
-
-   Der Befehl `sudo apt update` wird verwendet, um die Paketlisten für Upgrades für Pakete zu aktualisieren, die installiert werden müssen, und neue Pakete, die installiert werden können.
-
-   ```bash
-   sudo apt update
-  sudo apt upgrade
-    ```
-## Nodjs Installation
-Anleitung zur Installation von Node.js auf Ubuntu 24.04 LTS
+## Nodejs Installation
 * [Anleitung](https://github.com/nodesource/distributions)
-## Installation weitere Pakete
-```bash
-sudo apt install screen locate libapache2-mod-tile renderd git tar unzip wget bzip2 apache2 lua5.1 mapnik-utils python3-mapnik python3-psycopg2 python3-yaml gdal-bin npm node-carto postgresql postgresql-contrib postgis postgresql-16-postgis-3 postgresql-16-postgis-3-scripts osm2pgsql net-tools curl osmosis
-```
-An diesem Punkt wurden einige neue Konten hinzugefügt. Sie können sie mit "tail /etc/passwd" sehen. "postgres" wird zur Verwaltung der Datenbanken verwendet, die wir zur Speicherung von Daten für das Rendering verwenden. "_renderd" wird für den Renderd-Daemon verwendet, und wir müssen sicherstellen, dass viele der unten aufgeführten Befehle als dieser Benutzer ausgeführt werden.
 
-Jetzt müssen Sie eine PostGIS-Datenbank erstellen. Die Standardwerte verschiedener Programme gehen davon aus, dass die Datenbank "gis" heißt und wir werden in diesem Tutorial die gleiche Konvention verwenden, obwohl dies nicht notwendig ist. Beachten Sie, dass "_renderd" unten dem Benutzer entspricht, unter dem der Renderd-Daemon ausgeführt wird.
+Um diese Komponenten zu erstellen, müssen zunächst eine Vielzahl von Abhängigkeiten installiert werden:
+```bash
+sudo apt install libboost-all-dev git tar unzip wget bzip2 build-essential autoconf libtool libxml2-dev libgeos-dev libgeos++-dev libpq-dev libbz2-dev libproj-dev munin-node munin protobuf-c-compiler libfreetype6-dev libtiff5-dev libicu-dev libgdal-dev libcairo2-dev libcairomm-1.0-dev apache2 apache2-dev libagg-dev liblua5.2-dev ttf-unifont lua5.1 liblua5.1-0-dev
+```
+Stimmen Sie der Installation zu. Dies wird eine Weile dauern, also gehen Sie und trinken Sie eine Tasse Tee. Diese Liste enthält verschiedene Dienstprogramme und Bibliotheken, den Apache-Webserver und "carto", das zur Umwandlung von Carto-CSS-Stylesheets in ein Format verwendet wird, das der Kartenrenderer "mapnik" verstehen kann. Wenn das abgeschlossen ist, installieren Sie die zweite Reihe von Voraussetzungen:
+
+## Installation von PostgreSQL / PostGIS
+
+Auf Ubuntu gibt es vorgepackte Versionen von sowohl PostGIS als auch PostgreSQL, diese können einfach über den Ubuntu-Paketmanager installiert werden.
+```bash
+
+sudo apt install postgresql postgresql-contrib postgis postgresql-12-postgis-3 postgresql-12-postgis-3-scripts osmosis
+
+```
+Hier ist "postgresql" die Datenbank, in der wir Kartendaten speichern, und "postgis" fügt ihr zusätzliche grafische Unterstützung hinzu. Stimmen Sie erneut zu, um die Installation durchzuführen.
+
+Jetzt müssen Sie eine PostGIS-Datenbank erstellen. Die Standardwerte verschiedener Programme gehen davon aus, dass die Datenbank "gis" heißt und wir werden in diesem Tutorial die gleiche Konvention verwenden, obwohl dies nicht notwendig ist. Ersetzen Sie Ihren Benutzernamen durch "renderaccount", wo er unten verwendet wird. Dies sollte der Benutzername sein, der Karten mit Mapnik rendert.
 
 ```bash
 sudo -u postgres -i
-createuser _renderd
-createdb -E UTF8 -O _renderd gis
-```
-Während Sie noch als Benutzer "postgres" arbeiten, richten Sie PostGIS auf der PostgreSQL-Datenbank ein:
-
-```bash
+createuser renderaccount # answer yes for superuser (although this isn't strictly necessary)
+createdb -E UTF8 -O renderaccount gis
 psql
-```
-
-(Das bringt Sie zu einer "postgres=#"-Eingabeaufforderung)
-
-```bash
 \c gis
-```
-(Es wird antworten "Sie sind jetzt als Benutzer 'postgres' mit der Datenbank 'gis' verbunden.")
-    
-```bash
 CREATE EXTENSION postgis;
-```
-(Es wird antworten mit "CREATE EXTENSION")
-    
-```bash
 CREATE EXTENSION hstore;
-```
-(Es wird antworten mit "CREATE EXTENSION")
-
-```bash
-ALTER TABLE geometry_columns OWNER TO _renderd;
-```
-(Es wird antworten mit "ALTER TABLE")
-
-```bash
-ALTER TABLE spatial_ref_sys OWNER TO _renderd;
-```
-(Es wird antworten mit "ALTER TABLE")
-    
-```bash
+ALTER TABLE geometry_columns OWNER TO renderaccount;
+ALTER TABLE spatial_ref_sys OWNER TO renderaccount;
 \q
-```
-(Das wird Sie aus der psql-Shell herausbringen)
-
-```bash
 exit
 ```
-(Das wird Sie aus dem Benutzer "postgres" herausbringen)
-## Mapnik
-Mapnik wurde oben installiert. Wir werden überprüfen, ob es korrekt installiert wurde, indem wir Folgendes tun:
+## Installation von osm2pgsql und osmosis
 ```bash
-python3
->>> import mapnik
->>>
+sudo apt-get install osm2pgsql osmosis
 ```
-Wenn Sie keine Fehlermeldung erhalten, ist Mapnik korrekt installiert. Drücken Sie "Ctrl-D", um Python zu verlassen.
+## Installation von Mapnik
+```bash
+sudo apt install autoconf apache2-dev libtool libxml2-dev libbz2-dev libgeos-dev libgeos++-dev libproj-dev gdal-bin libmapnik-dev mapnik-utils python3-mapnik python3-psycopg2 python3-yaml
 
+```
+## Installation von mod_tile und renderd
+Als nächstes installieren wir mod_tile und renderd. "mod_tile" ist ein Apache-Modul, das Anfragen nach Kacheln bearbeitet; "renderd" ist ein Daemon, der tatsächlich Kacheln rendert, wenn "mod_tile" sie anfordert. Wir verwenden den "switch2osm"-Zweig von https://github.com/SomeoneElseOSM/mod_tile, der selbst von https://github.com/openstreetmap/mod_tile abgezweigt ist, aber so modifiziert wurde, dass er Ubuntu 20.04 unterstützt, und mit ein paar anderen Änderungen, um auf einem Standard-Ubuntu-Server zu arbeiten, anstatt auf einem der OSM-Rendering-Server.
+## Kompilieren Sie den mod_tile-Quellcode:
+```bash
+mkdir ~/src
+cd ~/src
+git clone -b switch2osm https://github.com/SomeoneElseOSM/mod_tile.git
+cd mod_tile
+./autogen.sh
+```
+(Das sollte mit "autoreconf: Verlassen des Verzeichnisses '.'" enden.)
+```bash
+./configure
+```
+(Das sollte mit "config.status: erstelle Makefile" enden.)
+```bash
+make
+```
+Beachten Sie, dass hier einige "beunruhigende" Nachrichten über den Bildschirm scrollen werden. Es sollte jedoch mit "make[1]: Verlassen des Verzeichnisses '/home/renderaccount/src/mod_tile'" enden.
+```bash
+sudo make install
+```
+(Das sollte mit "make[1]: Verlassen des Verzeichnisses '/home/renderaccount/src/mod_tile'" enden.)
+```bash
+sudo make install-mod_tile
+```
+(Das sollte mit "chmod 644 /usr/lib/apache2/modules/mod_tile.so" enden.)
+```bash
+sudo ldconfig
+```
+(das sollte nichts zurückgeben)
 ## Konfiguration des Stylesheets
 Jetzt, da alle notwendige Software installiert ist, müssen Sie ein Stylesheet herunterladen und konfigurieren.
 
-Der Stil, den wir hier verwenden, ist der, der von der "Standard"-Karte auf der Website openstreetmap.org verwendet wird. Er wurde gewählt, weil er gut dokumentiert ist und überall auf der Welt funktionieren sollte (einschließlich an Orten mit nicht-lateinischen Ortsnamen). Es gibt jedoch ein paar Nachteile - es ist sehr viel ein Kompromiss, der global funktionieren soll, und es ist ziemlich kompliziert zu verstehen und zu modifizieren, falls Sie das tun müssen.
+Der Stil, den wir hier verwenden, ist derjenige, der von der "Standard"-Karte auf der openstreetmap.org-Website verwendet wird. Er wird gewählt, weil er gut dokumentiert ist und überall auf der Welt funktionieren sollte (einschließlich an Orten mit nicht-lateinischen Ortsnamen). Es gibt jedoch ein paar Nachteile - es ist sehr viel ein Kompromiss, der global funktionieren soll, und es ist ziemlich kompliziert zu verstehen und zu modifizieren, falls Sie das tun müssen.
 
-Die Heimat von "OpenStreetMap Carto" im Web ist https://github.com/gravitystorm/openstreetmap-carto/ und es hat seine eigenen Installationsanweisungen unter https://github.com/gravitystorm/openstreetmap-carto/blob/master/INSTALL.md , obwohl wir hier alles abdecken, was getan werden muss.
+Die Heimat von "OpenStreetMap Carto" im Web ist https://github.com/gravitystorm/openstreetmap-carto/ und es hat seine eigenen Installationsanweisungen unter https://github.com/gravitystorm/openstreetmap-carto/blob/master/INSTALL.md, obwohl wir hier alles abdecken, was getan werden muss.
 
-Hier gehen wir davon aus, dass wir die Details des Stylesheets in einem Verzeichnis unter "src" im Home-Verzeichnis des jeweiligen Nicht-Root-Benutzerkontos speichern, das Sie verwenden; wir werden den Zugriff so ändern, dass der Benutzer "_renderd" darauf zugreifen kann.
+Hier gehen wir davon aus, dass wir die Details des Stylesheets in einem Verzeichnis unter "src" im Home-Verzeichnis des Benutzers "renderaccount" (oder welchen anderen Sie verwenden) speichern.
 
 ```bash
-mkdir ~/src
 cd ~/src
 git clone https://github.com/gravitystorm/openstreetmap-carto
 cd openstreetmap-carto
 ```
 Als nächstes installieren wir eine geeignete Version des "carto"-Compilers.
-    
-```bash 
+```bash
 sudo npm install -g carto
 carto -v
 ```
-Das sollte mit einer Zahl antworten, die mindestens so hoch ist wie:
-    
-```bash
-    1.2.0
-```
-Dann konvertieren wir das Carto-Projekt in ein Format, das Mapnik verstehen kann:
-
+Das sollte eine Versionsnummer zurückgeben, die größer als 1.2.0 ist. Wenn das nicht der Fall ist, müssen Sie möglicherweise eine neuere Version von "carto" installieren. Wenn Sie das tun müssen, können Sie dies mit dem folgenden Befehl tun:
+Dann konvertieren wir das Carto-Projekt in etwas, das Mapnik verstehen kann
 ```bash
 carto project.mml > mapnik.xml
 ```
-Sie haben jetzt ein Mapnik XML-Stylesheet unter /home/IhrBenutzerkonto/src/openstreetmap-carto/mapnik.xml .
-
 ## Daten laden
-Zunächst laden wir nur eine kleine Menge an Testdaten. Es sind andere Download-Standorte verfügbar, aber "download.geofabrik.de" bietet eine breite Palette an Optionen. In diesem Beispiel laden wir die Daten für Schlewig Holstein herunter, die derzeit etwa 32Mb groß sind.
-
-Navigieren Sie zu https://download.geofabrik.de/europe/germany/schleswig-holstein.html und beachten Sie das Datum "Diese Datei wurde zuletzt geändert" (z.B. "2024-04-24T20:21:40Z"). Wir werden das später benötigen, wenn wir die Datenbank mit den nachfolgenden Änderungen der Menschen an OpenStreetMap aktualisieren wollen. Laden Sie es wie folgt herunter:
-    
 ```bash
 mkdir ~/data
 cd ~/data
 wget https://download.geofabrik.de/europe/germany/schleswig-holstein-latest.osm.pbf
 osmosis --read-pbf file=schleswig-holstein-latest.osm.pbf --bounding-box left=10.1141 right=10.3716 top=53.7136 bottom=53.6249 --write-pbf file=ahrensburg.pbf
-
-```
-Als nächstes müssen wir sicherstellen, dass der Benutzer "_renderd" auf das Stylesheet zugreifen kann. Um dies zu ermöglichen, benötigt er Zugriff auf den Ort, an dem Sie es heruntergeladen haben, und standardmäßig hat er keinen Zugriff auf Ihr Home-Verzeichnis. Wenn es sich in "src" unter Ihrem Benutzerkonto befindet, dann
-
-```bash
-chmod a+rx ~
-```
-wird funktionieren. Wenn Sie dies nicht tun möchten, können Sie es verschieben und die Verweise auf die Dateiorte in den nachfolgenden Befehlen ändern.
-
-Der folgende Befehl wird die zuvor heruntergeladenen OpenStreetMap-Daten in die Datenbank einfügen. Dieser Schritt ist sehr intensiv in Bezug auf die Festplatten-I/O; der Import des gesamten Planeten kann je nach Hardware viele Stunden, Tage oder Wochen dauern. Für kleinere Extrakte ist die Importzeit entsprechend viel schneller, und Sie müssen möglicherweise mit verschiedenen -C-Werten experimentieren, um in den verfügbaren Speicher Ihres Rechners zu passen. Beachten Sie, dass der Benutzer "_renderd" für diesen Prozess verwendet wird.
-
-```bash
-sudo -u _renderd osm2pgsql -d gis --create --slim  -G --hstore --tag-transform-script ~/src/openstreetmap-carto/openstreetmap-carto.lua -C 2500 --number-processes 1 -S ~/src/openstreetmap-carto/openstreetmap-carto.style ~/data/ahrensburg.pbf
+osm2pgsql -d gis --create --slim  -G --hstore --tag-transform-script ~/src/openstreetmap-carto/openstreetmap-carto.lua -C 2500 --number-processes 1 -S ~/src/openstreetmap-carto/openstreetmap-carto.style ~/data/ahrensburg.pbf
 ```
 ## Erstellen von Indizes
-Seit der Version v5.3.0 müssen einige zusätzliche Indizes manuell angewendet werden:
+Seit Version v5.3.0 müssen einige zusätzliche Indizes nun manuell angewendet werden.
 ```bash
 cd ~/src/openstreetmap-carto/
-sudo -u _renderd psql -d gis -f indexes.sql
+psql -d gis -f indexes.sql
 ```
-Es sollte 16 Mal mit "CREATE INDEX" antworten.
+Es sollte 14 Mal mit "CREATE INDEX" antworten.
 ## Shapefile-Download
-Obwohl die meisten Daten, die zur Erstellung der Karte verwendet werden, direkt aus der oben heruntergeladenen OpenStreetMap-Datendatei stammen, werden immer noch einige Shapefiles für Dinge wie Ländergrenzen bei niedriger Zoomstufe benötigt. Um diese herunterzuladen und zu indizieren, verwenden wir das gleiche Konto wie zuvor:
-
+Obwohl die meisten Daten zur Erstellung der Karte direkt aus der oben heruntergeladenen OpenStreetMap-Datendatei stammen, werden immer noch einige Shapefiles für Dinge wie Ländergrenzen bei geringer Zoomstufe benötigt. Um diese herunterzuladen und zu indizieren:
 ```bash
 cd ~/src/openstreetmap-carto/
-mkdir data
-sudo chown _renderd data
-sudo -u _renderd scripts/get-external-data.py
+scripts/get-external-data.py
 ```
-Dieser Prozess beinhaltet einen erheblichen Download und kann einige Zeit in Anspruch nehmen - während er läuft, wird nicht viel auf dem Bildschirm angezeigt. Einige Daten gehen direkt in die Datenbank, und einige gehen in ein "data"-Verzeichnis unter "openstreetmap-carto". Wenn hier ein Problem auftritt, dann sind die Natural Earth Daten möglicherweise verschoben worden - schauen Sie sich dieses Problem und andere Probleme bei Natural Earth für weitere Details an. Wenn Sie den Download-Ort von Natural Earth ändern müssen, ist Ihre Kopie dieser Datei diejenige, die Sie bearbeiten sollten.
-
+Dieser Prozess beinhaltet einen erheblichen Download und kann einige Zeit in Anspruch nehmen - während er läuft, wird nicht viel auf dem Bildschirm angezeigt. Tatsächlich wird ein "data"-Verzeichnis unter "openstreetmap-carto" gefüllt.
 
 ## Schriftarten
 In der Version v5.6.0 und höher von Carto müssen Schriftarten manuell installiert werden:
@@ -196,137 +147,82 @@ In der Version v5.6.0 und höher von Carto müssen Schriftarten manuell installi
 cd ~/src/openstreetmap-carto/
 scripts/get-fonts.sh
 ```
-Unser Testdatenbereich (Ahrensburg) wurde sowohl wegen seiner geringen Größe als auch wegen einiger Ortsnamen in dieser Region ausgewählt, die Namen mit nicht-lateinischen Zeichen enthalten.
 ## Einrichten Ihres Webservers
 ### Konfigurieren von renderd
-Die Konfigurationsdatei für "renderd" unter Ubuntu 24.04 ist "/etc/renderd.conf". Bearbeiten Sie diese mit einem Texteditor wie nano:
+Die Konfigurationsdatei für "renderd" ist "/usr/local/etc/renderd.conf". Bearbeiten Sie diese mit einem Texteditor wie nano:
 ```bash
-sudo nano /etc/renderd.conf
+sudo nano /usr/local/etc/renderd.conf
 ```
-Ändern Sie die folgenden Zeilen, um sie an Ihre Umgebung anzupassen:
+## Apache konfigurieren
 ```bash
-[s2o]
-URI=/hot/
-XML=/home/_renderd/src/openstreetmap-carto/mapnik.xml
-HOST=localhost
-TILESIZE=256
-MAXZOOM=20
-```
-Der Pfad zur XML-Datei "/home/accountname/src/openstreetmap-carto/mapnik.xml" muss auf den tatsächlichen Pfad auf Ihrem System geändert werden. Sie können auch "[s2o]" und "URI=/hot/" ändern, wenn Sie möchten. Wenn Sie mehr als einen Satz von Kacheln von einem Server rendern möchten, können Sie das tun - fügen Sie einfach einen weiteren Abschnitt wie "[s2o]" mit einem anderen Namen hinzu, der auf einen anderen Kartenstil verweist. Wenn Sie möchten, dass es sich auf eine andere Datenbank als die Standarddatenbank "gis" bezieht, können Sie das tun, aber das liegt außerhalb des Rahmens dieses Dokuments. Wenn Sie nur etwa 2Gb Speicher haben, sollten Sie auch "num_threads" auf 2 reduzieren. "URI=/hot/" wurde gewählt, damit die hier generierten Kacheln leichter anstelle der HOT-Kachel-Ebene auf OpenStreetMap.org verwendet werden können. Sie können hier etwas anderes verwenden, aber "/hot/" ist genauso gut wie alles andere.
+sudo mkdir /var/lib/mod_tile
+sudo chown renderaccount /var/lib/mod_tile
 
-Als dieser Leitfaden zum ersten Mal geschrieben wurde, war die von Ubuntu 24.04 bereitgestellte Version von Mapnik 3.1, und die Einstellung "plugins_dir" im Abschnitt "[mapnik]" der Datei war "/usr/lib/mapnik/3.1/input". Dieses "3.1" könnte sich in der Zukunft wieder ändern. Wenn beim Versuch, Kacheln zu rendern, ein Fehler auftritt, wie dieser:
+sudo mkdir /var/run/renderd
+sudo chown renderaccount /var/run/renderd
+```
+Jetzt müssen wir Apache über "mod_tile" informieren, also mit nano (oder einem anderen Editor):
+```bash
+sudo nano /etc/apache2/conf-available/mod_tile.conf
+```
+Fügen Sie die folgende Zeile in diese Datei ein:
+```bash
+LoadModule tile_module /usr/lib/apache2/modules/mod_tile.so
+```
+und speichern Sie es, und führen Sie dann aus:
+```bash
+sudo a2enconf mod_tile
+```
+Das wird Ihnen sagen, dass Sie "service apache2 reload" ausführen müssen, um die neue Konfiguration zu aktivieren; das werden wir noch nicht gleich tun.
+
+Wir müssen jetzt Apache über "renderd" informieren. Mit nano (oder einem anderen Editor):
+```bash
+sudo nano /etc/apache2/sites-available/000-default.conf
+```
+Fügen Sie das Folgende zwischen den Zeilen "ServerAdmin" und "DocumentRoot" ein:
 
 ```bash
-An error occurred while loading the map layer 's2o': Could not create datasource for type: 'postgis' (no datasource plugin directories have been successfully registered)  encountered during parsing of layer 'landcover-low-zoom'
-```
-Dann schauen Sie in "/usr/lib/mapnik" und sehen Sie, welche Versionsverzeichnisse es gibt, und schauen Sie auch in "/usr/lib/mapnik/(version)/input", um sicherzustellen, dass dort eine Datei "postgis.input" existiert.
+LoadTileConfigFile /usr/local/etc/renderd.conf
+ModTileRenderdSocketName /var/run/renderd/renderd.sock
+# Timeout before giving up for a tile to be rendered
+ModTileRequestTimeout 0
+# Timeout before giving up for a tile to be rendered that is otherwise missing
+ModTileMissingRequestTimeout 30
 
-Jetzt, da wir "renderd" gesagt haben, wie es auf Kachelrendering-Anfragen reagieren soll, müssen wir dem Apache-Webserver sagen, dass er sie senden soll. Leider wurde die Konfiguration dafür aus den neuesten Versionen von mod_tile entfernt. Sie kann jedoch derzeit von hier installiert werden
+```
+und laden Sie Apache zweimal neu:
 
 ```bash
-cd /etc/apache2/conf-available/
-sudo wget https://raw.githubusercontent.com/openstreetmap/mod_tile/python-implementation/etc/apache2/renderd.conf
-sudo a2enconf renderd
-sudo systemctl reload apache2
+sudo service apache2 reload
+sudo service apache2 reload
 ```
-### Reload Apache
-```bash
-sudo nano /usr/lib/systemd/system/renderd.service
-sudo systemctl daemon-reload
-sudo systemctl restart renderd
-sudo systemctl restart apache2
-```
+(Ich vermute, dass es zweimal gemacht werden muss, weil Apache "verwirrt" wird, wenn es beim Laufen neu konfiguriert wird)
 
-### Apache Port ändern
-```bash
-sudo nano /etc/apache2/ports.conf
-```
-Ändern Sie den Port von 80 auf 8080
-```bash
-Listen 8080
-```
-Apache restarten
-```bash
-sudo systemctl restart apache2
-sudo apt-get install nginx
-sudo rm /etc/nginx/sites-enabled/default
-sudo systemctl stop nginx
-sudo snap install --classic certbot
-sudo ln -s /snap/bin/certbot /usr/bin/certbot
-sudo systemctl stop nginx
-sudo certbot certonly --standalone -d ahrensburg.city -d www.ahrensburg.city
-sudo certbot certonly --standalone -d karte.ahrensburg.city
-```
-## Neue Nutzer hinzufügen
-```bash
-sudo adduser thorsten
-sudo usermod -aG sudo thorsten
-exit
-```
-ssh thorsten@localhost
-```
-ssh thorsten@
-cd $HOME
-sudo -u postgres -i
-createuser thorsten
-createdb -E UTF8 -O thorsten thorsten
-psql
-\c thorsten
-CREATE EXTENSION postgis;
-CREATE EXTENSION hstore;
-ALTER TABLE geometry_columns OWNER TO thorsten;
-ALTER TABLE spatial_ref_sys OWNER TO thorsten;
-## Passwort für den Benutzer postgres setzen
-\password thorsten
-\q
-exit
-```
-### Herunterladen der Daten
-```bash
-cd $HOME
-wget https://download.geofabrik.de/europe/germany/schleswig-holstein-latest.osm.pbf
-osmosis --read-pbf file=schleswig-holstein-latest.osm.pbf --bounding-box left=10.1141 right=10.3716 top=53.7136 bottom=53.6249 --write-pbf file=ahrensburg.pbf
+Wenn Sie einen Webbrowser auf: http://ihreserveripadresse/index.html richten, sollten Sie die "Es funktioniert!" Seite von Ubuntu / Apache bekommen.
 
-osm2pgsql  -d thorsten --create  -G --hstore  ahrensburg.pbf
-```
+(Wenn Sie nicht wissen, welche IP-Adresse zugewiesen wurde, können Sie wahrscheinlich "ifconfig" verwenden, um es herauszufinden - wenn die Netzwerkkonfiguration nicht zu kompliziert ist, wird es wahrscheinlich die "inet addr" sein, die nicht "127.0.0.1" ist). Wenn Sie einen Server bei einem Hosting-Anbieter verwenden, dann ist es wahrscheinlich, dass die interne Adresse Ihres Servers anders sein wird als die externe Adresse, die Ihnen zugewiesen wurde, aber diese externe IP-Adresse wird Ihnen bereits zugesandt worden sein und es wird wahrscheinlich diejenige sein, auf der Sie den Server derzeit zugreifen.
 
-### Build von Ahrensburg.city
-```bash
-cd $HOME
-git clone https://github.com/thorstenkloehn/ahrensburg.city.git
-cd ahrensburg.city
-npm install
-npm run build
-```
-### Systemctl Einrichten
-```bash
-sudo cp ahrensburg-city.service /etc/systemd/system/ahrensburg-city.service
-sudo systemctl enable ahrensburg-city
-sudo systemctl start ahrensburg-city
-```
-### config daten kopieren
-```bash
-cp env.local.example .env.local
-nano .env.local
-```
-### Restart
-```bash
-sudo cp ahrensburg-city.conf /etc/nginx/conf.d/ahrensburg-city.conf
-sudo systemctl restart ahrensburg-city
-sudo systemctl restart nginx
-```
-Java Installation ubuntu 24.04 LTS
-```bash
-sudo apt update
-sudo apt upgrade
-sudo apt install openjdk-22-jdk
-sudo apt install gradle
-sudo apt install maven  
-```
-### Asp.Net Core
-```bash
-sudo apt-get update && \
-  sudo apt-get install -y aspnetcore-runtime-8.0
-  sudo apt-get install -y dotnet-runtime-8.0
-```
+Beachten Sie, dass dies nur die "http" (Port 80) Seite ist - Sie müssen ein wenig mehr Apache-Konfiguration machen, wenn Sie https aktivieren wollen, aber das ist außerhalb des Rahmens dieser Anweisungen. Wenn Sie jedoch "Let's Encrypt" verwenden, um Zertifikate auszustellen, dann kann der Prozess der Einrichtung davon auch die Apache HTTPS-Seite konfigurieren.
 
+## Erstmaliges Ausführen von renderd
+Als nächstes führen wir renderd aus, um einige Kacheln zu rendern. Zunächst führen wir es im Vordergrund aus, damit wir Fehler sofort sehen können:
+```bash
+renderd -f -c /usr/local/etc/renderd.conf
+```
+Hier können einige Warnungen auftreten - machen Sie sich darüber vorerst keine Sorgen. Sie sollten keine Fehler erhalten. Wenn doch, speichern Sie die vollständige Ausgabe in einem Pastebin und stellen Sie eine Frage zu dem Problem irgendwo wie help.openstreetmap.org (verlinken Sie auf das Pastebin - fügen Sie nicht den gesamten Text in die Frage ein).
+
+Richten Sie einen Webbrowser auf: http://ihreserveripadresse/hot/0/0/0.png
+
+Sie sollten eine Weltkarte in Ihrem Browser sehen und einige weitere Debug-Informationen auf der Kommandozeile, einschließlich "DEBUG: START TILE" und "DEBUG: DONE TILE". Ignorieren Sie jede "DEBUG: Failed to read cmd on fd" Nachricht - es ist kein Fehler. Wenn Sie kein Kachel erhalten und andere Fehler auftreten, speichern Sie erneut die vollständige Ausgabe in einem Pastebin und stellen Sie eine Frage zu dem Problem irgendwo wie help.openstreetmap.org.
+
+Wenn das alles funktioniert, drücken Sie Strg-C, um den Rendering-Prozess im Vordergrund zu stoppen.
+## Renderd im Hintergrund ausführen
+Als nächstes richten wir "renderd" ein, um im Hintergrund zu laufen. Zuerst bearbeiten Sie die Datei "~/src/mod_tile/debian/renderd.init", so dass "RUNASUSER" auf das Nicht-Root-Konto eingestellt ist, das Sie zuvor verwendet haben, wie zum Beispiel "renderaccount", und kopieren Sie es dann in das Systemverzeichnis:
+```bash
+nano ~/src/mod_tile/debian/renderd.init
+sudo cp ~/src/mod_tile/debian/renderd.init /etc/init.d/renderd
+sudo chmod u+x /etc/init.d/renderd
+sudo cp ~/src/mod_tile/debian/renderd.service /lib/systemd/system/
+```
+Die Datei "renderd.service" ist eine "systemd"-Service-Datei. Die hier verwendete Version ruft lediglich alte init-Befehle auf. Um zu testen, ob der Startbefehl funktioniert:
+```bash
