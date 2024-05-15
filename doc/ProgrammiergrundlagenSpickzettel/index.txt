@@ -1,0 +1,227 @@
+4:I[5613,[],""]
+5:I[1778,[],""]
+6:I[5250,["250","static/chunks/250-b5b04cf75c03642d.js","508","static/chunks/app/doc/layout-e098c1be25f2196e.js"],""]
+7:I[5430,["250","static/chunks/250-b5b04cf75c03642d.js","185","static/chunks/app/layout-a4aae7fc522f7d40.js"],""]
+2:T40f,Wie ist Variablen in JavaScript aufgebaut?
+{{c1::let VariableName = Wert;}}
+```javascript
+### Datentypen in Go Übungen
+#### Vorderseite
+
+
+
+
+### Datentypen in JavaScript Übungen
+#### Vorderseite
+Welche Datentypen gibt es in JavaScript? Ganze Zahlen postiv und negativ
+{{c1::integer}} Ganze Zahlen
+{{c1::float}} Kommazahlen
+{{c1::boolean}} Wahrheitswerte
+{{c1::string}} Zeichenkette
+{{c1::null}} Null
+{{c1::undefined}} Undefiniert
+### Operatoren in GO Übungen 
+#### Vorderseite
+
+Welche Operator gibt es in Javascript? arithmetische
+{{c1::+}} Plus
+{{c1::-}} Minus
+{{c1::*}} Mal
+{{c1::/}} Teilen
+{{c1::%}} gibt den Rest zurück
+Welche Operatoren gibt es in JavaScript? Vergleichsoperatoren
+{{c1::==}} Gleich
+{c1::===}} Gleich und gleicher Datentyp
+{{c1::!=}} Ungleich
+{{c1::!==}} Ungleich und ungleicher Datentyp
+{{c1::<}} Kleiner
+{{c1::>}} Größer
+{{c1::<=}} Kleiner gleich
+{{c1::>=}} Größer gleich
+{{c1::?}} Ternärer Operator
+Welche Operatoren gibt es in JavaScript? Logische Operatoren
+{{c1::&&}} UND
+{{c1::||}} ODER
+{{c1::!}} NICHT
+3:T1454,Welche Operatoren gibt es in JavaScript? Zuweisungsoperatoren
+{{c1::=}} Zuweisung
+{{c1::+=}} Plus und Zuweisen
+{{c1::-=}} minus und Zuweisen
+{{c1::*=}} mal und Zuweisen
+{{c1::/=}} Teilen und Zuweisen
+{{c1::%=}} Rest und Zuweisen
+Wenn Bedigung und Anweisung in JavaScript
+{{c1::if (Bedingung) {}}
+  {{c1::Anweisung;}}
+  {{c1::} }}
+
+Wenn Bedingung und Anweisung und sonst in JavaScript
+{{c1::if (Bedingung) {}}
+  {{c1::Anweisung;}}
+  {{c1::} else {}}
+  {{c1::Anweisung;}}
+  {{c1::} }}
+
+Wenn Bedingung und Anweisung und sonst wenn in JavaScript
+{{c1::if (Bedingung) {}}
+  {{c1::Anweisung;}}
+  {{c1::} else if (Bedingung) {}}
+  {{c1::Anweisung;}}
+  {{c1::} }}
+
+
+
+Auswahlanweisung in JavaScript
+{{c1::switch (Ausdruck) {}}
+  {{c1::case Bedingung:}}
+    {{c1::Anweisung}}
+    {{c1::break;}}
+  {{c1::default:}}
+    {{c1::Anweisung}}
+    {{c1::break;}}
+{{c1::} }}
+
+Kopfgesteuerte Schleifen in JavaScript
+{{c1::while (Bedingung) {}}
+{{c1::Anweisung}}
+{{c1::} }}
+
+Fußgesteuerte Schleifen in JavaScript
+{{c1::do {}}
+{{c1::Anweisung}}
+{{c1::} while (Bedingung);}}
+
+Schleife in Javascript mit Initialisierung, Bedingung und Zählung
+{{c1::for (Variable erstellen; Bedingung; Zählung) {}}
+{{c1::Anweisung}}
+{{c1::} }}
+
+Bereichsschleife in JavaScript
+{{c1::for (index, Wert in Feld {}}
+{{c1::Anweisung}}
+{{c1::} }}
+
+Iterationsschleifen in JavaScript
+{{c1::for (Variable of Feld {}}
+{{c1::Anweisung}}
+{{c1::} }}
+Anzahl Zeichen in einem String in JavaScript
+{{c1::string.length}}
+Einzelne Zeichen abfragen in JavaScript
+{{c1::string.charAt(index)}}
+Wo befindet sich ein Zeichen in einem String in JavaScript
+{{c1::string.indexOf("Zeichen")}}
+Einen String in Großbuchstaben umwandeln in JavaScript
+{{c1::string.toUpperCase()}}
+Text ersetzen in JavaScript zu alt durch neu
+{{c1::string.replace("alt", "neu")}}
+Links und Rechts vom String  entfernen in JavaScript
+{{c1::string.trim()}}
+Text Wiederholen in JavaScript 3 mal
+{{c1::string.repeat(3)}}
+Text in ein Array umwandeln in JavaScript mit Komma getrennt
+{{c1::string.split(",")}}
+Text in Teilstrings aufteilen in JavaScript von 0 bis 5
+{{c1::string.slice(0, 5)}}
+Teil einer Zeichenfolge in JavaScript ausgeben (0 bis 5
+{{c1::string.substr(0, 5)}}
+String in Ganzzahl umwandeln in JavaScript
+{{c1::parseInt(string)}} 
+String in Kommazahl umwandeln in JavaScript
+{{c1::parseFloat(string)}}
+Zahl in String umwandeln in JavaScript
+{{c1::Zahl.toString()}}
+Fehlermeldung in JavaScript fangen
+{{c1::try {}}
+{{c1::Anweisung}}
+{{c1::} catch (Fehler) {}}
+{{c1::Anweisung}}
+{{c1::} finally {}}
+{{c1::Anweisung}}
+{{c1::console.error("Fehlermeldung")}}
+Feld erstellen in JavaScript
+{{c1::let Feld = [Wert1, Wert2, Wert3]}}
+Feld in JavaScript ausgeben
+{{c1::Feld[index]}}
+Wie viele Elemente hat ein Feld in JavaScript
+{{c1::Feld.length}}
+Elemente in einem Feld hinzufügen in JavaScript
+{{c1::Feld.push(Wert)}}
+Elemente in einem Feld entfernen in JavaScript
+{{c1::Feld.pop()}}
+Elemente überschreiben in einem Feld in JavaScript
+{{c1::Feld[index] = Wert}}
+Prüfen ob ein Element in einem Feld in JavaScript vorhanden ist
+{{c1::Feld.indexOf(Wert)}}
+Wenn Element nicht vorhanden ist in JavaScript
+{{c1::Feld.indexOf(Wert)}}
+Feldelemente sortieren in JavaScript
+{{c1::Feld.sort()}}
+Feldelemente umkehren in JavaScript
+{{c1::Feld.reverse()}}
+String zu einem Feld in JavaScript mit Komma getrennt
+{{c1::string.split(",")}}
+Feld zu einem String in JavaScript mit Komma getrennt
+{{c1::Feld.join(",")}}
+Objekt erstellen in JavaScript
+{{c1::let Objekt = {Schlüssel: Wert}}}
+Objekt in JavaScript ausgeben
+{{c1::Objekt.Schlüssel}}
+Objekt in JavaScript hinzufügen
+{{c1::Objekt.Schlüssel = Wert}}
+Objekt Elememte in JavaScript löschen
+{{c1::delete Objekt.Schlüssel}}
+Objekt Elementen Vorhanden mit if in JavaScript
+{{c1::if ("Schlüssel" in Objekt) {}}
+{{c1::Anweisung}}
+{{c1::} }}
+json Ausgeben in JavaScript
+{{c1::JSON.stringify(Objekt)}}
+json in Objekt umwandeln in JavaScript
+{{c1::JSON.parse(json)}}
+Variable erstellen in TypeScript
+{{c1::let VariableName: Datentyp = Wert}}
+Datentype Zahl in TypeScript
+{{c1::number}}
+Datentype Zeichenkette in TypeScript
+{{c1::string}}
+Datentype Wahrheitswert in TypeScript
+{{c1::boolean}}
+Datentype kein Wert in TypeScript
+{{c1::null}}
+Datentype undefiniert in TypeScript
+{{c1::undefined}}
+Feld erstellen in TypeScript
+{{c1::let Feld: Datentyp[] = [Wert1, Wert2, Wert3]}}
+Geordenliste erstellen in TypeScript
+{{c1::let Tuple: [Datentyp, Datentyp] = [Wert1, Wert2]}}
+Objekt erstellen in TypeScript
+{{c1::let Objekt: {Schlüssel: Datentyp} = {Schlüssel: Wert}}}
+kein Wert in TypeScript
+{{c1::void}}
+Union in TypeScript für mehrere Datentypen
+{{c1::Datentyp1 | Datentyp2}}
+neuer Datentyp in TypeScript erstellen
+{{c1::type Typ = Datentyp}}
+externe Paket  in JavaScript
+{{c1::module.exports = Variable}}
+Konfigdatei in 11ty
+{{c1::.eleventy.js}}
+Konfigdatei in Next.js
+{{c1::next.config.js}}
+Konfigdatei in eleventy
+{{c1::module.exports = function(eleventyConfig) {}}
+
+    {{c1::return { }}
+      {{c1::dir: { }}
+        {{c1::input: "src", }} // Verzeichnis für Eingabedateien (.11ty.js, .md, usw.) -src
+        {{c1::output: "_site", }} // Verzeichnis für Ausgabedateien (generierte HTML) _site
+      {{c1::}, }}
+    {{c1::}; }}
+  {{c1::}; }}
+
+
+
+0:["7PY-7etm9tATiVU7W1KaT",[[["",{"children":["doc",{"children":["ProgrammiergrundlagenSpickzettel",{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",{"children":["doc",{"children":["ProgrammiergrundlagenSpickzettel",{"children":["__PAGE__",{},["$L1",[["$","h1",null,{"children":"Programmiergrundlagen Spickzettel"}],"\n",["$","h2",null,{"children":"Variablen"}],"\n",["$","ul",null,{"children":["\n",["$","li",null,{"children":"Eine Variable ist ein Behälter zum Speichern von Daten."}],"\n",["$","li",null,{"children":["In den meisten Sprachen wird eine Variable mit einem Schlüsselwort wie ",["$","code",null,{"children":"var"}],", ",["$","code",null,{"children":"let"}]," oder ",["$","code",null,{"children":"const"}]," deklariert."]}],"\n",["$","li",null,{"children":["Beispiel: ",["$","code",null,{"children":"let x = 10;"}]]}],"\n"]}],"\n",["$","h2",null,{"children":"Datentypen"}],"\n",["$","ul",null,{"children":["\n",["$","li",null,{"children":"Datentypen bestimmen die Art der Daten, die eine Variable speichern kann."}],"\n",["$","li",null,{"children":["Zu den grundlegenden Datentypen gehören ",["$","code",null,{"children":"integer"}],", ",["$","code",null,{"children":"float"}],", ",["$","code",null,{"children":"boolean"}],", ",["$","code",null,{"children":"string"}],", ",["$","code",null,{"children":"null"}]," und ",["$","code",null,{"children":"undefined"}]," in JavaScript oder ",["$","code",null,{"children":"int"}],", ",["$","code",null,{"children":"float"}],", ",["$","code",null,{"children":"bool"}],", ",["$","code",null,{"children":"str"}]," in Python."]}],"\n"]}],"\n",["$","h2",null,{"children":"Operatoren"}],"\n",["$","ul",null,{"children":["\n",["$","li",null,{"children":"Operatoren führen Aktionen mit Variablen und Werten aus."}],"\n",["$","li",null,{"children":["Zu den grundlegenden Operatoren gehören ",["$","code",null,{"children":"+"}],", ",["$","code",null,{"children":"-"}],", ",["$","code",null,{"children":"*"}],", ",["$","code",null,{"children":"/"}]," für mathematische Operationen und ",["$","code",null,{"children":"=="}],", ",["$","code",null,{"children":"!="}],", ",["$","code",null,{"children":"<"}],", ",["$","code",null,{"children":">"}],", ",["$","code",null,{"children":"<="}],", ",["$","code",null,{"children":">="}]," für Vergleichsoperationen."]}],"\n"]}],"\n",["$","h2",null,{"children":"Kontrollstrukturen"}],"\n",["$","ul",null,{"children":["\n",["$","li",null,{"children":"Kontrollstrukturen steuern den Fluss des Programms."}],"\n",["$","li",null,{"children":["Zu den grundlegenden Kontrollstrukturen gehören ",["$","code",null,{"children":"if"}],", ",["$","code",null,{"children":"else"}],", ",["$","code",null,{"children":"for"}],", ",["$","code",null,{"children":"while"}]," und ",["$","code",null,{"children":"switch"}]," in den meisten Sprachen."]}],"\n"]}],"\n",["$","h2",null,{"children":"Funktionen"}],"\n",["$","ul",null,{"children":["\n",["$","li",null,{"children":"Eine Funktion ist ein Block von Code, der eine bestimmte Aufgabe ausführt."}],"\n",["$","li",null,{"children":"Funktionen können Parameter akzeptieren und Werte zurückgeben."}],"\n",["$","li",null,{"children":["Beispiel:","\n",["$","pre",null,{"children":["$","code",null,{"className":"language-javascript","children":"function add(a, b) {\n  return a + b;\n}\n"}]}],"\n"]}],"\n"]}],"\n",["$","h2",null,{"children":"Links zu Ressourcen für JavaScript und Golang"}],"\n",["$","h2",null,{"children":"Ressourcen für Programmiersprachen"}],"\n",["$","h3",null,{"children":"JavaScript"}],"\n",["$","ul",null,{"children":["\n",["$","li",null,{"children":["$","a",null,{"href":"https://developer.mozilla.org/de/docs/Web/JavaScript/Guide","children":"Offizielle MDN JavaScript-Dokumentation"}]}],"\n",["$","li",null,{"children":["$","a",null,{"href":"https://www.w3schools.com/js/","children":"JavaScript-Tutorial auf W3Schools"}]}],"\n",["$","li",null,{"children":["$","a",null,{"href":"https://eloquentjavascript.net/","children":"JavaScript-Tutorial auf Eloquent JavaScript"}]}],"\n",["$","li",null,{"children":["$","a",null,{"href":"https://javascript.info/","children":"JavaScript-Tutorial auf JavaScript.info"}]}],"\n",["$","li",null,{"children":["$","a",null,{"href":"https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/","children":"JavaScript-Tutorial auf freecodecamp.org"}]}],"\n"]}],"\n",["$","h2",null,{"children":"Übungen erstellen golang"}],"\n",["$","h3",null,{"children":"Variablen"}],"\n",["$","ul",null,{"children":["\n",["$","li",null,{"children":["Deklariere eine Variable ",["$","code",null,{"children":"x"}]," vom Typ ",["$","code",null,{"children":"int"}]," und weise ihr den Wert ",["$","code",null,{"children":"10"}]," zu."]}],"\n",["$","li",null,{"children":["Deklariere eine Variable ",["$","code",null,{"children":"name"}]," vom Typ ",["$","code",null,{"children":"string"}]," und weise ihr den Wert ",["$","code",null,{"children":"\"Max\""}]," zu."]}],"\n"]}],"\n",["$","h3",null,{"children":"Anki erstellen"}],"\n",["$","h4",null,{"children":"In Go"}],"\n",["$","h5",null,{"children":"Vorderseite"}],"\n",["$","p",null,{"children":["Wie deklarieren Sie eine Variable ",["$","code",null,{"children":"x"}]," vom Typ ",["$","code",null,{"children":"int"}]," und weisen ihr den Wert ",["$","code",null,{"children":"10"}]," zu in Go?"]}],"\n",["$","h5",null,{"children":"Rückseite"}],"\n",["$","pre",null,{"children":["$","code",null,{"className":"language-go","children":"var x int = 10 //lange Schreibweise\nx:=10 //kurze Schreibweise\n"}]}],"\n",["$","h4",null,{"children":"In JavaScript"}],"\n",["$","h5",null,{"children":"Vorderseite"}],"\n",["$","p",null,{"children":["Wie deklarieren Sie eine Variable ",["$","code",null,{"children":"x"}]," vom Typ ",["$","code",null,{"children":"int"}]," und weisen ihr den Wert ",["$","code",null,{"children":"10"}]," zu in JavaScript?"]}],"\n",["$","h5",null,{"children":"Rückseite"}],"\n",["$","pre",null,{"children":["$","code",null,{"className":"language-javascript","children":"let x = 10;\n"}]}],"\n",["$","h3",null,{"children":"Variablen Beschreibung in GO Aufbau"}],"\n",["$","h4",null,{"children":"Vorderseite"}],"\n",["$","p",null,{"children":"Wie ist Variablen in Go aufgebaut?"}],"\n",["$","h4",null,{"children":"Rückseite"}],"\n",["$","pre",null,{"children":["$","code",null,{"className":"language-go","children":"var VariableName Datentyp = Wert //lange Schreibweise\nVariableName := Wert  //kurze Schreibweise\n"}]}],"\n",["$","h3",null,{"children":"Variablen Beschreibung in JavaScript Aufbau"}],"\n",["$","h4",null,{"children":"Vorderseite"}],"\n",["$","pre",null,{"children":["$","code",null,{"className":"language-javascript","children":"$2"}]}],"\n",["$","pre",null,{"children":["$","code",null,{"children":"$3"}]}]],null]]},["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","doc","children","ProgrammiergrundlagenSpickzettel","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}]]},[null,["$","div",null,{"className":"flex","children":[["$","div",null,{"className":"w-5/20","children":["$","ul",null,{"className":"flex flex-col space-y-1","children":[["$","li",null,{"children":["$","$L6",null,{"href":"/doc","children":"Server"}]}],["$","li",null,{"children":["$","$L6",null,{"href":"/doc/IDE","children":"IDE"}]}],["$","li",null,{"children":["$","$L6",null,{"href":"/doc/github_pages","children":"Github Pages"}]}],["$","li",null,{"children":["$","$L6",null,{"href":"/doc/Server_Mieten","children":"Server Mieten"}]}],["$","li",null,{"children":["$","$L6",null,{"href":"/doc/Analysetool","children":"Analysetool"}]}],["$","li",null,{"children":["$","$L6",null,{"href":"/doc/Fullstack","children":"Fullstack"}]}],["$","li",null,{"children":["$","$L6",null,{"href":"/doc/Next.js","children":"Next.js"}]}],["$","li",null,{"children":["$","$L6",null,{"href":"/doc/Strapi","children":"Strapi"}]}],["$","li",null,{"children":[["$","$L6",null,{"href":"/doc/Webentwicklung","children":"Webentwicklung"}]," "]}]]}]}],["$","div",null,{"className":"flex-grow pl-7 w-full","children":["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children","doc","children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","notFoundStyles":"$undefined","styles":null}]}]]}],null]]},[null,["$","html",null,{"lang":"de","children":["$","body",null,{"children":["$","div",null,{"className":"container mx-auto","children":[[["$","nav",null,{"className":"flex md:flex hidden","children":["$","ul",null,{"className":"list-none flex flex-row","children":[["$","li",null,{"children":["$","$L6",null,{"href":"/","className":"text-blue-500","children":"Startseite"}]}],["$","li",null,{"children":["$","$L6",null,{"href":"/Ahrensburg","className":"text-blue-500 p-4","children":"Über Ahrensburg"}]}],["$","li",null,{"children":["$","$L6",null,{"href":"/karte","className":"text-blue-500 p-4","children":"Karte"}]}],["$","li",null,{"children":["$","$L6",null,{"href":"/shop","className":"text-blue-500 p-4","children":"Läden"}]}],["$","li",null,{"children":["$","$L6",null,{"href":"/doc","className":"text-blue-500 p-4","children":"Dokumentation"}]}],["$","li",null,{"children":["$","$L6",null,{"href":"/Impressum","className":"text-blue-500 p-4","children":"Impressum"}]}],["$","li",null,{"children":["$","$L6",null,{"href":"/Datenschutz","className":"text-blue-500 p-4","children":"Datenschutz"}]}]]}]}],["$","nav1",null,{"children":["$","$L7",null,{}]}]],["$","main",null,{"children":["$","$L4",null,{"parallelRouterKey":"children","segmentPath":["children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":null}]}]]}]}]}],null]],[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/120231dca87db683.css","precedence":"next","crossOrigin":""}]],"$L8"]]]]
+8:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","link","2",{"rel":"icon","href":"/favicon.ico","type":"image/x-icon","sizes":"16x16"}]]
+1:null
