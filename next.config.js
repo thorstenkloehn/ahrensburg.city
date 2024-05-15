@@ -5,7 +5,7 @@ const nextConfig = {
   // Configure `pageExtensions` to include MDX files
  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
  
-//  basePath: '/ahrensburg.city',
+ // basePath: '/ahrensburg.city',
  // assetPrefix: '/ahrensburg.city/',
 
  output: 'export',
