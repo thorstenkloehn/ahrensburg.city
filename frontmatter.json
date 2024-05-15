@@ -1,3 +1,29 @@
 {
-  "$schema": "https://frontmatter.codes/frontmatter.schema.json"
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "next",
+  "frontMatter.content.publicFolder": "public",
+  "frontMatter.preview.host": "http://localhost:3000",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "ALLES_LERNEN_VON_Ahrensburg",
+      "path": "[[workspace]]/src/app/Ahrensburg/ALLES_LERNEN_VON_Ahrensburg"
+    },
+    {
+      "title": "Amt",
+      "path": "[[workspace]]/src/app/Ahrensburg/Amt"
+    },
+    {
+      "title": "Bauwerke",
+      "path": "[[workspace]]/src/app/Ahrensburg/Bauwerke"
+    },
+    {
+      "title": "Naturschutzgebiet",
+      "path": "[[workspace]]/src/app/Ahrensburg/Naturschutzgebiet"
+    },
+    {
+      "title": "Parks",
+      "path": "[[workspace]]/src/app/Ahrensburg/Parks"
+    }
+  ],
+  "frontMatter.git.enabled": true
 }
