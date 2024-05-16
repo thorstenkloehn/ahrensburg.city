@@ -226,3 +226,37 @@ sudo cp ~/src/mod_tile/debian/renderd.service /lib/systemd/system/
 ```
 Die Datei "renderd.service" ist eine "systemd"-Service-Datei. Die hier verwendete Version ruft lediglich alte init-Befehle auf. Um zu testen, ob der Startbefehl funktioniert:
 ```bash
+sudo /etc/init.d/renderd start
+```
+(Das sollte mit "[ ok ] Starten von renderd (über systemctl): renderd.service" antworten.)
+
+Um es jedes Mal automatisch zu starten:
+```bash
+sudo systemctl enable renderd
+```
+## Apache port ändern
+Wenn Sie Apache auf einem anderen Port als 80 laufen lassen möchten, können Sie dies tun, indem Sie die Datei "/etc/apache2/ports.conf" bearbeiten. Zum Beispiel, um es auf Port 8080 zu ändern:
+```bash
+sudo nano /etc/apache2/ports.conf
+```
+Ändern Sie die Zeile "Listen 80" in "Listen 8080" und speichern Sie die Datei. Starten Sie dann Apache neu:
+```bash
+sudo /etc/init.d/apache2 restart
+```
+## ahrensburg.city installieren
+```bash
+sudo apt-get install nginx
+sudo rm /etc/nginx/sites-enabled/default
+sudo systemctl stop nginx
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo systemctl stop nginx
+sudo certbot certonly --standalone -d ahrensburg.city
+sudo certbot certonly --standalone -d karte.ahrensburg.city
+```
+## Nginx Installationsanweisungen
+```bash
+sudo cp ahrensburg-city.conf /etc/nginx/conf.d/ahrensburg-city.conf
+sudo systemctl restart ahrensburg-city
+sudo systemctl restart nginx
+```
