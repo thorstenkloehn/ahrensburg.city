@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "ver":  "gh-pages -d out --nojekyll --cname hallo.ahrensburg.city"
+    "ver":  "gh-pages -d out --nojekyll --cname www.ahrensburg.city"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.1",
