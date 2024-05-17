@@ -245,6 +245,7 @@ sudo /etc/init.d/apache2 restart
 ```
 ## ahrensburg.city installieren
 ```bash
+sudo apt install snapd
 sudo apt-get install nginx
 sudo rm /etc/nginx/sites-enabled/default
 sudo systemctl stop nginx
@@ -257,6 +258,27 @@ sudo certbot certonly --standalone -d karte.ahrensburg.city
 ## Nginx Installationsanweisungen
 ```bash
 sudo cp ahrensburg-city.conf /etc/nginx/conf.d/ahrensburg-city.conf
+```
+oder sudo nano /etc/nginx/conf.d/ahrensburg-city.conf
+```
+  server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name karte.ahrensburg.city;
+    ssl_certificate /etc/letsencrypt/live/karte.ahrensburg.city/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/karte.ahrensburg.city/privkey.pem;
+
+   location / {
+        proxy_pass http://localhost:8080;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+```bash
 sudo systemctl restart ahrensburg-city
 sudo systemctl restart nginx
+
 ```
