@@ -156,32 +156,12 @@ cd $HOME
 wget https://github.com/Lumieducation/Lumi/releases/download/v0.10.0/lumi_0.10.0_amd64.deb
 sudo dpkg -i lumi_0.10.0_amd64.deb
 ```
-### Spring Cli Installieren
+## Rust Installieren
 ```bash
-
-# 1. Laden Sie die neueste Spring Boot CLI-Distribution herunter
-wget https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-cli/3.2.5/spring-boot-cli-3.2.5-bin.tar.gz
-# 2. Entpacken Sie das Archiv
-tar -xvf spring-boot-cli-3.2.5-bin.tar.gz
-
-# 3. Fügen Sie Spring Boot CLI zum PATH hinzu
-echo 'export PATH=$PATH:~/spring-3.2.5/bin' >> ~/.bashrc
-source ~/.bashrc
+sudo apt  install curl 
+sudo apt install build-essential
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
-### Java Kid  Installieren
-```bash
-sudo apt-get install openjdk-21-jdk
-sudo apt-install maven
-sudo apt install gradle
-```
-### Dotnet Installieren
-```bash
-sudo apt-get update && \
-  sudo apt-get install -y dotnet-sdk-8.0
-  ```
-## Weitere Links
-* <Link href="/doc/IDEArchiv">Weitere Archiv</Link>
-
 ## Golang Installieren
 ```bash
 cd $HOME
@@ -207,12 +187,7 @@ code --install ms-dotnettools.dotnet-interactive-vscode
 python3 -m venv .venv
 source .venv/bin/activate
 ```
-## nginx Installieren
-```bash
-sudo apt install nginx
-code --install-extension ahmadalli.vscode-nginx-conf
-code --install-extension  shanoor.vscode-nginx
-```
+
 ## Python Vorasusetzungen
 ### Ubuntu
 ```bash
