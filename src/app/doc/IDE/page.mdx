@@ -114,6 +114,15 @@ GRANT ALL PRIVILEGES ON DATABASE thorsten TO postgres;
 drop database thorsten;
 \q
 ```
+
+### ahrensburg.city Instakllieren
+```bash
+cd $HOME
+git clone https://github.com/thorstenkloehn/ahrensburg.city.git
+cd ahrensburg.city
+npm install
+cp env.local.example .env.local
+```
 ## Anki
 Anki ist ein Programm zum Lernen von Vokabeln und anderen Inhalten. Es ist für Windows, Linux und Mac OS X verfügbar. Anki ist Open Source und kostenlos. Es ist auch für Android und iOS verfügbar, aber diese Versionen sind nicht kostenlos.
 
@@ -147,38 +156,43 @@ cd $HOME
 wget https://github.com/Lumieducation/Lumi/releases/download/v0.10.0/lumi_0.10.0_amd64.deb
 sudo dpkg -i lumi_0.10.0_amd64.deb
 ```
-## SSGs - Static Site Generators
-SSGs ist eine Software, die statische Webseiten generiert. Sie sind besonders geejsonnen für Webseiten, die nicht oft geändert werden müssen. SSGs sind besonders schnell und sicher, da sie keine Datenbanken benötigen. Sie sind besonders geeignet für Blogs, Dokumentationen, Portfolios und andere Webseiten, die hauptsächlich aus Text und Bildern bestehen.
-### nextjs
-Next.js ist ein React-Framework für die Entwicklung von Webanwendungen. Es ist besonders geeignet für die Entwicklung von statischen Webseiten, Blogs, Dokumentationen und Portfolios. Next.js ist besonders schnell und sicher, da es statische Webseiten generiert. Es ist auch sehr einfach zu bedienen, da es auf React basiert.
+### Spring Cli Installieren
+```bash
 
-### Astro.build
-Astro ist ein modernes Web-Framework für den Bau von statischen Webseiten. Es ist besonders geeignet für die Entwicklung von Blogs, Dokumentationen, Portfolios und anderen Webseiten, die hauptsächlich aus Text und Bildern bestehen. Astro ist besonders schnell und sicher, da es statische Webseiten generiert. Es ist auch sehr einfach zu bedienen, da es auf JavaScript basiert.
+# 1. Laden Sie die neueste Spring Boot CLI-Distribution herunter
+wget https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-cli/3.2.5/spring-boot-cli-3.2.5-bin.tar.gz
+# 2. Entpacken Sie das Archiv
+tar -xvf spring-boot-cli-3.2.5-bin.tar.gz
 
-
+# 3. Fügen Sie Spring Boot CLI zum PATH hinzu
+echo 'export PATH=$PATH:~/spring-3.2.5/bin' >> ~/.bashrc
+source ~/.bashrc
+```
+### Java Kid  Installieren
+```bash
+sudo apt-get install openjdk-21-jdk
+sudo apt-install maven
+sudo apt install gradle
+```
+### Dotnet Installieren
+```bash
+sudo apt-get update && \
+  sudo apt-get install -y dotnet-sdk-8.0
+  ```
 ## Weitere Links
 * <Link href="/doc/IDEArchiv">Weitere Archiv</Link>
 
 ## Golang Installieren
 ```bash
-wget https://go.dev/dl/go1.22.0.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf go1.22.0.linux-amd64.tar.gz
-```
-### Golang Konfigurieren
-```bash
-nano ~/.bashrc
-```
-### Golang Konfigurieren
-```bash
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/go 
-export PATH=$PATH:$GOPATH/bin
-```
-### Golang Konfigurieren
-```bash
+cd $HOME
+wget https://go.dev/dl/go1.22.3.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.22.3.linux-amd64.tar.gz
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
+echo 'export GOPATH=$HOME/go' >> ~/.bashrc
+echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.bashrc
 source ~/.bashrc
 ```
-#
+## 
 ## Python Installieren
 ```bash
 sudo apt install python3 python3-pip python3-venv
