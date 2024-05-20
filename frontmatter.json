@@ -1,29 +1,54 @@
 {
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
-  "frontMatter.framework.id": "next",
-  "frontMatter.content.publicFolder": "public",
+  "frontMatter.framework.id": "other",
+  "frontMatter.content.publicFolder": "",
   "frontMatter.preview.host": "http://localhost:3000",
-  "frontMatter.content.pageFolders": [
+  "frontMatter.content.pageFolders": [],
+  "frontMatter.git.enabled": true,
+  "frontMatter.taxonomy.contentTypes": [
     {
-      "title": "ALLES_LERNEN_VON_Ahrensburg",
-      "path": "[[workspace]]/src/app/Ahrensburg/ALLES_LERNEN_VON_Ahrensburg"
-    },
-    {
-      "title": "Amt",
-      "path": "[[workspace]]/src/app/Ahrensburg/Amt"
-    },
-    {
-      "title": "Bauwerke",
-      "path": "[[workspace]]/src/app/Ahrensburg/Bauwerke"
-    },
-    {
-      "title": "Naturschutzgebiet",
-      "path": "[[workspace]]/src/app/Ahrensburg/Naturschutzgebiet"
-    },
-    {
-      "title": "Parks",
-      "path": "[[workspace]]/src/app/Ahrensburg/Parks"
+      "name": "default",
+      "pageBundle": false,
+      "previewPath": null,
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "Publishing date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Content preview",
+          "name": "preview",
+          "type": "image"
+        },
+        {
+          "title": "Is in draft",
+          "name": "draft",
+          "type": "draft"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "Categories",
+          "name": "categories",
+          "type": "categories"
+        }
+      ]
     }
-  ],
-  "frontMatter.git.enabled": true
+  ]
 }
