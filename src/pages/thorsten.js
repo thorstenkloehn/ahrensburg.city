@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import Link from 'next/link'
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const blogDirectory = path.join(process.cwd(), '_blog')
   const fileNames = fs.readdirSync(blogDirectory)
 
