@@ -48,8 +48,6 @@ code --install-extension iJS.reactnextjssnippets
 code --install-exenstion PulkitGangwar.nextjs-snippets
 code --install-exenstion KristiyanVelkov.nextjs-file-gelenator
 code --install-extenstion bradlc.vscode-tailwindcss
-code --install-extenstion eliostruyf.vscode-front-matter
-
 ```
 ## Datenbank
 ### PostgreSQL
@@ -162,6 +160,10 @@ sudo apt  install curl
 sudo apt install build-essential
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
+## Java Installieren
+```bash
+sudo apt install openjdk-17-jdk
+```
 ## Golang Installieren
 ```bash
 cd $HOME
@@ -172,7 +174,17 @@ echo 'export GOPATH=$HOME/go' >> ~/.bashrc
 echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.bashrc
 source ~/.bashrc
 ```
-## 
+## Java Installieren
+```bash
+sudo apt-get install openjdk-21-jdk
+sudo apt-get install maven
+```
+## Dotnet Installieren
+```bash
+sudo apt-get update && \
+  sudo apt-get install -y dotnet-sdk-8.0
+```
+
 ## Python Installieren
 ```bash
 sudo apt install python3 python3-pip python3-venv
@@ -210,6 +222,15 @@ cd Python-3.12.2
 ./configure
 make
 sudo make altinstall 
+```
+
+## Visual Studio Code Erweiterungen
+```bash
+code --install-extension ms-dotnettools.csdevkit
+code --install-exension vscjava.vscode-java-pack
+code --install-extension vmware.vscode-boot-dev-pack
+code --install-extension  ms-vscode-remote.remote-ssh
+code --install-extension  ms-vscode.remote-server
 ```
 #### Quellangabe
 * Quelle: [Download](https://www.python.org/downloads)
