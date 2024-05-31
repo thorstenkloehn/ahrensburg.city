@@ -45,3 +45,18 @@ Ein Open-Source-Objekt-Relationales Datenbankmanagementsystem (ORDBMS), das auf 
 ```bash
 sudo apt-get install postgresql-server-dev-all
 ```
+
+## Drogon installieren
+```bash
+cd $HOME
+git clone https://github.com/drogonframework/drogon
+cd drogon
+git submodule update --init
+mkdir build
+cd build
+cmake ..
+make && sudo make install
+```
+Standardmäßig wird die Debug-Version kompiliert. Wenn Sie die Release-Version kompilieren möchten, sollten die cmake-Befehle die folgenden Parameter enthalten:
+```bash
+cmake -DCMAKE_BUILD_TYPE=Release ..
