@@ -163,6 +163,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ## Java Installieren
 ```bash
 sudo apt install openjdk-17-jdk
+sudo apt install maven
 ```
 ## Golang Installieren
 ```bash
@@ -175,11 +176,6 @@ echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-## Dotnet Installieren
-```bash
-sudo apt-get update && \
-  sudo apt-get install -y dotnet-sdk-8.0
-```
 
 ## Python Installieren
 ```bash
@@ -222,7 +218,7 @@ sudo make altinstall
 
 ## Visual Studio Code Erweiterungen
 ```bash
-code --install-extension ms-dotnettools.csdevkit
+code --install-extension  vscjava.vscode-java-pack
 code --install-extension  ms-vscode-remote.remote-ssh
 code --install-extension  ms-vscode.remote-server
 ```
