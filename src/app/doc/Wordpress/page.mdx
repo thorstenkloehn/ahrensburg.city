@@ -48,10 +48,11 @@ sudo apt install php-fpm php-mysql php-xml php-curl php-gd php-mbstring php-xmlr
 Als nächstes müssen Sie Wordpress herunterladen und in Ihrem Webroot-Verzeichnis extrahieren. Sie können dies tun, indem Sie das folgende Kommando ausführen:
 
 ```bash
-cd /var/www/
-sudo wget https://de.wordpress.org/latest-de_DE.zip
-sudo tar -xvzf latest-de_DE.zip
-sudo mv wordpress /var/www/html
+cd /var/www/html
+sudo wget https://de.wordpress.org/latest-de_DE.tar.gz
+sudo tar -xvzf latest-de_DE.tar.gz
+sudo mv wordpress/* .
+sudo rm -rf wordpress latest-de_DE.tar.gz
 sudo chown -R www-data:www-data /var/www/html
 sudo chmod -R 755 /var/www/html
 ```
@@ -143,33 +144,4 @@ sudo mv wordpress/* .
 sudo rm -rf wordpress latest-de_DE.tar.gz
 sudo chown -R www-data:www-data /var/www/html
 sudo chmod -R 755 /var/www/html
-```
-### Nginx-Konfiguration
-Als nächstes müssen Sie eine Nginx-Konfigurationsdatei für Ihre Wordpress-Website erstellen. Sie können dies tun, indem Sie das folgende Kommando ausführen:
-```
-sudo nano /etc/nginx/conf.d/blog.conf
-
-```
-```bash
-server {
-    listen 80;
-    server_name localhost;
-
-    root /var/www/html;
-    index index.php index.html index.htm;
-
-    location / {
-        try_files $uri $uri/ /index.php?$args;
-    }
-
-    location ~ \.php$ {
-        include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
-    }
-
-    location ~ /\.ht {
-        deny all;
-    }
-}
-
 ```
