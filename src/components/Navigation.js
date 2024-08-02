@@ -26,7 +26,7 @@ export default function Navigation() {
                 </Link>
             </li>
             <li>
-                <Link href="/doc" className="text-blue-500 p-4">
+                <Link href="https://dokument.ahrensburg.city/" className="text-blue-500 p-4">
                 Dokumentation
                 </Link>
             </li>
