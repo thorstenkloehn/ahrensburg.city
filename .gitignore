@@ -1,0 +1,40 @@
+# ASP.NET Core MVC .gitignore for Linux
+
+# Build Folders
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Application Insights
+ApplicationInsights.config
+ApplicationInsights.config.install.xdt
+appsettings.json
+app.db
+# Publish output
+Data/Migrations
+# Dependency directories
+node_modules/
+bower_components/
+
+# Environment files
+.env
+.env.*
+
+# Rider IDE
+.idea/
+*.sln.iml
+
+# Visual Studio Code
+.vscode/
