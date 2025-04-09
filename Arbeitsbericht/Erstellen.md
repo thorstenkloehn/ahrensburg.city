@@ -171,7 +171,7 @@ dotnet tool install --global dotnet-ef
 ```
 ## Dotnet 
 ```
-dotnet ef dbcontext scaffold "Host=localhost;Database=Test;Username=Test;Password=Test" Npgsql.EntityFrameworkCore.PostgreSQL -o Models -c ApplicationDbContext -t planet_osm_line -t planet_osm_point -t planet_osm_point -t planet_osm_polygon -t planet_osm_roads --data-annotations
+dotnet ef dbcontext scaffold "Host=localhost;Database=Test;Username=Test;Password=Test" Npgsql.EntityFrameworkCore.PostgreSQL -o Models -c MapDbContext - -t planet_osm_line -t planet_osm_point -t planet_osm_point -t planet_osm_polygon -t planet_osm_roads --data-annotations 
 ```
 Verwendung: dotnet ef dbcontext scaffold [Argumente] [Optionen]
 
@@ -204,4 +204,12 @@ Optionen:
 * -v|--verbose            Zeigt ausführliche Ausgaben an.
 * --no-color              Verwendet keine farbige Ausgabe.
 * --prefix-output         Präfixiert die Ausgabe mit der Ebene.
+
+## Migrations
+```
+dotnet ef migrations add InitialMigration --context ApplicationDbContext
+dotnet ef migrations add MapMigration --context MapDbContext
+```
+
+
 
