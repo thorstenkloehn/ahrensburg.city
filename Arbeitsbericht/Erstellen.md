@@ -139,10 +139,7 @@ Mit der Option `-o ahrensburg.city` wird das Projekt in einem neuen Verzeichnis 
 Zusammengefasst legt dieser Befehl die Grundlage für eine Webanwendung mit integrierter Benutzerverwaltung und einer klar strukturierten Architektur.
 
 
-## Visual Studio Code
-```
-sudo snap install code --classic
-```
+
 ## Visual Studio Code Erweiterung Installieren
 ```
 code --install-extension ms-dotnettools.csdevkit # Installiert die C# Dev Kit Erweiterung
