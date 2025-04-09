@@ -209,6 +209,9 @@ Optionen:
 ```
 dotnet ef migrations add InitialMigration --context ApplicationDbContext
 dotnet ef migrations add MapMigration --context MapDbContext
+dotnet ef database update --context MapDbContext
+dotnet ef database update --context ApplicationDbContext
+
 ```
 
 
