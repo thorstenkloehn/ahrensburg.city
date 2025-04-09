@@ -180,28 +180,28 @@ Argumente:
   `<PROVIDER>`            Der zu verwendende Provider. (z.B. Microsoft.EntityFrameworkCore.SqlServer)
 
 Optionen:
-  -d|--data-annotations   Verwendet Attribute zur Konfiguration des Modells (wo möglich). Wenn weggelassen, wird nur die Fluent API verwendet.
-  -c|--context <NAME>     Der Name des DbContext. Standardmäßig der Datenbankname.
-  --context-dir <PATH>    Das Verzeichnis, in dem die DbContext-Datei abgelegt werden soll. Pfade sind relativ zum Projektverzeichnis.
-  -f|--force              Überschreibt vorhandene Dateien.
-  -o|--output-dir <PATH>  Das Verzeichnis, in dem Dateien abgelegt werden sollen. Pfade sind relativ zum Projektverzeichnis.
-  --schema <SCHEMA_NAME>... Die Schemas von Tabellen und Ansichten, für die Entitätstypen generiert werden sollen. Alle Tabellen und Ansichten in den Schemas werden in das Modell aufgenommen, auch wenn sie nicht explizit mit dem Parameter --table angegeben werden.
-  -t|--table <TABLE_NAME>... Die Tabellen und Ansichten, für die Entitätstypen generiert werden sollen. Tabellen oder Ansichten in einem bestimmten Schema können im Format 'schema.tabelle' oder 'schema.ansicht' angegeben werden.
-  --use-database-names    Verwendet Tabellen-, Ansichts-, Sequenz- und Spaltennamen direkt aus der Datenbank.
-  --json                  Zeigt JSON-Ausgabe an. Zur programmatischen Analyse mit --prefix-output verwenden.
-  -n|--namespace <NAMESPACE> Der zu verwendende Namespace. Standardmäßig das Verzeichnis.
-  --context-namespace <NAMESPACE> Der Namespace der DbContext-Klasse. Standardmäßig das Verzeichnis.
-  --no-onconfiguring      Generiert kein DbContext.OnConfiguring.
-  --no-pluralize          Verwendet keine Pluralisierung.
-  -p|--project <PROJECT>    Das zu verwendende Projekt. Standardmäßig das aktuelle Arbeitsverzeichnis.
-  -s|--startup-project <PROJECT> Das zu verwendende Startup-Projekt. Standardmäßig das aktuelle Arbeitsverzeichnis.
-  --framework <FRAMEWORK>   Das Zielframework. Standardmäßig das erste im Projekt.
-  --configuration <CONFIGURATION> Die zu verwendende Konfiguration.
-  --runtime <RUNTIME_IDENTIFIER> Die zu verwendende Runtime.
-  --msbuildprojectextensionspath <PATH> Der Pfad zu den MSBuild-Projekterweiterungen. Standardmäßig "obj".
-  --no-build              Erstellt das Projekt nicht. Soll verwendet werden, wenn der Build aktuell ist.
-  -h|--help               Zeigt Hilfestellungen an.
-  -v|--verbose            Zeigt ausführliche Ausgaben an.
-  --no-color              Verwendet keine farbige Ausgabe.
-  --prefix-output         Präfixiert die Ausgabe mit der Ebene.
-  
+* -d|--data-annotations   Verwendet Attribute zur Konfiguration des Modells (wo möglich). Wenn weggelassen, wird nur die Fluent API verwendet.
+* -c|--context <NAME>     Der Name des DbContext. Standardmäßig der Datenbankname.
+* --context-dir <PATH>    Das Verzeichnis, in dem die DbContext-Datei abgelegt werden soll. Pfade sind relativ zum Projektverzeichnis.
+* -f|--force              Überschreibt vorhandene Dateien.
+* -o|--output-dir <PATH>  Das Verzeichnis, in dem Dateien abgelegt werden sollen. Pfade sind relativ zum Projektverzeichnis.
+*  --schema <SCHEMA_NAME>... Die Schemas von Tabellen und Ansichten, für die Entitätstypen generiert werden sollen. Alle Tabellen und Ansichten in den Schemas werden in das Modell aufgenommen, auch wenn sie nicht explizit mit dem Parameter --table angegeben werden.
+*  -t|--table <TABLE_NAME>... Die Tabellen und Ansichten, für die Entitätstypen generiert werden sollen. Tabellen oder Ansichten in einem bestimmten Schema können im Format 'schema.tabelle' oder 'schema.ansicht' angegeben werden.
+* --use-database-names    Verwendet Tabellen-, Ansichts-, Sequenz- und Spaltennamen direkt aus der Datenbank.
+* --json                  Zeigt JSON-Ausgabe an. Zur programmatischen Analyse mit --prefix-output verwenden.
+* -n|--namespace <NAMESPACE> Der zu verwendende Namespace. Standardmäßig das Verzeichnis.
+* --context-namespace <NAMESPACE> Der Namespace der DbContext-Klasse. Standardmäßig das Verzeichnis.
+* --no-onconfiguring      Generiert kein DbContext.OnConfiguring.
+*  --no-pluralize          Verwendet keine Pluralisierung.
+* -p|--project <PROJECT>    Das zu verwendende Projekt. Standardmäßig das aktuelle Arbeitsverzeichnis.
+*  -s|--startup-project <PROJECT> Das zu verwendende Startup-Projekt. Standardmäßig das aktuelle Arbeitsverzeichnis.
+*  --framework <FRAMEWORK>   Das Zielframework. Standardmäßig das erste im Projekt.
+*  --configuration <CONFIGURATION> Die zu verwendende Konfiguration.
+* --runtime <RUNTIME_IDENTIFIER> Die zu verwendende Runtime.
+* --msbuildprojectextensionspath <PATH> Der Pfad zu den MSBuild-Projekterweiterungen. Standardmäßig "obj".
+* --no-build              Erstellt das Projekt nicht. Soll verwendet werden, wenn der Build aktuell ist.
+* -h|--help               Zeigt Hilfestellungen an.
+* -v|--verbose            Zeigt ausführliche Ausgaben an.
+* --no-color              Verwendet keine farbige Ausgabe.
+* --prefix-output         Präfixiert die Ausgabe mit der Ebene.
+
