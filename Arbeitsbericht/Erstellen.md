@@ -213,6 +213,13 @@ dotnet ef database update --context MapDbContext
 dotnet ef database update --context ApplicationDbContext
 
 ```
+## dotnet aspnet-codegenerator 
+```
+dotnet tool install -g dotnet-aspnet-codegenerator
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet aspnet-codegenerator identity -dc ApplicationDbContext --files "Account.Login"
+```
+
 
 
 
