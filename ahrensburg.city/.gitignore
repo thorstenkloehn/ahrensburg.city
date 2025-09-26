@@ -1,0 +1,53 @@
+# .gitignore for ASP.NET Core MVC projects using Visual Studio Code
+
+# Build results
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code settings
+.vscode/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Dotnet CLI
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET Core secrets
+secrets.json
+
+# Npm packages
+node_modules/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Publish output
+wwwroot/dist/
+wwwroot/node_modules/
+
+# Rider
+.idea/
+*.sln.iml
+
+# Others
+*.swp
+*.bak
+*.tmp
+
+.appsettings.json
+appsettings.json
+ahrensburg.city/appsettings.json
