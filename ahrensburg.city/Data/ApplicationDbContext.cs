@@ -11,5 +11,5 @@ public class ApplicationDbContext : IdentityDbContext
     {
     }
 
-    public DbSet<Nachricht> Nachrichten { get; set; } = default!;
+    public DbSet<Node> Nodes { get; set; } = default!;
 }
