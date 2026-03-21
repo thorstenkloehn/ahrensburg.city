@@ -1,0 +1,19 @@
+@model WikiArtikel
+
+<h2>Neue Seite erstellen: @ViewBag.UrlSlug</h2>
+
+<form asp-action="Create" method="post">
+    <input type="hidden" name="slug" value="@ViewBag.UrlSlug" />
+    <div class="form-group">
+        <label for="markdownInhalt">Inhalt (Markdown):</label>
+        <textarea name="markdownInhalt" id="markdownInhalt" class="form-control" rows="15" placeholder="Geben Sie hier Ihren Markdown-Inhalt ein..."></textarea>
+    </div>
+    <div class="mt-3">
+        <button type="submit" class="btn btn-primary">Erstellen</button>
+        <a href="~/@ViewBag.UrlSlug" class="btn btn-secondary">Abbrechen</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

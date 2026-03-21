@@ -1,0 +1,23 @@
+﻿@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Fehler";
+}
+
+<h1 class="text-danger">Fehler.</h1>
+<h2 class="text-danger">Ein Fehler ist während der Verarbeitung Ihrer Anfrage aufgetreten.</h2>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Anfrage-ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+
+<h3>Entwicklungsmodus</h3>
+<p>
+    Der Wechsel in die <strong>Development</strong>-Umgebung zeigt detailliertere Informationen über den aufgetretenen Fehler an.
+</p>
+<p>
+    <strong>Die Development-Umgebung sollte in bereitgestellten Anwendungen nicht aktiviert werden</strong>, da dies dazu führen kann, dass sensible Informationen aus Ausnahmen für Endbenutzer angezeigt werden. Für das lokale Debugging kann die Development-Umgebung aktiviert werden, indem die Umgebungsvariable <strong>ASPNETCORE_ENVIRONMENT</strong> auf <strong>Development</strong> gesetzt und die Anwendung neu gestartet wird.
+</p>

@@ -1,0 +1,6 @@
+- name: Startseite
+  href: index.md
+- name: Einführung
+  href: articles/
+- name: Technische Referenz (API)
+  href: api/

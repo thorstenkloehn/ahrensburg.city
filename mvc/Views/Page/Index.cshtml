@@ -1,0 +1,55 @@
+﻿@model WikiArtikel
+
+@{
+    var latestVersion = Model?.Versionen?.OrderByDescending(v => v.Zeitpunkt).FirstOrDefault();
+    ViewData["Title"] = Model?.Slug ?? ViewBag.UrlSlug;
+}
+
+<div class="wiki-content">
+    @if (Model == null)
+    {
+        <div class="alert alert-info">
+            <h4>Diese Seite existiert noch nicht.</h4>
+            @if (User?.Identity?.IsAuthenticated ?? false)
+            {
+                <p>Möchten Sie die Seite <strong>@ViewBag.UrlSlug</strong> erstellen?</p>
+            <a href="~/Neuformular/@ViewBag.UrlSlug" class="btn btn-success">Seite erstellen</a>
+            }
+            else
+            {
+                <p>Sie haben keine Berechtigung, diese Seite zu erstellen.</p>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>@Model.Slug</h1>
+            <div>
+            @if (User?.Identity?.IsAuthenticated ?? false)
+            {
+                <a href="~/Edit/@Model.Slug" class="btn btn-outline-primary btn-sm">Bearbeiten</a>
+            }
+            </div>
+        </div>
+
+        <div class="markdown-body">
+            @if (latestVersion != null)
+            {
+                @Html.Raw(latestVersion.HtmlInhalt)
+            }
+            else
+            {
+                <p><em>Kein Inhalt verfügbar.</em></p>
+            }
+        </div>
+
+        @if (latestVersion != null)
+        {
+            <hr />
+            <div class="text-muted small">
+                Zuletzt aktualisiert am @latestVersion.Zeitpunkt.ToString("dd.MM.yyyy HH:mm")
+            </div>
+        }
+    }
+</div>

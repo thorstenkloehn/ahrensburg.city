@@ -1,0 +1,32 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": ["mvc/mvc.csproj", "Services/Services.csproj"],
+          "src": "."
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": ["**.md", "**.yml", "**.json"],
+        "src": "doc"
+      },
+      {
+        "files": ["api/**.yml", "api/**.md"]
+      }
+    ],
+    "resource": [
+      {
+        "files": ["images/**"],
+        "src": "doc"
+      }
+    ],
+    "dest": "_site",
+    "template": ["default"]
+  }
+}

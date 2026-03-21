@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "Ungültiger Slug";
+    var slug = ViewData["Slug"] as string;
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-danger shadow">
+                <div class="card-header bg-danger text-white">
+                    <h4 class="mb-0">⚠️ Ungültiger Slug</h4>
+                </div>
+                <div class="card-body">
+                    <p class="lead">Der angegebene Slug <strong>"@slug"</strong> ist ungültig.</p>
+                    <hr />
+                    <h5>Ein gültiger Slug muss folgende Kriterien erfüllen:</h5>
+                    <ul class="list-group list-group-flush mb-3">
+                        <li class="list-group-item">✅ Darf nicht leer sein.</li>
+                        <li class="list-group-item">✅ Darf nur Buchstaben (a-z, A-Z), Zahlen (0-9), Bindestriche (-), Unterstriche (_) und Schrägstriche (/) enthalten.</li>
+                        <li class="list-group-item">✅ Darf keine aufeinanderfolgenden Punkte (..) enthalten.</li>
+                        <li class="list-group-item">✅ Darf keine aufeinanderfolgenden Schrägstriche (//) enthalten.</li>
+                        <li class="list-group-item">✅ Darf nicht mit einem Schrägstrich (/) beginnen oder enden.</li>
+                    </ul>
+                    <p class="mt-4">
+                        Bitte korrigieren Sie die URL oder kehren Sie zur <a asp-controller="Home" asp-action="Index" class="btn btn-outline-primary btn-sm">Startseite</a> zurück.
+                    </p>
+                </div>
+                <div class="card-footer text-muted d-flex justify-content-between">
+                    <span>Wiki-Fehler: InvalidSlug</span>
+                    <span>@DateTime.Now.ToString("g")</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

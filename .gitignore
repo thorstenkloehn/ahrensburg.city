@@ -1,0 +1,43 @@
+# .NET Core / ASP.NET Core Standard
+[Bb]in/
+[Oo]bj/
+out/
+publish/
+.idea
+.idea/
+
+# MSBuild / Visual Studio
+.vs/
+.vscode/
+*.user
+*.userosscache
+*.sln.doccache
+*.suo
+*.user
+*.userosscache
+*.sln.doccache
+*.suo
+
+# User secrets and local configuration
+mvc/appsettings.Development.json
+mvc/appsettings.json
+
+# Verhindere, dass versehentlich Passwörter in appsettings.json landen
+# Man sollte stattdessen _appsettings.json (Vorlage) committen
+
+# Datenbanken & Logs
+*.db
+*.sqlite
+*.log
+pgdata/
+
+# OS-spezifisch
+.DS_Store
+Thumbs.db
+
+# Projekt-spezifische Pfade von MeinCMS
+mvc/app.app
+_site/
+docfx.log
+api/
+docs/api/

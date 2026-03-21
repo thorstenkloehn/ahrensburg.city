@@ -1,0 +1,41 @@
+@model WikiArtikel
+
+@{
+    ViewData["Title"] = "Versionshistorie: " + (Model?.Slug ?? ViewBag.UrlSlug);
+}
+
+<h2>Versionshistorie für: @Model.Slug</h2>
+
+@if (Model?.Versionen == null || !Model.Versionen.Any())
+{
+    <div class="alert alert-info">Keine Versionen vorhanden.</div>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Datum</th>
+                <th>Vorschau</th>
+            </tr>
+        </thead>
+        <tbody>
+        @for (int i = 0; i < Model.Versionen.Count; i++)
+        {
+            var version = Model.Versionen.OrderByDescending(v => v.Zeitpunkt).ToList()[i];
+            <tr>
+                <td>@(i + 1)</td>
+                <td>@version.Zeitpunkt.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>
+                    <div style="max-width:400px; max-height:80px; overflow:auto; border:1px solid #eee; padding:4px;">
+                        @Html.Raw(version.HtmlInhalt?.Length > 200 ? version.HtmlInhalt.Substring(0, 200) + "..." : version.HtmlInhalt)
+                    </div>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+<a href="~/@Model.Slug" class="btn btn-secondary">Zurück zur Seite</a>
