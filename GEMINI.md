@@ -2,20 +2,26 @@
 
 MeinCMS ist ein leichtgewichtiges Content-Management-System (CMS) mit Wiki-ähnlicher Funktionalität, entwickelt mit ASP.NET Core MVC 10.0 und PostgreSQL.
 
+## Status (Stand 22.03.2026)
+
+- **Sicherheits-Audits:** Zwei umfassende Audits wurden am 20. und 21. März 2026 durchgeführt (siehe `bericht/`).
+- **Benutzerverwaltung:** Die öffentliche Registrierung ist deaktiviert. Benutzer werden ausschließlich über das `UserAdmin`-Tool verwaltet.
+- **Datenbank:** Aktueller Schema-Stand inkl. Migration `Hallo` (pflichtmäßige WikiArtikel-Zuweisung für Versionen).
+
 ## Architektur
 
 - **`mvc/`**: Die Haupt-Webanwendung, die das MVC-Muster implementiert.
-  - **Controller**: Verwalten das Routing und die Benutzerinteraktion (z. B. `PageController.cs` für Wiki-Seiten).
+  - **Controller**: Verwalten das Routing und die Benutzerinteraktion (z. B. `PageController.cs`).
   - **Models**: Definieren die Datenstrukturen (`WikiArtikel`, `WikiArtikelVersion`).
   - **Data**: Entity Framework Core `ApplicationDbContext` und Migrationen.
   - **Identity**: Integrierte ASP.NET Core Identity für die Authentifizierung.
-- **`Services/`**: Eine Klassenbibliothek für gemeinsame Geschäftslogik und Dienste.
+- **`Services/`**: Eine Klassenbibliothek für gemeinsame Geschäftslogik und Dienste (z. B. `PageService`, `Blogs`).
 - **`UserAdmin/`**: Eine Konsolenanwendung für administrative Aufgaben, wie das Erstellen und Auflisten von Benutzern.
 
 ## Technologien
 
 - **Framework**: .NET 10.0 (ASP.NET Core)
-- **Datenbank**: PostgreSQL (via Npgsql EF Core Provider) oder SQLite (vorhanden über Pakete und `app.db`). PostgreSQL ist der aktuelle Standard in `Program.cs`.
+- **Datenbank**: PostgreSQL (via Npgsql EF Core Provider)
 - **ORM**: Entity Framework Core
 - **Authentifizierung**: ASP.NET Core Identity
 - **UI**: Razor Views, Bootstrap, jQuery, Markdig (Markdown), HtmlSanitizer
@@ -23,7 +29,7 @@ MeinCMS ist ein leichtgewichtiges Content-Management-System (CMS) mit Wiki-ähnl
 ## Dokumentation
 
 - **DocFX**: Wird verwendet, um die API-Dokumentation aus dem Quellcode zu generieren. Die Konfiguration befindet sich in `docfx.json`.
-- **Markdown**: Projektdokumentation in `/doc` und `/docs`.
+- **Markdown**: Projektdokumentation in `/doc` und `/docs`. Sicherheitsberichte in `/bericht`.
 
 ## Erstellen und Ausführen
 
@@ -35,7 +41,7 @@ MeinCMS ist ein leichtgewichtiges Content-Management-System (CMS) mit Wiki-ähnl
 ### Einrichtung
 
 1.  **Umgebung konfigurieren**:
-    Kopieren Sie die Vorlagen der Konfigurationsdateien an ihre tatsächlichen Speicherorte:
+    Kopieren Sie die Vorlagen der Konfigurationsdateien:
     ```bash
     cp mvc/_appsettings.Development.json mvc/appsettings.Development.json
     cp mvc/_appsettings.json mvc/appsettings.json
@@ -43,7 +49,7 @@ MeinCMS ist ein leichtgewichtiges Content-Management-System (CMS) mit Wiki-ähnl
     Aktualisieren Sie `mvc/appsettings.json` mit Ihrem PostgreSQL-Verbindungsstring.
 
 2.  **Datenbank-Setup**:
-    Erstellen Sie die Datenbank und vergeben Sie die Rechte (Beispiel für Linux):
+    Beispiel für Linux:
     ```bash
     sudo -u postgres -i
     createdb -E UTF8 -O ihr_benutzer mvc
@@ -52,34 +58,30 @@ MeinCMS ist ein leichtgewichtiges Content-Management-System (CMS) mit Wiki-ähnl
     ```
 
 3.  **Migrationen anwenden**:
-    Führen Sie die Migrationen vom Projekt-Root aus:
     ```bash
     dotnet ef database update --project mvc
     ```
 
 ### Ausführen der Anwendungen
 
-- **Webanwendung**:
-  ```bash
-  dotnet run --project mvc
-  ```
-- **Benutzeradministrations-Tool**:
-  ```bash
-  dotnet run --project UserAdmin
-  ```
+- **Webanwendung**: `dotnet run --project mvc`
+- **Benutzeradministrations-Tool**: `dotnet run --project UserAdmin`
 
 ## Entwicklungskonventionen
 
-- **Projektstruktur**: Folgt dem Standardlayout von ASP.NET Core MVC.
-- **Benennungskonventionen**: PascalCase für Klassen, Methoden und Eigenschaften; camelCase für lokale Variablen und private Felder.
-- **Wiki-Routing**: Der `PageController` verarbeitet dynamische Wiki-Pfade mithilfe von Catch-all-Routenparametern (`{*slug}`).
-- **Versionierung**: Inhalte werden versioniert gespeichert (siehe `WikiArtikelVersion`).
-- **Datenbank-Updates**: Verwenden Sie immer Entity Framework Core-Migrationen für Schemaänderungen.
-- **Gemeinsame Logik**: Bevorzugen Sie es, wiederverwendbare Geschäftslogik im Projekt `Services` zu platzieren.
+- **Wiki-Routing**: `PageController` verarbeitet dynamische Wiki-Pfade via Catch-all-Routenparameter (`{*slug}`). Slugs sind Regex-validiert.
+- **Versionierung**: Wiki-Inhalte werden versioniert gespeichert. Eine Version ist zwingend einem Artikel zugeordnet (Migration `Hallo`).
+- **Kategorien**: `WikiArtikelVersion` unterstützt eine Liste von Kategorien (`Kategorie`-Property).
+- **Gemeinsame Logik**: Geschäftslogik gehört in das Projekt `Services`.
 
 ## TODO / Roadmap
 
 - [x] Implementierung einer robusten Bearbeitung und Versionierung von Wiki-Seiten.
+- [x] Durchführung von Sicherheits-Audits (März 2026).
+- [ ] **Sicherheit:** Implementierung einer Password Policy (min. 12 Zeichen) und Account Lockout.
+- [ ] **Sicherheit:** Implementierung von Security Headern (CSP, HSTS Tuning).
+- [ ] **Datenbank:** Eindeutigen Index für `Slug` in `WikiArtikel` hinzufügen.
+- [ ] **Features:** Fertigstellung der Blog-Funktion (aktuell Placeholder `Bloogs`).
+- [ ] **Features:** Implementierung eines Datei-/Bildupload-Systems.
 - [ ] Hinzufügen von Unit- und Integrationstests.
-- [ ] Implementierung eines Datei-/Bildupload-Systems.
 - [ ] Unterstützung für Themes oder CSS-Anpassungen.
