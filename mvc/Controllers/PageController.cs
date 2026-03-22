@@ -66,7 +66,7 @@ namespace mvc.Controllers
         [HttpPost("Create")]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Create(string slug, string markdownInhalt)
+        public async Task<IActionResult> Create(string slug, string markdownInhalt, string? kategorienRaw)
         {
 
             if (!_pageService.IstSlugGueltig(slug))
@@ -78,7 +78,18 @@ namespace mvc.Controllers
             if (markdownInhalt.Length > 100000)
                 return BadRequest("Inhalt ist zu lang (maximal 100.000 Zeichen).");
 
-            await _pageService.ErstelleOderAktualisiereArtikelAsync(slug, markdownInhalt);
+            var kategorien = kategorienRaw?
+                .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                .ToList();
+
+            try
+            {
+                await _pageService.ErstelleOderAktualisiereArtikelAsync(slug, markdownInhalt, kategorien);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
 
             return LocalRedirect("~/" + slug);
         }
@@ -113,9 +124,9 @@ namespace mvc.Controllers
         [HttpPost("Edit/{*slug}")]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Edit(string slug, string markdownInhalt)
+        public async Task<IActionResult> Edit(string slug, string markdownInhalt, string? kategorienRaw)
         {
-            return await Create(slug, markdownInhalt);
+            return await Create(slug, markdownInhalt, kategorienRaw);
         }
 
         /// <summary>

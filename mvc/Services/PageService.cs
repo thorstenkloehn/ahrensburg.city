@@ -16,6 +16,9 @@ public class PageService : IPageService
     private readonly ApplicationDbContext _context;
     private readonly MarkdownPipeline _pipeline;
     private readonly HtmlSanitizer _sanitizer;
+    
+    public const int MaxCategories = 10;
+    public const int MaxCategoryLength = 50;
 
     public PageService(ApplicationDbContext context)
     {
@@ -60,8 +63,21 @@ public class PageService : IPageService
             .FirstOrDefaultAsync(w => w.Slug == slug);
     }
 
-    public async Task ErstelleOderAktualisiereArtikelAsync(string slug, string markdownInhalt)
+    public async Task ErstelleOderAktualisiereArtikelAsync(string slug, string markdownInhalt, List<string>? kategorien = null)
     {
+        // Validierung
+        if (kategorien != null)
+        {
+            if (kategorien.Count > MaxCategories)
+                throw new ArgumentException($"Zu viele Kategorien (maximal {MaxCategories}).");
+
+            foreach (var kat in kategorien)
+            {
+                if (kat.Length > MaxCategoryLength)
+                    throw new ArgumentException($"Kategoriename '{kat}' ist zu lang (maximal {MaxCategoryLength} Zeichen).");
+            }
+        }
+
         var htmlInhalt = Markdown.ToHtml(markdownInhalt, _pipeline);
         var sanitizedHtml = _sanitizer.Sanitize(htmlInhalt);
 
@@ -82,7 +98,8 @@ public class PageService : IPageService
             {
                 MarkdownInhalt = markdownInhalt,
                 HtmlInhalt = sanitizedHtml,
-                Zeitpunkt = DateTime.UtcNow
+                Zeitpunkt = DateTime.UtcNow,
+                Kategorie = kategorien ?? new List<string>()
             };
 
             artikel.Versionen.Add(version);

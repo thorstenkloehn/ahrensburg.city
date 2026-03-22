@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="mvc.Tests/mvc.Tests.csproj" />
   <Project Path="mvc/mvc.csproj" />
   <Project Path="Services/Services.csproj" />
   <Project Path="UserAdmin/UserAdmin.csproj" />
