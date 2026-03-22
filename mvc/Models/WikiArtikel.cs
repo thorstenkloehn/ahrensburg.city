@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace mvc.Models;
 
 /// <summary>
 /// Repräsentiert einen Wiki-Artikel im System.
 /// </summary>
+[Index(nameof(Slug), IsUnique = true)]
 public class WikiArtikel
 {
     /// <summary>
