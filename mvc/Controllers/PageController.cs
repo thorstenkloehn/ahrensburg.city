@@ -6,9 +6,8 @@ using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Markdig;
 using Microsoft.AspNetCore.Authorization;
-using Ganss.Xss;
+using mvc.Services;
 
 namespace mvc.Controllers
 {
@@ -18,34 +17,15 @@ namespace mvc.Controllers
     public class PageController : Controller
     {
         
-        private readonly ApplicationDbContext _context;
-        private readonly MarkdownPipeline _pipeline;
-        private readonly HtmlSanitizer _sanitizer;
-
-        /// <summary>
-        /// Prüft, ob ein Slug gültig ist (keine verbotenen Zeichen, keine '..', keine doppelten oder führenden/trailing Slashes).
-        /// </summary>
-        private bool IstSlugGueltig(string slug)
-        {
-            if (string.IsNullOrEmpty(slug)) return false;
-            if (!Regex.IsMatch(slug, @"^[a-zA-Z0-9/_-]+$")) return false;
-            if (slug.Contains("..")) return false;
-            if (slug.Contains("//")) return false;
-            if (slug.StartsWith("/") || slug.EndsWith("/")) return false;
-            return true;
-        }
+        private readonly IPageService _pageService;
 
         /// <summary>
         /// Initialisiert eine neue Instanz des <see cref="PageController"/>.
         /// </summary>
-        /// <param name="context">Der Datenbankkontext.</param>
-        public PageController(ApplicationDbContext context)
+        /// <param name="pageService">Der Page Service.</param>
+        public PageController(IPageService pageService)
         {
-            _context = context;
-            _pipeline = new MarkdownPipelineBuilder()
-                .UseAdvancedExtensions()
-                .Build();
-            _sanitizer = new HtmlSanitizer();
+            _pageService = pageService;
         }
 
         /// <summary>
@@ -70,7 +50,7 @@ namespace mvc.Controllers
             // Slugs mit "/" werden von ASP.NET Core als echtes "/" im Pfad behandelt,
             // daher ist kein Uri.UnescapeDataString nötig.
 
-            if (!string.IsNullOrEmpty(slug) && !IstSlugGueltig(slug))
+            if (!string.IsNullOrEmpty(slug) && !_pageService.IstSlugGueltig(slug))
                 return InvalidSlugResult(slug);
 
             ViewBag.UrlSlug = slug;
@@ -89,7 +69,7 @@ namespace mvc.Controllers
         public async Task<IActionResult> Create(string slug, string markdownInhalt)
         {
 
-            if (!IstSlugGueltig(slug))
+            if (!_pageService.IstSlugGueltig(slug))
                 return InvalidSlugResult(slug);
 
             if (string.IsNullOrWhiteSpace(markdownInhalt))
@@ -98,40 +78,9 @@ namespace mvc.Controllers
             if (markdownInhalt.Length > 100000)
                 return BadRequest("Inhalt ist zu lang (maximal 100.000 Zeichen).");
 
-            var htmlInhalt = Markdown.ToHtml(markdownInhalt, _pipeline);
-            var sanitizedHtml = _sanitizer.Sanitize(htmlInhalt);
+            await _pageService.ErstelleOderAktualisiereArtikelAsync(slug, markdownInhalt);
 
-            using var transaction = await _context.Database.BeginTransactionAsync();
-            try
-            {
-                var artikel = await _context.WikiArtikels
-                    .Include(a => a.Versionen)
-                    .FirstOrDefaultAsync(a => a.Slug == slug);
-
-                if (artikel == null)
-                {
-                    artikel = new WikiArtikel { Slug = slug };
-                    _context.WikiArtikels.Add(artikel);
-                }
-
-                var version = new WikiArtikelVersion
-                {
-                    MarkdownInhalt = markdownInhalt,
-                    HtmlInhalt = sanitizedHtml,
-                    Zeitpunkt = DateTime.UtcNow
-                };
-
-                artikel.Versionen.Add(version);
-                await _context.SaveChangesAsync();
-                await transaction.CommitAsync();
-
-                return LocalRedirect("~/" + slug);
-            }
-            catch (Exception)
-            {
-                await transaction.RollbackAsync();
-                throw;
-            }
+            return LocalRedirect("~/" + slug);
         }
 
         /// <summary>
@@ -141,24 +90,15 @@ namespace mvc.Controllers
         /// <returns>Die Bearbeitungsansicht.</returns>
         [HttpGet("Edit/{*slug}")]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit(string slug)
+        public async Task<ActionResult> Edit(string slug)
         {
-            if (!IstSlugGueltig(slug))
+            if (!_pageService.IstSlugGueltig(slug))
                 return InvalidSlugResult(slug);
 
-            var artikel = _context.WikiArtikels
-                .FirstOrDefault(a => a.Slug == slug);
+            var artikel = await _pageService.GetArtikelMitNeuesterVersionAsync(slug);
 
             if (artikel == null)
                 return NotFound();
-
-            // Nur die neueste Version laden
-            var neuesteVersion = _context.WikiArtikelVersions
-                .Where(v => v.WikiArtikelId == artikel.Id)
-                .OrderByDescending(v => v.Zeitpunkt)
-                .FirstOrDefault();
-
-            artikel.Versionen = neuesteVersion != null ? new List<WikiArtikelVersion> { neuesteVersion } : new List<WikiArtikelVersion>();
 
             ViewBag.UrlSlug = slug;
             return View(artikel);
@@ -184,27 +124,16 @@ namespace mvc.Controllers
         /// <param name="slug">Der Slug der anzuzeigenden Seite.</param>
         /// <returns>Die Seite oder eine Fehlermeldung.</returns>
         [HttpGet("{*slug}")]
-        public ActionResult Index(string slug)
+        public async Task<ActionResult> Index(string slug)
         {
             if (string.IsNullOrEmpty(slug))
             {
                 slug = "Hauptseite";
             }
-            if (!IstSlugGueltig(slug))
+            if (!_pageService.IstSlugGueltig(slug))
                 return InvalidSlugResult(slug);
 
-            var artikel = _context.WikiArtikels
-                .FirstOrDefault(a => a.Slug == slug);
-
-            if (artikel != null)
-            {
-                // Nur die neueste Version laden
-                var neuesteVersion = _context.WikiArtikelVersions
-                    .Where(v => v.WikiArtikelId == artikel.Id)
-                    .OrderByDescending(v => v.Zeitpunkt)
-                    .FirstOrDefault();
-                artikel.Versionen = neuesteVersion != null ? new List<WikiArtikelVersion> { neuesteVersion } : new List<WikiArtikelVersion>();
-            }
+            var artikel = await _pageService.GetArtikelMitNeuesterVersionAsync(slug);
 
             ViewBag.UrlSlug = slug;
             return View(artikel);
@@ -217,17 +146,15 @@ namespace mvc.Controllers
         /// <returns>Die Historienansicht.</returns>
         [HttpGet("History/{*slug}")]
         [Authorize(Roles = "Admin")]
-        public ActionResult History(string slug)
+        public async Task<ActionResult> History(string slug)
         {
 
             if (string.IsNullOrEmpty(slug))
                 return InvalidSlugResult(slug);
-            if (!IstSlugGueltig(slug))
+            if (!_pageService.IstSlugGueltig(slug))
                 return InvalidSlugResult(slug);
 
-            var page = _context.WikiArtikels
-                .Include(a => a.Versionen)
-                .FirstOrDefault(w => w.Slug == slug);
+            var page = await _pageService.GetArtikelMitHistorieAsync(slug);
 
             if (page == null)
                 return NotFound();
