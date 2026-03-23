@@ -1,0 +1,39 @@
+@{
+    ViewData["Title"] = "404 - Seite nicht gefunden";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <div class="display-1 text-muted mb-4">404</div>
+            <h1 class="mb-4">Hoppla! Diese Seite scheint verschollen zu sein.</h1>
+            <p class="lead mb-5">
+                Wir konnten die von Ihnen gesuchte Seite nicht finden. Vielleicht haben Sie sich vertippt, 
+                oder die Seite wurde an einen anderen Ort verschoben.
+            </p>
+            
+            <div class="card bg-light border-0 shadow-sm mb-5">
+                <div class="card-body p-4">
+                    <h5 class="card-title">Was können Sie tun?</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2">🔍 Prüfen Sie die URL auf Tippfehler.</li>
+                        <li class="mb-2">🏠 Kehren Sie zur <a asp-controller="Home" asp-action="Index">Startseite</a> zurück.</li>
+                        <li>📅 Besuchen Sie die <a href="~/Hauptseite">Wiki-Hauptseite</a>.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primary btn-lg px-5">
+                Zurück zur Startseite
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .display-1 {
+        font-weight: 900;
+        letter-spacing: -2px;
+        opacity: 0.2;
+    }
+</style>

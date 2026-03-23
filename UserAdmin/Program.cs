@@ -46,7 +46,12 @@ class Program
         services.AddIdentity<IdentityUser, IdentityRole>(options => 
         {
             options.SignIn.RequireConfirmedAccount = true;
-            options.Password.RequiredLength = 6;
+            // Erhöht auf 12 Zeichen, passend zur Web-App
+            options.Password.RequiredLength = 12;
+            options.Password.RequireDigit = true;
+            options.Password.RequireLowercase = true;
+            options.Password.RequireUppercase = true;
+            options.Password.RequireNonAlphanumeric = true;
         })
         .AddEntityFrameworkStores<ApplicationDbContext>()
         .AddDefaultTokenProviders();
@@ -67,18 +72,16 @@ class Program
             // Prüfen, ob bereits ein Admin existiert
             var admins = (await userManager.GetUsersInRoleAsync("Admin")).ToList();
 
-            // Falls mehr als einer, alle außer dem ersten löschen (Anforderung: nur einer)
+            // WARNUNG statt automatischer Löschung
             if (admins.Count > 1)
             {
-                Console.WriteLine($"\n--- WICHTIG: Mehrere Administratoren gefunden ({admins.Count}) ---");
-                Console.WriteLine("Es ist nur ein Notfall-Administrator erlaubt. Zusätzliche werden gelöscht.");
-                var principalAdmin = admins[0];
-                for (int i = 1; i < admins.Count; i++)
+                Console.WriteLine($"\n--- WARNUNG: Mehrere Administratoren gefunden ({admins.Count}) ---");
+                Console.WriteLine("Aus Sicherheitsgründen wird empfohlen, nur einen Notfall-Administrator zu führen.");
+                Console.WriteLine("Aktuelle Administratoren:");
+                foreach (var a in admins)
                 {
-                    Console.WriteLine($"Lösche zusätzlichen Administrator: {admins[i].UserName}");
-                    await userManager.DeleteAsync(admins[i]);
+                    Console.WriteLine($"- {a.UserName}");
                 }
-                admins = new List<IdentityUser> { principalAdmin };
             }
 
             if (admins.Any())
@@ -87,7 +90,7 @@ class Program
                 while (true)
                 {
                     Console.WriteLine("\n--- Administrator Verwaltung ---");
-                    Console.WriteLine($"Aktueller Administrator: {admin.UserName}");
+                    Console.WriteLine($"Aktueller Fokus-Administrator: {admin.UserName}");
                     Console.WriteLine("1. Administrator Name (E-Mail) ändern");
                     Console.WriteLine("2. Administrator Passwort ändern");
                     Console.WriteLine("3. Beenden");
@@ -112,11 +115,9 @@ class Program
                     else if (choice == "2")
                     {
                         Console.Write("Neues Passwort: ");
-                        var newPassword = Console.ReadLine();
+                        var newPassword = ReadPassword();
                         if (!string.IsNullOrWhiteSpace(newPassword))
                         {
-                            // In einem Admin-Tool ist es oft sicherer, das Passwort direkt zu entfernen und neu zu setzen,
-                            // da Token-basierte Resets manchmal an Konfigurationen (wie Data Protection) scheitern können.
                             var removeResult = await userManager.RemovePasswordAsync(admin);
                             var addResult = await userManager.AddPasswordAsync(admin, newPassword);
                             
@@ -151,7 +152,7 @@ class Program
             if (string.IsNullOrWhiteSpace(username)) return;
 
             Console.Write("Admin Passwort             : ");
-            var password = Console.ReadLine();
+            var password = ReadPassword();
             if (string.IsNullOrWhiteSpace(password)) return;
 
             var user = new IdentityUser 
@@ -167,7 +168,7 @@ class Program
             {
                 await userManager.AddToRoleAsync(user, "Admin");
                 Console.WriteLine("\nERFOLG: Der Administrator wurde erstellt und die Rolle zugewiesen.");
-                Console.WriteLine("Dieser Account ist nun der einzige Admin für Notfälle.");
+                Console.WriteLine("Dieser Account ist nun der primäre Admin für Notfälle.");
             }
             else
             {
@@ -178,5 +179,36 @@ class Program
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// Liest ein Passwort von der Konsole ein, ohne es im Klartext anzuzeigen.
+    /// </summary>
+    static string ReadPassword()
+    {
+        string password = "";
+        while (true)
+        {
+            var key = Console.ReadKey(true);
+            if (key.Key == ConsoleKey.Enter)
+            {
+                Console.WriteLine();
+                break;
+            }
+            if (key.Key == ConsoleKey.Backspace)
+            {
+                if (password.Length > 0)
+                {
+                    password = password.Substring(0, password.Length - 1);
+                    Console.Write("\b \b");
+                }
+            }
+            else
+            {
+                password += key.KeyChar;
+                Console.Write("*");
+            }
+        }
+        return password;
     }
 }

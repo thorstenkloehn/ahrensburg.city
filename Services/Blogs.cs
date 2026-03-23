@@ -1,6 +1,6 @@
 ﻿namespace Services;
 
-public class Bloogs
+public class Blogs
 {
 
 }

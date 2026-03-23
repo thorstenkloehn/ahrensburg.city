@@ -47,8 +47,10 @@ namespace mvc.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Neuformular(string slug)
         {
-            // Slugs mit "/" werden von ASP.NET Core als echtes "/" im Pfad behandelt,
-            // daher ist kein Uri.UnescapeDataString nötig.
+            if (!string.IsNullOrEmpty(slug))
+            {
+                slug = System.Net.WebUtility.UrlDecode(slug);
+            }
 
             if (!string.IsNullOrEmpty(slug) && !_pageService.IstSlugGueltig(slug))
                 return InvalidSlugResult(slug);
@@ -68,6 +70,7 @@ namespace mvc.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(string slug, string markdownInhalt, string? kategorienRaw)
         {
+            slug = System.Net.WebUtility.UrlDecode(slug);
 
             if (!_pageService.IstSlugGueltig(slug))
                 return InvalidSlugResult(slug);
@@ -103,6 +106,8 @@ namespace mvc.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Edit(string slug)
         {
+            slug = System.Net.WebUtility.UrlDecode(slug);
+
             if (!_pageService.IstSlugGueltig(slug))
                 return InvalidSlugResult(slug);
 
@@ -126,6 +131,7 @@ namespace mvc.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(string slug, string markdownInhalt, string? kategorienRaw)
         {
+            slug = System.Net.WebUtility.UrlDecode(slug);
             return await Create(slug, markdownInhalt, kategorienRaw);
         }
 
@@ -141,10 +147,24 @@ namespace mvc.Controllers
             {
                 slug = "Hauptseite";
             }
+            else
+            {
+                slug = System.Net.WebUtility.UrlDecode(slug);
+            }
+
             if (!_pageService.IstSlugGueltig(slug))
                 return InvalidSlugResult(slug);
 
             var artikel = await _pageService.GetArtikelMitNeuesterVersionAsync(slug);
+
+            if (artikel == null)
+            {
+                if (User.IsInRole("Admin"))
+                {
+                    return RedirectToAction("Neuformular", new { slug = slug });
+                }
+                return NotFound();
+            }
 
             ViewBag.UrlSlug = slug;
             return View(artikel);
@@ -159,9 +179,11 @@ namespace mvc.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult> History(string slug)
         {
-
             if (string.IsNullOrEmpty(slug))
                 return InvalidSlugResult(slug);
+            
+            slug = System.Net.WebUtility.UrlDecode(slug);
+
             if (!_pageService.IstSlugGueltig(slug))
                 return InvalidSlugResult(slug);
 
