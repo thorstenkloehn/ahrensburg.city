@@ -10,12 +10,15 @@ using Markdig;
 using Microsoft.EntityFrameworkCore;
 using mvc.Data;
 using mvc.Models;
+using YamlDotNet.Serialization;
+using YamlDotNet.Serialization.NamingConventions;
 
 public class PageService : IPageService
 {
     private readonly ApplicationDbContext _context;
     private readonly MarkdownPipeline _pipeline;
     private readonly HtmlSanitizer _sanitizer;
+    private readonly IDeserializer _yamlDeserializer;
     
     public const int MaxCategories = 10;
     public const int MaxCategoryLength = 50;
@@ -25,8 +28,13 @@ public class PageService : IPageService
         _context = context;
         _pipeline = new MarkdownPipelineBuilder()
             .UseAdvancedExtensions()
+            .UseYamlFrontMatter()
             .Build();
         _sanitizer = new HtmlSanitizer();
+        _yamlDeserializer = new DeserializerBuilder()
+            .WithNamingConvention(PascalCaseNamingConvention.Instance)
+            .IgnoreUnmatchedProperties()
+            .Build();
     }
 
     public bool IstSlugGueltig(string slug)
@@ -65,6 +73,15 @@ public class PageService : IPageService
 
     public async Task ErstelleOderAktualisiereArtikelAsync(string slug, string markdownInhalt, List<string>? kategorien = null)
     {
+        // YAML Frontmatter Extraktion
+        var (extrahiertKategorien, _) = ExtrahiereMetadaten(markdownInhalt);
+        
+        // YAML ist die primäre Quelle für Kategorien.
+        if (extrahiertKategorien != null)
+        {
+            kategorien = extrahiertKategorien;
+        }
+
         // Validierung
         if (kategorien != null)
         {
@@ -111,5 +128,110 @@ public class PageService : IPageService
             await transaction.RollbackAsync();
             throw;
         }
+    }
+
+    public async Task<List<WikiArtikel>> GetArtikelNachKategorieAsync(string kategorie)
+    {
+        // 1. Wir suchen alle Artikel-IDs, die ÜBERHAUPT jemals dieser Kategorie zugeordnet waren.
+        // Das reduziert die Datenmenge massiv und ist einfach zu übersetzen.
+        var moeglicheArtikelIds = await _context.WikiArtikelVersions
+            .Where(v => v.Kategorie.Contains(kategorie))
+            .Select(v => v.WikiArtikelId)
+            .Distinct()
+            .ToListAsync();
+
+        if (!moeglicheArtikelIds.Any())
+            return new List<WikiArtikel>();
+
+        // 2. Wir laden die Versions-Metadaten dieser Artikel, um die aktuellste Version zu bestimmen.
+        // Wir filtern im Speicher (Client-side), da EF Core GroupBy.First() oft nicht übersetzen kann.
+        var alleVersionenDerKandidaten = await _context.WikiArtikelVersions
+            .Where(v => moeglicheArtikelIds.Contains(v.WikiArtikelId))
+            .Select(v => new { v.WikiArtikelId, v.Zeitpunkt, v.Kategorie })
+            .ToListAsync();
+
+        var valideArtikelIds = alleVersionenDerKandidaten
+            .GroupBy(v => v.WikiArtikelId)
+            .Select(g => g.OrderByDescending(v => v.Zeitpunkt).First())
+            .Where(v => v.Kategorie.Contains(kategorie))
+            .Select(v => v.WikiArtikelId)
+            .ToList();
+
+        // 3. Die eigentlichen Artikel laden.
+        return await _context.WikiArtikels
+            .Where(a => valideArtikelIds.Contains(a.Id))
+            .OrderBy(a => a.Slug)
+            .ToListAsync();
+    }
+
+    public async Task<bool> WiederherstellenAsync(long versionNummer)
+    {
+        var alteVersion = await _context.WikiArtikelVersions
+            .Include(v => v.WikiArtikel)
+            .FirstOrDefaultAsync(v => v.VersionNummer == versionNummer);
+
+        if (alteVersion == null || alteVersion.WikiArtikel == null)
+            return false;
+
+        // Wir erstellen eine NEUE Version mit dem Inhalt der alten Version
+        // So bleibt die Historie linear und nachvollziehbar
+        var neueVersion = new WikiArtikelVersion
+        {
+            WikiArtikelId = alteVersion.WikiArtikelId,
+            MarkdownInhalt = alteVersion.MarkdownInhalt,
+            HtmlInhalt = alteVersion.HtmlInhalt,
+            Kategorie = alteVersion.Kategorie ?? new List<string>(),
+            Zeitpunkt = DateTime.UtcNow
+        };
+
+        _context.WikiArtikelVersions.Add(neueVersion);
+        await _context.SaveChangesAsync();
+        return true;
+    }
+
+    public async Task<WikiArtikelVersion?> GetVersionAsync(long versionNummer)
+    {
+        return await _context.WikiArtikelVersions
+            .Include(v => v.WikiArtikel)
+            .FirstOrDefaultAsync(v => v.VersionNummer == versionNummer);
+    }
+
+    private (List<string>? kategorien, string inhalt) ExtrahiereMetadaten(string markdown)
+    {
+        if (string.IsNullOrWhiteSpace(markdown)) return (null, markdown);
+
+        // Verbesserte Regex für YAML Frontmatter (beachtet verschiedene Zeilenumbrüche)
+        var r = new Regex(@"^---\s*[\r\n]+(.*?)\s*[\r\n]+---\s*[\r\n]+", RegexOptions.Singleline);
+        var match = r.Match(markdown);
+
+        if (match.Success)
+        {
+            var yaml = match.Groups[1].Value;
+            try
+            {
+                var metadata = _yamlDeserializer.Deserialize<Dictionary<string, object>>(yaml);
+                if (metadata != null)
+                {
+                    var key = metadata.Keys.FirstOrDefault(k => k.Equals("Kategorie", StringComparison.OrdinalIgnoreCase) 
+                                                              || k.Equals("Categories", StringComparison.OrdinalIgnoreCase));
+                    
+                    if (key != null)
+                    {
+                        var value = metadata[key];
+                        if (value is List<object> list)
+                        {
+                            return (list.Select(o => o.ToString() ?? "").Where(s => !string.IsNullOrEmpty(s)).ToList(), markdown);
+                        }
+                        else if (value is string s)
+                        {
+                            return (new List<string> { s }, markdown);
+                        }
+                    }
+                }
+            }
+            catch { }
+        }
+
+        return (null, markdown);
     }
 }

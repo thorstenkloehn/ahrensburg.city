@@ -26,12 +26,21 @@
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h1>@Model.Slug</h1>
             <div>
-            @if (User?.Identity?.IsAuthenticated ?? false)
-            {
-                <a href="~/Edit/@Model.Slug" class="btn btn-outline-primary btn-sm">Bearbeiten</a>
-            }
+                @if (User.IsInRole("Admin"))
+                {
+                    <a href="~/History/@Model.Slug" class="btn btn-outline-info btn-sm me-1">Historie</a>
+                    <a href="~/Edit/@Model.Slug" class="btn btn-outline-primary btn-sm">Bearbeiten</a>
+                }
             </div>
         </div>
+
+        @if (ViewData["IsOldVersion"] != null)
+        {
+            <div class="alert alert-warning">
+                <strong>Hinweis:</strong> Sie betrachten eine alte Version dieses Artikels. 
+                <a href="~/@Model.Slug" class="btn btn-link btn-sm p-0 mb-1">Zur aktuellen Version wechseln</a>
+            </div>
+        }
 
         <div class="markdown-body">
             @if (latestVersion != null)
@@ -47,7 +56,21 @@
         @if (latestVersion != null)
         {
             <hr />
-            <div class="text-muted small">
+            <div class="mt-2">
+                <strong>Kategorien:</strong>
+                @if (latestVersion.Kategorie != null && latestVersion.Kategorie.Any())
+                {
+                    @foreach (var kat in latestVersion.Kategorie)
+                    {
+                        <a href="~/Kategorie/@kat" class="badge bg-info text-dark text-decoration-none me-1">@kat</a>
+                    }
+                }
+                else
+                {
+                    <span class="text-muted italic">Keine</span>
+                }
+            </div>
+            <div class="text-muted small mt-2">
                 Zuletzt aktualisiert am @latestVersion.Zeitpunkt.ToString("dd.MM.yyyy HH:mm")
             </div>
         }

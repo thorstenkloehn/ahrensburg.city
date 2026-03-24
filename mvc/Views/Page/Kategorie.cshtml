@@ -1,0 +1,43 @@
+@model List<WikiArtikel>
+
+@{
+    ViewData["Title"] = "Kategorie: " + ViewData["Kategorie"];
+}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Kategorie: @ViewData["Kategorie"]</li>
+  </ol>
+</nav>
+
+<div class="category-index">
+    <h1>Artikel in der Kategorie "@ViewData["Kategorie"]"</h1>
+    <hr />
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info">
+            Es wurden keine Artikel in dieser Kategorie gefunden.
+        </div>
+    }
+    else
+    {
+        <div class="list-group mt-4">
+            @foreach (var artikel in Model)
+            {
+                <a href="~/@artikel.Slug" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="mb-1">@artikel.Slug</h5>
+                        <small class="text-muted">Slug: /@artikel.Slug</small>
+                    </div>
+                    <span class="badge bg-primary rounded-pill">Ansehen</span>
+                </a>
+            }
+        </div>
+    }
+
+    <div class="mt-4">
+        <a href="/" class="btn btn-secondary">Zurück zur Startseite</a>
+    </div>
+</div>

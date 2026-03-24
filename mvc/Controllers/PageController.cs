@@ -136,6 +136,107 @@ namespace mvc.Controllers
         }
 
         /// <summary>
+        /// Zeigt alle Wiki-Artikel einer bestimmten Kategorie an.
+        /// </summary>
+        /// <param name="kategorie">Die gewünschte Kategorie.</param>
+        /// <returns>Eine Übersicht der Artikel.</returns>
+        [HttpGet("Kategorie/{kategorie}")]
+        public async Task<ActionResult> Kategorie(string kategorie)
+        {
+            if (string.IsNullOrEmpty(kategorie))
+                return RedirectToAction("Index", "Page");
+
+            var artikel = await _pageService.GetArtikelNachKategorieAsync(kategorie);
+            ViewData["Kategorie"] = kategorie;
+            return View(artikel);
+        }
+
+        /// <summary>
+        /// Zeigt die Fehler-Seite an.
+        /// </summary>
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        [Route("Error")]
+        public IActionResult Error()
+        {
+            return View("../Shared/Error", new ErrorViewModel { RequestId = System.Diagnostics.Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        /// <summary>
+        /// Setzt einen Artikel auf eine bestimmte Version zurück.
+        /// </summary>
+        /// <param name="versionNummer">Die Nummer der Version, die wiederhergestellt werden soll.</param>
+        /// <param name="slug">Der Slug des Artikels (für den Redirect).</param>
+        [HttpPost("Restore/{versionNummer}")]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Restore(long versionNummer, string slug)
+        {
+            var success = await _pageService.WiederherstellenAsync(versionNummer);
+            if (!success)
+                return NotFound();
+
+            return LocalRedirect("~/" + slug);
+        }
+
+        /// <summary>
+        /// Vergleicht zwei Versionen eines Artikels (Diff-Ansicht).
+        /// </summary>
+        [HttpGet("Compare/{*slug}")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Compare(string slug, long? v1, long? v2)
+        {
+            if (v1 == null || v2 == null) return BadRequest("Zwei Versionen müssen zum Vergleich angegeben werden.");
+            
+            var artikel = await _pageService.GetArtikelMitHistorieAsync(slug);
+            if (artikel == null) return NotFound();
+
+            var version1 = artikel.Versionen.FirstOrDefault(v => v.VersionNummer == v1);
+            var version2 = artikel.Versionen.FirstOrDefault(v => v.VersionNummer == v2);
+
+            if (version1 == null || version2 == null) return NotFound("Eine oder beide Versionen wurden nicht gefunden.");
+
+            // Wir sortieren so, dass v1 die ältere und v2 die neuere Version ist (chronologisch)
+            if (version1.Zeitpunkt > version2.Zeitpunkt)
+            {
+                var temp = version1;
+                version1 = version2;
+                version2 = temp;
+            }
+
+            ViewData["v1"] = version1;
+            ViewData["v2"] = version2;
+            ViewData["Slug"] = slug;
+
+            var differ = new DiffPlex.DiffBuilder.InlineDiffBuilder(new DiffPlex.Differ());
+            var diff = differ.BuildDiffModel(version1.MarkdownInhalt ?? "", version2.MarkdownInhalt ?? "");
+
+            return View(diff);
+        }
+
+        /// <summary>
+        /// Zeigt eine spezifische historische Version eines Artikels an.
+        /// </summary>
+        [HttpGet("Version/{versionNummer}")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Version(long versionNummer)
+        {
+            var version = await _pageService.GetVersionAsync(versionNummer);
+
+            if (version == null || version.WikiArtikel == null)
+                return NotFound();
+
+            ViewData["IsOldVersion"] = true;
+            ViewData["Slug"] = version.WikiArtikel.Slug;
+            
+            // Wir "faken" ein WikiArtikel Objekt für die View, 
+            // das nur diese eine Version in der Liste hat.
+            var artikel = version.WikiArtikel;
+            artikel.Versionen = new List<WikiArtikelVersion> { version };
+
+            return View("Index", artikel);
+        }
+
+        /// <summary>
         /// Zeigt eine Wiki-Seite an. Wenn kein Slug angegeben ist, wird die "Hauptseite" geladen.
         /// </summary>
         /// <param name="slug">Der Slug der anzuzeigenden Seite.</param>

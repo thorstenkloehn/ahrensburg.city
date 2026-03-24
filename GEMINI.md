@@ -83,6 +83,6 @@ MeinCMS ist ein leichtgewichtiges Content-Management-System (CMS) mit Wiki-ähnl
 - [x] **Datenbank:** Eindeutigen Index für `Slug` in `WikiArtikel` hinzufügen.
 - [x] **Features:** Korrektur und Vorbereitung der Blog-Funktion (ehemals `Bloogs`).
 - [x] **Sicherheit:** Maskierung der Passworteingabe im UserAdmin-Tool.
-- [ ] **Features:** Implementierung eines Datei-/Bildupload-Systems.
+- [x] **Sicherheit:** Datei-/Bilduploads wurden aus Sicherheitsgründen explizit untersagt und sind nicht implementiert.
 - [ ] Hinzufügen von Unit- und Integrationstests.
 - [ ] Unterstützung für Themes oder CSS-Anpassungen.

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Versionshistorie: " + (Model?.Slug ?? ViewBag.UrlSlug);
 }
 
-<h2>Versionshistorie für: @Model.Slug</h2>
+<h2>Versionshistorie für: @(Model?.Slug ?? ViewBag.UrlSlug)</h2>
 
 @if (Model?.Versionen == null || !Model.Versionen.Any())
 {
@@ -12,30 +12,60 @@
 }
 else
 {
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Datum</th>
-                <th>Vorschau</th>
-            </tr>
-        </thead>
-        <tbody>
-        @for (int i = 0; i < Model.Versionen.Count; i++)
-        {
-            var version = Model.Versionen.OrderByDescending(v => v.Zeitpunkt).ToList()[i];
-            <tr>
-                <td>@(i + 1)</td>
-                <td>@version.Zeitpunkt.ToString("dd.MM.yyyy HH:mm")</td>
-                <td>
-                    <div style="max-width:400px; max-height:80px; overflow:auto; border:1px solid #eee; padding:4px;">
-                        @Html.Raw(version.HtmlInhalt?.Length > 200 ? version.HtmlInhalt.Substring(0, 200) + "..." : version.HtmlInhalt)
-                    </div>
-                </td>
-            </tr>
-        }
-        </tbody>
-    </table>
+    <form action="~/Compare/@(Model?.Slug ?? ViewBag.UrlSlug)" method="get">
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary btn-sm">Gewählte Versionen vergleichen</button>
+        </div>
+
+        <table class="table table-hover align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th style="width: 40px;">v1</th>
+                    <th style="width: 40px;">v2</th>
+                    <th>Datum</th>
+                    <th>Benutzer</th>
+                    <th>Aktion</th>
+                </tr>
+            </thead>
+            <tbody>
+            @{
+                var versionen = Model?.Versionen?.OrderByDescending(v => v.Zeitpunkt).ToList() ?? new List<WikiArtikelVersion>();
+            }
+            @for (int i = 0; i < versionen.Count; i++)
+            {
+                var version = versionen[i];
+                <tr>
+                    <td>
+                        <input type="radio" name="v1" value="@version.VersionNummer" @(i == 1 ? "checked" : "") />
+                    </td>
+                    <td>
+                        <input type="radio" name="v2" value="@version.VersionNummer" @(i == 0 ? "checked" : "") />
+                    </td>
+                    <td>
+                        <a href="~/Version/@version.VersionNummer" class="text-nowrap">@version.Zeitpunkt.ToString("dd.MM.yyyy HH:mm")</a>
+                    </td>
+                    <td>
+                        <span class="badge bg-secondary">System</span>
+                    </td>
+                    <td>
+                        <div class="d-flex gap-1">
+                            @if (i == 0)
+                            {
+                                <span class="badge bg-success">Aktuell</span>
+                            }
+                            else if (User.IsInRole("Admin"))
+                            {
+                                <form asp-action="Restore" asp-route-versionNummer="@version.VersionNummer" asp-route-slug="@(Model?.Slug ?? "")" method="post" class="d-inline" onsubmit="return confirm('Wirklich zurücksetzen?');">
+                                    <button type="submit" class="btn btn-warning btn-sm py-0 px-2">Zurücksetzen</button>
+                                </form>
+                            }
+                        </div>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </form>
 }
 
-<a href="~/@Model.Slug" class="btn btn-secondary">Zurück zur Seite</a>
+<a href="~/@(Model?.Slug ?? "")" class="btn btn-secondary">Zurück zur Seite</a>

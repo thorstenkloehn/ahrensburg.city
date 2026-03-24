@@ -1,0 +1,58 @@
+@model DiffPlex.DiffBuilder.Model.DiffPaneModel
+@using DiffPlex.DiffBuilder.Model
+
+@{
+    var v1 = ViewData["v1"] as WikiArtikelVersion;
+    var v2 = ViewData["v2"] as WikiArtikelVersion;
+    ViewData["Title"] = "Vergleich: " + ViewData["Slug"];
+}
+
+<h2>Unterschiede für: @ViewData["Slug"]</h2>
+<p class="text-muted">Vergleich von Version (@(v1?.Zeitpunkt.ToString("dd.MM.yyyy HH:mm") ?? "Unbekannt")) mit Version (@(v2?.Zeitpunkt.ToString("dd.MM.yyyy HH:mm") ?? "Unbekannt"))</p>
+
+<div class="diff-container p-3 border bg-white shadow-sm">
+    <div class="table-responsive">
+        <table class="table table-sm border-0 font-monospace" style="font-family: monospace; font-size: 0.9rem;">
+            <tbody>
+                @foreach (var line in Model.Lines)
+                {
+                    string bgColor = "";
+                    string prefix = "  ";
+                    string textColor = "text-dark";
+
+                    switch (line.Type)
+                    {
+                        case ChangeType.Inserted:
+                            bgColor = "bg-success bg-opacity-10";
+                            prefix = "+ ";
+                            textColor = "text-success";
+                            break;
+                        case ChangeType.Deleted:
+                            bgColor = "bg-danger bg-opacity-10";
+                            prefix = "- ";
+                            textColor = "text-danger";
+                            break;
+                        case ChangeType.Unchanged:
+                            prefix = "  ";
+                            break;
+                    }
+
+                    <tr class="@bgColor">
+                        <td class="text-end text-muted border-0 pe-3 select-none" style="width: 50px; border-right: 1px solid #dee2e6 !important;">
+                             @(line.Position.HasValue ? line.Position.Value.ToString() : "")
+                        </td>
+                        <td class="border-0 ps-3 @textColor" style="white-space: pre-wrap;">@prefix@line.Text</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="mt-4">
+    <a href="~/History/@ViewData["Slug"]" class="btn btn-secondary">Zurück zur Historie</a>
+</div>
+
+<style>
+    .select-none { user-select: none; }
+</style>
