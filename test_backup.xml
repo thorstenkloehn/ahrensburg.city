@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfWikiArtikel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <WikiArtikel>
+    <Id>3</Id>
+    <TenantId>main</TenantId>
+    <Slug>impressum</Slug>
+    <Versionen>
+      <WikiArtikelVersion>
+        <VersionNummer>18</VersionNummer>
+        <TenantId>main</TenantId>
+        <MarkdownInhalt>---
+Kategorie: [Datenschutz]
+---
+
+## Test Seite</MarkdownInhalt>
+        <HtmlInhalt>&lt;h2&gt;Test Seite&lt;/h2&gt;
+</HtmlInhalt>
+        <Zeitpunkt>2026-03-24T20:07:55.025053Z</Zeitpunkt>
+        <Kategorie>
+          <string>Datenschutz</string>
+        </Kategorie>
+        <WikiArtikelId>3</WikiArtikelId>
+      </WikiArtikelVersion>
+    </Versionen>
+  </WikiArtikel>
+</ArrayOfWikiArtikel>

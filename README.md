@@ -54,6 +54,21 @@ Die Anwendung erkennt den Mandanten automatisch anhand des aufgerufenen Hostname
 dotnet run --project UserAdmin
 ```
 
+### Backup & Inhalts-Migration (backup)
+Das spezialisierte Backup-Tool ermöglicht den Export und Import von Wiki-Inhalten (ohne Benutzerdaten) über alle Mandanten hinweg.
+
+#### 1. Backup/Export (Inhalte sichern)
+```bash
+dotnet run --project backup -- export --full
+```
+*Dies erstellt die Datei `meincms_full_backup.xml` mit allen Artikeln und deren vollständiger Historie.*
+
+#### 2. Import (Inhalte einspielen/aktualisieren)
+```bash
+dotnet run --project backup -- import meincms_full_backup.xml
+```
+*Nutzt eine intelligente Upsert-Logik: Existierende Artikel werden um neue Versionen ergänzt, fehlende Artikel werden neu angelegt.*
+
 ## 🛡️ Sicherheit & Architektur
 
 MeinCMS wurde mehreren Sicherheits-Audits unterzogen (Stand 24. März 2026):
@@ -119,8 +134,10 @@ location / {
 
 - `mvc/`: Die ASP.NET Core MVC Webanwendung (Wiki).
 - `Services/`: Gemeinsame Geschäftslogik (Wiki-Dienste, Mandanten-Dienst, Blogs).
-- `UserAdmin/`: Konsolenanwendung für administrative Zwecke.
+- `UserAdmin/`: Konsolenanwendung für die Benutzerverwaltung.
+- `backup/`: Spezialisiertes Tool für XML-Export und -Import von Wiki-Inhalten.
 - `bericht/`: Detaillierte Sicherheits-Audit-Berichte.
+- `docs/`: Statisch generierte Projektdokumentation (DocFX).
 
 ## 🚀 Deployment
 

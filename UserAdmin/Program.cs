@@ -89,11 +89,13 @@ class Program
                 var admin = admins.First();
                 while (true)
                 {
-                    Console.WriteLine("\n--- Administrator Verwaltung ---");
+                    Console.WriteLine("\n--- Administrator & Backup Verwaltung ---");
                     Console.WriteLine($"Aktueller Fokus-Administrator: {admin.UserName}");
                     Console.WriteLine("1. Administrator Name (E-Mail) ändern");
                     Console.WriteLine("2. Administrator Passwort ändern");
-                    Console.WriteLine("3. Beenden");
+                    Console.WriteLine("3. Wiki-Inhalt als XML exportieren (Backup)");
+                    Console.WriteLine("4. Wiki-Inhalt aus XML importieren (Hinzufügen/Updaten)");
+                    Console.WriteLine("5. Beenden");
                     Console.Write("Wählen Sie eine Option: ");
                     var choice = Console.ReadLine();
 
@@ -137,6 +139,14 @@ class Program
                     }
                     else if (choice == "3")
                     {
+                        await ExportToXml(scope.ServiceProvider.GetRequiredService<ApplicationDbContext>());
+                    }
+                    else if (choice == "4")
+                    {
+                        await ImportFromXml(scope.ServiceProvider.GetRequiredService<ApplicationDbContext>());
+                    }
+                    else if (choice == "5")
+                    {
                         break;
                     }
                 }
@@ -179,6 +189,105 @@ class Program
                 }
             }
         }
+    }
+
+    static async Task ExportToXml(ApplicationDbContext context)
+    {
+        Console.Write("Dateiname für Backup (z.B. backup.xml): ");
+        var fileName = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(fileName)) return;
+
+        var artikel = await context.WikiArtikels
+            .IgnoreQueryFilters()
+            .Include(a => a.Versionen)
+            .AsNoTracking()
+            .ToListAsync();
+
+        var serializer = new System.Xml.Serialization.XmlSerializer(typeof(List<mvc.Models.WikiArtikel>));
+        using (var writer = new StreamWriter(fileName))
+        {
+            serializer.Serialize(writer, artikel);
+        }
+
+        Console.WriteLine($"\nERFOLG: {artikel.Count} Artikel wurden in {fileName} gesichert.");
+    }
+
+    static async Task ImportFromXml(ApplicationDbContext context)
+    {
+        Console.Write("Dateiname der Backup-Datei (XML): ");
+        var fileName = Console.ReadLine();
+        if (string.IsNullOrWhiteSpace(fileName) || !File.Exists(fileName))
+        {
+            Console.WriteLine("Fehler: Datei nicht gefunden.");
+            return;
+        }
+
+        List<mvc.Models.WikiArtikel>? importDaten;
+        var serializer = new System.Xml.Serialization.XmlSerializer(typeof(List<mvc.Models.WikiArtikel>));
+        
+        using (var reader = new StreamReader(fileName))
+        {
+            importDaten = serializer.Deserialize(reader) as List<mvc.Models.WikiArtikel>;
+        }
+
+        if (importDaten == null)
+        {
+            Console.WriteLine("Fehler: XML konnte nicht geladen werden.");
+            return;
+        }
+
+        Console.WriteLine($"Starte Import von {importDaten.Count} Artikeln...");
+        int neueArtikel = 0;
+        int neueVersionen = 0;
+
+        foreach (var backupArtikel in importDaten)
+        {
+            // 1. Artikel finden oder erstellen
+            var dbArtikel = await context.WikiArtikels
+                .FirstOrDefaultAsync(a => a.Slug == backupArtikel.Slug && a.TenantId == backupArtikel.TenantId);
+            
+            if (dbArtikel == null)
+            {
+                dbArtikel = new mvc.Models.WikiArtikel 
+                { 
+                    Slug = backupArtikel.Slug, 
+                    TenantId = backupArtikel.TenantId 
+                };
+                context.WikiArtikels.Add(dbArtikel);
+                await context.SaveChangesAsync();
+                neueArtikel++;
+            }
+
+            // 2. Versionen hinzufügen (Check über Zeitpunkt, um Duplikate zu vermeiden)
+            if (backupArtikel.Versionen != null)
+            {
+                foreach (var v in backupArtikel.Versionen.OrderBy(x => x.Zeitpunkt))
+                {
+                    bool existiertBereits = await context.WikiArtikelVersions
+                        .AnyAsync(ev => ev.WikiArtikelId == dbArtikel.Id && ev.Zeitpunkt == v.Zeitpunkt);
+
+                    if (!existiertBereits)
+                    {
+                        var neueVersion = new mvc.Models.WikiArtikelVersion
+                        {
+                            WikiArtikelId = dbArtikel.Id,
+                            TenantId = dbArtikel.TenantId,
+                            MarkdownInhalt = v.MarkdownInhalt,
+                            HtmlInhalt = v.HtmlInhalt,
+                            Kategorie = v.Kategorie,
+                            Zeitpunkt = v.Zeitpunkt
+                        };
+                        context.WikiArtikelVersions.Add(neueVersion);
+                        neueVersionen++;
+                    }
+                }
+            }
+        }
+
+        await context.SaveChangesAsync();
+        Console.WriteLine($"\nIMPORT ABGESCHLOSSEN:");
+        Console.WriteLine($"- Neue Artikel angelegt: {neueArtikel}");
+        Console.WriteLine($"- Neue Versionen hinzugefügt: {neueVersionen}");
     }
 
     /// <summary>

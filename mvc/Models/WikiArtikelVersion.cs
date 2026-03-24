@@ -16,6 +16,8 @@ public class WikiArtikelVersion
 
     // Fremdschlüssel zum zugehörigen WikiArtikel
     public long WikiArtikelId { get; set; }
+    
+    [System.Xml.Serialization.XmlIgnore]
     public WikiArtikel? WikiArtikel { get; set; }
 
 }
