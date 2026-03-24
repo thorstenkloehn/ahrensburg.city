@@ -1,39 +1,55 @@
 @{
-    ViewData["Title"] = "404 - Seite nicht gefunden";
+    ViewData["Title"] = "404 - Kein Artikel vorhanden";
 }
 
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8 text-center">
-            <div class="display-1 text-muted mb-4">404</div>
-            <h1 class="mb-4">Hoppla! Diese Seite scheint verschollen zu sein.</h1>
-            <p class="lead mb-5">
-                Wir konnten die von Ihnen gesuchte Seite nicht finden. Vielleicht haben Sie sich vertippt, 
-                oder die Seite wurde an einen anderen Ort verschoben.
-            </p>
-            
-            <div class="card bg-light border-0 shadow-sm mb-5">
-                <div class="card-body p-4">
-                    <h5 class="card-title">Was können Sie tun?</h5>
-                    <ul class="list-unstyled mb-0">
-                        <li class="mb-2">🔍 Prüfen Sie die URL auf Tippfehler.</li>
-                        <li class="mb-2">🏠 Kehren Sie zur <a asp-controller="Home" asp-action="Index">Startseite</a> zurück.</li>
-                        <li>📅 Besuchen Sie die <a href="~/Hauptseite">Wiki-Hauptseite</a>.</li>
-                    </ul>
+            <div class="error-container p-5 shadow-lg rounded-4 bg-white border border-light">
+                <div class="display-1 text-danger fw-bold mb-3">404</div>
+                <h1 class="h2 mb-4 text-dark">Kein Artikel vorhanden</h1>
+                
+                <p class="lead text-muted mb-5">
+                    Die von Ihnen gesuchte Seite konnte nicht gefunden werden. 
+                    Möglicherweise existiert dieser Artikel noch nicht oder die URL ist falsch.
+                </p>
+
+                <hr class="my-4 mx-auto w-25 border-danger">
+
+                <div class="mt-5">
+                    <a href="/" class="btn btn-primary btn-lg px-5">
+                        <i class="bi bi-house-door me-2"></i>Zur Startseite
+                    </a>
+                </div>
+
+                <div class="mt-5 pt-4 text-start">
+                    <div class="alert alert-info border-0 shadow-sm" role="alert">
+                        <h5 class="alert-heading small fw-bold text-uppercase mb-2">Tipps:</h5>
+                        <ul class="list-unstyled small mb-0">
+                            <li class="mb-1">🔍 Überprüfen Sie die Groß- und Kleinschreibung des Slugs.</li>
+                            <li>🔑 Melden Sie sich als Administrator an, um diesen Artikel neu zu erstellen.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-
-            <a asp-controller="Home" asp-action="Index" class="btn btn-primary btn-lg px-5">
-                Zurück zur Startseite
-            </a>
         </div>
     </div>
 </div>
 
 <style>
+    body {
+        background-color: #f8f9fa;
+    }
+    .error-container {
+        border-top: 5px solid #dc3545;
+        transition: transform 0.3s ease;
+    }
+    .error-container:hover {
+        transform: translateY(-5px);
+    }
     .display-1 {
-        font-weight: 900;
-        letter-spacing: -2px;
-        opacity: 0.2;
+        font-size: 7rem;
+        line-height: 1;
+        letter-spacing: -3px;
     }
 </style>

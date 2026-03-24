@@ -1,6 +1,14 @@
 # MeinCMS
 
-MeinCMS ist ein leichtgewichtiges Content-Management-System (CMS) mit Wiki-Funktionalität, entwickelt mit **ASP.NET Core MVC 10.0** und **PostgreSQL**. Das System ist für maximale Sicherheit und Einfachheit optimiert.
+MeinCMS ist ein leichtgewichtiges Content-Management-System (CMS) mit Wiki-Funktionalität und nativer **Multi-Tenancy** (Mandantenfähigkeit), entwickelt mit **ASP.NET Core MVC 10.0** und **PostgreSQL**. Das System ermöglicht den Betrieb mehrerer Domains auf einer einzigen Instanz bei strikter Datentrennung.
+
+## 🌟 Hauptmerkmale
+
+*   **Multi-Tenancy**: Betreiben Sie `domain-a.tld` und `domain-b.tld` mit unterschiedlichen Inhalten auf derselben Anwendung.
+*   **Sichere Datentrennung**: Automatische Filterung aller Datenbankabfragen via Global Query Filters.
+*   **Wiki-Kern**: Dynamisches Routing, Markdown-Unterstützung und YAML-Metadaten.
+*   **Versionierung**: Lückenlose Historie aller Änderungen mit Diff-Ansicht für Administratoren.
+*   **Security by Design**: Kein Datei-Upload, HtmlSanitizer für Markdown, gehärtete Identity-Policies.
 
 ## 🛠 Voraussetzungen
 
@@ -19,7 +27,14 @@ Bevor Sie das Projekt starten, müssen folgende Komponenten auf Ihrem System ins
 ```bash
 cp mvc/_appsettings.json mvc/appsettings.json
 ```
-*Passen Sie den Connection-String in `mvc/appsettings.json` an.*
+*Passen Sie den Connection-String und das **Tenants-Mapping** in `mvc/appsettings.json` an:*
+
+```json
+"Tenants": {
+  "meine-domain.de": "main",
+  "doc.meine-domain.de": "doc"
+}
+```
 
 ### 2. Datenbank-Migrationen anwenden
 ```bash
@@ -32,7 +47,7 @@ dotnet ef database update --project mvc
 ```bash
 dotnet run --project mvc
 ```
-Die Anwendung ist unter `http://localhost:5000` erreichbar.
+Die Anwendung erkennt den Mandanten automatisch anhand des aufgerufenen Hostnamens.
 
 ### Benutzeradministration (UserAdmin)
 ```bash
@@ -41,42 +56,72 @@ dotnet run --project UserAdmin
 
 ## 🛡️ Sicherheit & Architektur
 
-MeinCMS wurde mehreren Sicherheits-Audits unterzogen (Stand März 2026):
+MeinCMS wurde mehreren Sicherheits-Audits unterzogen (Stand 24. März 2026):
 
+- **Mandantentrennung**: Technisch erzwungene Trennung auf Datenbankebene (Global Query Filters).
 - **XSS-Schutz**: Alle Wiki-Inhalte werden via `HtmlSanitizer` bereinigt.
 - **Identity**: Gehärtete Password-Policy (min. 12 Zeichen) und Account-Lockout.
 - **Angriffsfläche**: `HomeController` entfernt, Wiki-only Routing.
-- **Keine Uploads**: Datei-Uploads sind explizit nicht implementiert, um RCE-Risiken zu eliminieren.
-- **Administration**: Benutzerverwaltung erfolgt offline/lokal via CLI-Tool.
-
-## 🚩 Meilensteine
-
-- [x] **M1: Fundament & Daten**: Projekt-Setup mit .NET 10 & PostgreSQL.
-- [x] **M2: Wiki-Kern**: Dynamisches Routing & Versionierung.
-- [x] **M3: Sicherheit & Identity**: Auth-Integration, XSS-Schutz & Password Policy.
-- [x] **M4: Versionskontrolle**: Diff-Ansicht für Artikelversionen.
-- [ ] **M5: Qualitätssicherung**: Unit- & Integrationstests (In Arbeit).
 
 ## 🗺️ Roadmap
 
+- [x] **Multi-Tenancy**: Flexible Mandantenfähigkeit via Konfiguration.
+- [x] **Versionskontrolle**: Diff-Ansicht für Artikelversionen.
 - [ ] **Testing**: Aufbau einer umfassenden Testsuite mit xUnit.
-- [ ] **Performance**: Monitoring der Diff-Ansicht bei sehr großen Artikel-Historien.
-- [ ] **UI/UX**: Unterstützung für Themes und CSS-Customization.
-- [ ] **Deployment**: Docker-Images und CI/CD Pipelines.
+- [ ] **Themes**: Unterstützung für mandantenspezifische CSS-Anpassungen.
+
+## 🚀 Deployment auf Ubuntu (systemd)
+
+Um die Anwendung professionell im Hintergrund zu betreiben und nach einem Neustart automatisch zu starten, nutzen Sie **systemd**.
+
+### 1. Service-Datei erstellen
+Erstellen Sie die Datei `/etc/systemd/system/meincms.service`:
+
+```ini
+[Unit]
+Description=MeinCMS Wiki Application
+After=network.target postgresql.service
+
+[Service]
+WorkingDirectory=/var/www/meincms/mvc
+ExecStart=/usr/bin/dotnet /var/www/meincms/mvc/mvc.dll
+Restart=always
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=meincms
+User=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=ASPNETCORE_URLS=http://localhost:5000
+
+[Install]
+WantedBy=multi-user.target
+```
+
+### 2. Dienst verwalten
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable meincms.service
+sudo systemctl start meincms.service
+```
+
+### 3. Nginx als Reverse Proxy (Wichtig!)
+Stellen Sie sicher, dass Nginx den Host-Header für die Mandantenfähigkeit weitergibt:
+
+```nginx
+location / {
+    proxy_pass http://localhost:5000;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+}
+```
 
 ## 🏗 Projektstruktur
 
 - `mvc/`: Die ASP.NET Core MVC Webanwendung (Wiki).
-- `Services/`: Gemeinsame Geschäftslogik (Wiki-Dienste, Blogs).
+- `Services/`: Gemeinsame Geschäftslogik (Wiki-Dienste, Mandanten-Dienst, Blogs).
 - `UserAdmin/`: Konsolenanwendung für administrative Zwecke.
 - `bericht/`: Detaillierte Sicherheits-Audit-Berichte.
 
 ## 🚀 Deployment
 
-Verwenden Sie `dotnet publish` für die Vorbereitung des Produktivbetriebs. Ein Betrieb hinter einem Reverse Proxy (Nginx/Apache) mit HTTPS ist zwingend erforderlich.
-
-```bash
-dotnet publish mvc/mvc.csproj -c Release -o ./publish
-```
-
-Detaillierte Anweisungen zur Einrichtung von `systemd` und `Nginx` finden Sie in der internen Dokumentation.
+Verwenden Sie `dotnet publish` für die Vorbereitung des Produktivbetriebs. Ein Betrieb hinter einem Reverse Proxy (**Nginx**) mit korrekt gesetztem `Host`-Header ist für die Mandantenfähigkeit zwingend erforderlich.

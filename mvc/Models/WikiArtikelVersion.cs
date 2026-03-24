@@ -8,6 +8,7 @@ public class WikiArtikelVersion
 
     [Key]
     public long VersionNummer { get; set; }
+    public string TenantId { get; set; } = "main";
     public string? MarkdownInhalt { get; set; }
     public string? HtmlInhalt { get; set; }
     public DateTime Zeitpunkt { get; set; }

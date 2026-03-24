@@ -7,7 +7,7 @@ namespace mvc.Models;
 /// <summary>
 /// Repräsentiert einen Wiki-Artikel im System.
 /// </summary>
-[Index(nameof(Slug), IsUnique = true)]
+[Index(nameof(TenantId), nameof(Slug), IsUnique = true)]
 public class WikiArtikel
 {
     /// <summary>
@@ -15,6 +15,11 @@ public class WikiArtikel
     /// </summary>
     [Key]
     public long Id { get; set; }
+
+    /// <summary>
+    /// Der Mandant, zu dem dieser Artikel gehört.
+    /// </summary>
+    public string TenantId { get; set; } = "main";
     
     /// <summary>
     /// Der eindeutige URL-Slug (Pfad) des Artikels.

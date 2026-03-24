@@ -9,6 +9,9 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
 
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<mvc.Services.ITenantService, mvc.Services.TenantService>();
+
 builder.Services.AddDefaultIdentity<IdentityUser>(options => 
 {
     options.SignIn.RequireConfirmedAccount = true;

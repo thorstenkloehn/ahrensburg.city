@@ -155,9 +155,13 @@ namespace mvc.Controllers
         /// Zeigt die Fehler-Seite an.
         /// </summary>
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        [Route("Error")]
-        public IActionResult Error()
+        [Route("Error/{code?}")]
+        public IActionResult Error(int? code)
         {
+            if (code == 404)
+            {
+                return View("NotFound404");
+            }
             return View("../Shared/Error", new ErrorViewModel { RequestId = System.Diagnostics.Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
