@@ -73,6 +73,23 @@ dotnet run --project backup -- import meincms_full_backup.xml
 ```
 *Nutzt eine intelligente Upsert-Logik: Existierende Artikel werden um neue Versionen ergänzt, fehlende Artikel werden neu angelegt.*
 
+### 🗄️ PostgreSQL Datenbank-Backup
+
+Für die Sicherung der Datenbank auf SQL-Ebene (z. B. für Migrationen oder Snapshots) können die Standard-PostgreSQL-Tools verwendet werden.
+
+#### 1. Vollständiges Backup (inkl. Benutzerdaten)
+Sichert die gesamte Datenbank inklusive aller Wiki-Artikel, Versionen und Benutzeraccounts (Identity-Tabellen).
+```bash
+pg_dump -U [DEIN_DB_USER] -d [DB_NAME] > meincms_vollbackup.sql
+```
+
+#### 2. Inhalts-Backup (nur Wiki-Inhalte, KEINE Benutzerdaten)
+Sichert alle Mandanten-Inhalte (Artikel und Historie), schließt aber alle Identity-Tabellen (Benutzer, Rollen, Passwörter) aus. Dies ist ideal für Inhalts-Migrationen zwischen Systemen mit unterschiedlichen Benutzerstämmen.
+```bash
+pg_dump -U [DEIN_DB_USER] -d [DB_NAME] -T 'AspNet*' > meincms_inhalte_nur.sql
+```
+*(Das `-T 'AspNet*'` Flag schließt alle Tabellen aus, die mit `AspNet` beginnen, was dem Standard von ASP.NET Core Identity entspricht.)*
+
 ## 🛡️ Sicherheit & Architektur
 
 MeinCMS wurde mehreren Sicherheits-Audits unterzogen (Stand 24. März 2026):
