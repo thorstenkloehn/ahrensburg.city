@@ -10,6 +10,9 @@ public class WikiArtikelVersion
     public long VersionNummer { get; set; }
     public string TenantId { get; set; } = "main";
     public string? MarkdownInhalt { get; set; }
+
+    [System.Xml.Serialization.XmlIgnore]
+    [YamlDotNet.Serialization.YamlIgnore]
     public string? HtmlInhalt { get; set; }
     public DateTime Zeitpunkt { get; set; }
     public List<string> Kategorie { get; set; } = [];
@@ -18,6 +21,7 @@ public class WikiArtikelVersion
     public long WikiArtikelId { get; set; }
     
     [System.Xml.Serialization.XmlIgnore]
+    [YamlDotNet.Serialization.YamlIgnore]
     public WikiArtikel? WikiArtikel { get; set; }
 
 }

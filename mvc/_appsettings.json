@@ -9,7 +9,7 @@
   },
   "TenantConfig": {
     "main": {
-      "Title": "Ahrensburg Wiki",
+      "Title": "ahrensburg.city",
       "Logo": "/logo.svg"
     },
     "doc": {

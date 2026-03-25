@@ -1,0 +1,568 @@
+- Id: 1
+  TenantId: ''
+  Slug: Hauptseite
+  Versionen:
+  - VersionNummer: 1
+    TenantId: ''
+    MarkdownInhalt: >-
+      ---
+
+      Kategorie:Hauptseite
+
+      ---
+
+      Hallo Welt
+    Zeitpunkt: 2026-03-24T13:08:27.4404100Z
+    Kategorie: []
+    WikiArtikelId: 1
+  - VersionNummer: 4
+    TenantId: ''
+    MarkdownInhalt: >-
+      ---
+
+      Kategorie:[Hauptseite]
+
+      ---
+
+      Hallo Welt
+    Zeitpunkt: 2026-03-24T13:27:29.1227860Z
+    Kategorie: []
+    WikiArtikelId: 1
+  - VersionNummer: 5
+    TenantId: ''
+    MarkdownInhalt: >-
+      ---
+
+      kategorie:[Hauptseite]
+
+      ---
+
+      Hallo Welt
+    Zeitpunkt: 2026-03-24T13:27:46.6704480Z
+    Kategorie: []
+    WikiArtikelId: 1
+  - VersionNummer: 6
+    TenantId: ''
+    MarkdownInhalt: >2-
+
+      Hallo Welt
+    Zeitpunkt: 2026-03-24T13:28:20.5229320Z
+    Kategorie:
+    - Auto
+    WikiArtikelId: 1
+  - VersionNummer: 7
+    TenantId: ''
+    MarkdownInhalt: >-
+      ---
+
+      Kategorie: [Technik, Programmierung, Hilfe]
+
+      ---
+    Zeitpunkt: 2026-03-24T13:29:30.4899570Z
+    Kategorie:
+    - Auto
+    WikiArtikelId: 1
+  - VersionNummer: 8
+    TenantId: ''
+    MarkdownInhalt: >-
+      ---
+
+      Kategorie:  [Technik, Programmierung, Hilfe]
+
+      ---
+    Zeitpunkt: 2026-03-24T13:45:37.6045750Z
+    Kategorie: []
+    WikiArtikelId: 1
+  - VersionNummer: 9
+    TenantId: ''
+    MarkdownInhalt: >-
+      ---
+
+      Kategorie: [Technik, Hilfe]
+
+      ---
+    Zeitpunkt: 2026-03-24T13:46:01.3001390Z
+    Kategorie: []
+    WikiArtikelId: 1
+  - VersionNummer: 10
+    TenantId: ''
+    MarkdownInhalt: >-
+      ---
+
+      Kategorie:  [Technik, Hilfe]
+
+      ---
+    Zeitpunkt: 2026-03-24T13:47:42.7101370Z
+    Kategorie: []
+    WikiArtikelId: 1
+  - VersionNummer: 11
+    TenantId: ''
+    MarkdownInhalt: >-
+      ---
+
+      Kategorie: [Technik, Hilfe]
+
+      ---
+    Zeitpunkt: 2026-03-24T13:48:10.7009670Z
+    Kategorie: []
+    WikiArtikelId: 1
+  - VersionNummer: 12
+    TenantId: ''
+    MarkdownInhalt: >-
+      ---
+
+      Kategorie: [Technik, Hilfe]
+
+      ---
+
+      ## Hallo
+    Zeitpunkt: 2026-03-24T13:49:58.1617670Z
+    Kategorie:
+    - Technik
+    - Hilfe
+    WikiArtikelId: 1
+  - VersionNummer: 13
+    TenantId: ''
+    MarkdownInhalt: >-
+      ---
+
+      Kategorie: [Technik, Hilfe]
+
+      ---
+
+      Willkommeb auf meine Seite
+    Zeitpunkt: 2026-03-24T13:50:37.1723370Z
+    Kategorie:
+    - Technik
+    - Hilfe
+    WikiArtikelId: 1
+  - VersionNummer: 14
+    TenantId: ''
+    MarkdownInhalt: >-
+      ---
+
+      Kategorie: [Technik, Hilfe]
+
+      ---
+
+      Willkommeb auf meine Seite
+
+
+      kkkkkk
+    Zeitpunkt: 2026-03-24T13:59:09.2827640Z
+    Kategorie:
+    - Technik
+    - Hilfe
+    WikiArtikelId: 1
+  - VersionNummer: 15
+    TenantId: ''
+    MarkdownInhalt: >-
+      ---
+
+      Kategorie: [Technik, Hilfe]
+
+      ---
+
+      Willkommeb auf meine Seite
+
+
+      kkkkkk
+
+
+      jjkjjjkjjkkjkl
+
+
+
+      jjkkkllklkj
+
+
+      jklljkkjkljkl
+
+
+
+      jkljklkljkljkl
+    Zeitpunkt: 2026-03-24T14:09:17.5050320Z
+    Kategorie:
+    - Technik
+    - Hilfe
+    WikiArtikelId: 1
+  - VersionNummer: 16
+    TenantId: ''
+    MarkdownInhalt: >+
+      ---
+
+      Kategorie: [Technik, Hilfe]
+
+      ---
+
+      # Sicherheitsanalyse-Bericht (MeinCMS) - 21.03.2026
+
+
+      Dieser Bericht dokumentiert die aktuelle Sicherheitslage von MeinCMS nach der ersten Entwicklungsphase. Er identifiziert bestehende Schutzmechanismen und potenzielle Schwachstellen, die noch nicht behoben wurden.
+
+
+      ---
+
+
+      ## 1. Übersicht der Schutzmechanismen (Ist-Zustand)
+
+
+      - **XSS-Schutz**: Verwendung von `Ganss.Xss.HtmlSanitizer` im `PageController` vor dem Speichern von Wiki-Inhalten.
+
+      - **CSRF-Schutz**: `[ValidateAntiForgeryToken]` ist auf den `HttpPost`-Methoden (`Create`, `Edit`) im `PageController` vorhanden.
+
+      - **Authentifizierung**: ASP.NET Core Identity wird verwendet.
+
+      - **Autorisierung**: Rollenbasierte Zugriffskontrolle (`[Authorize(Roles = "Admin")]`) für administrative Aufgaben (Erstellen, Bearbeiten, Historie).
+
+      - **SQL-Injection**: Verwendung von Entity Framework Core (LINQ), was standardmäßig gegen SQL-Injection schützt (keine Verwendung von `FromSqlRaw` mit unsicheren Parametern gefunden).
+
+      - **Eingabevalidierung**: Slugs werden mittels Regex im `PageController` validiert (`IstSlugGueltig`).
+
+
+      ---
+
+
+      ## 2. Identifizierte Schwachstellen & Risiken (Offen)
+
+
+      ### 2.1 Password Policy & Account Lockout
+
+      - **Schwachstelle**: In `Program.cs` ist die Passwort-Mindestlänge auf nur 6 Zeichen eingestellt (`options.Password.RequiredLength = 6`).
+
+      - **Risiko**: Erhöhte Anfälligkeit für Brute-Force-Angriffe auf Admin-Accounts.
+
+      - **Status**: Lockout-Mechanismen (`LockoutOnFailure`) sind im `Login.cshtml.cs` standardmäßig auf `false` gesetzt.
+
+      - **Empfehlung**: Passwortkomplexität erhöhen (mind. 10-12 Zeichen) und Account Lockout nach X Fehlversuchen aktivieren.
+
+
+      ### 2.2 Fehlender CSRF-Schutz in Razor-Formularen
+
+      - **Schwachstelle**: In `Neuformular.cshtml` wird das Tag-Helper `<form asp-action="Create" ...>` verwendet, welches automatisch ein Anti-Forgery-Token einfügt. In `Edit.cshtml` wird jedoch ein direktes HTML-Tag `<form action="~/Edit/@Model.Slug" ...>` verwendet.
+
+      - **Risiko**: Wenn der `@Html.AntiForgeryToken()`-Aufruf im manuellen Formular fehlen würde, wäre die Aktion angreifbar. In `Edit.cshtml` ist er vorhanden, aber die Inkonsistenz ist eine potenzielle Fehlerquelle für zukünftige Formulare.
+
+      - **Empfehlung**: Konsistente Verwendung von ASP.NET Core Tag-Helpern.
+
+
+      ### 2.3 Sensitive Daten in Konfigurationsdateien
+
+      - **Schwachstelle**: Der Connection String wird direkt aus der `appsettings.json` gelesen.
+
+      - **Risiko**: Wenn diese Dateien versehentlich ins Repository eingecheckt werden (was oft passiert, trotz `.gitignore`), sind die Datenbank-Zugangsdaten exponiert.
+
+      - **Empfehlung**: Nutzung von *Environment Variables* oder *User Secrets* für die lokale Entwicklung und *Azure Key Vault* / *HashiCorp Vault* für Produktion.
+
+
+      ### 2.4 Mass Assignment (Overposting)
+
+      - **Schwachstelle**: Im `PageController.Create` und `Edit` werden Parameter wie `string slug` und `string markdownInhalt` einzeln entgegengenommen. Das ist sicher, solange keine komplexen Objekte direkt an Models gebunden werden.
+
+      - **Risiko**: Zukünftige Erweiterungen, die direkt `WikiArtikel` oder `WikiArtikelVersion` als Parameter binden, könnten dazu führen, dass Angreifer Felder wie `Id` oder `Zeitpunkt` manipulieren.
+
+      - **Empfehlung**: Einsatz von spezifischen **ViewModels** (DTOs) anstelle von direkter Bindung an Datenbank-Models.
+
+
+      ### 2.5 Clickjacking
+
+      - **Schwachstelle**: Es fehlen explizite Security-Header wie `X-Frame-Options` oder eine `Content-Security-Policy` (CSP).
+
+      - **Risiko**: Die Anwendung könnte in einem Iframe auf einer bösartigen Seite eingebettet werden, um Benutzer zu Aktionen zu verleiten.
+
+      - **Empfehlung**: Middleware hinzufügen, die `X-Frame-Options: DENY` oder `SAMEORIGIN` setzt.
+
+
+      ### 2.6 Informations-Leakage durch Fehlerseiten
+
+      - **Schwachstelle**: Die `Error.cshtml` zeigt im Development-Modus detaillierte Fehler an.
+
+      - **Risiko**: Wenn die Umgebung fälschlicherweise auf "Development" in Produktion steht, werden Stack-Traces und interne Pfade preisgegeben.
+
+      - **Status**: Die Standard-Abfrage `if (app.Environment.IsDevelopment())` in `Program.cs` ist vorhanden, was das Risiko mindert, aber die Fehlermeldung in `Error.cshtml` selbst ist sehr generisch.
+
+
+      ---
+
+
+      ## 3. Administrative Tools (UserAdmin)
+
+
+      - **Sicherheit**: Das Tool `UserAdmin` liest Passwörter per `Console.ReadLine()` im Klartext ein.
+
+      - **Risiko**: Passwörter sind während der Eingabe auf dem Bildschirm sichtbar (Schulterblick-Gefahr).
+
+      - **Empfehlung**: Verwendung einer Methode zur maskierten Eingabe (Sterne statt Klartext).
+
+
+      ---
+
+
+      ## 4. Fazit
+
+
+      MeinCMS verfügt bereits über eine solide Basis an Sicherheitsmechanismen (Sanitization, CSRF-Tokens, Identity). Die kritischsten Punkte für die nächste Iteration sind die **Verschärfung der Password Policy**, die **Absicherung der Konfigurationsdaten** und die Einführung von **Security-Headern** (CSP, HSTS-Tuning).
+    Zeitpunkt: 2026-03-24T14:10:49.3526310Z
+    Kategorie:
+    - Technik
+    - Hilfe
+    WikiArtikelId: 1
+  - VersionNummer: 17
+    TenantId: ''
+    MarkdownInhalt: >+
+      ---
+
+      Kategorie: [Technik, Hilfe]
+
+      ---
+
+      # Sicherheitsanalyse-Bericht (MeinCMS) - 21.03.2026
+
+
+      Dieser Bericht dokumentiert die aktuelle Sicherheitslage von MeinCMS nach der ersten Entwicklungsphase. Er identifiziert bestehende Schutzmechanismen und potenzielle Schwachstellen, die noch nicht behoben wurden.
+
+
+      ---
+
+
+      ## 1. Übersicht der Schutzmechanismen (Ist-Zustand)
+
+
+      - **XSS-Schutz**: Verwendung von `Ganss.Xss.HtmlSanitizer` im `PageController` vor dem Speichern von Wiki-Inhalten.
+
+      - **CSRF-Schutz**: `[ValidateAntiForgeryToken]` ist auf den `HttpPost`-Methoden (`Create`, `Edit`) im `PageController` vorhanden.
+
+      - **Authentifizierung**: ASP.NET Core Identity wird verwendet.
+
+      - **Autorisierung**: Rollenbasierte Zugriffskontrolle (`[Authorize(Roles = "Admin")]`) für administrative Aufgaben (Erstellen, Bearbeiten, Historie).
+
+      - **SQL-Injection**: Verwendung von Entity Framework Core (LINQ), was standardmäßig gegen SQL-Injection schützt (keine Verwendung von `FromSqlRaw` mit unsicheren Parametern gefunden).
+
+      - **Eingabevalidierung**: Slugs werden mittels Regex im `PageController` validiert (`IstSlugGueltig`).
+
+
+      ---
+
+
+      ## 2. Identifizierte Schwachstellen & Risiken (Offen)
+
+
+      ### 2.1 Password Policy & Account Lockout
+
+      - **Schwachstelle**: In `Program.cs` ist die Passwort-Mindestlänge auf nur 6 Zeichen eingestellt (`options.Password.RequiredLength = 6`).
+
+      - **Risiko**: Erhöhte Anfälligkeit für Brute-Force-Angriffe auf Admin-Accounts.
+
+      - **Status**: Lockout-Mechanismen (`LockoutOnFailure`) sind im `Login.cshtml.cs` standardmäßig auf `false` gesetzt.
+
+      - **Empfehlung**: Passwortkomplexität erhöhen (mind. 10-12 Zeichen) und Account Lockout nach X Fehlversuchen aktivieren.
+
+
+      ### 2.2 Fehlender CSRF-Schutz in Razor-Formularen
+
+      - **Schwachstelle**: In `Neuformular.cshtml` wird das Tag-Helper `<form asp-action="Create" ...>` verwendet, welches automatisch ein Anti-Forgery-Token einfügt. In `Edit.cshtml` wird jedoch ein direktes HTML-Tag `<form action="~/Edit/@Model.Slug" ...>` verwendet.
+
+      - **Risiko**: Wenn der `@Html.AntiForgeryToken()`-Aufruf im manuellen Formular fehlen würde, wäre die Aktion angreifbar. In `Edit.cshtml` ist er vorhanden, aber die Inkonsistenz ist eine potenzielle Fehlerquelle für zukünftige Formulare.
+
+      - **Empfehlung**: Konsistente Verwendung von ASP.NET Core Tag-Helpern.
+
+
+      ### 2.3 Sensitive Daten in Konfigurationsdateien
+
+      - **Schwachstelle**: Der Connection String wird direkt aus der `appsettings.json` gelesen.
+
+      - **Risiko**: Wenn diese Dateien versehentlich ins Repository eingecheckt werden (was oft passiert, trotz `.gitignore`), sind die Datenbank-Zugangsdaten exponiert.
+
+      - **Empfehlung**: Nutzung von *Environment Variables* oder *User Secrets* für die lokale Entwicklung und *Azure Key Vault* / *HashiCorp Vault* für Produktion.
+
+
+      ### 2.4 Mass Assignment (Overposting)
+
+      - **Schwachstelle**: Im `PageController.Create` und `Edit` werden Parameter wie `string slug` und `string markdownInhalt` einzeln entgegengenommen. Das ist sicher, solange keine komplexen Objekte direkt an Models gebunden werden.
+
+      - **Risiko**: Zukünftige Erweiterungen, die direkt `WikiArtikel` oder `WikiArtikelVersion` als Parameter binden, könnten dazu führen, dass Angreifer Felder wie `Id` oder `Zeitpunkt` manipulieren.
+
+      - **Empfehlung**: Einsatz von spezifischen **ViewModels** (DTOs) anstelle von direkter Bindung an Datenbank-Models.
+
+
+      ### 2.5 Clickjacking
+
+      - **Schwachstelle**: Es fehlen explizite Security-Header wie `X-Frame-Options` oder eine `Content-Security-Policy` (CSP).
+
+      - **Risiko**: Die Anwendung könnte in einem Iframe auf einer bösartigen Seite eingebettet werden, um Benutzer zu Aktionen zu verleiten.
+
+      - **Empfehlung**: Middleware hinzufügen, die `X-Frame-Options: DENY` oder `SAMEORIGIN` setzt.
+
+
+      ### 2.6 Informations-Leakage durch Fehlerseiten
+
+      - **Schwachstelle**: Die `Error.cshtml` zeigt im Development-Modus detaillierte Fehler an.
+
+      - **Risiko**: Wenn die Umgebung fälschlicherweise auf "Development" in Produktion steht, werden Stack-Traces und interne Pfade preisgegeben.
+
+      - **Status**: Die Standard-Abfrage `if (app.Environment.IsDevelopment())` in `Program.cs` ist vorhanden, was das Risiko mindert, aber die Fehlermeldung in `Error.cshtml` selbst ist sehr generisch.
+
+
+      ---
+
+
+      ## 3. Administrative Tools (UserAdmin)
+
+
+      - **Sicherheit**: Das Tool `UserAdmin` liest Passwörter per `Console.ReadLine()` im Klartext ein.
+
+      - **Risiko**: Passwörter sind während der Eingabe auf dem Bildschirm sichtbar (Schulterblick-Gefahr).
+
+      - **Empfehlung**: Verwendung einer Methode zur maskierten Eingabe (Sterne statt Klartext).
+
+
+      ---
+
+
+      ## 4. Fazit
+
+
+      MeinCMS verfügt bereits über eine solide Basis an Sicherheitsmechanismen (Sanitization, CSRF-Tokens, Identity). Die kritischsten Punkte für die nächste Iteration sind die **Verschärfung der Password Policy**, die **Absicherung der Konfigurationsdaten** und die Einführung von **Security-Headern** (CSP, HSTS-Tuning).
+    Zeitpunkt: 2026-03-24T14:19:10.3059680Z
+    Kategorie:
+    - Technik
+    - Hilfe
+    WikiArtikelId: 1
+- Id: 2
+  TenantId: ''
+  Slug: Hauptseite/gakk
+  Versionen:
+  - VersionNummer: 2
+    TenantId: ''
+    MarkdownInhalt: Willkommen
+    Zeitpunkt: 2026-03-24T13:09:21.4345680Z
+    Kategorie: []
+    WikiArtikelId: 2
+  - VersionNummer: 3
+    TenantId: ''
+    MarkdownInhalt: >-
+      ---
+
+      Kategorie: [Technik, Programmierung, Hilfe]
+
+      ---
+
+      Willkommen
+    Zeitpunkt: 2026-03-24T13:10:49.7410280Z
+    Kategorie:
+    - Technik
+    - Programmierung
+    - Hilfe
+    WikiArtikelId: 2
+- Id: 3
+  TenantId: main
+  Slug: impressum
+  Versionen:
+  - VersionNummer: 18
+    TenantId: main
+    MarkdownInhalt: >-
+      ---
+
+      Kategorie: [Datenschutz]
+
+      ---
+
+
+      ## Test Seite
+    Zeitpunkt: 2026-03-24T20:07:55.0250530Z
+    Kategorie:
+    - Datenschutz
+    WikiArtikelId: 3
+- Id: 4
+  TenantId: main
+  Slug: Hauptseite
+  Versionen:
+  - VersionNummer: 19
+    TenantId: main
+    MarkdownInhalt: xxxx
+    Zeitpunkt: 2026-03-25T07:29:25.3400870Z
+    Kategorie: []
+    WikiArtikelId: 4
+  - VersionNummer: 20
+    TenantId: doc
+    MarkdownInhalt: >-
+      xxxx
+
+
+
+      Rhhhh
+    Zeitpunkt: 2026-03-25T07:41:27.2821980Z
+    Kategorie: []
+    WikiArtikelId: 4
+  - VersionNummer: 21
+    TenantId: doc
+    MarkdownInhalt: >-
+      xxxx
+
+
+      Hakkkoooo
+    Zeitpunkt: 2026-03-25T07:41:49.1280350Z
+    Kategorie: []
+    WikiArtikelId: 4
+  - VersionNummer: 22
+    TenantId: main
+    MarkdownInhalt: >-
+      xxxx
+
+
+      kkkhkj
+    Zeitpunkt: 2026-03-25T07:43:31.1679130Z
+    Kategorie: []
+    WikiArtikelId: 4
+  - VersionNummer: 23
+    TenantId: doc
+    MarkdownInhalt: >-
+      xxxx
+
+
+      kkkhkj
+
+
+
+      kjjj
+    Zeitpunkt: 2026-03-25T07:44:11.2058470Z
+    Kategorie: []
+    WikiArtikelId: 4
+  - VersionNummer: 26
+    TenantId: main
+    MarkdownInhalt: >-
+      ---
+
+      Kategorie: [Technik, Hilfe]
+
+      ---
+
+      xxxx
+
+
+      kkkhkj
+    Zeitpunkt: 2026-03-25T14:15:58.7589160Z
+    Kategorie:
+    - Technik
+    - Hilfe
+    WikiArtikelId: 4
+- Id: 5
+  TenantId: doc
+  Slug: Hauptseite
+  Versionen:
+  - VersionNummer: 24
+    TenantId: doc
+    MarkdownInhalt: ==Start==
+    Zeitpunkt: 2026-03-25T08:10:29.9000940Z
+    Kategorie: []
+    WikiArtikelId: 5
+- Id: 6
+  TenantId: main
+  Slug: Hauptseite/cccc
+  Versionen:
+  - VersionNummer: 25
+    TenantId: main
+    MarkdownInhalt: xxx
+    Zeitpunkt: 2026-03-25T08:11:29.4472950Z
+    Kategorie: []
+    WikiArtikelId: 6

@@ -56,17 +56,24 @@ class Program
         if (command == "export")
         {
             bool full = args.Contains("--full");
-            string fileName = full ? "meincms_full_backup.xml" : "meincms_backup.xml";
+            
+            // Finde den ersten Parameter, der kein Befehl oder Flag ist
+            string? fileName = args.FirstOrDefault(a => a != "export" && a != "--full");
+            
+            if (string.IsNullOrEmpty(fileName))
+            {
+                fileName = full ? "meincms_full_backup.xml" : "meincms_backup.xml";
+            }
             
             Console.WriteLine($"Exportiere {(full ? "ALLE" : "aktuelle")} Wiki-Inhalte in {fileName}...");
             await Export(context, fileName, full);
         }
         else if (command == "import")
         {
-            string fileName = args.Length > 1 ? args[1] : "meincms_full_backup.xml";
-            if (!File.Exists(fileName))
+            string? fileName = args.FirstOrDefault(a => a != "import");
+            if (string.IsNullOrEmpty(fileName) || !File.Exists(fileName))
             {
-                Console.WriteLine($"Fehler: Datei {fileName} nicht gefunden.");
+                Console.WriteLine($"Fehler: Datei {fileName ?? "meincms_full_backup.xml"} nicht gefunden.");
                 return;
             }
             Console.WriteLine($"Importiere Daten aus {fileName}...");
@@ -82,12 +89,15 @@ class Program
     {
         Console.WriteLine("\n--- MeinCMS Backup Tool ---");
         Console.WriteLine("Verwendung:");
-        Console.WriteLine("  dotnet run --project backup -- export [--full]");
-        Console.WriteLine("  dotnet run --project backup -- import [dateiname.xml]");
+        Console.WriteLine("  dotnet run --project backup -- export [dateiname.xml|yaml] [--full]");
+        Console.WriteLine("  dotnet run --project backup -- import [dateiname.xml|yaml]");
         Console.WriteLine("\nOptionen:");
         Console.WriteLine("  export         Erstellt ein Backup (Standard: meincms_backup.xml)");
         Console.WriteLine("  --full         Exportiert alle Artikel über alle Mandanten hinweg");
         Console.WriteLine("  import         Importiert Daten (Upsert-Logik)");
+        Console.WriteLine("\nFormate:");
+        Console.WriteLine("  .xml           Standard XML-Format");
+        Console.WriteLine("  .yaml, .yml    Kompaktes YAML-Format (ohne HTML, inkl. Markdown)");
     }
 
     static async Task Export(ApplicationDbContext context, string fileName, bool full)
@@ -100,10 +110,35 @@ class Program
             .AsNoTracking()
             .ToListAsync();
 
-        var serializer = new XmlSerializer(typeof(List<WikiArtikel>));
-        using (var writer = new StreamWriter(fileName))
+        // Normalisierung: Leere TenantId zu "main"
+        foreach (var a in artikel)
         {
+            if (string.IsNullOrEmpty(a.TenantId)) a.TenantId = "main";
+            if (a.Versionen != null)
+            {
+                foreach (var v in a.Versionen)
+                {
+                    if (string.IsNullOrEmpty(v.TenantId)) v.TenantId = "main";
+                }
+            }
+        }
+
+        if (fileName.EndsWith(".yaml") || fileName.EndsWith(".yml"))
+        {
+            var serializer = new YamlDotNet.Serialization.SerializerBuilder()
+                .WithNamingConvention(YamlDotNet.Serialization.NamingConventions.PascalCaseNamingConvention.Instance)
+                .Build();
+            
+            using var writer = new StreamWriter(fileName);
             serializer.Serialize(writer, artikel);
+        }
+        else
+        {
+            var serializer = new XmlSerializer(typeof(List<WikiArtikel>));
+            using (var writer = new StreamWriter(fileName))
+            {
+                serializer.Serialize(writer, artikel);
+            }
         }
 
         Console.WriteLine($"ERFOLG: {artikel.Count} Artikel gesichert.");
@@ -111,12 +146,25 @@ class Program
 
     static async Task Import(ApplicationDbContext context, string fileName)
     {
-        List<WikiArtikel>? importDaten;
-        var serializer = new XmlSerializer(typeof(List<WikiArtikel>));
-        
-        using (var reader = new StreamReader(fileName))
+        List<WikiArtikel>? importDaten = null;
+
+        if (fileName.EndsWith(".yaml") || fileName.EndsWith(".yml"))
         {
-            importDaten = serializer.Deserialize(reader) as List<WikiArtikel>;
+            var deserializer = new YamlDotNet.Serialization.DeserializerBuilder()
+                .WithNamingConvention(YamlDotNet.Serialization.NamingConventions.PascalCaseNamingConvention.Instance)
+                .IgnoreUnmatchedProperties()
+                .Build();
+            
+            using var reader = new StreamReader(fileName);
+            importDaten = deserializer.Deserialize<List<WikiArtikel>>(reader);
+        }
+        else
+        {
+            var serializer = new XmlSerializer(typeof(List<WikiArtikel>));
+            using (var reader = new StreamReader(fileName))
+            {
+                importDaten = serializer.Deserialize(reader) as List<WikiArtikel>;
+            }
         }
 
         if (importDaten == null) return;
@@ -126,12 +174,15 @@ class Program
 
         foreach (var bA in importDaten)
         {
+            // Normalisierung beim Import
+            var effectiveTenantId = string.IsNullOrEmpty(bA.TenantId) ? "main" : bA.TenantId;
+
             var dbA = await context.WikiArtikels.IgnoreQueryFilters()
-                .FirstOrDefaultAsync(a => a.Slug == bA.Slug && a.TenantId == bA.TenantId);
+                .FirstOrDefaultAsync(a => a.Slug == bA.Slug && a.TenantId == effectiveTenantId);
             
             if (dbA == null)
             {
-                dbA = new WikiArtikel { Slug = bA.Slug, TenantId = bA.TenantId };
+                dbA = new WikiArtikel { Slug = bA.Slug, TenantId = effectiveTenantId };
                 context.WikiArtikels.Add(dbA);
                 await context.SaveChangesAsync();
                 neueArtikel++;
@@ -141,17 +192,27 @@ class Program
             {
                 foreach (var v in bA.Versionen.OrderBy(x => x.Zeitpunkt))
                 {
+                    // Auch hier Normalisierung der TenantId der Version
+                    var effectiveVersionTenantId = string.IsNullOrEmpty(v.TenantId) ? effectiveTenantId : v.TenantId;
+
                     bool exists = await context.WikiArtikelVersions.IgnoreQueryFilters()
-                        .AnyAsync(ev => ev.WikiArtikelId == dbA.Id && ev.Zeitpunkt == v.Zeitpunkt);
+                        .AnyAsync(ev => ev.WikiArtikelId == dbA.Id && ev.Zeitpunkt == v.Zeitpunkt && ev.TenantId == effectiveVersionTenantId);
 
                     if (!exists)
                     {
+                        string? html = v.HtmlInhalt;
+                        if (string.IsNullOrEmpty(html) && !string.IsNullOrEmpty(v.MarkdownInhalt))
+                        {
+                            // Falls HTML fehlt (YAML Export), regenerieren wir es
+                            html = Markdig.Markdown.ToHtml(v.MarkdownInhalt);
+                        }
+
                         context.WikiArtikelVersions.Add(new WikiArtikelVersion
                         {
                             WikiArtikelId = dbA.Id,
-                            TenantId = dbA.TenantId,
+                            TenantId = effectiveVersionTenantId,
                             MarkdownInhalt = v.MarkdownInhalt,
-                            HtmlInhalt = v.HtmlInhalt,
+                            HtmlInhalt = html,
                             Kategorie = v.Kategorie,
                             Zeitpunkt = v.Zeitpunkt
                         });

@@ -1,10 +1,10 @@
-# MeinCMS
+# ahrensburg.city (MeinCMS)
 
-ahrensburg.city ist ein leichtgewichtiges Content-Management-System (CMS) mit Wiki-Funktionalität und nativer **Multi-Tenancy** (Mandantenfähigkeit), entwickelt mit **ASP.NET Core MVC 10.0** und **PostgreSQL**. Das System ermöglicht den Betrieb mehrerer Domains auf einer einzigen Instanz bei strikter Datentrennung.
+**ahrensburg.city** ist ein leichtgewichtiges Content-Management-System (CMS) mit Wiki-Funktionalität und nativer **Multi-Tenancy** (Mandantenfähigkeit), entwickelt mit **ASP.NET Core MVC 10.0** und **PostgreSQL**. Das System ermöglicht den Betrieb mehrerer Domains auf einer einzigen Instanz bei strikter Datentrennung.
 
 ## 🌟 Hauptmerkmale
 
-*   **Multi-Tenancy**: Betreiben Sie `domain-a.tld` und `domain-b.tld` mit unterschiedlichen Inhalten auf derselben Anwendung.
+*   **Multi-Tenancy**: Betreiben Sie `ahrensburg.city` (Hauptmandant) und `doc.ahrensburg.city` (Dokumentation) auf derselben Anwendung.
 *   **Sichere Datentrennung**: Automatische Filterung aller Datenbankabfragen via dynamischer Global Query Filters pro Request.
 *   **Rechtssicherheit**: Integrierter, konfigurierbarer Cookie-Banner für DSGVO-Konformität.
 *   **Wiki-Kern**: Dynamisches Routing, Markdown-Unterstützung und YAML-Metadaten.
@@ -28,14 +28,7 @@ Bevor Sie das Projekt starten, müssen folgende Komponenten auf Ihrem System ins
 ```bash
 cp mvc/_appsettings.json mvc/appsettings.json
 ```
-*Passen Sie den Connection-String und das **Tenants-Mapping** in `mvc/appsettings.json` an:*
-
-```json
-"Tenants": {
-  "meine-domain.de": "main",
-  "doc.meine-domain.de": "doc"
-}
-```
+*Passen Sie den Connection-String und das **Tenants-Mapping** in `mvc/appsettings.json` an.*
 
 ### 2. Datenbank-Migrationen anwenden
 ```bash
@@ -63,15 +56,19 @@ Das spezialisierte Backup-Tool ermöglicht den Export und Import von Wiki-Inhalt
 
 #### 1. Backup/Export (Inhalte sichern)
 ```bash
-dotnet run --project backup -- export --full
+# Exportiert alle Mandanten in eine XML-Datei (kompakt ohne HTML)
+dotnet run --project backup -- export meine_sicherung.xml --full
+
+# NEU: Export im kompakten YAML-Format
+dotnet run --project backup -- export meine_sicherung.yaml --full
 ```
-*Dies erstellt die Datei `meincms_full_backup.xml` mit allen Artikeln und deren vollständiger Historie.*
+*Das Tool normalisiert automatisch leere `TenantId`-Felder zu `"main"`, um Datenverlust durch Filter zu vermeiden.*
 
 #### 2. Import (Inhalte einspielen/aktualisieren)
 ```bash
-dotnet run --project backup -- import meincms_full_backup.xml
+dotnet run --project backup -- import meine_sicherung.xml
 ```
-*Nutzt eine intelligente Upsert-Logik: Existierende Artikel werden um neue Versionen ergänzt, fehlende Artikel werden neu angelegt.*
+*Nutzt eine intelligente Upsert-Logik: Existierende Artikel werden um neue Versionen ergänzt, fehlende Artikel werden neu angelegt. Fehlender HTML-Inhalt wird automatisch aus dem Markdown regeneriert.*
 
 ### 🗄️ PostgreSQL Datenbank-Backup
 
@@ -84,7 +81,7 @@ pg_dump -U [DEIN_DB_USER] -d [DB_NAME] > meincms_vollbackup.sql
 ```
 
 #### 2. Inhalts-Backup (nur Wiki-Inhalte, KEINE Benutzerdaten)
-Sichert alle Mandanten-Inhalte (Artikel und Historie), schließt aber alle Identity-Tabellen (Benutzer, Rollen, Passwörter) aus. Dies ist ideal für Inhalts-Migrationen zwischen Systemen mit unterschiedlichen Benutzerstämmen.
+Sichert alle Mandanten-Inhalte (Artikel und Historie), schließt aber alle Identity-Tabellen (Benutzer, Rollen, Passwörter) aus.
 ```bash
 pg_dump -U [DEIN_DB_USER] -d [DB_NAME] -T 'AspNet*' > meincms_inhalte_nur.sql
 ```
