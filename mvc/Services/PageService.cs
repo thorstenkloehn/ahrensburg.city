@@ -1,17 +1,21 @@
-namespace mvc.Services;
-
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using DiffPlex.DiffBuilder;
+using DiffPlex.DiffBuilder.Model;
 using Ganss.Xss;
 using Markdig;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using mvc.Data;
 using mvc.Models;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
+
+namespace mvc.Services;
 
 public class PageService : IPageService
 {
@@ -19,13 +23,15 @@ public class PageService : IPageService
     private readonly MarkdownPipeline _pipeline;
     private readonly HtmlSanitizer _sanitizer;
     private readonly IDeserializer _yamlDeserializer;
+    private readonly ILogger<PageService> _logger;
     
     public const int MaxCategories = 10;
     public const int MaxCategoryLength = 50;
 
-    public PageService(ApplicationDbContext context)
+    public PageService(ApplicationDbContext context, ILogger<PageService> logger)
     {
         _context = context;
+        _logger = logger;
         _pipeline = new MarkdownPipelineBuilder()
             .UseAdvancedExtensions()
             .UseYamlFrontMatter()
@@ -233,5 +239,21 @@ public class PageService : IPageService
         }
 
         return (null, markdown);
+    }
+
+    public DiffPaneModel GenerateDiff(string oldContent, string newContent)
+    {
+        var sw = Stopwatch.StartNew();
+        try
+        {
+            var differ = new InlineDiffBuilder(new DiffPlex.Differ());
+            return differ.BuildDiffModel(oldContent, newContent);
+        }
+        finally
+        {
+            sw.Stop();
+            _logger.LogInformation("Diff-Berechnung abgeschlossen in {ElapsedMilliseconds}ms (Alt: {OldLength} Zeichen, Neu: {NewLength} Zeichen)", 
+                sw.ElapsedMilliseconds, oldContent.Length, newContent.Length);
+        }
     }
 }

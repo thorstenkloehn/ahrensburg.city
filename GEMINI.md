@@ -53,6 +53,6 @@ Dieses Projekt (ehemals MeinCMS) ist ein leichtgewichtiges Content-Management-Sy
 - [x] **Infrastruktur:** Automatisierter XML-Export/Import (Upsert-Logik) im `backup`-Projekt.
 - [x] **Dokumentation:** Vollständige DocFX-Einrichtung mit statischem Export.
 - [x] **Rechtssicherheit:** Cookie-Banner Implementierung.
-- [ ] Implementierung von Unit- und Integrationstests (xUnit).
-- [ ] Performance-Monitoring der Diff-Funktion bei großen Artikeln.
-- [ ] Unterstützung für Themes oder CSS-Anpassungen pro Mandant.
+- [x] Implementierung von Unit- und Integrationstests (xUnit).
+- [x] Performance-Monitoring der Diff-Funktion bei großen Artikeln.
+- [x] Unterstützung für Themes oder CSS-Anpassungen pro Mandant.

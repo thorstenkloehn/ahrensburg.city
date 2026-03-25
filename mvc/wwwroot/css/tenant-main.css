@@ -1,0 +1,18 @@
+/* Hauptseiten-Theme (main) */
+body.tenant-main {
+    background-color: #ffffff;
+}
+
+body.tenant-main header .navbar {
+    background-color: #1a5a1a !important; /* Dunkelgrün */
+}
+
+body.tenant-main header .navbar-brand,
+body.tenant-main header .nav-link {
+    color: white !important;
+}
+
+body.tenant-main h1, 
+body.tenant-main h2 {
+    color: #1a5a1a;
+}

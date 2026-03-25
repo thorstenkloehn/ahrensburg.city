@@ -44,11 +44,14 @@ dotnet ef database update --project mvc
 
 ## 💻 Programm starten
 
-### Web-Anwendung (Wiki)
+Detaillierte Anweisungen zum Starten der Anwendung in verschiedenen Umgebungen (Entwicklung mit Port 5000 oder Produktion mit Unix Sockets) finden Sie in der separaten Anleitung:
+
+👉 **[Anleitung zum Starten (Entwicklung & Produktion)](mvc/Anleitung_Start.md)**
+
+### Web-Anwendung (Wiki) - Entwicklung
 ```bash
-dotnet run --project mvc
+dotnet run --project mvc --launch-profile http
 ```
-Die Anwendung erkennt den Mandanten automatisch anhand des aufgerufenen Hostnamens.
 
 ### Benutzeradministration (UserAdmin)
 ```bash
@@ -83,53 +86,9 @@ MeinCMS wurde mehreren Sicherheits-Audits unterzogen (Stand 24. März 2026):
 
 - [x] **Multi-Tenancy**: Flexible Mandantenfähigkeit via Konfiguration.
 - [x] **Versionskontrolle**: Diff-Ansicht für Artikelversionen.
-- [ ] **Testing**: Aufbau einer umfassenden Testsuite mit xUnit.
-- [ ] **Themes**: Unterstützung für mandantenspezifische CSS-Anpassungen.
-
-## 🚀 Deployment auf Ubuntu (systemd)
-
-Um die Anwendung professionell im Hintergrund zu betreiben und nach einem Neustart automatisch zu starten, nutzen Sie **systemd**.
-
-### 1. Service-Datei erstellen
-Erstellen Sie die Datei `/etc/systemd/system/meincms.service`:
-
-```ini
-[Unit]
-Description=MeinCMS Wiki Application
-After=network.target postgresql.service
-
-[Service]
-WorkingDirectory=/var/www/meincms/mvc
-ExecStart=/usr/bin/dotnet /var/www/meincms/mvc/mvc.dll
-Restart=always
-RestartSec=10
-KillSignal=SIGINT
-SyslogIdentifier=meincms
-User=www-data
-Environment=ASPNETCORE_ENVIRONMENT=Production
-Environment=ASPNETCORE_URLS=http://localhost:5000
-
-[Install]
-WantedBy=multi-user.target
-```
-
-### 2. Dienst verwalten
-```bash
-sudo systemctl daemon-reload
-sudo systemctl enable meincms.service
-sudo systemctl start meincms.service
-```
-
-### 3. Nginx als Reverse Proxy (Wichtig!)
-Stellen Sie sicher, dass Nginx den Host-Header für die Mandantenfähigkeit weitergibt:
-
-```nginx
-location / {
-    proxy_pass http://localhost:5000;
-    proxy_set_header Host $host;
-    proxy_set_header X-Real-IP $remote_addr;
-}
-```
+- [x] **Testing**: Umfassende Testsuite mit xUnit (Unit- & Integrationstests).
+- [x] **Themes**: Unterstützung für mandantenspezifische CSS-Anpassungen.
+- [x] **Unix Sockets**: Hochperformantes Deployment-Setup.
 
 ## 🏗 Projektstruktur
 
@@ -142,4 +101,4 @@ location / {
 
 ## 🚀 Deployment
 
-Verwenden Sie `dotnet publish` für die Vorbereitung des Produktivbetriebs. Ein Betrieb hinter einem Reverse Proxy (**Nginx**) mit korrekt gesetztem `Host`-Header ist für die Mandantenfähigkeit zwingend erforderlich.
+Verwenden Sie `dotnet publish` für die Vorbereitung des Produktivbetriebs. Detaillierte Informationen zum professionellen Deployment (systemd, Nginx, Unix Sockets) finden Sie in der **[Anleitung zum Starten](mvc/Anleitung_Start.md)**.

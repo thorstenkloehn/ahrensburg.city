@@ -1,0 +1,22 @@
+/* Dokumentations-Theme (doc) */
+body.tenant-doc {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+body.tenant-doc header .navbar {
+    background-color: #004a99 !important; /* Dunkelblau */
+}
+
+body.tenant-doc header .navbar-brand,
+body.tenant-doc header .nav-link {
+    color: white !important;
+}
+
+body.tenant-doc h1, 
+body.tenant-doc h2, 
+body.tenant-doc h3 {
+    color: #004a99;
+    border-bottom: 2px solid #004a99;
+    padding-bottom: 0.2rem;
+}

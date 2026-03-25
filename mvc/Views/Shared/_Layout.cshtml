@@ -1,19 +1,28 @@
-﻿<!DOCTYPE html>
+﻿@inject mvc.Services.ITenantService TenantService
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
+@{
+    var tenantId = TenantService.GetCurrentTenantId();
+    var tenantTitle = Configuration[$"TenantConfig:{tenantId}:Title"] ?? "MeinCMS";
+    var pageTitle = ViewData["Title"] ?? "Wiki";
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - mvc</title>
+    <title>@pageTitle - @tenantTitle</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/mvc.styles.css" asp-append-version="true" />
+    @* Tenant-spezifisches CSS, falls vorhanden *@
+    <link rel="stylesheet" href="~/css/tenant-@(tenantId).css" asp-append-version="true" onerror="this.style.display='none'" />
 </head>
-<body>
+<body class="tenant-@tenantId">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Page" asp-action="Index">Home</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Page" asp-action="Index">@tenantTitle</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

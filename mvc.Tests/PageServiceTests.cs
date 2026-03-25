@@ -1,24 +1,39 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.Extensions.Logging.Abstractions;
+using Moq;
 using mvc.Data;
 using mvc.Models;
 using mvc.Services;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace mvc.Tests;
 
 public class PageServiceTests
 {
-    private ApplicationDbContext GetInMemoryContext()
+    private readonly ITestOutputHelper _output;
+
+    public PageServiceTests(ITestOutputHelper output)
+    {
+        _output = output;
+    }
+
+    private PageService CreateService(ApplicationDbContext context)
+    {
+        return new PageService(context, NullLogger<PageService>.Instance);
+    }
+    private ApplicationDbContext GetInMemoryContext(ITenantService? tenantService = null)
     {
         var options = new DbContextOptionsBuilder<ApplicationDbContext>()
             .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
             .ConfigureWarnings(x => x.Ignore(InMemoryEventId.TransactionIgnoredWarning))
             .Options;
         
-        return new ApplicationDbContext(options);
+        return new ApplicationDbContext(options, tenantService);
     }
 
     [Theory]
@@ -37,7 +52,7 @@ public class PageServiceTests
     {
         // Arrange
         using var context = GetInMemoryContext();
-        var service = new PageService(context);
+        var service = CreateService(context);
 
         // Act
         var result = service.IstSlugGueltig(slug);
@@ -51,7 +66,7 @@ public class PageServiceTests
     {
         // Arrange
         using var context = GetInMemoryContext();
-        var service = new PageService(context);
+        var service = CreateService(context);
         var slug = "test-artikel";
         var content = "# Hallo Welt";
 
@@ -72,7 +87,7 @@ public class PageServiceTests
     {
         // Arrange
         using var context = GetInMemoryContext();
-        var service = new PageService(context);
+        var service = CreateService(context);
         var slug = "test-artikel-versionen";
         
         await service.ErstelleOderAktualisiereArtikelAsync(slug, "# V1");
@@ -96,7 +111,7 @@ public class PageServiceTests
     {
         // Arrange
         using var context = GetInMemoryContext();
-        var service = new PageService(context);
+        var service = CreateService(context);
         var slug = "kat-test";
         var kategorien = new List<string> { "News", "Wiki" };
 
@@ -114,7 +129,7 @@ public class PageServiceTests
     {
         // Arrange
         using var context = GetInMemoryContext();
-        var service = new PageService(context);
+        var service = CreateService(context);
         var kategorien = new List<string>();
         for (int i = 0; i < 11; i++) kategorien.Add("Kat" + i);
 
@@ -128,12 +143,123 @@ public class PageServiceTests
     {
         // Arrange
         using var context = GetInMemoryContext();
-        var service = new PageService(context);
+        var service = CreateService(context);
         var kategorien = new List<string> { new string('a', 51) };
 
         // Act & Assert
         var ex = await Assert.ThrowsAsync<ArgumentException>(() => 
             service.ErstelleOderAktualisiereArtikelAsync("test", "# Inhalt", kategorien));
         Assert.Contains("ist zu lang", ex.Message);
+    }
+
+    [Fact]
+    public async Task MultiTenancy_IsolatesArticlesBetweenTenants()
+    {
+        // Arrange
+        var mockTenant1 = new Mock<ITenantService>();
+        mockTenant1.Setup(t => t.GetCurrentTenantId()).Returns("tenant1");
+        
+        var mockTenant2 = new Mock<ITenantService>();
+        mockTenant2.Setup(t => t.GetCurrentTenantId()).Returns("tenant2");
+
+        var sharedDbName = Guid.NewGuid().ToString();
+        var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+            .UseInMemoryDatabase(databaseName: sharedDbName)
+            .ConfigureWarnings(x => x.Ignore(InMemoryEventId.TransactionIgnoredWarning))
+            .Options;
+
+        // Act & Assert
+        using (var context1 = new ApplicationDbContext(options, mockTenant1.Object))
+        {
+            var service1 = CreateService(context1);
+            await service1.ErstelleOderAktualisiereArtikelAsync("shared-slug", "Content Tenant 1");
+        }
+
+        using (var context2 = new ApplicationDbContext(options, mockTenant2.Object))
+        {
+            var service2 = CreateService(context2);
+            await service2.ErstelleOderAktualisiereArtikelAsync("shared-slug", "Content Tenant 2");
+
+            var result2 = await service2.GetArtikelMitNeuesterVersionAsync("shared-slug");
+            Assert.NotNull(result2);
+            Assert.Equal("Content Tenant 2", result2.Versionen[0].MarkdownInhalt);
+            
+            // Verifiziere, dass wir nur EINEN Artikel sehen (den von tenant2)
+            var count = await context2.WikiArtikels.CountAsync();
+            Assert.Equal(1, count);
+        }
+
+        using (var context1 = new ApplicationDbContext(options, mockTenant1.Object))
+        {
+            var service1 = CreateService(context1);
+            var result1 = await service1.GetArtikelMitNeuesterVersionAsync("shared-slug");
+            Assert.NotNull(result1);
+            Assert.Equal("Content Tenant 1", result1.Versionen[0].MarkdownInhalt);
+
+            // Verifiziere, dass wir nur EINEN Artikel sehen (den von tenant1)
+            var count = await context1.WikiArtikels.CountAsync();
+            Assert.Equal(1, count);
+        }
+    }
+
+    [Fact]
+    public async Task MultiTenancy_KategorienAbfrage_IsoliertMandanten()
+    {
+        // Arrange
+        var mockTenant1 = new Mock<ITenantService>();
+        mockTenant1.Setup(t => t.GetCurrentTenantId()).Returns("tenant1");
+        
+        var mockTenant2 = new Mock<ITenantService>();
+        mockTenant2.Setup(t => t.GetCurrentTenantId()).Returns("tenant2");
+
+        var sharedDbName = Guid.NewGuid().ToString();
+        var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+            .UseInMemoryDatabase(databaseName: sharedDbName)
+            .ConfigureWarnings(x => x.Ignore(InMemoryEventId.TransactionIgnoredWarning))
+            .Options;
+
+        using (var context1 = new ApplicationDbContext(options, mockTenant1.Object))
+        {
+            var service1 = CreateService(context1);
+            await service1.ErstelleOderAktualisiereArtikelAsync("artikel1", "Inhalt", new List<string> { "TestKat" });
+        }
+
+        using (var context2 = new ApplicationDbContext(options, mockTenant2.Object))
+        {
+            var service2 = CreateService(context2);
+            await service2.ErstelleOderAktualisiereArtikelAsync("artikel2", "Inhalt", new List<string> { "TestKat" });
+
+            // Act
+            var result = await service2.GetArtikelNachKategorieAsync("TestKat");
+
+            // Assert
+            Assert.Single(result);
+            Assert.Equal("artikel2", result[0].Slug);
+        }
+    }
+
+    [Fact]
+    public void GenerateDiff_Benchmark_LargeArticles()
+    {
+        // Arrange
+        using var context = GetInMemoryContext();
+        var service = CreateService(context);
+        
+        // Generiere ca. 100.000 Zeichen Inhalt
+        var baseContent = string.Join("\n", Enumerable.Range(0, 2000).Select(i => $"Zeile {i}: Das ist ein langer Satz für den Performance-Test."));
+        var newContent = baseContent.Replace("Zeile 500", "Zeile 500 GEÄNDERT")
+                                    .Replace("Zeile 1000", "Zeile 1000 GEÄNDERT")
+                                    .Replace("Zeile 1500", "Zeile 1500 GEÄNDERT");
+
+        // Act
+        var sw = System.Diagnostics.Stopwatch.StartNew();
+        var diff = service.GenerateDiff(baseContent, newContent);
+        sw.Stop();
+
+        // Assert
+        _output.WriteLine($"Diff-Dauer für {baseContent.Length} Zeichen: {sw.ElapsedMilliseconds}ms");
+        Assert.NotNull(diff);
+        // Wir setzen ein loses Limit von 2 Sekunden für 100k Zeichen (lokal meist < 100ms)
+        Assert.True(sw.ElapsedMilliseconds < 2000, $"Diff dauerte zu lange: {sw.ElapsedMilliseconds}ms");
     }
 }

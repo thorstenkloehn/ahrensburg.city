@@ -4,10 +4,28 @@ using mvc.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure Kestrel for Unix Domain Sockets if requested
+builder.WebHost.ConfigureKestrel(options =>
+{
+    var unixSocketPath = builder.Configuration["Kestrel:UnixSocket"];
+    if (!string.IsNullOrEmpty(unixSocketPath))
+    {
+        if (File.Exists(unixSocketPath))
+        {
+            File.Delete(unixSocketPath);
+        }
+        options.ListenUnixSocket(unixSocketPath);
+    }
+});
+
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(connectionString));
+
+if (builder.Environment.EnvironmentName != "Testing")
+{
+    builder.Services.AddDbContext<ApplicationDbContext>(options =>
+        options.UseNpgsql(connectionString));
+}
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<mvc.Services.ITenantService, mvc.Services.TenantService>();
@@ -87,3 +105,5 @@ app.MapControllers()
 app.MapRazorPages()
    .WithStaticAssets();
 app.Run();
+
+public partial class Program { }

@@ -1,4 +1,7 @@
 {
+  "Kestrel": {
+    "UnixSocket": ""
+  },
   "Logging": {
     "LogLevel": {
       "Default": "Information",

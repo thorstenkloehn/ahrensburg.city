@@ -7,6 +7,19 @@
     "doc.ahrensburg.city": "doc",
     "localhost": "main"
   },
+  "TenantConfig": {
+    "main": {
+      "Title": "Ahrensburg Wiki",
+      "Logo": "/logo.svg"
+    },
+    "doc": {
+      "Title": "Dokumentation",
+      "Logo": "/logo-doc.svg"
+    }
+  },
+  "Kestrel": {
+    "UnixSocket": "/run/meincms.sock"
+  },
   "Logging": {
     "LogLevel": {
       "Default": "Information",

@@ -211,8 +211,7 @@ namespace mvc.Controllers
             ViewData["v2"] = version2;
             ViewData["Slug"] = slug;
 
-            var differ = new DiffPlex.DiffBuilder.InlineDiffBuilder(new DiffPlex.Differ());
-            var diff = differ.BuildDiffModel(version1.MarkdownInhalt ?? "", version2.MarkdownInhalt ?? "");
+            var diff = _pageService.GenerateDiff(version1.MarkdownInhalt ?? "", version2.MarkdownInhalt ?? "");
 
             return View(diff);
         }

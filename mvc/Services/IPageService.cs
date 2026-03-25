@@ -1,8 +1,9 @@
-namespace mvc.Services;
-
 using mvc.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using DiffPlex.DiffBuilder.Model;
+
+namespace mvc.Services;
 
 public interface IPageService
 {
@@ -13,4 +14,5 @@ public interface IPageService
     Task<List<WikiArtikel>> GetArtikelNachKategorieAsync(string kategorie);
     Task<bool> WiederherstellenAsync(long versionNummer);
     Task<WikiArtikelVersion?> GetVersionAsync(long versionNummer);
+    DiffPaneModel GenerateDiff(string oldContent, string newContent);
 }
