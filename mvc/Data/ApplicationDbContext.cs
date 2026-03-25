@@ -18,18 +18,22 @@ public class ApplicationDbContext : IdentityDbContext
     public DbSet<WikiArtikel> WikiArtikels { get; set; }
     public DbSet<WikiArtikelVersion> WikiArtikelVersions { get; set; }
 
+    /// <summary>
+    /// Gibt die aktuelle TenantId dynamisch für den QueryFilter zurück.
+    /// </summary>
+    public string CurrentTenantId => _tenantService?.GetCurrentTenantId() ?? "main";
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
 
-        // Globaler Abfragefilter für Mandantentrennung
-        var currentTenantId = _tenantService?.GetCurrentTenantId() ?? "main";
-
+        // Globaler Abfragefilter für Mandantentrennung - muss auf die Property zugreifen,
+        // damit EF Core ihn bei jeder Abfrage dynamisch auswertet.
         builder.Entity<WikiArtikel>()
-            .HasQueryFilter(a => a.TenantId == currentTenantId);
+            .HasQueryFilter(a => a.TenantId == CurrentTenantId);
 
         builder.Entity<WikiArtikelVersion>()
-            .HasQueryFilter(v => v.TenantId == currentTenantId);
+            .HasQueryFilter(v => v.TenantId == CurrentTenantId);
     }
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
