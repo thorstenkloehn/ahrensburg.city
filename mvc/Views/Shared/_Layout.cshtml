@@ -52,6 +52,19 @@
             </nav>
         </div>
     </footer>
+    <div id="cookieBanner" class="cookie-banner bg-dark text-white py-3 border-top" style="display: none; position: fixed; bottom: 0; width: 100%; z-index: 9999;">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <div class="mb-2 mb-md-0 me-md-4">
+                Diese Website verwendet Cookies, um die Nutzererfahrung zu verbessern. Weitere Informationen finden Sie in unserer 
+                <a href="/datenschutz" class="text-info text-decoration-none">Datenschutzerklärung</a>.
+            </div>
+            <div class="d-flex gap-2">
+                <button id="acceptCookies" class="btn btn-primary btn-sm px-4">Akzeptieren</button>
+                <button id="declineCookies" class="btn btn-outline-light btn-sm px-4">Ablehnen</button>
+            </div>
+        </div>
+    </div>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
