@@ -5,7 +5,8 @@ ahrensburg.city ist ein leichtgewichtiges Content-Management-System (CMS) mit Wi
 ## 🌟 Hauptmerkmale
 
 *   **Multi-Tenancy**: Betreiben Sie `domain-a.tld` und `domain-b.tld` mit unterschiedlichen Inhalten auf derselben Anwendung.
-*   **Sichere Datentrennung**: Automatische Filterung aller Datenbankabfragen via Global Query Filters.
+*   **Sichere Datentrennung**: Automatische Filterung aller Datenbankabfragen via dynamischer Global Query Filters pro Request.
+*   **Rechtssicherheit**: Integrierter, konfigurierbarer Cookie-Banner für DSGVO-Konformität.
 *   **Wiki-Kern**: Dynamisches Routing, Markdown-Unterstützung und YAML-Metadaten.
 *   **Versionierung**: Lückenlose Historie aller Änderungen mit Diff-Ansicht für Administratoren.
 *   **Security by Design**: Kein Datei-Upload, HtmlSanitizer für Markdown, gehärtete Identity-Policies.
