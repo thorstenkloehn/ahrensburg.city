@@ -5,11 +5,13 @@ Dieses Projekt (ehemals MeinCMS) ist ein leichtgewichtiges Content-Management-Sy
 ## Status (Stand 25.03.2026)
 
 - **Go-Live bereit:** Das System hat das abschließende Sicherheits-Audit erfolgreich bestanden.
-- **Multi-Tenancy:** Optimierte Unterstützung für mehrere Mandanten (z. B. `localhost` und `doc.localhost`) mit dynamischen Datenbank-Filtern.
+- **Multi-Tenancy:** Optimierte Unterstützung für mehrere Mandanten (z. B. `localhost` und `doc.localhost`) mit dynamischen Datenbank-Filtern und **mandantenspezifischen Themes**.
+- **Performance:** Diff-Funktion optimiert und mit Performance-Monitoring (Logging) ausgestattet.
+- **Deployment:** Unterstützung für **Unix Domain Sockets** (`/run/meincms.sock`) für hochperformanten Betrieb hinter Nginx.
+- **Qualitätssicherung:** Umfassende Unit- und Integrationstest-Suite (xUnit) implementiert.
 - **Benutzerverwaltung:** Verwaltung erfolgt ausschließlich über das `UserAdmin`-Tool.
 - **Rechtssicherheit:** Integrierter Cookie-Banner zur Information der Nutzer (DSGVO/TDDDG-konform).
-- **Datenbank:** Aktueller Schema-Stand inkl. Migration `MultiTenancy` (März 2026). Eindeutiger Index für `(TenantId, Slug)` ist aktiv.
-- **UI & UX:** Modernisierte 404-Fehlerseite ("Kein Artikel vorhanden") und erweiterter Footer (Impressum, Datenschutz).
+- **Dokumentation:** Vollständige DocFX-Einrichtung und neue `Anleitung_Start.md` für Deployment-Szenarien.
 
 ## Architektur
 
@@ -53,6 +55,7 @@ Dieses Projekt (ehemals MeinCMS) ist ein leichtgewichtiges Content-Management-Sy
 - [x] **Infrastruktur:** Automatisierter XML-Export/Import (Upsert-Logik) im `backup`-Projekt.
 - [x] **Dokumentation:** Vollständige DocFX-Einrichtung mit statischem Export.
 - [x] **Rechtssicherheit:** Cookie-Banner Implementierung.
-- [x] Implementierung von Unit- und Integrationstests (xUnit).
-- [x] Performance-Monitoring der Diff-Funktion bei großen Artikeln.
-- [x] Unterstützung für Themes oder CSS-Anpassungen pro Mandant.
+- [x] **Testing:** Implementierung von Unit- und Integrationstests (xUnit).
+- [x] **Performance:** Performance-Monitoring der Diff-Funktion bei großen Artikeln.
+- [x] **Themes:** Unterstützung für Themes oder CSS-Anpassungen pro Mandant.
+- [x] **Deployment:** Unix-Socket Unterstützung für Produktion.
