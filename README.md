@@ -90,6 +90,20 @@ pg_dump -U [DEIN_DB_USER] -d [DB_NAME] -T 'AspNet*' > meincms_inhalte_nur.sql
 ```
 *(Das `-T 'AspNet*'` Flag schließt alle Tabellen aus, die mit `AspNet` beginnen, was dem Standard von ASP.NET Core Identity entspricht.)*
 
+#### 3. Wiederherstellung (Restore)
+Um ein Backup wieder einzuspielen, muss die Zieldatenbank vorhanden (und idealerweise leer) sein.
+
+**Schritt A: Datenbank erstellen (falls nicht vorhanden)**
+```bash
+createdb -U [DEIN_DB_USER] [DB_NAME]
+```
+
+**Schritt B: SQL-Dump einspielen**
+```bash
+psql -U [DEIN_DB_USER] -d [DB_NAME] -f meincms_vollbackup.sql
+```
+*(Bei einem Inhalts-Backup ohne Benutzerdaten stellen Sie sicher, dass die Migrationen zuvor via `dotnet ef database update` ausgeführt wurden, damit das Schema vorhanden ist.)*
+
 ## 🛡️ Sicherheit & Architektur
 
 MeinCMS wurde mehreren Sicherheits-Audits unterzogen (Stand 24. März 2026):
