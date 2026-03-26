@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ArrayOfWikiArtikel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version='1.0' encoding='utf-8'?>
+<ArrayOfWikiArtikel>
   <WikiArtikel>
     <Id>3</Id>
     <TenantId>main</TenantId>
@@ -946,12 +946,12 @@ Hallo Welt</MarkdownInhalt>
   </WikiArtikel>
   <WikiArtikel>
     <Id>5</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Hauptseite</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>221</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -1014,7 +1014,7 @@ Hallo Welt</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>24</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>==Start==</MarkdownInhalt>
         <Zeitpunkt>2026-03-25T08:10:29.900094Z</Zeitpunkt>
         <Kategorie />
@@ -1022,7 +1022,7 @@ Hallo Welt</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>46</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## Willkommen auf meiner Wissensdatenbank
 
 Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
@@ -1096,7 +1096,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>390</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -1159,7 +1159,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>391</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -1222,7 +1222,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>392</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -1285,7 +1285,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>393</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -1348,7 +1348,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>394</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 ## thorsten
@@ -1411,7 +1411,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>396</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -1474,7 +1474,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>397</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 ## Hallo
 
@@ -1537,7 +1537,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>398</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## Start
 
 Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
@@ -2057,7 +2057,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>440</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## Start
 äää
 Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
@@ -2122,7 +2122,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>441</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## Start
 Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
@@ -2186,7 +2186,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>442</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## Start
 Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
@@ -2250,7 +2250,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>446</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## Start
 Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
@@ -2314,7 +2314,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>220</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -2377,7 +2377,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>219</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -2440,7 +2440,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>218</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -2503,7 +2503,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>217</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -2570,7 +2570,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>216</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -2638,7 +2638,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>215</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -2703,7 +2703,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>214</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -2768,7 +2768,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>213</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 ## Blog Artikel
@@ -2836,7 +2836,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>223</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## Willkommen auf meiner Wissensdatenbank
 
 Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
@@ -3036,12 +3036,12 @@ Willkommen</MarkdownInhalt>
   </WikiArtikel>
   <WikiArtikel>
     <Id>10</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Ai/Nahtlose Integration von KI und ML in Ihre Projekte</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>48</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Sicher, hier ist eine detaillierte Beschreibung der allgemeinen Frameworks mit LLM-Inferenzfunktionen
 
 ## Anwendungsentwicklungs-Frameworks für LLMs
@@ -3180,12 +3180,12 @@ Beschreibung: GGML (auch in Verbindung mit GGUF verwendet) ist ein C-Bibliothek 
   </WikiArtikel>
   <WikiArtikel>
     <Id>11</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Ai/Modelle</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>49</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>- **GPT-5 mini** – Kompaktes Sprachmodell der GPT-5-Reihe, optimiert für schnelle und ressourcenschonende Textgenerierung. Einsatz: Mobile Anwendungen, einfache Chatbots, schnelle Textklassifikation.
 - **GPT-5** – Modernes Sprachmodell der GPT-5-Reihe, entwickelt für höchste Genauigkeit, Kontextverständnis und Vielseitigkeit. Einsatz: Komplexe Dialogsysteme, kreative Textgenerierung, automatisierte Analyse, Forschung.
 - **GPT-4.1** – Fortschrittliches Sprachmodell von OpenAI, optimiert für komplexe Textgenerierung und Dialogsysteme. Einsatz: Chatbots, Textgenerierung, Inhaltszusammenfassung.
@@ -3217,12 +3217,12 @@ Beschreibung: GGML (auch in Verbindung mit GGUF verwendet) ist ein C-Bibliothek 
   </WikiArtikel>
   <WikiArtikel>
     <Id>12</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Ai/Codex</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>50</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>- [ChatGPT (OpenAI codex)](https://chat.openai.com/)
 - [GitHub Copilot](https://github.com/copilot)
 - [Gemini Code Assist](https://gemini.google.com/)</MarkdownInhalt>
@@ -3234,12 +3234,12 @@ Beschreibung: GGML (auch in Verbindung mit GGUF verwendet) ist ein C-Bibliothek 
   </WikiArtikel>
   <WikiArtikel>
     <Id>13</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>IDE</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>51</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Aktualisieren
 
 - Öffne Sie das Terminal und auf ihrem Ubuntu-Desktop
@@ -3421,12 +3421,12 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'DEIN_STARKES_PASSWORT'; FLUSH PRIVI
   </WikiArtikel>
   <WikiArtikel>
     <Id>14</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Schwachstellen</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>52</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>### Sprachmodell
 
 - [AI Risk Database](https://airiskdatabase.com) – Eine Datenbank mit Risiken und Schwachstellen im Bereich Künstliche Intelligenz.
@@ -3473,12 +3473,12 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'DEIN_STARKES_PASSWORT'; FLUSH PRIVI
   </WikiArtikel>
   <WikiArtikel>
     <Id>16</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Server/Mieten</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>54</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## KVM Server Mieten
 
 KVM Server sind virtuelle Server, die auf einem dedizierten Server laufen. KVM steht für Kernel-based Virtual Machine und ist eine Open-Source-Virtualisierungstechnologie, die es ermöglicht, mehrere virtuelle Maschinen auf einem einzigen physischen Server auszuführen. KVM-Server bieten eine hohe Leistung und Flexibilität und sind eine kostengünstige Lösung für Unternehmen, die eine skalierbare und zuverlässige Hosting-Lösung benötigen.
@@ -3605,12 +3605,12 @@ Die Systemanforderungen für ein Webframework hängen von der Art des Webframewo
   </WikiArtikel>
   <WikiArtikel>
     <Id>17</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Server/Ubuntu Software Pakete Installieren</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>55</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## System aktualisieren und upgraden
 
 Um Ihr Ubuntu-System zu aktualisieren und zu upgraden, können Sie die folgenden Befehle verwenden:
@@ -3665,12 +3665,12 @@ Anleitung zur Installation von Node.js auf Ubuntu 24.04 LTS:
   </WikiArtikel>
   <WikiArtikel>
     <Id>18</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Server/Backup</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>56</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Server Backup Anbieter in Deutschland
 
 Es gibt mehrere günstige Backup-Server-Anbieter in Deutschland. Hier sind einige Beispiele:
@@ -3750,12 +3750,12 @@ Es gibt verschiedene Anbieter, bei denen Sie Git-Repositories hosten können. Zu
   </WikiArtikel>
   <WikiArtikel>
     <Id>19</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Server/KachelServer</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>57</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Ubuntu 24.04 LTS Installation
 
 Diese Seite beschreibt, wie man alle notwendige Software installiert, einrichtet und konfiguriert, um einen eigenen Kachelserver zu betreiben. Diese Schritt-für-Schritt-Anleitung wurde für Ubuntu Linux 24.04 (Noble Numbat) geschrieben und im April 2024 getestet.
@@ -3953,12 +3953,12 @@ Jetzt, da wir "renderd" gesagt haben, wie es auf Kachelrendering-Anfragen reagie
   </WikiArtikel>
   <WikiArtikel>
     <Id>20</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Server/Apache Port ändern</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>58</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>`sudo nano /etc/apache2/ports.conf` Ändern Sie den Port von 80 auf 8080
 
 `Listen 8080`
@@ -3974,12 +3974,12 @@ Apache restarten
   </WikiArtikel>
   <WikiArtikel>
     <Id>21</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Server/SSL</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>59</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Die folgenden Befehle richten die Umgebung für die Nutzung von Certbot mit Nginx auf einem Linux-System ein:
 
 1.  sudo apt install snapd Installiert den Snap-Daemon, der benötigt wird, um Snap-Pakete (wie Certbot) zu installieren.
@@ -4025,12 +4025,12 @@ Weitere Informationen: \[Let's Encrypt Wildcard-Zertifikate\](https://certbot.ef
   </WikiArtikel>
   <WikiArtikel>
     <Id>22</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Server/Nginx Einstellung</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>60</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Erstellen Sie eine neue Konfigurationsdatei
 
 Um eine neue Konfigurationsdatei für Nginx zu erstellen, öffnen Sie ein Terminal und geben Sie folgenden Befehl ein:
@@ -4177,12 +4177,12 @@ Chainlit ist ein Open-Source-Framework für Python, das die Entwicklung, das Tes
   </WikiArtikel>
   <WikiArtikel>
     <Id>24</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframework/Technik</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>62</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>- Starke Kopplung
 - Lose Kopplung
 - Dependency Injection
@@ -4199,12 +4199,12 @@ Chainlit ist ein Open-Source-Framework für Python, das die Entwicklung, das Tes
   </WikiArtikel>
   <WikiArtikel>
     <Id>25</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframework/Fullstack Frameworks</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>63</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Spring Boot
 
 ### Eigene Entwicklung eines Content-Management-Systems (CMS) mit Spring Boot
@@ -4240,12 +4240,12 @@ Spring Boot bietet durch seine Komponenten (Spring Data, Spring Security, Spring
   </WikiArtikel>
   <WikiArtikel>
     <Id>26</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframework/Meta-Frameworks</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>64</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>### Tier 1 – Sehr reif / Mainstream
 
 - Next.js – sehr große Adoption, stabil, reiches Ökosystem</MarkdownInhalt>
@@ -4257,12 +4257,12 @@ Spring Boot bietet durch seine Komponenten (Spring Data, Spring Security, Spring
   </WikiArtikel>
   <WikiArtikel>
     <Id>27</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframework/Content Management Framework</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>65</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Reine Content Manage Framework
 
 ## .NET-basierte CMF
@@ -4281,12 +4281,12 @@ Spring Boot bietet durch seine Komponenten (Spring Data, Spring Security, Spring
   </WikiArtikel>
   <WikiArtikel>
     <Id>28</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframework/Microframeworks</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>66</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Microframeworks nach Reifegrad (Tier 1)
 
 - Gin (Go) – Sehr populär und ausgereift im Go-Ökosystem, performant.
@@ -4300,12 +4300,12 @@ Spring Boot bietet durch seine Komponenten (Spring Data, Spring Security, Spring
   </WikiArtikel>
   <WikiArtikel>
     <Id>29</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframework/Backend API Frameworks</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>67</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Reifegrad: Tier 1
 
 Kriterien  
@@ -4325,12 +4325,12 @@ LTS/planbare Releases, breite Produktionseinsätze, starkes Ökosystem, aktive S
   </WikiArtikel>
   <WikiArtikel>
     <Id>30</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframework/Frontend Frameworks</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>68</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Frontend Frameworks – Reifegrade
 
 Tier-Definition (Kurzfassung)  
@@ -4351,12 +4351,12 @@ Tier-Definition (Kurzfassung)
   </WikiArtikel>
   <WikiArtikel>
     <Id>31</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframework/Static Site Generators</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>69</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Reifegrade (Tier 1) für Static Site Generators
 
 Die folgenden SSGs gelten allgemein als "Tier 1" — also reif, produktions-erprobt und geeignet für grosse Projekte:
@@ -4370,12 +4370,12 @@ Die folgenden SSGs gelten allgemein als "Tier 1" — also reif, produktions-erpr
   </WikiArtikel>
   <WikiArtikel>
     <Id>32</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframework/Headless CMS</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>70</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Diese Liste führt Open-Source-Headless-CMS mit nativer PostgreSQL-Unterstützung, nach Programmiersprachen sortiert.
 
 - [Orchard Core](https://orchardcore.net)
@@ -4388,12 +4388,12 @@ Die folgenden SSGs gelten allgemein als "Tier 1" — also reif, produktions-erpr
   </WikiArtikel>
   <WikiArtikel>
     <Id>33</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframework/Fullstack-Webframeworks mit KI-Integration</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>71</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>**Fullstack-Webframeworks mit KI-Integration** erleichtern die Entwicklung von Webanwendungen mit Generative AI, RAG und Agenten. Nachfolgend ein kurzer Überblick über gängige Stacks, Muster und Auswahlkriterien.
 
 - [Next.js](Next.js) mit Vercel AI SDK oder LangChain.js
@@ -4417,12 +4417,12 @@ Java/Kotlin
   </WikiArtikel>
   <WikiArtikel>
     <Id>34</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframework/WebAssembly-Webframeworks</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>72</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Tier 1 (Reifegrad: produktionsreif)
 
 Die folgenden WebAssembly-Webframeworks werden als Tier 1 eingestuft.
@@ -4454,12 +4454,12 @@ Kriterien
   </WikiArtikel>
   <WikiArtikel>
     <Id>35</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframework/Auth Identity-Frameworks</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>73</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Auth-/Identity-Frameworks – Tier 1 (nach Reifegrad)
 
 Kriterien  
@@ -4483,12 +4483,12 @@ Hinweise
   </WikiArtikel>
   <WikiArtikel>
     <Id>36</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframework/UI und CSS-Frameworks</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>74</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Tier 1 (Enterprise‑reif)
 
 Kriterien  
@@ -4507,12 +4507,12 @@ Frameworks
   </WikiArtikel>
   <WikiArtikel>
     <Id>37</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframework/Benutzervwerwaltung Framework</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>75</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Überblick
 
 Vergleich von Benutzerverwaltungs-/IAM-Frameworks nach Reifegrad, mit Fokus auf Open Source und Self‑Hosting.
@@ -4539,12 +4539,12 @@ Bewertungskriterien (Reifegrad)
   </WikiArtikel>
   <WikiArtikel>
     <Id>38</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframework/Game Enging</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>76</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Web Game Engines — Reifegrad Tier 1
 
 Auswahl etablierter Web-Game-Engines (Tier 1) nach Stabilität, Community, regelmäßigen Releases und Produktionsreife.
@@ -4916,12 +4916,12 @@ Impressum vom [Impressum Generator](https://www.impressum-generator.de) der \[Ka
   </WikiArtikel>
   <WikiArtikel>
     <Id>42</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>KI-IDE</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>80</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## KI-basierte IDEs
 
 - **Visual Studio Code** – Ein flexibler, plattformübergreifender Editor von Microsoft, der durch sein umfangreiches Extension-Ökosystem zur leistungsstarken KI-Entwicklungsumgebung wird.
@@ -4994,12 +4994,12 @@ Impressum vom [Impressum Generator](https://www.impressum-generator.de) der \[Ka
   </WikiArtikel>
   <WikiArtikel>
     <Id>44</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>CMS/Drupal</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>82</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Was ist Drupal?
 
 Drupal ist ein leistungsstarkes, quelloffenes Content-Management-System (CMS), das auf PHP basiert. Es zeichnet sich durch seine modulare Architektur, hohe Sicherheitsstandards und eine große Entwickler-Community aus, wodurch es sich besonders für komplexe und skalierbare Webprojekte eignet.
@@ -5016,12 +5016,12 @@ Drupal ist ein leistungsstarkes, quelloffenes Content-Management-System (CMS), d
   </WikiArtikel>
   <WikiArtikel>
     <Id>45</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>CMS/Drupal/Voraussetzungen</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>83</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Voraussetzungen für die Installation von Drupal auf Ubuntu
 
 ### 1. PHP und benötigte Erweiterungen installieren
@@ -5158,12 +5158,12 @@ sudo systemctl restart nginx
   </WikiArtikel>
   <WikiArtikel>
     <Id>46</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>CMS/Drupal/Installation</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>84</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Drupal Installation
 
 Folge diesen Schritten, um Drupal auf deinem lokalen Rechner zu installieren:
@@ -5196,12 +5196,12 @@ Folge diesen Schritten, um Drupal auf deinem lokalen Rechner zu installieren:
   </WikiArtikel>
   <WikiArtikel>
     <Id>47</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>CMS/Hugo</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>85</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Hugo
 
 **Hugo** ist ein extrem schneller Static Site Generator (SSG). Er wandelt Markdown-Inhalte und Templates vorab in statische HTML-Dateien um, statt Seiten dynamisch bei jedem Aufruf zu generieren.
@@ -5236,12 +5236,12 @@ CGO_ENABLED=1 go install -tags extended,withdeploy github.com/gohugoio/hugo@late
   </WikiArtikel>
   <WikiArtikel>
     <Id>48</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>CMS/Eleventy (11ty)</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>86</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Eleventy (11ty)
 
 Eleventy (11ty) ist ein flexibler statischer Website-Generator für Node.js, der für seine hohe Performance, Unterstützung zahlreicher Template-Sprachen und den Verzicht auf erzwungene clientseitige JavaScript-Frameworks bekannt ist.
@@ -5261,12 +5261,12 @@ Eleventy (11ty) ist ein flexibler statischer Website-Generator für Node.js, der
   </WikiArtikel>
   <WikiArtikel>
     <Id>49</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>CMS/Typo3</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>87</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>**Typo3** ist ein leistungsfähiges, flexibles und quelloffenes Content-Management-System (CMS), das sich besonders für mittlere bis große Websites eignet. Es bietet umfangreiche Funktionen zur Verwaltung von Inhalten, Benutzerrechten und Erweiterungen.
 
 - [Voraussetzungen](CMS/Typo3/Voraussetzungen)</MarkdownInhalt>
@@ -5278,12 +5278,12 @@ Eleventy (11ty) ist ein flexibler statischer Website-Generator für Node.js, der
   </WikiArtikel>
   <WikiArtikel>
     <Id>50</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>CMS/Typo3/Voraussetzungen</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>88</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Voraussetzungen für die Installation von Typo3 auf Ubuntu
 
 ### 1. PHP und benötigte Erweiterungen installieren
@@ -5444,12 +5444,12 @@ Fügen Sie die folgende Konfiguration ein:
   </WikiArtikel>
   <WikiArtikel>
     <Id>51</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>CMS/Erstes-Wiki</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>89</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Das Vorhaben, ein eigenes CMS auf Basis von ASP.NET Core MVC zu entwickeln, das sich an etablierten Systemen wie MediaWiki, TYPO3, Drupal, XWiki, wiki.js oder Bookstack orientiert, ist anspruchsvoll, aber ein hervorragendes Projekt. ASP.NET Core eignet sich aufgrund seiner Performance und modularen Architektur ideal dafür.
 
 ## Das Kernkonzept: Trennung von Inhalten und Darstellung
@@ -5516,12 +5516,12 @@ Hierbei fängt die Route alle Pfade ab ("{\*slug}") und leitet sie an den Contro
   </WikiArtikel>
   <WikiArtikel>
     <Id>52</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>DNS</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>90</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## A-Record: Verweist eine Domain
 
 Ein A-Record (Address Record) ordnet einen Domainnamen einer IPv4-Adresse zu. Damit wird festgelegt, auf welchen Server eine Domain zeigt.
@@ -5603,12 +5603,12 @@ example.de  TXT  "google-site-verification=abc123xyz"
   </WikiArtikel>
   <WikiArtikel>
     <Id>53</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Postfix</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>91</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Mailserver Setup Guide
 
 ### 0. Installation der Basis-Pakete &amp; Firewall
@@ -5753,12 +5753,12 @@ Gehe auf dem Bildschirm auf der linken Seite auf das Terminal und klicke darauf,
   </WikiArtikel>
   <WikiArtikel>
     <Id>56</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>CMS/XWiki</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>94</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## XWiki Installieren Entwickler Rechner
 
 ### Ubuntu Rechner
@@ -5871,12 +5871,12 @@ besonders hibernate.cfg.xml und xwiki.properties), damit du im Notfall weißt, w
   </WikiArtikel>
   <WikiArtikel>
     <Id>57</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>CMS/MediaWiki</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>95</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Postgres Datenbank erstellen
 
 &lt;code&gt;`sudo -u postgres -i`  
@@ -6027,12 +6027,12 @@ Effektives Programmierenlernen kombiniert praktische Übung, kognitive Strategie
   </WikiArtikel>
   <WikiArtikel>
     <Id>59</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>CMS/Wiki.js</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>97</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>**Wiki.js** ist eine moderne, quelloffene Wiki-Software, die auf Node.js basiert. Sie bietet eine benutzerfreundliche Oberfläche, unterstützt verschiedene Authentifizierungsmethoden und ermöglicht die Verwaltung von Inhalten über ein flexibles Rechtesystem.
 
 ## Postgres-Datenbank erstellen
@@ -6269,12 +6269,12 @@ Das **Model-View-Controller (MVC)**-Muster ist ein Architekturprinzip, das die A
   </WikiArtikel>
   <WikiArtikel>
     <Id>62</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>LMS/Moodle</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>100</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Git herunterladen
 
     sudo git clone https://github.com/moodle/moodle.git /var/www/moodle
@@ -6401,12 +6401,12 @@ Starte PHP-FPM neu, damit die Änderungen wirksam werden:
   </WikiArtikel>
   <WikiArtikel>
     <Id>63</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>CMS/Drupal/Profil-Installer</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>101</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Profil-Installer
 
 In Drupal bezeichnet ein Installationsprofil, das die Standardkonfiguration, Module und Einstellungen für eine neue Drupal-Website vorgibt. Es ermöglicht die automatisierte Einrichtung spezifischer Funktionen und Designs während der Installation. Profil-Installer werden häufig genutzt, um vorkonfigurierte Distributionen oder spezielle Anwendungsfälle (z. B. Intranet, E-Commerce) bereitzustellen.
@@ -6437,12 +6437,12 @@ Ein zentrales Element eines Profil-Installers ist die Datei `stadtportal.info.ym
   </WikiArtikel>
   <WikiArtikel>
     <Id>64</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>CMS/BookStack</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>102</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Entwicklung Server
 
     sudo apt-get install php-mysql
@@ -6561,12 +6561,12 @@ Geben Sie Folgendes in die Datei \`/etc/nginx/conf.d/bookstack.conf\` ein:
   </WikiArtikel>
   <WikiArtikel>
     <Id>65</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>CMS/WordPress</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>103</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## WordPress-Datenbank auf Ubuntu einrichten
 
 Um eine WordPress-Datenbank auf einem Ubuntu-Rechner einzurichten, folge diesen Schritten:
@@ -6706,12 +6706,12 @@ sudo systemctl reload nginx
   </WikiArtikel>
   <WikiArtikel>
     <Id>66</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframework/Chainlit</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>104</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Ollama installieren
 
 Ollama ist eine Open-Source-Plattform, die das Ausführen und Verwalten von KI-Sprachmodellen lokal auf dem eigenen Rechner ermöglicht. Sie bietet eine einfache Schnittstelle, um verschiedene Large Language Models (LLMs) wie Llama oder Mistral zu nutzen, ohne Cloud-Dienste zu benötigen.
@@ -7263,12 +7263,12 @@ Ich mag Static Site Generatoren nicht so gern, weil man bei sehr großen Dokumen
   </WikiArtikel>
   <WikiArtikel>
     <Id>77</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>CMS/Drupal/AI</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>115</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Drupal AI
 
 **Drupal AI** ist eine Erweiterung für das Drupal Content-Management-System, die künstliche Intelligenz nutzt, um Inhalte zu generieren, zu analysieren und zu optimieren. Sie kann beispielsweise automatische Textvorschläge liefern, Bilder klassifizieren oder die Suchfunktion verbessern. Die Integration von AI-Tools ermöglicht eine effizientere Verwaltung und Personalisierung von Webseiteninhalten.
@@ -7323,12 +7323,12 @@ Mit dieser Funktion kannst du Arbeitsabläufe effizient automatisieren und Inhal
   </WikiArtikel>
   <WikiArtikel>
     <Id>78</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>CMS/WordPress/VSCode-Extension</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>116</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Viele Autoren bevorzugen das Schreiben in Markdown statt das Klicken im WordPress-Editor. In Visual Studio Code kann man Texte schnell und unkompliziert verfassen. Spezielle Tools ermöglichen es, diese Markdown-Texte direkt und formatiert nach WordPress zu übertragen.</MarkdownInhalt>
         <Zeitpunkt>2026-02-03T21:11:08Z</Zeitpunkt>
         <Kategorie />
@@ -7338,12 +7338,12 @@ Mit dieser Funktion kannst du Arbeitsabläufe effizient automatisieren und Inhal
   </WikiArtikel>
   <WikiArtikel>
     <Id>79</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>CMS/MediaWiki/VSCode-Extension</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>117</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Was macht Wikitext?
 
 Die Erweiterung "Wikitext Markup Language Support" für Visual Studio Code ermöglicht das Bearbeiten und Prüfen von Wikitext direkt im Editor. Sie basiert auf dem MediaWiki-Standard und bietet folgende Funktionen:
@@ -7403,12 +7403,12 @@ Dadurch werden sowohl Yeoman (\`yo\`) als auch der Visual Studio Code Generator 
   </WikiArtikel>
   <WikiArtikel>
     <Id>81</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Arbeitsschritte/ASP.NET Core MVC/CMS/Arbeitsschritte</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>119</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Eine neue .slnx Solution erstellen
 
 Eine Solution (.slnx) ist eine Projektmappe in Visual Studio Code, die mehrere Projekte und deren Abhängigkeiten zusammenfasst. Sie dient als Container für die Organisation, Verwaltung und das Builden von Softwareprojekten.
@@ -7678,12 +7678,12 @@ function isValidSlug($slug) {
   </WikiArtikel>
   <WikiArtikel>
     <Id>83</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Golang</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>121</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Weblinks
 
 - Todd McLeod Learn How To Code: Google's Go Programming Language
@@ -7766,12 +7766,12 @@ Ein exemplarischer Wochenplan für das berufsbegleitende oder nebenberufliche Le
   </WikiArtikel>
   <WikiArtikel>
     <Id>84</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Rust</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>122</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Weblink
 
 - Boris Paskhaver Learn to Code with Rust
@@ -7882,12 +7882,12 @@ Ziel: Eigene Projekte bauen und das Ökosystem verstehen.
   </WikiArtikel>
   <WikiArtikel>
     <Id>85</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Java</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>123</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Weblink
 
 - Tim Buchalka Java Masterclass 2025
@@ -8044,12 +8044,12 @@ Um das Gelernte zu festigen, ist die Umsetzung eigener Projekte entscheidend. Th
   </WikiArtikel>
   <WikiArtikel>
     <Id>86</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>C-Sharp</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>124</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Weblink
 
 - Denis Panjuta Complete C# Masterclass
@@ -8156,12 +8156,12 @@ Der folgende Zeitplan geht von einem durchschnittlichen Lernaufwand von ca. 8-10
   </WikiArtikel>
   <WikiArtikel>
     <Id>87</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>JavaScript</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>125</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Weblink
 
 - Jonas Schmedtmann The Complete JavaScript Course 2025
@@ -8338,12 +8338,12 @@ Dieser Plan ist für ein Selbststudium mit einem Zeitaufwand von ca. 5-8 Stunden
   </WikiArtikel>
   <WikiArtikel>
     <Id>89</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>C++</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>127</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Weblink
 
 - Tim Buchalka / Frank Mitropoulos Beginning C++ Programming - From Beginner to Beyond
@@ -8417,12 +8417,12 @@ Dieser Plan ist für ein Selbststudium mit einem Zeitaufwand von ca. 5-8 Stunden
   </WikiArtikel>
   <WikiArtikel>
     <Id>90</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>CMS/MediaWiki/Scribunto</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>128</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Scribunto
 
 Scribunto ist eine MediaWiki-Erweiterung, die Lua-Skripte für leistungsfähigere und flexiblere Vorlagen und Module ermöglicht. Lua ist schneller und effizienter als komplexe Wikitext-Vorlagen.
@@ -12663,12 +12663,12 @@ public class PersonsService : IPersonsService
   </WikiArtikel>
   <WikiArtikel>
     <Id>121</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Identitäts- und Autorisierungssicherheit</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>159</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Willkommen zum umfassenden Tutorial über **ASP.NET Core Identity** und **MVC** basierend auf unserer Analyse. Dieser Leitfaden deckt Authentifizierung, Autorisierung und wesentliche MVC-Muster ab.
 
 ## Einführung in ASP.NET Core Identity
@@ -12825,12 +12825,12 @@ Organisieren Sie große Anwendungen in logische Module (z. B. ein "Admin"-Bereic
   </WikiArtikel>
   <WikiArtikel>
     <Id>122</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Ai/Prompt Engineering</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>160</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Hier ist eine sorgfältig ausgewählte Liste der besten, kostenlosen und **rein textbasierten** Tutorials sowie Guides zum Thema Prompt Engineering (ohne Videos).
 
 ## Umfassende Guides &amp; Offizielle Dokumentationen
@@ -12868,12 +12868,12 @@ Ein strukturierter Online-Kurs in Textform, der sich intensiv damit befasst, wie
   </WikiArtikel>
   <WikiArtikel>
     <Id>123</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Ai/Antigravity</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>161</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Willkommen zum Tutorial über den **Google Antigravity Agent**. Dieses Tutorial basiert auf der offiziellen Dokumentation und erklärt dir die wichtigsten Funktionen, Arbeitsmodi und Sicherheitskonzepte des Agenten-Systems.
 
 ## 1. Was ist der Antigravity Agent?
@@ -12951,12 +12951,12 @@ Nutze für diese Übung dein Wissen aus dem obigen Tutorial!
   </WikiArtikel>
   <WikiArtikel>
     <Id>124</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Ai/OpenAi/Codex</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>162</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Willkommen zu diesem Tutorial über **OpenAI Codex**, basierend auf der aktuellen Entwickler-Dokumentation. Codex ist spezialisiert auf Softwareentwicklung und unterstützt dich dabei, Code zu schreiben, zu verstehen und Fehler effizient zu beheben.
 
 ## 1. Was ist OpenAI Codex?
@@ -13022,12 +13022,12 @@ Mit diesen Übungen kannst du den Umgang mit Hierarchien und Multi-Agenten train
   </WikiArtikel>
   <WikiArtikel>
     <Id>125</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Ai/Claude Code</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>163</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Claude Code ist ein agentengestütztes Codierungswerkzeug, das Ihre Codebasis liest, Dateien bearbeitet, Befehle ausführt und sich nahtlos in Ihre Entwicklungswerkzeuge integriert. Es ist im Terminal, in der IDE (z.B. VS Code, JetBrains), als Desktop-App und im Browser verfügbar.
 
 ## Erste Schritte &amp; Installation
@@ -13152,12 +13152,12 @@ Hier sind drei kleine Übungen, um mit Claude Code direkt lokal auf deinem Ubunt
   </WikiArtikel>
   <WikiArtikel>
     <Id>126</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Ai/Cursor</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>164</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Cursor ist ein KI-gestützter Code-Editor, der auf VS Code basiert und speziell dafür entwickelt wurde, Softwareentwicklung durch fortschrittliche Künstliche Intelligenz zu beschleunigen. Dieses Tutorial führt in die wichtigsten Funktionen ein und bietet praktische Übungen.
 
 ## 1. Installation und Einrichtung
@@ -13260,12 +13260,12 @@ Nutze ein bestehendes oder ein neues, leeres Projekt, um folgende Übungen zu ab
   </WikiArtikel>
   <WikiArtikel>
     <Id>127</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Ai/GitHub Copilot</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>165</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Willkommen zum umfassenden Lernpfad für GitHub Copilot! Dieser Plan führt dich von den Grundlagen bis zur fortgeschrittenen Anwendung des KI-Paarprogrammierers.
 
 ## 1. Lernpfad: Die Phasen des Lernens
@@ -13397,12 +13397,12 @@ Hier ist eine Zusammenstellung der besten Ressourcen, um GitHub Copilot zu meist
   </WikiArtikel>
   <WikiArtikel>
     <Id>128</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframework/Spring Boot</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>166</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>- [Dependency Injection in reinem Java ohne Interfaces](Webframework/Spring_Boot/Dependency_Injection_in_reinem_Java_ohne_Interfaces)</MarkdownInhalt>
         <Zeitpunkt>2026-03-01T19:44:38Z</Zeitpunkt>
         <Kategorie />
@@ -13412,12 +13412,12 @@ Hier ist eine Zusammenstellung der besten Ressourcen, um GitHub Copilot zu meist
   </WikiArtikel>
   <WikiArtikel>
     <Id>129</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframework/Spring Boot/Dependency Injection in reinem Java ohne Interfaces</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>167</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## 1. Was ist Dependency Injection?
 
 Dependency Injection (DI) ist ein Entwurfsmuster, bei dem Abhängigkeiten (Objekte, die eine Klasse benötigt) von außen bereitgestellt werden, anstatt sie innerhalb der Klasse selbst zu erzeugen. Das erhöht die Flexibilität und Testbarkeit des Codes.
@@ -13563,12 +13563,12 @@ public class Main {
   </WikiArtikel>
   <WikiArtikel>
     <Id>130</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Python</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>168</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Einleitung
 
 Dieser Lernpfad und Lernplan führt dich Schritt für Schritt durch die Python-Programmierung – von den Grundlagen bis hin zu fortgeschrittenen Themen. Python zeichnet sich durch seine klare Syntax und Vielseitigkeit aus und eignet sich ideal für Anfänger sowie für Profis in Bereichen wie Webentwicklung, Datenanalyse und Automatisierung.
@@ -13910,12 +13910,12 @@ Ein strukturierter 8-Wochen-Plan bei einem Zeitaufwand von ca. 5-10 Stunden pro 
   </WikiArtikel>
   <WikiArtikel>
     <Id>132</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Prompt</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>170</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Erstelle einen Lernpfad und einen Lernplan für die Rust-Programmierung. Das Ergebnis soll auf thorsten.wiki gespeichert werden. Ausgabe in MediaWiki-Syntax.</MarkdownInhalt>
         <Zeitpunkt>2026-03-03T18:20:39Z</Zeitpunkt>
         <Kategorie />
@@ -13925,12 +13925,12 @@ Ein strukturierter 8-Wochen-Plan bei einem Zeitaufwand von ca. 5-10 Stunden pro 
   </WikiArtikel>
   <WikiArtikel>
     <Id>133</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Java/Grundlagen</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>171</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## 1. Installation von Java auf Ubuntu (OpenJDK)
 
 ### Schritt-für-Schritt-Anleitung
@@ -14090,12 +14090,12 @@ public class Echo {
   </WikiArtikel>
   <WikiArtikel>
     <Id>134</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Ai/OpenAi/Codex/Lernpath</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>172</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Einsteiger
 
 ### Überblick &amp; Einstieg
@@ -14175,12 +14175,12 @@ public class Echo {
   </WikiArtikel>
   <WikiArtikel>
     <Id>135</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Ai/Claude Code/Lernpath</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>173</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Einsteiger: Grundlagen und Installation
 
 - Überblick: Claude Code ist ein agentisches Coding-Tool, das Codebasen analysiert, Dateien bearbeitet und Entwicklungsaufgaben automatisiert.
@@ -14355,12 +14355,12 @@ rm -rf .claude
   </WikiArtikel>
   <WikiArtikel>
     <Id>136</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Ai/Cursor/Lernpath</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>174</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Einsteiger
 
 ### 1. Überblick und Installation
@@ -14437,12 +14437,12 @@ rm -rf .claude
   </WikiArtikel>
   <WikiArtikel>
     <Id>137</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Ai/GitHub Copilot/Lernpath</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>175</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## 1. Einführung und Grundlagen
 
 - Was ist GitHub Copilot?
@@ -14523,12 +14523,12 @@ rm -rf .claude
   </WikiArtikel>
   <WikiArtikel>
     <Id>138</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Ai/Antigravity/Lernpath</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>176</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Einsteiger
 
 - Überblick: Was ist Antigravity? (Agent, Tab, Command, Artifacts)
@@ -14570,12 +14570,12 @@ rm -rf .claude
   </WikiArtikel>
   <WikiArtikel>
     <Id>139</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>AI/KI-Programmierassistenten im Vergleich</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>177</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieser Bericht bietet einen detaillierten Vergleich der KI-gestützten Coding-Lösungen **Claude Code**, **Cursor**, **GitHub Copilot** und **Google Antigravity**.
 
 ## Übersichtstabelle
@@ -14692,12 +14692,12 @@ Die Wahl des passenden Tools obliegt dem Programmier-Paradigma der Entwickler:
   </WikiArtikel>
   <WikiArtikel>
     <Id>140</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>AI/AI Toolkit</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>178</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieser Lernpfad führt Sie systematisch in die Entwicklung intelligenter Anwendungen mit dem AI Toolkit für Visual Studio Code ein – von den Grundlagen bis hin zur fortgeschrittenen Modellanpassung.
 
 ## Modul 1: Einführung und Installation
@@ -14763,12 +14763,12 @@ Die Wahl des passenden Tools obliegt dem Programmier-Paradigma der Entwickler:
   </WikiArtikel>
   <WikiArtikel>
     <Id>141</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>AI/AI Cli</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>179</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Eine Zusammenfassung der drei populärsten AI Command Line Interface (CLI) Tools. Die Liste ist nach Relevanz als Topliste sortiert.
 
 ## Die Top 3 AI CLI Tools
@@ -14809,12 +14809,12 @@ Die Wahl des passenden Tools obliegt dem Programmier-Paradigma der Entwickler:
   </WikiArtikel>
   <WikiArtikel>
     <Id>143</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Rust/Grundlagen</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>181</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Willkommen zu deinem Rust-Abenteuer! Rust ist eine superschnelle und sichere Programmiersprache. Stell dir vor, du hast einen magischen Werkzeugkasten, mit dem du alles bauen kannst, was du dir ausdenkst – von kleinen Spielen bis hin zu riesigen Welten. Lass uns anfangen!
 
 ## 1. Installation und Einrichtung
@@ -15156,12 +15156,12 @@ Ausgabe und Speicherung:
   </WikiArtikel>
   <WikiArtikel>
     <Id>144</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Rust/Grundlagen/Installation</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>182</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Hallo! Schön, dass du da bist. Hast du dich schon mal gefragt, wie man einem Computer sagt, was er tun soll? Genau das machen Programmierer! Heute lernen wir gemeinsam eine richtig coole und schnelle Programmiersprache: **Rust**.
 
 Du kannst dir Rust wie eine Werkstatt vorstellen, in der du kleine, nützliche und super-sichere Roboter baust. Damit wir unsere Roboter (also unsere Programme) bauen können, müssen wir unsere Werkstatt aber erst einmal einrichten.
@@ -15303,12 +15303,12 @@ Jetzt überprüfen wir gemeinsam, was du dir heute alles schon von den Aufgaben 
   </WikiArtikel>
   <WikiArtikel>
     <Id>145</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Rust/Installation und Setup</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>183</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Willkommen in der spannenden Welt des Programmierens! In diesem Kurs lernst du die Sprache "Rust" kennen. Wir erklären alles so, als würden wir gemeinsam ein Baumhaus bauen – Schritt für Schritt und kinderleicht!
 
 ## 🎯 Lernziele
@@ -15764,12 +15764,12 @@ Bei diesen Projekten hast du zuerst eine große Idee (Top) und baust sie dann Sc
   </WikiArtikel>
   <WikiArtikel>
     <Id>146</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Rust/Installation von `rustup`, `rustc` und `cargo`</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>184</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Willkommen in der Welt von Rust! Um erfolgreich mit Rust zu programmieren, musst du drei wichtige Werkzeuge kennenlernen: **rustup**, **rustc** und **cargo**. Keine Sorge, wir erklären alles so einfach, dass du als Programmieranfänger sofort loslegen kannst.
 
 ## Lernziele
@@ -15924,12 +15924,12 @@ Jetzt fügen wir alles zusammen. Hier erstellst du mit \`cargo\` große Projekte
   </WikiArtikel>
   <WikiArtikel>
     <Id>147</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Rust/"Hello World!" Programm</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>185</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## 1. Lernziele
 
 - Verstehen, was ein "Hello World!"-Programm ist und warum es traditionell als das erste Programm geschrieben wird.
@@ -16091,12 +16091,12 @@ Die Grundlagen sitzen? Hier sind 20 größere Aufgaben, die nur aus Textausgaben
   </WikiArtikel>
   <WikiArtikel>
     <Id>148</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Rust/IDE-Setup</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>186</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Herzlich willkommen! In diesem Kurs lernst du, wie du deine \*\*Rust IDE (Integrierte Entwicklungsumgebung)\*\* perfekt einrichtest. Eine gute IDE ist wie eine magische Werkstatt für Programmierer. Wir nutzen hierfür \*\*VS Code (Visual Studio Code)\*\* zusammen mit der Erweiterung \*\*rust-analyzer\*\*. Das ist das beliebteste und beste Werkzeug, um Rust-Code zu schreiben!
 
 Alles wird ganz einfach und Schritt für Schritt erklärt, damit du sofort loslegen kannst.
@@ -16245,12 +16245,12 @@ Diese Projekte sind etwas umfangreicher und bringen dir bei, wie Profis ihre Wer
   </WikiArtikel>
   <WikiArtikel>
     <Id>149</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>AI/AI Vergleich der KI-Sprachmodelle</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>187</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieser Bericht vergleicht die führenden KI-Sprachmodelle Stand 2026 hinsichtlich relevanter Kriterien für Entwickler und Anwender.
 
 ## Monatliche Abonnementkosten
@@ -16320,12 +16320,12 @@ Diese Projekte sind etwas umfangreicher und bringen dir bei, wie Profis ihre Wer
   </WikiArtikel>
   <WikiArtikel>
     <Id>150</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>AI/Vergleich der Sprachmodell-Anbieter</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>188</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieser Bericht vergleicht die Sprachmodell-Anbieter Gemini, Anthropic, xAI, OpenRouter, OpenAI und Ollama anhand verschiedener Kriterien, insbesondere im Hinblick auf den Programmiereinsatz unter Ubuntu.
 
 ## Übersicht der Anbieter
@@ -16388,12 +16388,12 @@ Für eine **rein lokale** Programmierung führt kein Weg an **Ollama** vorbei, v
   </WikiArtikel>
   <WikiArtikel>
     <Id>151</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>AI/Codex</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>189</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieser Lernplan führt Schritt für Schritt in die Nutzung des KI-gestützten Programmieragenten **OpenAI Codex** ein. Codex ist ein fortschrittlicher Agent für die Softwareentwicklung, der Entwickler bei der Code-Generierung, beim Verstehen von Codebasen, beim Debugging und der Automatisierung von Routineaufgaben unterstützt.
 
 ## Lernpfad
@@ -16532,12 +16532,12 @@ Die folgenden offiziellen Ressourcen von OpenAI bilden die Grundlage für ein ve
   </WikiArtikel>
   <WikiArtikel>
     <Id>152</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>AI/Claude Code</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>190</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Claude Code ist ein agentengestütztes Codierungswerkzeug von Anthropic, das Ihre Codebasis liest, Dateien bearbeitet, Befehle ausführt und sich nahtlos in Entwicklungs-Workflows (Terminal, VS Code, Browser, JetBrains etc.) integriert. Dieser Lernplan führt iterativ von der einfachen Installation bis hin zu fortgeschrittenen Themen wie MCP-Integration und benutzerdefinierten Skills.
 
 ## 1. Lernziele
@@ -16617,12 +16617,12 @@ Die offiziellen Dokumentationen von Anthropic dienen als primäre Lernressourcen
   </WikiArtikel>
   <WikiArtikel>
     <Id>153</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>AI/GitHub Copilot</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>191</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieses Dokument basiert auf der umfassenden Analyse der [offiziellen GitHub Copilot Dokumentation](https://docs.github.com/de/copilot) und dient als strukturierter Leitfaden (Lernpfad, Lernplan und Ressourcen), um GitHub Copilot von den Grundlagen bis zur fortgeschrittenen Nutzung und Administration zu erlernen.
 
 ## 🛤️ Lernpfad
@@ -16732,12 +16732,12 @@ Hier sind die zentralen Quellen zum Lernen und Nachschlagen:
   </WikiArtikel>
   <WikiArtikel>
     <Id>154</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>AI/GitHub Copilot CLI</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>192</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Einleitung
 
 GitHub Copilot CLI ist ein leistungsstarker, nativer autonomer Codierungsagent für das Terminal. Er ermöglicht die Steuerung von Git, GitHub CLI und Shell-Befehlen durch natürliche Sprache und transformiert das Terminal in eine interaktive Entwicklungsumgebung, die unter anderem einen Plan- und einen Autopilot-Modus bietet. Da Sie sich nicht mehr an exakte Kommandozeilensyntax erinnern müssen, wird Ihr Workflow massiv beschleunigt.
@@ -16827,12 +16827,12 @@ Hier sind die offiziellen und besten Ressourcen, um GitHub Copilot CLI zu beherr
   </WikiArtikel>
   <WikiArtikel>
     <Id>155</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>AI/Cursor AI Code Editor</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>193</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Nach umfassender Analyse der Cursor-Dokumentation (https://cursor.com/docs) und aller Unterverzeichnisse (inkl. CLI, Agenten, Kontext, Enterprise, Modelle und Integrationen) wurde der folgende detaillierte Lernpfad, Lernplan und Ressourcen-Katalog erstellt.
 
 Cursor ist ein moderner, KI-nativer Code-Editor (auf Basis von VS Code), der speziell für tiefes "Codebase-Understanding", Agenten-Prozesse und KI-gestützte Entwicklerproduktivität entwickelt wurde.
@@ -16948,12 +16948,12 @@ Basierend auf den Unterverzeichnissen der offiziellen Dokumentation sind dies di
   </WikiArtikel>
   <WikiArtikel>
     <Id>156</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>AI/Google Antigravity</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>194</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Google Antigravity ist ein fortschrittlicher, agentenbasierter KI-Programmierassistent, der vom Google DeepMind-Team für Advanced Agentic Coding entwickelt wurde. Dieses Dokument bietet einen umfassenden Lernpfad, einen strukturierten Lernplan sowie empfohlene Lernressourcen, um die Technologie von den Grundlagen bis zur Expertenebene zu beherrschen.
 
 ## 1. Lernpfad (Learning Path)
@@ -17070,12 +17070,12 @@ Google Antigravity revolutioniert die Art und Weise, wie Software entwickelt wir
   </WikiArtikel>
   <WikiArtikel>
     <Id>157</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>AI/Codex/Grundlagen</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>195</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Lernziele
 
 Nach dem Durcharbeiten dieses Lernpfads wirst du in der Lage sein:
@@ -17262,12 +17262,12 @@ Bei diesen Projekten startest du mit der großen Vision einer kompletten Anwendu
   </WikiArtikel>
   <WikiArtikel>
     <Id>158</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>AI/Grundlagen</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>196</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Kernkonzept
 
 Die grundsätzliche Funktion von Claude Code verstehen und die Arbeitsumgebung vorbereiten. Claude Code ist ein agentengestütztes Codierungswerkzeug, das die Codebasis liest, Dateien bearbeitet, Befehle ausführt und sich in die bestehenden Entwicklungstools integriert (Terminal, IDE, Desktop-App, Web).
@@ -17406,12 +17406,12 @@ Komplexe und übergreifende Use-Cases, bei denen Claude Code als vollwertiger Pr
   </WikiArtikel>
   <WikiArtikel>
     <Id>159</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>AI/Gemini CLI</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>197</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Einleitung
 
 Dieser Lernpfad führt Sie durch alle Aspekte der Gemini CLI (https://geminicli.com/docs/) – von der grundlegenden Installation bis hin zu fortgeschrittenen Themen wie Agent Skills, MCP-Servern und eigener Entwicklung. Das Ziel ist es, Sie in die Lage zu versetzen, die Leistungsfähigkeit der Gemini-Modelle direkt in Ihrem Terminal für Code-Verständnis, Automatisierung und lokales Projektkontext-Management einzusetzen.
@@ -17657,12 +17657,12 @@ Rust ist für Systeme konzipiert, die 100% speichersicher und ultra-schnell sein
   </WikiArtikel>
   <WikiArtikel>
     <Id>162</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>ASP NET Core/Grundlagen und Struktur</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>200</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## HTTP
 
 HTTP (Hypertext Transfer Protocol) ist das Fundament der Datenübertragung im Web. In ASP.NET Core dreht sich alles um die Verarbeitung von HTTP-Requests (Anfragen) und das Senden von HTTP-Responses (Antworten).
@@ -18267,12 +18267,12 @@ Wenn die **technische Sicherheit gegen Datenlecks und Hackerangriffe** bei kompl
   </WikiArtikel>
   <WikiArtikel>
     <Id>170</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Programmiersprachen für sichere, robuste und komplexe Anwendungen mit C/C++ API-Unterstützung</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>208</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt># Programmiersprachen für sichere, robuste und komplexe Anwendungen mit C/C++ API-Unterstützung
 
 Diese Übersicht bewertet Programmiersprachen, die sich besonders für die Entwicklung von sehr sicheren, robusten und extrem großen Anwendungen eignen, umfassende Unterstützung für C- sowie C++-APIs bieten und über etablierte Benchmarking-Ökosysteme verfügen.
@@ -18313,12 +18313,12 @@ Rust gilt als Branchenstandard, wenn es um die Kombination von Systemprogrammier
   </WikiArtikel>
   <WikiArtikel>
     <Id>171</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Geeignete Systemprogrammiersprachen für sichere, robuste und große C/C++ APIs</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>209</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Geeignete Systemprogrammiersprachen für sichere, robuste und große C/C++ APIs
 
 Für die Entwicklung von sehr sicheren, robusten und komplexen Systemanwendungen, die nahtlos mit großen C- und C++-APIs interagieren müssen und für die aussagekräftige Benchmarks vorliegen, kristallisieren sich derzeit einige wenige moderne Systemprogrammiersprachen heraus. Die wichtigsten Kandidaten sind **Rust**,
@@ -18717,12 +18717,12 @@ Für Prototyping und Hobby-Projekte bieten viele Provider 2026 kostenlose API-Zu
   </WikiArtikel>
   <WikiArtikel>
     <Id>174</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>AI/AI-First IDEs: Enterprise-Ready</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>212</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## KI-Editoren &amp; Entwicklungsumgebungen (IDEs)
 
 *Vollwertige Editoren mit tiefer KI-Integration und Protokoll-Unterstützung.*
@@ -18790,12 +18790,12 @@ Für Prototyping und Hobby-Projekte bieten viele Provider 2026 kostenlose API-Zu
   </WikiArtikel>
   <WikiArtikel>
     <Id>176</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>AI</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>224</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Diese Seite bietet einen Überblick über zentrale Themen, Tools und Best Practices rund um KI und ML in der Softwareentwicklung.
 
 ## Grundlagen und Integration
@@ -19246,12 +19246,12 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'DEIN_STARKES_PASSWORT'; FLUSH PRIVI
   </WikiArtikel>
   <WikiArtikel>
     <Id>182</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Server</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>230</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>- [Server/Mieten](Server/Mieten)
 - [Server/Backup](Server/Backup)
 - [Server/Ubuntu Software Pakete Installieren](Server/Ubuntu_Software_Pakete_Installieren)
@@ -19928,12 +19928,12 @@ Prüfen Sie mit sudo nginx -t immer zuerst, ob die Konfiguration fehlerfrei ist.
   </WikiArtikel>
   <WikiArtikel>
     <Id>190</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframework</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>238</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## SSR Webframework
 
 ### [Asp Net Core](Webframeworkk/ASP.NET_Core)
@@ -20363,12 +20363,12 @@ Kriterien
   </WikiArtikel>
   <WikiArtikel>
     <Id>206</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Ahrensburg.city:Datenschutz</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>254</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der EU-Datenschutzgrundverordnung (DSGVO), ist:
 
 - Thorsten Klöhn
@@ -20481,12 +20481,12 @@ Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte eine E-Mail oder 
   </WikiArtikel>
   <WikiArtikel>
     <Id>207</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Ahrensburg.city:Impressum</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>255</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Angaben gemäß § 5 TMG
 
 - Thorsten Klöhn
@@ -20536,12 +20536,12 @@ Impressum vom [Impressum Generator](https://www.impressum-generator.de) der \[Ka
   </WikiArtikel>
   <WikiArtikel>
     <Id>208</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Weiter Tools</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>256</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## ghosttext</MarkdownInhalt>
         <Zeitpunkt>2026-01-08T23:47:52Z</Zeitpunkt>
         <Kategorie />
@@ -20584,12 +20584,12 @@ Impressum vom [Impressum Generator](https://www.impressum-generator.de) der \[Ka
   </WikiArtikel>
   <WikiArtikel>
     <Id>210</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>CMS</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>258</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>- [Empfohlene Webframeworks (Kompilierte Sprachen, Enterprise-Ready)](Empfohlene_Webframeworks_(Kompilierte_Sprachen,_Enterprise-Ready) "wikilink")
 
 ## 1. Eigene CMS-Systeme
@@ -21317,12 +21317,12 @@ Hier ist der Link: [Postmaster](https://postmaster.google.com/)</MarkdownInhalt>
   </WikiArtikel>
   <WikiArtikel>
     <Id>221</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Weitere Tools</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>269</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## Ghosttext Visual Studio Code
 
 GhostText ist eine Erweiterung, mit der du Texte in deinem Browser direkt in Visual Studio Code bearbeiten kannst. Änderungen werden in Echtzeit synchronisiert.
@@ -21348,12 +21348,12 @@ Weitere Infos: [Offizielle GhostText-Webseite](https://ghosttext.fregante.com/)<
   </WikiArtikel>
   <WikiArtikel>
     <Id>222</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>XWiki</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>270</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## XWiki Installieren Entwickler Rechner
 
 ### Ubuntu Rechner
@@ -21603,12 +21603,12 @@ Erstelle eine Datei /etc/nginx/conf.d/mediawiki.conf mit folgendem Inhalt:
   </WikiArtikel>
   <WikiArtikel>
     <Id>225</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Lerntechnik</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>273</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## Die besten modernen Lernmethoden für das Lernen von Programmiersprachen
 
 Effektives Programmierenlernen kombiniert praktische Übung, kognitive Strategien und soziale Formate. Die folgenden Ansätze lassen sich flexibel mischen und iterativ anwenden.
@@ -21773,12 +21773,12 @@ Gib Folgendes ein
   </WikiArtikel>
   <WikiArtikel>
     <Id>227</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Kurse/Asp net core mvc/wiki</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>275</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt># Lernpfad und Roadmap: Eigenes Wiki-System mit ASP.NET Core MVC
 
 ## Einleitung
@@ -21842,12 +21842,12 @@ Beginne mit den Grundlagen und arbeite dich Schritt für Schritt durch die Roadm
   </WikiArtikel>
   <WikiArtikel>
     <Id>228</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Kurse/Asp net core mvc/wiki/Grundlagen von ASP.NET Core MVC</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>276</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## Einführung in ASP.NET Core und MVC-Architektur
 
 **ASP.NET Core MVC** ist ein modernes, plattformübergreifendes Web-Framework von Microsoft, das auf dem Model-View-Controller (MVC)-Architekturprinzip basiert. Es ermöglicht die Entwicklung dynamischer Webanwendungen und APIs mit einer klaren Trennung von Datenmodell, Benutzeroberfläche und Steuerungslogik. ASP.NET Core MVC ist Teil von ASP.NET Core und bietet Vorteile wie hohe Performance, Modularität, Testbarkeit und Unterstützung für Dependency Injection.
@@ -22393,12 +22393,12 @@ Erstelle eine Datei app.py mit folgendem Inhalt:
   </WikiArtikel>
   <WikiArtikel>
     <Id>234</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Ns3000:01.02.2026 WordPress und KI Die Zukunft der Plugin-Landschaft</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>282</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>WordPress steht vor einem spannenden Wandel. KI-Agenten werden künftig viele klassische Plugins ersetzen können, indem sie intelligente Tipps geben und passende Lösungen vorschlagen.
 
 ### Empfehlenswerte KI-Plugins für WordPress
@@ -22450,12 +22450,12 @@ WordPress bietet zwar viele Plugins und fertige Lösungen, aber für individuell
   </WikiArtikel>
   <WikiArtikel>
     <Id>235</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Blog:01.02.2026 WordPress und KI Die Zukunft der Plugin-Landschaft</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>283</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>WordPress steht vor einem spannenden Wandel. KI-Agenten werden künftig viele klassische Plugins ersetzen können, indem sie intelligente Tipps geben und passende Lösungen vorschlagen.
 
 ### Empfehlenswerte KI-Plugins für WordPress
@@ -22507,12 +22507,12 @@ WordPress bietet zwar viele Plugins und fertige Lösungen, aber für individuell
   </WikiArtikel>
   <WikiArtikel>
     <Id>236</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Kategorie:01.02.2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>284</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>[Kategorie:02.2026](Kategorie:02.2026)</MarkdownInhalt>
         <Zeitpunkt>2026-02-03T13:37:30Z</Zeitpunkt>
         <Kategorie />
@@ -22522,12 +22522,12 @@ WordPress bietet zwar viele Plugins und fertige Lösungen, aber für individuell
   </WikiArtikel>
   <WikiArtikel>
     <Id>237</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Kategorie:02.2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>285</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>[Kategorie:2026](Kategorie:2026)</MarkdownInhalt>
         <Zeitpunkt>2026-02-03T13:38:09Z</Zeitpunkt>
         <Kategorie />
@@ -22537,12 +22537,12 @@ WordPress bietet zwar viele Plugins und fertige Lösungen, aber für individuell
   </WikiArtikel>
   <WikiArtikel>
     <Id>238</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Kategorie:2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>286</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>[kategorie:Blog](kategorie:Blog)</MarkdownInhalt>
         <Zeitpunkt>2026-02-03T13:41:07Z</Zeitpunkt>
         <Kategorie />
@@ -22552,12 +22552,12 @@ WordPress bietet zwar viele Plugins und fertige Lösungen, aber für individuell
   </WikiArtikel>
   <WikiArtikel>
     <Id>239</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Kategorie:Blog</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>287</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## Willkommen auf meine Blogs Seiten
 
 Hier finden Sie neue Blogartikel und Abschnitte zu verschiedenen Themen wie Technik, KI-Anwendungen, das Schreiben von MediaWiki-Extensions sowie zu ASP.NET Core MVC und Spring Boot.</MarkdownInhalt>
@@ -22569,12 +22569,12 @@ Hier finden Sie neue Blogartikel und Abschnitte zu verschiedenen Themen wie Tech
   </WikiArtikel>
   <WikiArtikel>
     <Id>240</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Blog:01.02.2026 Wissenmanage System</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>288</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## Wissensmanagement: Selbst bauen oder bestehende Lösungen nutzen?
 
 Beim Aufbau eines eigenen Wissensmanagement-Systems stehen zwei Wege offen:
@@ -22777,12 +22777,12 @@ Wer spezielle Anforderungen hat (z. B. komplexe Rechteverwaltung, eigene KI-Work
   </WikiArtikel>
   <WikiArtikel>
     <Id>241</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Blog:03.02.2026 Schaltet ein paar Anwendungen ab.</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>289</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Ich schalte ein paar Anwendungen ab, weil es zu viel Aufwand ist, die Inhalte zu verwalten – deshalb lösche ich WordPress, XWiki, Wiki.js, Drupal und Typo3. Es handelt sich um keine wichtige Wissenssammlung.
 
 Wie lösche ich WordPress auf einem Ubuntu-Server mit nginx, wenn dort eine WordPress-Instanz läuft? Beispiel: Bei mir löscht man die Datei /etc/nginx/conf.d/wordpress.conf.
@@ -22824,12 +22824,12 @@ Und so Weiter
   </WikiArtikel>
   <WikiArtikel>
     <Id>242</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Kategorie:03.02.2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>290</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>[kategorie:02.2026](kategorie:02.2026)</MarkdownInhalt>
         <Zeitpunkt>2026-02-03T15:28:06Z</Zeitpunkt>
         <Kategorie />
@@ -22839,12 +22839,12 @@ Und so Weiter
   </WikiArtikel>
   <WikiArtikel>
     <Id>243</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Blog:03.02.2026 – Inhalt verwalten</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>291</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Heute möchte ich über ein Thema sprechen, das mir am Herzen liegt: Ich bin kein Freund des Gutenberg-Editors von WordPress, des Drupal Canvas, des RTE in Typo3 oder des CKEditor. Ich möchte diese Web-Tools nicht schlechtmachen – sie haben ihre Berechtigung und viele Vorteile. Ich persönlich bin jedoch ein großer Fan des „Code as Docs“-Prinzips. Das bedeutet, dass ich meine Dokumentation direkt beim Programmieren, zum Beispiel in Visual Studio Code, schreibe. Für mich fühlt sich das natürlicher und freier an als die Arbeit mit klassischen Editoren wie WordPress. Dort habe ich oft das Gefühl, nicht die absolute Freiheit zu haben, die ich mir wünsche. Ich arbeite gern mit Markdown, AsciiDoc, LaTeX und Wikitext, weil ich so bessere Kontrolle habe.
 
 ## Beispielsprachen
@@ -23009,12 +23009,12 @@ Die Erweiterung hilft, Wikitext effizienter und fehlerfreier zu schreiben. Sie r
   </WikiArtikel>
   <WikiArtikel>
     <Id>247</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Visual Studio Code/Eigene Erweiterungen schreiben</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>295</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## Generator installieren
 
 Um einen Generator zu installieren, öffne das Terminal und führe folgenden Befehl aus:
@@ -23227,12 +23227,12 @@ Zeile hinzufügen:
   </WikiArtikel>
   <WikiArtikel>
     <Id>249</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Blog:09.02.2026 Lesbar Url</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>297</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Was ist eine lesbare URL? Braucht man sie oder nicht? Die Suchmaschinen brauchen sie bessere Seiten zu indexieren.
 
 ## Wie geht das mit
@@ -23871,12 +23871,12 @@ Der folgende Zeitplan geht von einem durchschnittlichen Lernaufwand von ca. 8-10
   </WikiArtikel>
   <WikiArtikel>
     <Id>255</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>C</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>303</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## Weblink
 
 - Jason Fedin / Tim Buchalka C Programming For Beginners - Master the C Language
@@ -24105,12 +24105,12 @@ Scribunto muss das Lua-Binary ausführen können. Setzen Sie die entsprechenden 
   </WikiArtikel>
   <WikiArtikel>
     <Id>258</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Modul:HalloWelt</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>306</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>local p = {}
 
 function p.hallo(frame)
@@ -24130,12 +24130,12 @@ end return p</MarkdownInhalt>
   </WikiArtikel>
   <WikiArtikel>
     <Id>259</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Test</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>307</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>{{#invoke:HalloWelt\|hallo}}
 
 {{#invoke:HalloWelt\|start}}</MarkdownInhalt>
@@ -24147,12 +24147,12 @@ end return p</MarkdownInhalt>
   </WikiArtikel>
   <WikiArtikel>
     <Id>260</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframeworkk/ASP.NET Core</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>308</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Willkommen im **ASP.NET Core Tutorial**! Dieses Tutorial führt dich schrittweise durch alle relevanten Themen der modernen Webentwicklung mit ASP.NET Core. Die Inhalte basieren auf der offiziellen Struktur der [Webframeworkk-Dokumentation](https://docs.ahrensburg.city/Webframeworkk/ASP.NET_Core). Diese Übersicht dient als Einstiegspunkt und Lernpfad. Arbeite die Themen am besten der Reihe nach ab, da sie logisch aufeinander aufbauen.
 
 ## Modul 1: [Grundlagen und Struktur](ASP_NET_Core/Grundlagen_und_Struktur)
@@ -24217,12 +24217,12 @@ Ohne Tests ist jedes Refactoring ein Risiko.
   </WikiArtikel>
   <WikiArtikel>
     <Id>261</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Routing</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>309</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Dieses Tutorial behandelt das Routing speziell im Kontext von ASP.NET Core MVC. Es erklärt, wie eingehende Anfragen an Controller und deren Action-Methoden weitergeleitet werden.
 
 ## 1. Routing-Typen in MVC
@@ -24410,12 +24410,12 @@ Diese Flexibilität macht Attribute Routing besonders für komplexe oder REST-or
   </WikiArtikel>
   <WikiArtikel>
     <Id>262</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Middleware</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>310</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Dieses Tutorial erklärt das Konzept der Middleware in ASP.NET Core, wie sie funktioniert, wie man sie konfiguriert und wie man eigene Middleware-Komponenten erstellt. Es basiert auf den bereitgestellten Notizen und ergänzendem Expertenwissen.
 
 ## Was ist Middleware?
@@ -24618,12 +24618,12 @@ app.UseWhen(
   </WikiArtikel>
   <WikiArtikel>
     <Id>263</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Http</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>311</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## 1. Was ist HTTP?
 
 HTTP (Hypertext Transfer Protocol) ist das grundlegende Protokoll für die Kommunikation im Web. Es arbeitet nach dem Client-Server-Modell: Ein Client (z.B. Browser) sendet eine Anfrage, der Server antwortet mit Ressourcen oder Fehlermeldungen. HTTP ist zustandslos – jeder Request ist unabhängig.
@@ -24718,12 +24718,12 @@ HTTP ist das Rückgrat des Webs. ASP.NET Core und Kestrel bieten eine moderne Pl
   </WikiArtikel>
   <WikiArtikel>
     <Id>264</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Controllers und IActionResult</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>312</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>In der \*\*Model-View-Controller (MVC)\*\* Architektur fungieren Controller als Orchestratoren der Webanwendung. Sie verarbeiten eingehende HTTP-Anfragen, interagieren mit dem Model (Datenbank oder Business-Logik) und wählen die passende View für die Antwort aus.
 
 - \*\*Controller\*\*: Klassen, die verwandte Action Methods gruppieren. Sie befinden sich typischerweise im Ordner \`Controllers\`.
@@ -24920,12 +24920,12 @@ return LocalRedirect("/products/details/1");
   </WikiArtikel>
   <WikiArtikel>
     <Id>265</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Model Binding und Validation</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>313</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Basierend auf der Analyse der Datei *Text.txt* bietet dieses Tutorial einen umfassenden Überblick über Model Binding und Validierung in ASP.NET Core MVC.
 
 ## 1. Einführung in Model Binding
@@ -25088,12 +25088,12 @@ Wenn das Standardverhalten nicht ausreicht, können Sie eigene Model Binder erst
   </WikiArtikel>
   <WikiArtikel>
     <Id>266</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Razor Views</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>314</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Basierend auf der Analyse von *start.txt* enthält dieses Dokument Tutorials und Erklärungen zu den Kernkonzepten von ASP.NET Core MVC, einschließlich Architektur, Views, Razor-Syntax, Datenübergabe und der Erstellung wiederverwendbarer Komponenten.
 
 ## MVC Architektur
@@ -25386,12 +25386,12 @@ Dieser Fallback-Mechanismus ermöglicht es Ihnen, globale Views im *Shared*-Ordn
   </WikiArtikel>
   <WikiArtikel>
     <Id>267</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Layout Views</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>315</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## Einführung
 
 Layout Views sind ein zentrales Konzept in ASP.NET Core MVC, um einheitliche und wiederverwendbare Strukturen für Webseiten zu schaffen. Sie ermöglichen es, gemeinsame Elemente wie Kopfzeile, Navigation, Fußzeile und Seitenleisten zentral zu definieren.
@@ -25547,12 +25547,12 @@ Layout Views sind essenziell für Struktur, Wiederverwendbarkeit und Wartbarkeit
   </WikiArtikel>
   <WikiArtikel>
     <Id>268</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Partial Views</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>316</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## Einführung
 
 In ASP.NET Core MVC ist eine **Partial View** (Teilansicht) ein wiederverwendbarer Block von Razor-Markup (.cshtml), der in andere Views eingebettet werden kann. Sie sind dafür konzipiert, spezifische UI-Elemente wie Listen, Formulare, Navigationsleisten oder Widgets zu kapseln.
@@ -25755,12 +25755,12 @@ public IActionResult GetLanguages()
   </WikiArtikel>
   <WikiArtikel>
     <Id>269</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/View Components</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>317</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Dieses Tutorial erklärt, was View Components in ASP.NET Core sind, wann man sie verwendet und wie man sie effektiv implementiert. Es deckt Standard-View Components, stark typisierte Implementierungen, die Übergabe von Parametern und die Rückgabe aus Controllern ab.
 
 ## 1. Was sind View Components?
@@ -25964,12 +25964,12 @@ public IActionResult LoadFriendsList()
   </WikiArtikel>
   <WikiArtikel>
     <Id>270</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Dependency Inversion</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>318</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## 1. Einführung: Was sind Services?
 
 In ASP.NET Core MVC sind **Services** Klassen, die für die Implementierung der Kern-Geschäftslogik Ihrer Anwendung verantwortlich sind. Sie sind darauf ausgelegt, wiederverwendbar, eigenständig und unabhängig von spezifischen Controllern oder Views zu sein.
@@ -26194,12 +26194,12 @@ DI ist ein mächtiges Werkzeug, um lose gekoppelte, testbare und wartbare Softwa
   </WikiArtikel>
   <WikiArtikel>
     <Id>271</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Laufzeitumgebung</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>319</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## 1. Einführung: Was sind Umgebungen?
 
 In ASP.NET Core sind Umgebungen benannte Konfigurationen, die es Ihnen ermöglichen, Einstellungen, Konfigurationen und Middleware-Pipelines für spezifische Szenarien anzupassen. Dies hilft bei der Verwaltung von Unterschieden zwischen der Entwicklung, dem Testen und dem produktiven Einsatz.
@@ -26402,12 +26402,12 @@ In Razor Views können Sie den `&lt;environment&gt;` Tag Helper verwenden, um HT
   </WikiArtikel>
   <WikiArtikel>
     <Id>272</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Konfiguration</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>320</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Dieses Tutorial bietet einen umfassenden Einstieg in das Konfigurationssystem von ASP.NET Core. Es richtet sich an Entwickler, die lernen möchten, wie man Einstellungen und sensible Daten sicher und flexibel verwaltet.
 
 ## 1. Grundlagen der Konfiguration
@@ -26491,12 +26491,12 @@ public class MyService {
   </WikiArtikel>
   <WikiArtikel>
     <Id>273</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Blog:19.02.2026 Web-Rendering-Verfahren</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>321</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## Web-Rendering-Verfahren
 
 - **Client-Side Rendering (CSR)** – Ideal für interaktive Single-Page-Applications (SPAs) und desktopähnliche Webanwendungen.
@@ -26578,12 +26578,12 @@ Typischer Ablauf: Der Benutzer löst eine Aktion aus (z. B. Klick auf einen Butt
   </WikiArtikel>
   <WikiArtikel>
     <Id>274</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Blog:20.02.2026 KI-Zeitalter Speicherfresser und RAM-Verbrauch</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>322</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Heute stelle ich fest, dass viele KI-Anwendungen den Energieverbrauch deutlich steigern. Viele Unternehmen – mich eingeschlossen – nutzen KI-Agenten und entwickeln diese häufig mit Python, was viel Energie und natürliche Ressourcen verbraucht. Andere Sprachen wie C, C++, Rust, Go, Java, C# oder Node.js sind oft effizienter.
 
 | Platz | Programmiersprache | Energie-Faktor | Typ                       |
@@ -26800,12 +26800,12 @@ Effiziente Modelle und lokale Verarbeitung senken den Energieverbrauch und schon
   </WikiArtikel>
   <WikiArtikel>
     <Id>275</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Kategorie:09.02.2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>323</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>[kategorie:02.2026](kategorie:02.2026)</MarkdownInhalt>
         <Zeitpunkt>2026-02-20T22:46:57Z</Zeitpunkt>
         <Kategorie />
@@ -26815,12 +26815,12 @@ Effiziente Modelle und lokale Verarbeitung senken den Energieverbrauch und schon
   </WikiArtikel>
   <WikiArtikel>
     <Id>276</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Kategorie:19.02.2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>324</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>[kategorie:02.2026](kategorie:02.2026)</MarkdownInhalt>
         <Zeitpunkt>2026-02-20T22:51:25Z</Zeitpunkt>
         <Kategorie />
@@ -26830,12 +26830,12 @@ Effiziente Modelle und lokale Verarbeitung senken den Energieverbrauch und schon
   </WikiArtikel>
   <WikiArtikel>
     <Id>277</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Kategorie:20.02.2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>325</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>[kategorie:02.2026](kategorie:02.2026)</MarkdownInhalt>
         <Zeitpunkt>2026-02-20T22:59:10Z</Zeitpunkt>
         <Kategorie />
@@ -26845,12 +26845,12 @@ Effiziente Modelle und lokale Verarbeitung senken den Energieverbrauch und schon
   </WikiArtikel>
   <WikiArtikel>
     <Id>278</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/xUnit</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>326</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Dieses Tutorial gibt dir einen Überblick über Unit Testing, Best Practices und die Verwendung des xUnit-Frameworks in .NET.
 
 ## 1. Einführung in Unit Testing
@@ -26940,12 +26940,12 @@ Dieses Tutorial dient als Grundlage für sauberes und effektives Unit Testing in
   </WikiArtikel>
   <WikiArtikel>
     <Id>279</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Crud Opertations</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>327</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Willkommen zu diesem umfassenden Tutorial zur Implementierung von **CRUD-Operationen (Create, Read, Update, Delete)** in ASP.NET Core MVC. Dieser Leitfaden konzentriert sich auf den Aufbau robuster, wartbarer und effizienter Webanwendungen.
 
 ------------------------------------------------------------------------
@@ -27070,12 +27070,12 @@ Wenn Sie sich auf ein technisches Interview vorbereiten, sollten Sie folgende Th
   </WikiArtikel>
   <WikiArtikel>
     <Id>280</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Tag-Helfer</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>328</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Dieses Tutorial führt dich durch die Konzepte von **Tag Helpern** in ASP.NET Core MVC und zeigt dir, wie du sie effektiv in einer **CRUD-Anwendung** (Create, Read, Update, Delete) einsetzt.
 
 ------------------------------------------------------------------------
@@ -27189,12 +27189,12 @@ ASP.NET Core bietet eine integrierte Validierungskette:
   </WikiArtikel>
   <WikiArtikel>
     <Id>281</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Entity Framework Core</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>329</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Dieses Tutorial bietet einen umfassenden Überblick über **Entity Framework Core (EF Core)**, das moderne, leichtgewichtige und plattformübergreifende Object-Relational Mapper (ORM) Framework für .NET.
 
 ------------------------------------------------------------------------
@@ -27382,12 +27382,12 @@ var persons = _db.Persons.FromSqlRaw("EXECUTE [dbo].[GetAllPersons]").ToList();
   </WikiArtikel>
   <WikiArtikel>
     <Id>282</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Erweiterter Unit-Test</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>330</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Dieses Tutorial bietet einen umfassenden Überblick über moderne Tools und Techniken für Unit- und Integrationstests in der .NET-Entwicklung. Wir konzentrieren uns auf **Fluent Assertions**, **AutoFixture**, **Mocking mit Moq** und **Integrationstests**.
 
 ------------------------------------------------------------------------
@@ -27519,12 +27519,12 @@ Um effektive Tests zu schreiben, sollten diese folgende Kriterien erfüllen:
   </WikiArtikel>
   <WikiArtikel>
     <Id>283</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Protokollierung und Serilog</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>331</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Logging ist ein unverzichtbares Werkzeug zur Überwachung, Fehlerbehebung und Gewinnung von Einblicken in das Verhalten deiner ASP.NET Core-Anwendung. Es dient als Fenster zu den Laufzeitereignissen deiner Anwendung und ermöglicht es dir, alles von Routineoperationen bis hin zu kritischen Fehlern zu verfolgen.
 
 ------------------------------------------------------------------------
@@ -27697,12 +27697,12 @@ builder.Host.UseSerilog((ctx, services, config) =&gt; config
   </WikiArtikel>
   <WikiArtikel>
     <Id>284</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Filter</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>332</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Filters sind leistungsstarke Komponenten in ASP.NET Core MVC, mit denen Sie Code vor, nach oder sogar während der Ausführung Ihrer Controller-Aktionen oder Razor-Pages abfangen und ausführen können. Sie bieten eine saubere und modulare Methode zur Implementierung von **Cross-Cutting Concerns** (querschnittlichen Belangen).
 
 ------------------------------------------------------------------------
@@ -27870,12 +27870,12 @@ Obwohl sie sich ähnlich sehen, gibt es wichtige Unterschiede:
   </WikiArtikel>
   <WikiArtikel>
     <Id>285</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Fehlerbehandlung</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>333</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Eine robuste Fehlerbehandlung ist entscheidend für die Erstellung benutzerfreundlicher und stabiler Webanwendungen. In ASP.NET Core MVC geht es darum, Ausnahmen elegant abzufangen, informatives Feedback zu geben und den reibungslosen Betrieb der Anwendung sicherzustellen.
 
 ------------------------------------------------------------------------
@@ -28001,12 +28001,12 @@ app.UseRouting();
   </WikiArtikel>
   <WikiArtikel>
     <Id>286</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/SOLID-Prinzipien</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>334</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Dieses Tutorial gibt einen umfassenden Überblick über die SOLID-Prinzipien, ein Akronym für fünf grundlegende Entwurfsmuster in der objektorientierten Programmierung. Das Ziel dieser Prinzipien ist es, die Wartbarkeit, Testbarkeit und Flexibilität Ihres Codes zu erhöhen, indem Abhängigkeiten reduziert werden.
 
 ------------------------------------------------------------------------
@@ -28164,12 +28164,12 @@ Die Anwendung der SOLID-Prinzipien bietet klare Vorteile:
   </WikiArtikel>
   <WikiArtikel>
     <Id>287</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Saubere Architektur</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>335</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## 1. Einführung in die Clean Architecture
 
 Clean Architecture (auch bekannt als Onion Architecture) ist ein Softwaredesign-Prinzip, das auf **Separation of Concerns (Trennung von Belangen)**, **Testbarkeit** und **Wartbarkeit** setzt. Die Anwendung wird in Schichten organisiert, wobei jede Schicht eine spezifische Verantwortung trägt und die Abhängigkeiten klar definiert sind.
@@ -29593,7 +29593,7 @@ Dieser strukturierte 8-Wochen-Plan setzt einen Zeitaufwand von ca. 5-10 Stunden 
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>402</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Einleitung
 ##
 Dieser Lernpfad und Lernplan führt dich Schritt für Schritt durch die Python-Programmierung – von den Grundlagen bis hin zu fortgeschrittenen Themen. Python zeichnet sich durch seine klare Syntax und Vielseitigkeit aus und eignet sich ideal für Anfänger sowie für Profis in Bereichen wie Webentwicklung, Datenanalyse und Automatisierung.
@@ -29831,12 +29831,12 @@ Dieser strukturierte 8-Wochen-Plan setzt einen Zeitaufwand von ca. 5-10 Stunden 
   </WikiArtikel>
   <WikiArtikel>
     <Id>298</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>TypeScript</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>346</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Dieser Leitfaden bietet einen strukturierten Weg, um TypeScript von Grund auf zu erlernen und in realen Projekten anzuwenden.
 
 ## Lernpfad
@@ -30809,12 +30809,12 @@ Die Wahl des passenden Tools obliegt dem Programmier-Paradigma der Entwickler:
   </WikiArtikel>
   <WikiArtikel>
     <Id>309</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Test Übung</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>357</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>&lt;quiz&gt; { Was war der ursprüngliche Name von C++, als Bjarne Stroustrup mit der Entwicklung begann? } - C Plus Plus + C with Classes (C mit Klassen) - Advanced C - C#
 
 { Welche der folgenden Programmierparadigmen unterstützt C++? (Mehrere Antworten möglich) } + Objektorientierte Programmierung + Prozedurale Programmierung + Generische Programmierung - Logische Programmierung
@@ -33566,12 +33566,12 @@ Die Gemini CLI ist mehr als ein Terminal-Chat. Es handelt sich um einen vollwert
   </WikiArtikel>
   <WikiArtikel>
     <Id>327</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>LMS Plattformen &amp; Code Execution APIs</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>375</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Diese Seite enthält eine Zusammenfassung von Open-Source Code-Execution-APIs und Autograding-Systemen für die Entwicklung einer eigenen LMS-Plattform für Programmiersprachen.
 
 ## Judge0
@@ -33616,12 +33616,12 @@ Die Gemini CLI ist mehr als ein Terminal-Chat. Es handelt sich um einen vollwert
   </WikiArtikel>
   <WikiArtikel>
     <Id>328</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Empfohlene Webframeworks (Kompilierte Sprachen, Enterprise-Ready)</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>376</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Auf Basis der Anforderungen (Verwaltung von über 10 Millionen Datensätzen, Enterprise-Standard, "Batteries Included", extrem sicher und stabil, integriertes Admin-Panel, KEINE Skriptsprachen wie PHP oder Python/Django, KEIN reines CMS) ergeben sich folgende Top-Empfehlungen aus der Welt der kompilierten Sprachen (Java, C#, Go, Rust).
 
 ## 1. ASP.NET Core mit ABP Framework (C#)
@@ -33829,12 +33829,12 @@ Der Einsatz von fortgeschrittenen KI-Agents oder CLI-Tools (wie Claude Code CLI 
   </WikiArtikel>
   <WikiArtikel>
     <Id>330</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>KI-Software und Tools Analyse 2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>378</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Diese Übersicht bietet eine Analyse aktueller KI-Technologien, kategorisiert nach Reifegrad (Tier), Industriestandard und Sicherheitsaspekten für den Unternehmenseinsatz.
 
 ### Reifegrad Definition (Tiers)
@@ -33902,12 +33902,12 @@ Der Einsatz von fortgeschrittenen KI-Agents oder CLI-Tools (wie Claude Code CLI 
   </WikiArtikel>
   <WikiArtikel>
     <Id>331</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Blog:08.03.2026 Ich nutze lieber Compilersprachen statt Interpretersprachen</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>379</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Ich nutze lieber Compilersprachen statt Interpretersprachen für die Backend-Programmierung, da hier präziser gearbeitet werden muss als bei Letzteren.
 
 Laravel, Django und Symfony sind gute Web-Frameworks, doch am wohlsten fühle ich mich mit Java und C#. Dort kann ich besser strukturieren, und die Frameworks sind sehr robust.
@@ -33966,12 +33966,12 @@ Fünfter Tipp: Prompten Sie das KI-Tool immer explizit: "Verwende für externe D
   </WikiArtikel>
   <WikiArtikel>
     <Id>332</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Lerntechnik 1</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>380</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>## Struktur und Benutzeroberfläche
 
 - **VS Code Integration:** Moderne Lernplattformen nutzen Editoren, die stark an Visual Studio Code angelehnt sind (z. B. VS Code Server oder Monaco Editor). Dies ermöglicht eine konsistente Erfahrung sowohl online im Browser als auch offline in der lokalen Entwicklungsumgebung.
@@ -34042,12 +34042,12 @@ Basierend auf den Kriterien Interaktivität, Validierung und Praxisrelevanz sind
   </WikiArtikel>
   <WikiArtikel>
     <Id>333</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Top-Programmiersprachen für sichere, robuste und große Enterprise-Webanwendungen</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>381</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Für die Entwicklung von hochsicheren, robusten und komplexen Enterprise-Webanwendungen mit dem Fokus auf minimale Datenlecks und Resilienz gegen Hackerangriffe eignen sich insbesondere Sprachen, die eine starke Typisierung, exzellente Speicherverwaltung, hohe Reife (Maturity) und ein bewährtes Ökosystem für Sicherheit (z.B. Kryptographie, Authentifizierung, Autorisierung) bieten.
 
 Folgende Programmiersprachen sind heute in diesem Bereich am relevantesten:
@@ -34107,12 +34107,12 @@ Wenn die Architektur jedoch auf **absolutem Top-Niveau der Systemsicherheit und 
   </WikiArtikel>
   <WikiArtikel>
     <Id>334</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Empfohlene Open-Source-Programmiersprachen für sichere Enterprise-Desktop-Anwendungen</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>382</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Für die Entwicklung von großen, komplexen, plattformübergreifenden (Windows, macOS, Linux/Ubuntu) und hochsicheren Desktop-Anwendungen im Enterprise-Bereich kommen aktuell nur Sprachen in Frage, die **Speichersicherheit (Memory Safety)**, ein starkes Typensystem und ein ausgereiftes Ökosystem bieten.
 
 ## 1. Rust
@@ -34178,12 +34178,12 @@ Normalerweise ist C++ (mit dem Framework Qt) der König der Desktop-Anwendungen 
   </WikiArtikel>
   <WikiArtikel>
     <Id>335</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Die besten Open-Source-Programmiersprachen für hochsichere Enterprise-Android-Apps</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>383</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Für die Entwicklung von hochsicheren, robusten, skalierbaren und großen Android-Anwendungen (Enterprise-Level), bei denen der Schutz vor Datenlecks und Hackerangriffen absolute Priorität hat, gibt es heutzutage klare Industriestandards. Die folgenden Sprachen sind rein Open Source und für den kommerziellen Einsatz uneingeschränkt und kostenlos freigegeben.
 
 ### 1. Kotlin (Der heutige Branchenstandard)
@@ -34236,12 +34236,12 @@ Für das Entwicklungsvorhaben einer maximal sicheren, geschäftskritischen und g
   </WikiArtikel>
   <WikiArtikel>
     <Id>336</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Empfehlung für eine Open-Source Game Engine</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>384</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Basierend auf den genannten hochkomplexen und anspruchsvollen Anforderungen:
 
 - **Rein Open Source** &amp; Kostenlos für den **kommerziellen Bereich** (keine versteckten Gebühren oder Royalties).
@@ -34369,12 +34369,12 @@ Rust ist aktuell der Industrie-Standard, wenn es um die Kombination aus maximale
   </WikiArtikel>
   <WikiArtikel>
     <Id>339</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Vergleich von Hochleistungssprachen für große Anwendungen</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>387</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Für die Entwicklung von großen, leistungsintensiven Anwendungen in den Jahren 2024 und 2025 sind **C**, **C++** und **Rust** die führenden Optionen. Jede Sprache hat spezifische Stärken und Einsatzgebiete.
 
 ### C
@@ -34416,12 +34416,12 @@ Während **C** für extrem hardwarenahe Software unverzichtbar bleibt, ist **C++
   </WikiArtikel>
   <WikiArtikel>
     <Id>340</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Vergleich von KI-Programmiertools</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>388</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>Dieser Bericht vergleicht die führenden KI-gestützten Tools für die Softwareentwicklung: **Google AI**, **JetBrains AI**, **GitHub Copilot**, **Claude (Anthropic)** und **OpenAI**.
 
 ## Übersichtstabelle
@@ -34815,12 +34815,12 @@ Für Prototyping und Hobby-Projekte bieten viele Provider 2026 kostenlose API-Zu
   </WikiArtikel>
   <WikiArtikel>
     <Id>342</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>C-Sharp/test</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>403</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Hallo</MarkdownInhalt>
         <Zeitpunkt>2026-03-26T03:30:34.19908Z</Zeitpunkt>
         <Kategorie />
@@ -34830,12 +34830,12 @@ Für Prototyping und Hobby-Projekte bieten viele Provider 2026 kostenlose API-Zu
   </WikiArtikel>
   <WikiArtikel>
     <Id>346</Id>
-    <TenantId>doc</TenantId>
+    <TenantId>main</TenantId>
     <Slug>Empfehlung_für_eine_Open-Source_Game_Engine</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>445</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>bbb</MarkdownInhalt>
         <Zeitpunkt>2026-03-26T04:04:57.578352Z</Zeitpunkt>
         <Kategorie />
@@ -34843,7 +34843,7 @@ Für Prototyping und Hobby-Projekte bieten viele Provider 2026 kostenlose API-Zu
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>443</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>bbb</MarkdownInhalt>
         <Zeitpunkt>2026-03-26T04:01:28.857388Z</Zeitpunkt>
         <Kategorie />
@@ -34851,7 +34851,7 @@ Für Prototyping und Hobby-Projekte bieten viele Provider 2026 kostenlose API-Zu
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>444</VersionNummer>
-        <TenantId>doc</TenantId>
+        <TenantId>main</TenantId>
         <MarkdownInhalt>bbb</MarkdownInhalt>
         <Zeitpunkt>2026-03-26T04:01:42.748609Z</Zeitpunkt>
         <Kategorie />
@@ -35704,12 +35704,12 @@ Viele Anliegen können bequem über das [Bürgerportal](https://ahrensburg.buerg
   </WikiArtikel>
   <WikiArtikel>
     <Id>375</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>MediaWiki:Kartographer-attribution</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>480</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>ahrensburg.city \| Kartendaten © [OpenStreetMap-Autoren](https://www.openstreetmap.org/copyright)</MarkdownInhalt>
         <Zeitpunkt>2026-01-12T07:25:36Z</Zeitpunkt>
         <Kategorie />

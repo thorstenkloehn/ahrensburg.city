@@ -6,20 +6,20 @@ Dieses Projekt ist ein leichtgewichtiges Content-Management-System (CMS) mit Wik
 
 - **Go-Live bereit:** Das System hat das abschließende Sicherheits-Audit erfolgreich bestanden.
 - **Branding:** Hauptmandant wurde auf **ahrensburg.city** umgestellt.
-- **Multi-Tenancy:** Vollständig normalisierte Datenbank. Automatische Korrektur von leeren `TenantId`-Feldern zu `"main"` via Backup-Tool implementiert.
+- **Multi-Tenancy:** Vollständig normalisierte Datenbank. Automatische Trennung von technischem Dokumentationsinhalt (`doc`) und Ahrensburg-spezifischen Inhalten (`main`) via Tenant-Migration-Tool durchgeführt.
+- **Slug-Validierung:** Unterstützung für Unicode, Leerzeichen und Sonderzeichen wie `&`, `:`, `(`, `)`, `!`, `"`, `,`, `` ` ``, und `–`. Dies ermöglicht natürliche Titel wie "Geschichte & Allgemeines".
 - **Backup 2.0:** 
   - Unterstützung für **YAML** und **XML**.
   - **Speichereffizient**: HTML-Inhalt wird beim Export weggelassen und beim Import regeneriert (ca. 70% Ersparnis).
-  - Flexible Dateinamen-Wahl via CLI.
 - **Deployment:** Unterstützung für **Unix Domain Sockets** (`/run/meincms.sock`) für hochperformanten Betrieb hinter Nginx.
-- **Sicherheit:** Integration von `HtmlSanitizer`, gehärtete Identity-Policies und mandantenspezifische Datenisolation.
+- **Sicherheit:** Integration von `HtmlSanitizer`, gehärtete Identity-Policies, CSRF-Schutz und strikte Content-Security-Policy (CSP).
 
 ## Architektur
 
 - **`mvc/`**: Die Haupt-Webanwendung (Wiki-only).
   - **Multi-Tenancy**: Dynamische Mandantenerkennung via Hostname und **Request-spezifische Filterung** im `ApplicationDbContext`.
-  - **Models**: `WikiArtikel` und `WikiArtikelVersion` (mit `[XmlIgnore]` und `[YamlIgnore]` für redundante Felder).
-- **`Services/`**: Geschäftslogik, `PageService`, `TenantService` und `Blogs`.
+  - **Models**: `WikiArtikel` und `WikiArtikelVersion`.
+- **`Services/`**: Geschäftslogik, `PageService`, `TenantService`.
 - **`UserAdmin/`**: Konsolenanwendung für die Verwaltung der Administratoren.
 - **`backup/`**: Spezialisiertes Tool für YAML/XML-Export und Import mit Normalisierungs-Logik.
 
@@ -39,16 +39,15 @@ Dieses Projekt ist ein leichtgewichtiges Content-Management-System (CMS) mit Wik
 ## Entwicklungskonventionen
 
 - **Multi-Tenancy**: Jede Abfrage wird automatisch nach dem aktuellen Mandanten gefiltert. Die `TenantId` wird dynamisch pro Request ermittelt.
-- **Normalisierung**: Leere `TenantId` in der Datenbank gelten als `"main"`.
-- **Sicherheit**: Alle Markdown-Inhalte müssen vor der Anzeige via `HtmlSanitizer` bereinigt werden.
+- **Normalisierung**: Standard-Mandant ist `"main"`. Technischer Content wird dem Mandanten `"doc"` zugeordnet.
+- **Sicherheit**: Alle Markdown-Inhalte werden vor der Anzeige via `HtmlSanitizer` bereinigt. CSRF-Schutz ist global aktiviert.
 
 ## TODO / Roadmap
 
 - [x] **Multi-Tenancy:** Native Mandantenfähigkeit via Hostname-Erkennung.
-- [x] **Backup:** XML/YAML-Export mit HTML-Regenerierung und Tenant-Normalisierung.
+- [x] **Slug-Validierung:** Erweiterte Zeichenunterstützung (inkl. `&` und Leerzeichen).
+- [x] **Content-Migration:** Trennung von technischem Content (`doc`) und lokalem Content (`main`).
 - [x] **Sicherheit:** Security Header (CSP, HSTS Tuning) und gehärtete Password Policy.
 - [x] **Rechtssicherheit:** Cookie-Banner Implementierung.
-- [x] **Themes:** Unterstützung für Themes oder CSS-Anpassungen pro Mandant.
-- [x] **Snyk Integration:** Vorbereitungen für automatisiertes Security-Scanning getroffen.
 - [ ] **Redirects:** Implementierung eines Alias/Redirect-Systems für umbenannte Slugs.
 - [ ] **Admin UI:** Integration einer webbasierten Benutzerverwaltung.

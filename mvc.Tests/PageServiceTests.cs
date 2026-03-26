@@ -40,14 +40,19 @@ public class PageServiceTests
     [InlineData("gueltiger-slug", true)]
     [InlineData("mein_artikel123", true)]
     [InlineData("SlugMit/Slash", true)]
+    [InlineData("Geschichte_&_Allgemeines", true)]
+    [InlineData("mit spaces", true)]
+    [InlineData("Ahrensburg.city:Datenschutz", true)]
+    [InlineData("CMS/Eleventy (11ty)", true)]
+    [InlineData("Rust/\"Hello World!\" Programm", true)]
+    [InlineData("Blog:03.02.2026 – Inhalt verwalten", true)]
+    [InlineData("umlaut-ä", true)]
     [InlineData("", false)]
     [InlineData(null, false)]
-    [InlineData("mit spaces", false)]
     [InlineData("mit..doppelpunkt", false)]
     [InlineData("mit//doppelslash", false)]
     [InlineData("/startslash", false)]
     [InlineData("endslash/", false)]
-    [InlineData("umlaut-ä", false)]
     public void IstSlugGueltig_ValidatesCorrectly(string slug, bool expectedResult)
     {
         // Arrange

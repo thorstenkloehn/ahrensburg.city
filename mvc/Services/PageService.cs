@@ -46,8 +46,9 @@ public class PageService : IPageService
     public bool IstSlugGueltig(string slug)
     {
         if (string.IsNullOrEmpty(slug)) return false;
-        // Erlaubt Buchstaben (Unicode), Zahlen, Schrägstriche, Unterstriche, Bindestriche, Punkte und Prozentzeichen (für Encoded Slugs)
-        if (!Regex.IsMatch(slug, @"^[\p{L}0-9/_\-\.%]+$")) return false;
+        // Erlaubt Buchstaben (Unicode), Zahlen, Schrägstriche, Unterstriche, Bindestriche, Punkte, Prozentzeichen (für Encoded Slugs),
+        // sowie Sonderzeichen wie &, :, Leerzeichen, Klammern, !, ", Komma, Backtick und Gedankenstrich.
+        if (!Regex.IsMatch(slug, @"^[\p{L}0-9/_\-\.%&:\ \(\)!,""`–]+$")) return false;
         if (slug.Contains("..")) return false;
         if (slug.Contains("//")) return false;
         if (slug.StartsWith("/") || slug.EndsWith("/")) return false;
