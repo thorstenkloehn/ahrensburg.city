@@ -5,6 +5,7 @@
   "Tenants": {
     "ahrensburg.city": "main",
     "doc.ahrensburg.city": "doc",
+    "doc.localhost": "doc",
     "localhost": "main"
   },
   "TenantConfig": {
