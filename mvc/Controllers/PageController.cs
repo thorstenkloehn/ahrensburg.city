@@ -137,6 +137,17 @@ namespace mvc.Controllers
         }
 
         /// <summary>
+        /// Zeigt alle Wiki-Artikel an.
+        /// </summary>
+        /// <returns>Eine Übersicht aller Artikel.</returns>
+        [HttpGet("Alle")]
+        public async Task<ActionResult> Alle()
+        {
+            var artikel = await _pageService.GetAllArtikelAsync();
+            return View(artikel);
+        }
+
+        /// <summary>
         /// Zeigt alle Wiki-Artikel einer bestimmten Kategorie an.
         /// </summary>
         /// <param name="kategorie">Die gewünschte Kategorie.</param>

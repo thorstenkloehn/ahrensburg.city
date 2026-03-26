@@ -171,6 +171,13 @@ public class PageService : IPageService
             .ToListAsync();
     }
 
+    public async Task<List<WikiArtikel>> GetAllArtikelAsync()
+    {
+        return await _context.WikiArtikels
+            .OrderBy(a => a.Slug)
+            .ToListAsync();
+    }
+
     public async Task<bool> WiederherstellenAsync(long versionNummer)
     {
         var alteVersion = await _context.WikiArtikelVersions
