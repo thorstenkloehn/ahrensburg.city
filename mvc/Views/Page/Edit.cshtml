@@ -7,9 +7,8 @@
 
 <h2>Seite bearbeiten: @(Model?.Slug ?? ViewBag.UrlSlug)</h2>
 
-<form action="~/Edit/@(Model?.Slug ?? ViewBag.UrlSlug)" method="post">
+<form asp-controller="Page" asp-action="Edit" asp-route-slug="@(Model?.Slug ?? ViewBag.UrlSlug)" method="post">
     @Html.AntiForgeryToken()
-    <input type="hidden" name="slug" value="@(Model?.Slug ?? ViewBag.UrlSlug)" />
     <div class="form-group">
         <label for="markdownInhalt">Inhalt (Markdown):</label>
         <textarea name="markdownInhalt" id="markdownInhalt" class="form-control" rows="15" placeholder="Geben Sie hier Ihren Markdown-Inhalt ein...">@(latestVersion?.MarkdownInhalt)</textarea>
@@ -20,7 +19,7 @@
     </div>
     <div class="mt-3">
         <button type="submit" class="btn btn-primary">Speichern</button>
-        <a href="~/@Model.Slug" class="btn btn-secondary">Abbrechen</a>
+        <a asp-controller="Page" asp-action="Index" asp-route-slug="@Model?.Slug" class="btn btn-secondary">Abbrechen</a>
     </div>
 </form>
 

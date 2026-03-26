@@ -46,11 +46,29 @@ public class ApplicationDbContext : IdentityDbContext
             {
                 if (entry.Entity is WikiArtikel artikel)
                 {
-                    artikel.TenantId = currentTenantId;
+                    if (string.IsNullOrEmpty(artikel.TenantId))
+                    {
+                        artikel.TenantId = currentTenantId;
+                    }
                 }
                 else if (entry.Entity is WikiArtikelVersion version)
                 {
-                    version.TenantId = currentTenantId;
+                    if (string.IsNullOrEmpty(version.TenantId))
+                    {
+                        // Wir versuchen, die TenantId vom zugehörigen Artikel zu erben.
+                        // Falls der Artikel selbst gerade erst angelegt wird und noch keine Id hat, 
+                        // nutzen wir den aktuellen Tenant des Kontexts als Fallback.
+                        var parentTenant = version.WikiArtikel?.TenantId;
+                        
+                        if (!string.IsNullOrEmpty(parentTenant))
+                        {
+                            version.TenantId = parentTenant;
+                        }
+                        else
+                        {
+                            version.TenantId = currentTenantId;
+                        }
+                    }
                 }
             }
         }

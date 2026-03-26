@@ -19,7 +19,7 @@ public class WikiArtikel
     /// <summary>
     /// Der Mandant, zu dem dieser Artikel gehört.
     /// </summary>
-    public string TenantId { get; set; } = "main";
+    public string TenantId { get; set; } = string.Empty;
     
     /// <summary>
     /// Der eindeutige URL-Slug (Pfad) des Artikels.

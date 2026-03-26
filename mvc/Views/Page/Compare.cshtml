@@ -50,7 +50,11 @@
 </div>
 
 <div class="mt-4">
-    <a href="~/History/@ViewData["Slug"]" class="btn btn-secondary">Zurück zur Historie</a>
+    @{
+        var slug = ViewData["Slug"] as string;
+        var encodedSlug = string.Join("/", (slug ?? "").Split('/').Select(s => System.Net.WebUtility.UrlEncode(s)));
+    }
+    <a href="~/History/@encodedSlug" class="btn btn-secondary">Zurück zur Historie</a>
 </div>
 
 <style>

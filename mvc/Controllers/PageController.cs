@@ -94,7 +94,8 @@ namespace mvc.Controllers
                 return BadRequest(ex.Message);
             }
 
-            return LocalRedirect("~/" + slug);
+            var encodedSlug = string.Join('/', slug.Split('/').Select(s => System.Net.WebUtility.UrlEncode(s)));
+            return LocalRedirect("~/" + encodedSlug);
         }
 
         /// <summary>
@@ -179,7 +180,8 @@ namespace mvc.Controllers
             if (!success)
                 return NotFound();
 
-            return LocalRedirect("~/" + slug);
+            var encodedSlug = string.Join('/', slug.Split('/').Select(s => System.Net.WebUtility.UrlEncode(s)));
+            return LocalRedirect("~/" + encodedSlug);
         }
 
         /// <summary>

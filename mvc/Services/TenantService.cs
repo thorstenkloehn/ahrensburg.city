@@ -23,25 +23,23 @@ public class TenantService : ITenantService
         var context = _httpContextAccessor.HttpContext;
         if (context == null) return "main";
 
+        // Host ohne Port extrahieren
         var host = context.Request.Host.Host.ToLower();
 
         // Alle konfigurierten Mandanten laden
         var tenantSection = _configuration.GetSection("Tenants");
         var entries = tenantSection.GetChildren().ToList();
 
-        // 1. Alle Treffer finden (der Hostname enthält den konfigurierten Key)
-        // Wir suchen nach dem LÄNGSTEN Key, um Subdomains Vorrang vor Hauptdomains zu geben.
-        // Beispiel: "doc.ahrensburg.city" passt auf "ahrensburg.city" (15) und "doc.ahrensburg.city" (19).
-        // Wir wählen den längsten Treffer (19).
-        var bestMatch = entries
-            .Where(e => host.Contains(e.Key.ToLower()))
-            .OrderByDescending(e => e.Key.Length)
-            .FirstOrDefault();
+        // 1. Präziser Treffer (Hostname muss exakt übereinstimmen)
+        var exactMatch = entries.FirstOrDefault(e => host.Equals(e.Key.ToLower()));
 
-        if (bestMatch != null)
+        if (exactMatch != null)
         {
-            return bestMatch.Value ?? "main";
+            return exactMatch.Value ?? "main";
         }
+
+        // Fallback: Wenn wir auf localhost sind, prüfen wir ob es ein Alias ist
+        if (host == "localhost") return "main";
 
         // Standard-Fallback
         return "main";

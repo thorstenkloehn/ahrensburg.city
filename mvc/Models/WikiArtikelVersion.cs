@@ -8,7 +8,7 @@ public class WikiArtikelVersion
 
     [Key]
     public long VersionNummer { get; set; }
-    public string TenantId { get; set; } = "main";
+    public string TenantId { get; set; } = string.Empty;
     public string? MarkdownInhalt { get; set; }
 
     [System.Xml.Serialization.XmlIgnore]

@@ -13,7 +13,7 @@
             @if (User?.Identity?.IsAuthenticated ?? false)
             {
                 <p>Möchten Sie die Seite <strong>@ViewBag.UrlSlug</strong> erstellen?</p>
-            <a href="~/Neuformular/@ViewBag.UrlSlug" class="btn btn-success">Seite erstellen</a>
+                <a asp-controller="Page" asp-action="Neuformular" asp-route-slug="@ViewBag.UrlSlug" class="btn btn-success">Seite erstellen</a>
             }
             else
             {
@@ -28,8 +28,8 @@
             <div>
                 @if (User.IsInRole("Admin"))
                 {
-                    <a href="~/History/@Model.Slug" class="btn btn-outline-info btn-sm me-1">Historie</a>
-                    <a href="~/Edit/@Model.Slug" class="btn btn-outline-primary btn-sm">Bearbeiten</a>
+                    <a asp-controller="Page" asp-action="History" asp-route-slug="@Model.Slug" class="btn btn-outline-info btn-sm me-1">Historie</a>
+                    <a asp-controller="Page" asp-action="Edit" asp-route-slug="@Model.Slug" class="btn btn-outline-primary btn-sm">Bearbeiten</a>
                 }
             </div>
         </div>
@@ -38,7 +38,7 @@
         {
             <div class="alert alert-warning">
                 <strong>Hinweis:</strong> Sie betrachten eine alte Version dieses Artikels. 
-                <a href="~/@Model.Slug" class="btn btn-link btn-sm p-0 mb-1">Zur aktuellen Version wechseln</a>
+                <a asp-controller="Page" asp-action="Index" asp-route-slug="@Model.Slug" class="btn btn-link btn-sm p-0 mb-1">Zur aktuellen Version wechseln</a>
             </div>
         }
 
@@ -62,7 +62,7 @@
                 {
                     @foreach (var kat in latestVersion.Kategorie)
                     {
-                        <a href="~/Kategorie/@kat" class="badge bg-info text-dark text-decoration-none me-1">@kat</a>
+                        <a asp-controller="Page" asp-action="Kategorie" asp-route-kategorie="@kat" class="badge bg-info text-dark text-decoration-none me-1">@kat</a>
                     }
                 }
                 else
