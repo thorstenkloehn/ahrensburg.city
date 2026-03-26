@@ -2,12 +2,12 @@
 <ArrayOfWikiArtikel>
   <WikiArtikel>
     <Id>3</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>impressum</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>18</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Datenschutz]
 ---
@@ -23,12 +23,12 @@ Kategorie: [Datenschutz]
   </WikiArtikel>
   <WikiArtikel>
     <Id>4</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Hauptseite</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>32</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie:  [Technik, Programmierung, Hilfe]
 ---</MarkdownInhalt>
@@ -38,7 +38,7 @@ Kategorie:  [Technik, Programmierung, Hilfe]
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>400</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Hilfe]
 ---
@@ -60,7 +60,7 @@ kkkk
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>13</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Hilfe]
 ---
@@ -74,7 +74,7 @@ Willkommeb auf meine Seite</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>14</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Hilfe]
 ---
@@ -90,7 +90,7 @@ kkkkkk</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>33</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Hilfe]
 ---</MarkdownInhalt>
@@ -100,7 +100,7 @@ Kategorie: [Technik, Hilfe]
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>6</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>
 Hallo Welt</MarkdownInhalt>
         <Zeitpunkt>2026-03-24T13:28:20.522932Z</Zeitpunkt>
@@ -111,7 +111,7 @@ Hallo Welt</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>7</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Programmierung, Hilfe]
 ---</MarkdownInhalt>
@@ -123,7 +123,7 @@ Kategorie: [Technik, Programmierung, Hilfe]
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>8</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie:  [Technik, Programmierung, Hilfe]
 ---</MarkdownInhalt>
@@ -133,7 +133,7 @@ Kategorie:  [Technik, Programmierung, Hilfe]
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>9</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Hilfe]
 ---</MarkdownInhalt>
@@ -143,7 +143,7 @@ Kategorie: [Technik, Hilfe]
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>10</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie:  [Technik, Hilfe]
 ---</MarkdownInhalt>
@@ -153,7 +153,7 @@ Kategorie:  [Technik, Hilfe]
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>11</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Hilfe]
 ---</MarkdownInhalt>
@@ -163,7 +163,7 @@ Kategorie: [Technik, Hilfe]
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>12</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Hilfe]
 ---
@@ -177,7 +177,7 @@ Kategorie: [Technik, Hilfe]
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>34</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie:  [Technik, Hilfe]
 ---</MarkdownInhalt>
@@ -187,7 +187,7 @@ Kategorie:  [Technik, Hilfe]
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>35</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Hilfe]
 ---</MarkdownInhalt>
@@ -197,7 +197,7 @@ Kategorie: [Technik, Hilfe]
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>36</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Hilfe]
 ---
@@ -211,7 +211,7 @@ Kategorie: [Technik, Hilfe]
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>37</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Hilfe]
 ---
@@ -225,7 +225,7 @@ Willkommeb auf meine Seite</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>38</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Hilfe]
 ---
@@ -241,7 +241,7 @@ kkkkkk</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>39</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Hilfe]
 ---
@@ -267,7 +267,7 @@ jkljklkljkljkl</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>40</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Hilfe]
 ---
@@ -344,7 +344,7 @@ MeinCMS verfügt bereits über eine solide Basis an Sicherheitsmechanismen (Sani
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>41</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Hilfe]
 ---
@@ -421,7 +421,7 @@ MeinCMS verfügt bereits über eine solide Basis an Sicherheitsmechanismen (Sani
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>17</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Hilfe]
 ---
@@ -498,7 +498,7 @@ MeinCMS verfügt bereits über eine solide Basis an Sicherheitsmechanismen (Sani
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>15</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Hilfe]
 ---
@@ -524,7 +524,7 @@ jkljklkljkljkl</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>44</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Hilfe]
 ---
@@ -542,7 +542,7 @@ kkkk</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>20</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>xxxx
 
 
@@ -553,7 +553,7 @@ Rhhhh</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>1</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie:Hauptseite
 ---
@@ -564,7 +564,7 @@ Hallo Welt</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>4</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie:[Hauptseite]
 ---
@@ -575,7 +575,7 @@ Hallo Welt</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>5</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 kategorie:[Hauptseite]
 ---
@@ -586,7 +586,7 @@ Hallo Welt</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>494</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Inoffizielle Stadtseite von Ahrensburg – Dokumente
 
 Dokumentensammlung: Texte über Ahrensburg
@@ -622,7 +622,7 @@ Wenn Sie Texte im Internet veröffentlichen möchten, sollten diese umformuliert
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>450</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Inoffizielle Stadtseite von Ahrensburg – Dokumente
 
 Dokumentensammlung: Texte über Ahrensburg
@@ -658,7 +658,7 @@ Wenn Sie Texte im Internet veröffentlichen möchten, sollten diese umformuliert
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>448</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Hilfe]
 ---
@@ -682,7 +682,7 @@ kkkk
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>447</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Hilfe]
 ---
@@ -706,7 +706,7 @@ kkkk
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>395</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Hilfe]
 ---
@@ -726,7 +726,7 @@ kkkk
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>21</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>xxxx
 
 Hakkkoooo</MarkdownInhalt>
@@ -736,7 +736,7 @@ Hakkkoooo</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>23</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>xxxx
 
 kkkhkj
@@ -749,7 +749,7 @@ kjjj</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>22</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>xxxx
 
 kkkhkj</MarkdownInhalt>
@@ -759,7 +759,7 @@ kkkhkj</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>495</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Inoffizielle Stadtseite von Ahrensburg – Dokumente
 
 Dokumentensammlung: Texte über Ahrensburg
@@ -787,7 +787,7 @@ Wenn Sie Texte im Internet veröffentlichen möchten, sollten diese umformuliert
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>19</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>xxxx</MarkdownInhalt>
         <Zeitpunkt>2026-03-25T07:29:25.340087Z</Zeitpunkt>
         <Kategorie />
@@ -795,7 +795,7 @@ Wenn Sie Texte im Internet veröffentlichen möchten, sollten diese umformuliert
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>16</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Hilfe]
 ---
@@ -872,7 +872,7 @@ MeinCMS verfügt bereits über eine solide Basis an Sicherheitsmechanismen (Sani
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>26</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Hilfe]
 ---
@@ -888,7 +888,7 @@ kkkhkj</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>27</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie:Hauptseite
 ---
@@ -899,7 +899,7 @@ Hallo Welt</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>28</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie:[Hauptseite]
 ---
@@ -910,7 +910,7 @@ Hallo Welt</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>29</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 kategorie:[Hauptseite]
 ---
@@ -921,7 +921,7 @@ Hallo Welt</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>31</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Programmierung, Hilfe]
 ---</MarkdownInhalt>
@@ -933,7 +933,7 @@ Kategorie: [Technik, Programmierung, Hilfe]
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>30</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>
 Hallo Welt</MarkdownInhalt>
         <Zeitpunkt>2026-03-24T13:28:20.522932Z</Zeitpunkt>
@@ -946,12 +946,12 @@ Hallo Welt</MarkdownInhalt>
   </WikiArtikel>
   <WikiArtikel>
     <Id>5</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Hauptseite</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>221</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -1014,7 +1014,7 @@ Hallo Welt</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>24</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>==Start==</MarkdownInhalt>
         <Zeitpunkt>2026-03-25T08:10:29.900094Z</Zeitpunkt>
         <Kategorie />
@@ -1022,7 +1022,7 @@ Hallo Welt</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>46</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Willkommen auf meiner Wissensdatenbank
 
 Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
@@ -1096,7 +1096,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>390</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -1159,7 +1159,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>391</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -1222,7 +1222,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>392</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -1285,7 +1285,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>393</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -1348,7 +1348,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>394</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 ## thorsten
@@ -1411,7 +1411,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>396</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -1474,7 +1474,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>397</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 ## Hallo
 
@@ -1537,7 +1537,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>398</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Start
 
 Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
@@ -1602,7 +1602,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>399</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Start
 
 Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
@@ -1667,7 +1667,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>401</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Start
 
 Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
@@ -1732,7 +1732,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>404</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Start
 ## hallo
 Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
@@ -1797,7 +1797,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>405</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Start
 ## starrgghghgh
 Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
@@ -1862,7 +1862,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>406</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Start
 ## hallo
 Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
@@ -1927,7 +1927,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>407</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Start
 öööö
 Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
@@ -1992,7 +1992,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>439</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Start
 
 Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
@@ -2057,7 +2057,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>440</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Start
 äää
 Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
@@ -2122,7 +2122,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>441</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Start
 Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
@@ -2186,7 +2186,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>442</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Start
 Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
@@ -2250,7 +2250,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>446</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Start
 Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
@@ -2314,7 +2314,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>220</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -2377,7 +2377,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>219</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -2440,7 +2440,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>218</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -2503,7 +2503,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>217</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -2570,7 +2570,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>216</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -2638,7 +2638,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>215</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -2703,7 +2703,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>214</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 
@@ -2768,7 +2768,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>213</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
 
 ## Blog Artikel
@@ -2836,7 +2836,7 @@ Webframework\]\] — Frameworks und Web-Technologien
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>223</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Willkommen auf meiner Wissensdatenbank
 
 Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
@@ -2913,12 +2913,12 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
   </WikiArtikel>
   <WikiArtikel>
     <Id>6</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Hauptseite/cccc</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>25</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>xxx</MarkdownInhalt>
         <Zeitpunkt>2026-03-25T08:11:29.447295Z</Zeitpunkt>
         <Kategorie />
@@ -2928,12 +2928,12 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
   </WikiArtikel>
   <WikiArtikel>
     <Id>7</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Hauptseite/gakk</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>42</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Willkommen</MarkdownInhalt>
         <Zeitpunkt>2026-03-24T13:09:21.434568Z</Zeitpunkt>
         <Kategorie />
@@ -2941,7 +2941,7 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>3</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Programmierung, Hilfe]
 ---
@@ -2956,7 +2956,7 @@ Willkommen</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>2</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Willkommen</MarkdownInhalt>
         <Zeitpunkt>2026-03-24T13:09:21.434568Z</Zeitpunkt>
         <Kategorie />
@@ -2964,7 +2964,7 @@ Willkommen</MarkdownInhalt>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>43</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>---
 Kategorie: [Technik, Programmierung, Hilfe]
 ---
@@ -2981,12 +2981,12 @@ Willkommen</MarkdownInhalt>
   </WikiArtikel>
   <WikiArtikel>
     <Id>8</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Hauptseite/zzzz</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>45</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>gggg</MarkdownInhalt>
         <Zeitpunkt>2026-03-25T22:54:08.802277Z</Zeitpunkt>
         <Kategorie />
@@ -2996,12 +2996,12 @@ Willkommen</MarkdownInhalt>
   </WikiArtikel>
   <WikiArtikel>
     <Id>9</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>AI</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>47</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Diese Seite bietet einen Überblick über zentrale Themen, Tools und Best Practices rund um KI und ML in der Softwareentwicklung.
 
 ## Grundlagen und Integration
@@ -3452,12 +3452,12 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'DEIN_STARKES_PASSWORT'; FLUSH PRIVI
   </WikiArtikel>
   <WikiArtikel>
     <Id>15</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Server</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>53</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>- [Server/Mieten](Server/Mieten)
 - [Server/Backup](Server/Backup)
 - [Server/Ubuntu Software Pakete Installieren](Server/Ubuntu_Software_Pakete_Installieren)
@@ -4134,12 +4134,12 @@ Prüfen Sie mit sudo nginx -t immer zuerst, ob die Konfiguration fehlerfrei ist.
   </WikiArtikel>
   <WikiArtikel>
     <Id>23</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframework</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>61</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## SSR Webframework
 
 ### [Asp Net Core](Webframeworkk/ASP.NET_Core)
@@ -4901,12 +4901,12 @@ Impressum vom [Impressum Generator](https://www.impressum-generator.de) der \[Ka
   </WikiArtikel>
   <WikiArtikel>
     <Id>41</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Weiter Tools</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>79</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## ghosttext</MarkdownInhalt>
         <Zeitpunkt>2026-01-08T23:47:52Z</Zeitpunkt>
         <Kategorie />
@@ -4949,12 +4949,12 @@ Impressum vom [Impressum Generator](https://www.impressum-generator.de) der \[Ka
   </WikiArtikel>
   <WikiArtikel>
     <Id>43</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>CMS</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>81</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>- [Empfohlene Webframeworks (Kompilierte Sprachen, Enterprise-Ready)](Empfohlene_Webframeworks_(Kompilierte_Sprachen,_Enterprise-Ready) "wikilink")
 
 ## 1. Eigene CMS-Systeme
@@ -5682,12 +5682,12 @@ Hier ist der Link: [Postmaster](https://postmaster.google.com/)</MarkdownInhalt>
   </WikiArtikel>
   <WikiArtikel>
     <Id>54</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Weitere Tools</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>92</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Ghosttext Visual Studio Code
 
 GhostText ist eine Erweiterung, mit der du Texte in deinem Browser direkt in Visual Studio Code bearbeiten kannst. Änderungen werden in Echtzeit synchronisiert.
@@ -5713,12 +5713,12 @@ Weitere Infos: [Offizielle GhostText-Webseite](https://ghosttext.fregante.com/)<
   </WikiArtikel>
   <WikiArtikel>
     <Id>55</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>XWiki</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>93</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## XWiki Installieren Entwickler Rechner
 
 ### Ubuntu Rechner
@@ -5968,12 +5968,12 @@ Erstelle eine Datei /etc/nginx/conf.d/mediawiki.conf mit folgendem Inhalt:
   </WikiArtikel>
   <WikiArtikel>
     <Id>58</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Lerntechnik</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>96</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Die besten modernen Lernmethoden für das Lernen von Programmiersprachen
 
 Effektives Programmierenlernen kombiniert praktische Übung, kognitive Strategien und soziale Formate. Die folgenden Ansätze lassen sich flexibel mischen und iterativ anwenden.
@@ -6138,12 +6138,12 @@ Gib Folgendes ein
   </WikiArtikel>
   <WikiArtikel>
     <Id>60</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kurse/Asp net core mvc/wiki</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>98</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt># Lernpfad und Roadmap: Eigenes Wiki-System mit ASP.NET Core MVC
 
 ## Einleitung
@@ -6207,12 +6207,12 @@ Beginne mit den Grundlagen und arbeite dich Schritt für Schritt durch die Roadm
   </WikiArtikel>
   <WikiArtikel>
     <Id>61</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kurse/Asp net core mvc/wiki/Grundlagen von ASP.NET Core MVC</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>99</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Einführung in ASP.NET Core und MVC-Architektur
 
 **ASP.NET Core MVC** ist ein modernes, plattformübergreifendes Web-Framework von Microsoft, das auf dem Model-View-Controller (MVC)-Architekturprinzip basiert. Es ermöglicht die Entwicklung dynamischer Webanwendungen und APIs mit einer klaren Trennung von Datenmodell, Benutzeroberfläche und Steuerungslogik. ASP.NET Core MVC ist Teil von ASP.NET Core und bietet Vorteile wie hohe Performance, Modularität, Testbarkeit und Unterstützung für Dependency Injection.
@@ -6758,12 +6758,12 @@ Erstelle eine Datei app.py mit folgendem Inhalt:
   </WikiArtikel>
   <WikiArtikel>
     <Id>67</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Ns3000:01.02.2026 WordPress und KI Die Zukunft der Plugin-Landschaft</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>105</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>WordPress steht vor einem spannenden Wandel. KI-Agenten werden künftig viele klassische Plugins ersetzen können, indem sie intelligente Tipps geben und passende Lösungen vorschlagen.
 
 ### Empfehlenswerte KI-Plugins für WordPress
@@ -6815,12 +6815,12 @@ WordPress bietet zwar viele Plugins und fertige Lösungen, aber für individuell
   </WikiArtikel>
   <WikiArtikel>
     <Id>68</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Blog:01.02.2026 WordPress und KI Die Zukunft der Plugin-Landschaft</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>106</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>WordPress steht vor einem spannenden Wandel. KI-Agenten werden künftig viele klassische Plugins ersetzen können, indem sie intelligente Tipps geben und passende Lösungen vorschlagen.
 
 ### Empfehlenswerte KI-Plugins für WordPress
@@ -6872,12 +6872,12 @@ WordPress bietet zwar viele Plugins und fertige Lösungen, aber für individuell
   </WikiArtikel>
   <WikiArtikel>
     <Id>69</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kategorie:01.02.2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>107</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>[Kategorie:02.2026](Kategorie:02.2026)</MarkdownInhalt>
         <Zeitpunkt>2026-02-03T13:37:30Z</Zeitpunkt>
         <Kategorie />
@@ -6887,12 +6887,12 @@ WordPress bietet zwar viele Plugins und fertige Lösungen, aber für individuell
   </WikiArtikel>
   <WikiArtikel>
     <Id>70</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kategorie:02.2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>108</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>[Kategorie:2026](Kategorie:2026)</MarkdownInhalt>
         <Zeitpunkt>2026-02-03T13:38:09Z</Zeitpunkt>
         <Kategorie />
@@ -6902,12 +6902,12 @@ WordPress bietet zwar viele Plugins und fertige Lösungen, aber für individuell
   </WikiArtikel>
   <WikiArtikel>
     <Id>71</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kategorie:2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>109</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>[kategorie:Blog](kategorie:Blog)</MarkdownInhalt>
         <Zeitpunkt>2026-02-03T13:41:07Z</Zeitpunkt>
         <Kategorie />
@@ -6917,12 +6917,12 @@ WordPress bietet zwar viele Plugins und fertige Lösungen, aber für individuell
   </WikiArtikel>
   <WikiArtikel>
     <Id>72</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kategorie:Blog</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>110</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Willkommen auf meine Blogs Seiten
 
 Hier finden Sie neue Blogartikel und Abschnitte zu verschiedenen Themen wie Technik, KI-Anwendungen, das Schreiben von MediaWiki-Extensions sowie zu ASP.NET Core MVC und Spring Boot.</MarkdownInhalt>
@@ -6934,12 +6934,12 @@ Hier finden Sie neue Blogartikel und Abschnitte zu verschiedenen Themen wie Tech
   </WikiArtikel>
   <WikiArtikel>
     <Id>73</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Blog:01.02.2026 Wissenmanage System</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>111</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Wissensmanagement: Selbst bauen oder bestehende Lösungen nutzen?
 
 Beim Aufbau eines eigenen Wissensmanagement-Systems stehen zwei Wege offen:
@@ -7142,12 +7142,12 @@ Wer spezielle Anforderungen hat (z. B. komplexe Rechteverwaltung, eigene KI-Work
   </WikiArtikel>
   <WikiArtikel>
     <Id>74</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Blog:03.02.2026 Schaltet ein paar Anwendungen ab.</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>112</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Ich schalte ein paar Anwendungen ab, weil es zu viel Aufwand ist, die Inhalte zu verwalten – deshalb lösche ich WordPress, XWiki, Wiki.js, Drupal und Typo3. Es handelt sich um keine wichtige Wissenssammlung.
 
 Wie lösche ich WordPress auf einem Ubuntu-Server mit nginx, wenn dort eine WordPress-Instanz läuft? Beispiel: Bei mir löscht man die Datei /etc/nginx/conf.d/wordpress.conf.
@@ -7189,12 +7189,12 @@ Und so Weiter
   </WikiArtikel>
   <WikiArtikel>
     <Id>75</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kategorie:03.02.2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>113</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>[kategorie:02.2026](kategorie:02.2026)</MarkdownInhalt>
         <Zeitpunkt>2026-02-03T15:28:06Z</Zeitpunkt>
         <Kategorie />
@@ -7204,12 +7204,12 @@ Und so Weiter
   </WikiArtikel>
   <WikiArtikel>
     <Id>76</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Blog:03.02.2026 – Inhalt verwalten</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>114</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Heute möchte ich über ein Thema sprechen, das mir am Herzen liegt: Ich bin kein Freund des Gutenberg-Editors von WordPress, des Drupal Canvas, des RTE in Typo3 oder des CKEditor. Ich möchte diese Web-Tools nicht schlechtmachen – sie haben ihre Berechtigung und viele Vorteile. Ich persönlich bin jedoch ein großer Fan des „Code as Docs“-Prinzips. Das bedeutet, dass ich meine Dokumentation direkt beim Programmieren, zum Beispiel in Visual Studio Code, schreibe. Für mich fühlt sich das natürlicher und freier an als die Arbeit mit klassischen Editoren wie WordPress. Dort habe ich oft das Gefühl, nicht die absolute Freiheit zu haben, die ich mir wünsche. Ich arbeite gern mit Markdown, AsciiDoc, LaTeX und Wikitext, weil ich so bessere Kontrolle habe.
 
 ## Beispielsprachen
@@ -7374,12 +7374,12 @@ Die Erweiterung hilft, Wikitext effizienter und fehlerfreier zu schreiben. Sie r
   </WikiArtikel>
   <WikiArtikel>
     <Id>80</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Visual Studio Code/Eigene Erweiterungen schreiben</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>118</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Generator installieren
 
 Um einen Generator zu installieren, öffne das Terminal und führe folgenden Befehl aus:
@@ -7592,12 +7592,12 @@ Zeile hinzufügen:
   </WikiArtikel>
   <WikiArtikel>
     <Id>82</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Blog:09.02.2026 Lesbar Url</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>120</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Was ist eine lesbare URL? Braucht man sie oder nicht? Die Suchmaschinen brauchen sie bessere Seiten zu indexieren.
 
 ## Wie geht das mit
@@ -8236,12 +8236,12 @@ Der folgende Zeitplan geht von einem durchschnittlichen Lernaufwand von ca. 8-10
   </WikiArtikel>
   <WikiArtikel>
     <Id>88</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>C</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>126</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Weblink
 
 - Jason Fedin / Tim Buchalka C Programming For Beginners - Master the C Language
@@ -8470,12 +8470,12 @@ Scribunto muss das Lua-Binary ausführen können. Setzen Sie die entsprechenden 
   </WikiArtikel>
   <WikiArtikel>
     <Id>91</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Modul:HalloWelt</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>129</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>local p = {}
 
 function p.hallo(frame)
@@ -8495,12 +8495,12 @@ end return p</MarkdownInhalt>
   </WikiArtikel>
   <WikiArtikel>
     <Id>92</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Test</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>130</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>{{#invoke:HalloWelt\|hallo}}
 
 {{#invoke:HalloWelt\|start}}</MarkdownInhalt>
@@ -8512,12 +8512,12 @@ end return p</MarkdownInhalt>
   </WikiArtikel>
   <WikiArtikel>
     <Id>93</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>131</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Willkommen im **ASP.NET Core Tutorial**! Dieses Tutorial führt dich schrittweise durch alle relevanten Themen der modernen Webentwicklung mit ASP.NET Core. Die Inhalte basieren auf der offiziellen Struktur der [Webframeworkk-Dokumentation](https://docs.ahrensburg.city/Webframeworkk/ASP.NET_Core). Diese Übersicht dient als Einstiegspunkt und Lernpfad. Arbeite die Themen am besten der Reihe nach ab, da sie logisch aufeinander aufbauen.
 
 ## Modul 1: [Grundlagen und Struktur](ASP_NET_Core/Grundlagen_und_Struktur)
@@ -8582,12 +8582,12 @@ Ohne Tests ist jedes Refactoring ein Risiko.
   </WikiArtikel>
   <WikiArtikel>
     <Id>94</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Routing</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>132</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieses Tutorial behandelt das Routing speziell im Kontext von ASP.NET Core MVC. Es erklärt, wie eingehende Anfragen an Controller und deren Action-Methoden weitergeleitet werden.
 
 ## 1. Routing-Typen in MVC
@@ -8775,12 +8775,12 @@ Diese Flexibilität macht Attribute Routing besonders für komplexe oder REST-or
   </WikiArtikel>
   <WikiArtikel>
     <Id>95</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Middleware</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>133</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieses Tutorial erklärt das Konzept der Middleware in ASP.NET Core, wie sie funktioniert, wie man sie konfiguriert und wie man eigene Middleware-Komponenten erstellt. Es basiert auf den bereitgestellten Notizen und ergänzendem Expertenwissen.
 
 ## Was ist Middleware?
@@ -8983,12 +8983,12 @@ app.UseWhen(
   </WikiArtikel>
   <WikiArtikel>
     <Id>96</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Http</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>134</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## 1. Was ist HTTP?
 
 HTTP (Hypertext Transfer Protocol) ist das grundlegende Protokoll für die Kommunikation im Web. Es arbeitet nach dem Client-Server-Modell: Ein Client (z.B. Browser) sendet eine Anfrage, der Server antwortet mit Ressourcen oder Fehlermeldungen. HTTP ist zustandslos – jeder Request ist unabhängig.
@@ -9083,12 +9083,12 @@ HTTP ist das Rückgrat des Webs. ASP.NET Core und Kestrel bieten eine moderne Pl
   </WikiArtikel>
   <WikiArtikel>
     <Id>97</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Controllers und IActionResult</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>135</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>In der \*\*Model-View-Controller (MVC)\*\* Architektur fungieren Controller als Orchestratoren der Webanwendung. Sie verarbeiten eingehende HTTP-Anfragen, interagieren mit dem Model (Datenbank oder Business-Logik) und wählen die passende View für die Antwort aus.
 
 - \*\*Controller\*\*: Klassen, die verwandte Action Methods gruppieren. Sie befinden sich typischerweise im Ordner \`Controllers\`.
@@ -9285,12 +9285,12 @@ return LocalRedirect("/products/details/1");
   </WikiArtikel>
   <WikiArtikel>
     <Id>98</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Model Binding und Validation</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>136</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Basierend auf der Analyse der Datei *Text.txt* bietet dieses Tutorial einen umfassenden Überblick über Model Binding und Validierung in ASP.NET Core MVC.
 
 ## 1. Einführung in Model Binding
@@ -9453,12 +9453,12 @@ Wenn das Standardverhalten nicht ausreicht, können Sie eigene Model Binder erst
   </WikiArtikel>
   <WikiArtikel>
     <Id>99</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Razor Views</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>137</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Basierend auf der Analyse von *start.txt* enthält dieses Dokument Tutorials und Erklärungen zu den Kernkonzepten von ASP.NET Core MVC, einschließlich Architektur, Views, Razor-Syntax, Datenübergabe und der Erstellung wiederverwendbarer Komponenten.
 
 ## MVC Architektur
@@ -9751,12 +9751,12 @@ Dieser Fallback-Mechanismus ermöglicht es Ihnen, globale Views im *Shared*-Ordn
   </WikiArtikel>
   <WikiArtikel>
     <Id>100</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Layout Views</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>138</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Einführung
 
 Layout Views sind ein zentrales Konzept in ASP.NET Core MVC, um einheitliche und wiederverwendbare Strukturen für Webseiten zu schaffen. Sie ermöglichen es, gemeinsame Elemente wie Kopfzeile, Navigation, Fußzeile und Seitenleisten zentral zu definieren.
@@ -9912,12 +9912,12 @@ Layout Views sind essenziell für Struktur, Wiederverwendbarkeit und Wartbarkeit
   </WikiArtikel>
   <WikiArtikel>
     <Id>101</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Partial Views</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>139</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Einführung
 
 In ASP.NET Core MVC ist eine **Partial View** (Teilansicht) ein wiederverwendbarer Block von Razor-Markup (.cshtml), der in andere Views eingebettet werden kann. Sie sind dafür konzipiert, spezifische UI-Elemente wie Listen, Formulare, Navigationsleisten oder Widgets zu kapseln.
@@ -10120,12 +10120,12 @@ public IActionResult GetLanguages()
   </WikiArtikel>
   <WikiArtikel>
     <Id>102</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/View Components</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>140</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieses Tutorial erklärt, was View Components in ASP.NET Core sind, wann man sie verwendet und wie man sie effektiv implementiert. Es deckt Standard-View Components, stark typisierte Implementierungen, die Übergabe von Parametern und die Rückgabe aus Controllern ab.
 
 ## 1. Was sind View Components?
@@ -10329,12 +10329,12 @@ public IActionResult LoadFriendsList()
   </WikiArtikel>
   <WikiArtikel>
     <Id>103</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Dependency Inversion</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>141</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## 1. Einführung: Was sind Services?
 
 In ASP.NET Core MVC sind **Services** Klassen, die für die Implementierung der Kern-Geschäftslogik Ihrer Anwendung verantwortlich sind. Sie sind darauf ausgelegt, wiederverwendbar, eigenständig und unabhängig von spezifischen Controllern oder Views zu sein.
@@ -10559,12 +10559,12 @@ DI ist ein mächtiges Werkzeug, um lose gekoppelte, testbare und wartbare Softwa
   </WikiArtikel>
   <WikiArtikel>
     <Id>104</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Laufzeitumgebung</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>142</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## 1. Einführung: Was sind Umgebungen?
 
 In ASP.NET Core sind Umgebungen benannte Konfigurationen, die es Ihnen ermöglichen, Einstellungen, Konfigurationen und Middleware-Pipelines für spezifische Szenarien anzupassen. Dies hilft bei der Verwaltung von Unterschieden zwischen der Entwicklung, dem Testen und dem produktiven Einsatz.
@@ -10767,12 +10767,12 @@ In Razor Views können Sie den `&lt;environment&gt;` Tag Helper verwenden, um HT
   </WikiArtikel>
   <WikiArtikel>
     <Id>105</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Konfiguration</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>143</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieses Tutorial bietet einen umfassenden Einstieg in das Konfigurationssystem von ASP.NET Core. Es richtet sich an Entwickler, die lernen möchten, wie man Einstellungen und sensible Daten sicher und flexibel verwaltet.
 
 ## 1. Grundlagen der Konfiguration
@@ -10856,12 +10856,12 @@ public class MyService {
   </WikiArtikel>
   <WikiArtikel>
     <Id>106</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Blog:19.02.2026 Web-Rendering-Verfahren</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>144</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Web-Rendering-Verfahren
 
 - **Client-Side Rendering (CSR)** – Ideal für interaktive Single-Page-Applications (SPAs) und desktopähnliche Webanwendungen.
@@ -10943,12 +10943,12 @@ Typischer Ablauf: Der Benutzer löst eine Aktion aus (z. B. Klick auf einen Butt
   </WikiArtikel>
   <WikiArtikel>
     <Id>107</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Blog:20.02.2026 KI-Zeitalter Speicherfresser und RAM-Verbrauch</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>145</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Heute stelle ich fest, dass viele KI-Anwendungen den Energieverbrauch deutlich steigern. Viele Unternehmen – mich eingeschlossen – nutzen KI-Agenten und entwickeln diese häufig mit Python, was viel Energie und natürliche Ressourcen verbraucht. Andere Sprachen wie C, C++, Rust, Go, Java, C# oder Node.js sind oft effizienter.
 
 | Platz | Programmiersprache | Energie-Faktor | Typ                       |
@@ -11165,12 +11165,12 @@ Effiziente Modelle und lokale Verarbeitung senken den Energieverbrauch und schon
   </WikiArtikel>
   <WikiArtikel>
     <Id>108</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kategorie:09.02.2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>146</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>[kategorie:02.2026](kategorie:02.2026)</MarkdownInhalt>
         <Zeitpunkt>2026-02-20T22:46:57Z</Zeitpunkt>
         <Kategorie />
@@ -11180,12 +11180,12 @@ Effiziente Modelle und lokale Verarbeitung senken den Energieverbrauch und schon
   </WikiArtikel>
   <WikiArtikel>
     <Id>109</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kategorie:19.02.2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>147</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>[kategorie:02.2026](kategorie:02.2026)</MarkdownInhalt>
         <Zeitpunkt>2026-02-20T22:51:25Z</Zeitpunkt>
         <Kategorie />
@@ -11195,12 +11195,12 @@ Effiziente Modelle und lokale Verarbeitung senken den Energieverbrauch und schon
   </WikiArtikel>
   <WikiArtikel>
     <Id>110</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kategorie:20.02.2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>148</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>[kategorie:02.2026](kategorie:02.2026)</MarkdownInhalt>
         <Zeitpunkt>2026-02-20T22:59:10Z</Zeitpunkt>
         <Kategorie />
@@ -11210,12 +11210,12 @@ Effiziente Modelle und lokale Verarbeitung senken den Energieverbrauch und schon
   </WikiArtikel>
   <WikiArtikel>
     <Id>111</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/xUnit</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>149</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieses Tutorial gibt dir einen Überblick über Unit Testing, Best Practices und die Verwendung des xUnit-Frameworks in .NET.
 
 ## 1. Einführung in Unit Testing
@@ -11305,12 +11305,12 @@ Dieses Tutorial dient als Grundlage für sauberes und effektives Unit Testing in
   </WikiArtikel>
   <WikiArtikel>
     <Id>112</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Crud Opertations</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>150</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Willkommen zu diesem umfassenden Tutorial zur Implementierung von **CRUD-Operationen (Create, Read, Update, Delete)** in ASP.NET Core MVC. Dieser Leitfaden konzentriert sich auf den Aufbau robuster, wartbarer und effizienter Webanwendungen.
 
 ------------------------------------------------------------------------
@@ -11435,12 +11435,12 @@ Wenn Sie sich auf ein technisches Interview vorbereiten, sollten Sie folgende Th
   </WikiArtikel>
   <WikiArtikel>
     <Id>113</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Tag-Helfer</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>151</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieses Tutorial führt dich durch die Konzepte von **Tag Helpern** in ASP.NET Core MVC und zeigt dir, wie du sie effektiv in einer **CRUD-Anwendung** (Create, Read, Update, Delete) einsetzt.
 
 ------------------------------------------------------------------------
@@ -11554,12 +11554,12 @@ ASP.NET Core bietet eine integrierte Validierungskette:
   </WikiArtikel>
   <WikiArtikel>
     <Id>114</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Entity Framework Core</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>152</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieses Tutorial bietet einen umfassenden Überblick über **Entity Framework Core (EF Core)**, das moderne, leichtgewichtige und plattformübergreifende Object-Relational Mapper (ORM) Framework für .NET.
 
 ------------------------------------------------------------------------
@@ -11747,12 +11747,12 @@ var persons = _db.Persons.FromSqlRaw("EXECUTE [dbo].[GetAllPersons]").ToList();
   </WikiArtikel>
   <WikiArtikel>
     <Id>115</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Erweiterter Unit-Test</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>153</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieses Tutorial bietet einen umfassenden Überblick über moderne Tools und Techniken für Unit- und Integrationstests in der .NET-Entwicklung. Wir konzentrieren uns auf **Fluent Assertions**, **AutoFixture**, **Mocking mit Moq** und **Integrationstests**.
 
 ------------------------------------------------------------------------
@@ -11884,12 +11884,12 @@ Um effektive Tests zu schreiben, sollten diese folgende Kriterien erfüllen:
   </WikiArtikel>
   <WikiArtikel>
     <Id>116</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Protokollierung und Serilog</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>154</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Logging ist ein unverzichtbares Werkzeug zur Überwachung, Fehlerbehebung und Gewinnung von Einblicken in das Verhalten deiner ASP.NET Core-Anwendung. Es dient als Fenster zu den Laufzeitereignissen deiner Anwendung und ermöglicht es dir, alles von Routineoperationen bis hin zu kritischen Fehlern zu verfolgen.
 
 ------------------------------------------------------------------------
@@ -12062,12 +12062,12 @@ builder.Host.UseSerilog((ctx, services, config) =&gt; config
   </WikiArtikel>
   <WikiArtikel>
     <Id>117</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Filter</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>155</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Filters sind leistungsstarke Komponenten in ASP.NET Core MVC, mit denen Sie Code vor, nach oder sogar während der Ausführung Ihrer Controller-Aktionen oder Razor-Pages abfangen und ausführen können. Sie bieten eine saubere und modulare Methode zur Implementierung von **Cross-Cutting Concerns** (querschnittlichen Belangen).
 
 ------------------------------------------------------------------------
@@ -12235,12 +12235,12 @@ Obwohl sie sich ähnlich sehen, gibt es wichtige Unterschiede:
   </WikiArtikel>
   <WikiArtikel>
     <Id>118</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Fehlerbehandlung</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>156</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Eine robuste Fehlerbehandlung ist entscheidend für die Erstellung benutzerfreundlicher und stabiler Webanwendungen. In ASP.NET Core MVC geht es darum, Ausnahmen elegant abzufangen, informatives Feedback zu geben und den reibungslosen Betrieb der Anwendung sicherzustellen.
 
 ------------------------------------------------------------------------
@@ -12366,12 +12366,12 @@ app.UseRouting();
   </WikiArtikel>
   <WikiArtikel>
     <Id>119</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/SOLID-Prinzipien</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>157</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieses Tutorial gibt einen umfassenden Überblick über die SOLID-Prinzipien, ein Akronym für fünf grundlegende Entwurfsmuster in der objektorientierten Programmierung. Das Ziel dieser Prinzipien ist es, die Wartbarkeit, Testbarkeit und Flexibilität Ihres Codes zu erhöhen, indem Abhängigkeiten reduziert werden.
 
 ------------------------------------------------------------------------
@@ -12529,12 +12529,12 @@ Die Anwendung der SOLID-Prinzipien bietet klare Vorteile:
   </WikiArtikel>
   <WikiArtikel>
     <Id>120</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Saubere Architektur</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>158</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## 1. Einführung in die Clean Architecture
 
 Clean Architecture (auch bekannt als Onion Architecture) ist ein Softwaredesign-Prinzip, das auf **Separation of Concerns (Trennung von Belangen)**, **Testbarkeit** und **Wartbarkeit** setzt. Die Anwendung wird in Schichten organisiert, wobei jede Schicht eine spezifische Verantwortung trägt und die Abhängigkeiten klar definiert sind.
@@ -13806,12 +13806,12 @@ Dieser strukturierte 8-Wochen-Plan setzt einen Zeitaufwand von ca. 5-10 Stunden 
   </WikiArtikel>
   <WikiArtikel>
     <Id>131</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>TypeScript</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>169</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieser Leitfaden bietet einen strukturierten Weg, um TypeScript von Grund auf zu erlernen und in realen Projekten anzuwenden.
 
 ## Lernpfad
@@ -14784,12 +14784,12 @@ Die Wahl des passenden Tools obliegt dem Programmier-Paradigma der Entwickler:
   </WikiArtikel>
   <WikiArtikel>
     <Id>142</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Test Übung</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>180</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>&lt;quiz&gt; { Was war der ursprüngliche Name von C++, als Bjarne Stroustrup mit der Entwicklung begann? } - C Plus Plus + C with Classes (C mit Klassen) - Advanced C - C#
 
 { Welche der folgenden Programmierparadigmen unterstützt C++? (Mehrere Antworten möglich) } + Objektorientierte Programmierung + Prozedurale Programmierung + Generische Programmierung - Logische Programmierung
@@ -17541,12 +17541,12 @@ Die Gemini CLI ist mehr als ein Terminal-Chat. Es handelt sich um einen vollwert
   </WikiArtikel>
   <WikiArtikel>
     <Id>160</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>LMS Plattformen &amp; Code Execution APIs</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>198</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Diese Seite enthält eine Zusammenfassung von Open-Source Code-Execution-APIs und Autograding-Systemen für die Entwicklung einer eigenen LMS-Plattform für Programmiersprachen.
 
 ## Judge0
@@ -17591,12 +17591,12 @@ Die Gemini CLI ist mehr als ein Terminal-Chat. Es handelt sich um einen vollwert
   </WikiArtikel>
   <WikiArtikel>
     <Id>161</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Empfohlene Webframeworks (Kompilierte Sprachen, Enterprise-Ready)</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>199</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Auf Basis der Anforderungen (Verwaltung von über 10 Millionen Datensätzen, Enterprise-Standard, "Batteries Included", extrem sicher und stabil, integriertes Admin-Panel, KEINE Skriptsprachen wie PHP oder Python/Django, KEIN reines CMS) ergeben sich folgende Top-Empfehlungen aus der Welt der kompilierten Sprachen (Java, C#, Go, Rust).
 
 ## 1. ASP.NET Core mit ABP Framework (C#)
@@ -17804,12 +17804,12 @@ Der Einsatz von fortgeschrittenen KI-Agents oder CLI-Tools (wie Claude Code CLI 
   </WikiArtikel>
   <WikiArtikel>
     <Id>163</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>KI-Software und Tools Analyse 2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>201</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Diese Übersicht bietet eine Analyse aktueller KI-Technologien, kategorisiert nach Reifegrad (Tier), Industriestandard und Sicherheitsaspekten für den Unternehmenseinsatz.
 
 ### Reifegrad Definition (Tiers)
@@ -17877,12 +17877,12 @@ Der Einsatz von fortgeschrittenen KI-Agents oder CLI-Tools (wie Claude Code CLI 
   </WikiArtikel>
   <WikiArtikel>
     <Id>164</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Blog:08.03.2026 Ich nutze lieber Compilersprachen statt Interpretersprachen</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>202</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Ich nutze lieber Compilersprachen statt Interpretersprachen für die Backend-Programmierung, da hier präziser gearbeitet werden muss als bei Letzteren.
 
 Laravel, Django und Symfony sind gute Web-Frameworks, doch am wohlsten fühle ich mich mit Java und C#. Dort kann ich besser strukturieren, und die Frameworks sind sehr robust.
@@ -17941,12 +17941,12 @@ Fünfter Tipp: Prompten Sie das KI-Tool immer explizit: "Verwende für externe D
   </WikiArtikel>
   <WikiArtikel>
     <Id>165</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Lerntechnik 1</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>203</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Struktur und Benutzeroberfläche
 
 - **VS Code Integration:** Moderne Lernplattformen nutzen Editoren, die stark an Visual Studio Code angelehnt sind (z. B. VS Code Server oder Monaco Editor). Dies ermöglicht eine konsistente Erfahrung sowohl online im Browser als auch offline in der lokalen Entwicklungsumgebung.
@@ -18017,12 +18017,12 @@ Basierend auf den Kriterien Interaktivität, Validierung und Praxisrelevanz sind
   </WikiArtikel>
   <WikiArtikel>
     <Id>166</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Top-Programmiersprachen für sichere, robuste und große Enterprise-Webanwendungen</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>204</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Für die Entwicklung von hochsicheren, robusten und komplexen Enterprise-Webanwendungen mit dem Fokus auf minimale Datenlecks und Resilienz gegen Hackerangriffe eignen sich insbesondere Sprachen, die eine starke Typisierung, exzellente Speicherverwaltung, hohe Reife (Maturity) und ein bewährtes Ökosystem für Sicherheit (z.B. Kryptographie, Authentifizierung, Autorisierung) bieten.
 
 Folgende Programmiersprachen sind heute in diesem Bereich am relevantesten:
@@ -18082,12 +18082,12 @@ Wenn die Architektur jedoch auf **absolutem Top-Niveau der Systemsicherheit und 
   </WikiArtikel>
   <WikiArtikel>
     <Id>167</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Empfohlene Open-Source-Programmiersprachen für sichere Enterprise-Desktop-Anwendungen</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>205</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Für die Entwicklung von großen, komplexen, plattformübergreifenden (Windows, macOS, Linux/Ubuntu) und hochsicheren Desktop-Anwendungen im Enterprise-Bereich kommen aktuell nur Sprachen in Frage, die **Speichersicherheit (Memory Safety)**, ein starkes Typensystem und ein ausgereiftes Ökosystem bieten.
 
 ## 1. Rust
@@ -18153,12 +18153,12 @@ Normalerweise ist C++ (mit dem Framework Qt) der König der Desktop-Anwendungen 
   </WikiArtikel>
   <WikiArtikel>
     <Id>168</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Die besten Open-Source-Programmiersprachen für hochsichere Enterprise-Android-Apps</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>206</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Für die Entwicklung von hochsicheren, robusten, skalierbaren und großen Android-Anwendungen (Enterprise-Level), bei denen der Schutz vor Datenlecks und Hackerangriffen absolute Priorität hat, gibt es heutzutage klare Industriestandards. Die folgenden Sprachen sind rein Open Source und für den kommerziellen Einsatz uneingeschränkt und kostenlos freigegeben.
 
 ### 1. Kotlin (Der heutige Branchenstandard)
@@ -18211,12 +18211,12 @@ Für das Entwicklungsvorhaben einer maximal sicheren, geschäftskritischen und g
   </WikiArtikel>
   <WikiArtikel>
     <Id>169</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Empfehlung für eine Open-Source Game Engine</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>207</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Basierend auf den genannten hochkomplexen und anspruchsvollen Anforderungen:
 
 - **Rein Open Source** &amp; Kostenlos für den **kommerziellen Bereich** (keine versteckten Gebühren oder Royalties).
@@ -18344,12 +18344,12 @@ Rust ist aktuell der Industrie-Standard, wenn es um die Kombination aus maximale
   </WikiArtikel>
   <WikiArtikel>
     <Id>172</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Vergleich von Hochleistungssprachen für große Anwendungen</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>210</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Für die Entwicklung von großen, leistungsintensiven Anwendungen in den Jahren 2024 und 2025 sind **C**, **C++** und **Rust** die führenden Optionen. Jede Sprache hat spezifische Stärken und Einsatzgebiete.
 
 ### C
@@ -18391,12 +18391,12 @@ Während **C** für extrem hardwarenahe Software unverzichtbar bleibt, ist **C++
   </WikiArtikel>
   <WikiArtikel>
     <Id>173</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Vergleich von KI-Programmiertools</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>211</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieser Bericht vergleicht die führenden KI-gestützten Tools für die Softwareentwicklung: **Google AI**, **JetBrains AI**, **GitHub Copilot**, **Claude (Anthropic)** und **OpenAI**.
 
 ## Übersichtstabelle
@@ -18790,12 +18790,12 @@ Für Prototyping und Hobby-Projekte bieten viele Provider 2026 kostenlose API-Zu
   </WikiArtikel>
   <WikiArtikel>
     <Id>176</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>AI</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>224</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Diese Seite bietet einen Überblick über zentrale Themen, Tools und Best Practices rund um KI und ML in der Softwareentwicklung.
 
 ## Grundlagen und Integration
@@ -19246,12 +19246,12 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'DEIN_STARKES_PASSWORT'; FLUSH PRIVI
   </WikiArtikel>
   <WikiArtikel>
     <Id>182</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Server</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>230</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>- [Server/Mieten](Server/Mieten)
 - [Server/Backup](Server/Backup)
 - [Server/Ubuntu Software Pakete Installieren](Server/Ubuntu_Software_Pakete_Installieren)
@@ -19928,12 +19928,12 @@ Prüfen Sie mit sudo nginx -t immer zuerst, ob die Konfiguration fehlerfrei ist.
   </WikiArtikel>
   <WikiArtikel>
     <Id>190</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframework</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>238</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## SSR Webframework
 
 ### [Asp Net Core](Webframeworkk/ASP.NET_Core)
@@ -20536,12 +20536,12 @@ Impressum vom [Impressum Generator](https://www.impressum-generator.de) der \[Ka
   </WikiArtikel>
   <WikiArtikel>
     <Id>208</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Weiter Tools</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>256</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## ghosttext</MarkdownInhalt>
         <Zeitpunkt>2026-01-08T23:47:52Z</Zeitpunkt>
         <Kategorie />
@@ -20584,12 +20584,12 @@ Impressum vom [Impressum Generator](https://www.impressum-generator.de) der \[Ka
   </WikiArtikel>
   <WikiArtikel>
     <Id>210</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>CMS</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>258</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>- [Empfohlene Webframeworks (Kompilierte Sprachen, Enterprise-Ready)](Empfohlene_Webframeworks_(Kompilierte_Sprachen,_Enterprise-Ready) "wikilink")
 
 ## 1. Eigene CMS-Systeme
@@ -21317,12 +21317,12 @@ Hier ist der Link: [Postmaster](https://postmaster.google.com/)</MarkdownInhalt>
   </WikiArtikel>
   <WikiArtikel>
     <Id>221</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Weitere Tools</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>269</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Ghosttext Visual Studio Code
 
 GhostText ist eine Erweiterung, mit der du Texte in deinem Browser direkt in Visual Studio Code bearbeiten kannst. Änderungen werden in Echtzeit synchronisiert.
@@ -21348,12 +21348,12 @@ Weitere Infos: [Offizielle GhostText-Webseite](https://ghosttext.fregante.com/)<
   </WikiArtikel>
   <WikiArtikel>
     <Id>222</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>XWiki</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>270</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## XWiki Installieren Entwickler Rechner
 
 ### Ubuntu Rechner
@@ -21603,12 +21603,12 @@ Erstelle eine Datei /etc/nginx/conf.d/mediawiki.conf mit folgendem Inhalt:
   </WikiArtikel>
   <WikiArtikel>
     <Id>225</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Lerntechnik</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>273</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Die besten modernen Lernmethoden für das Lernen von Programmiersprachen
 
 Effektives Programmierenlernen kombiniert praktische Übung, kognitive Strategien und soziale Formate. Die folgenden Ansätze lassen sich flexibel mischen und iterativ anwenden.
@@ -21773,12 +21773,12 @@ Gib Folgendes ein
   </WikiArtikel>
   <WikiArtikel>
     <Id>227</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kurse/Asp net core mvc/wiki</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>275</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt># Lernpfad und Roadmap: Eigenes Wiki-System mit ASP.NET Core MVC
 
 ## Einleitung
@@ -21842,12 +21842,12 @@ Beginne mit den Grundlagen und arbeite dich Schritt für Schritt durch die Roadm
   </WikiArtikel>
   <WikiArtikel>
     <Id>228</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kurse/Asp net core mvc/wiki/Grundlagen von ASP.NET Core MVC</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>276</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Einführung in ASP.NET Core und MVC-Architektur
 
 **ASP.NET Core MVC** ist ein modernes, plattformübergreifendes Web-Framework von Microsoft, das auf dem Model-View-Controller (MVC)-Architekturprinzip basiert. Es ermöglicht die Entwicklung dynamischer Webanwendungen und APIs mit einer klaren Trennung von Datenmodell, Benutzeroberfläche und Steuerungslogik. ASP.NET Core MVC ist Teil von ASP.NET Core und bietet Vorteile wie hohe Performance, Modularität, Testbarkeit und Unterstützung für Dependency Injection.
@@ -22393,12 +22393,12 @@ Erstelle eine Datei app.py mit folgendem Inhalt:
   </WikiArtikel>
   <WikiArtikel>
     <Id>234</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Ns3000:01.02.2026 WordPress und KI Die Zukunft der Plugin-Landschaft</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>282</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>WordPress steht vor einem spannenden Wandel. KI-Agenten werden künftig viele klassische Plugins ersetzen können, indem sie intelligente Tipps geben und passende Lösungen vorschlagen.
 
 ### Empfehlenswerte KI-Plugins für WordPress
@@ -22450,12 +22450,12 @@ WordPress bietet zwar viele Plugins und fertige Lösungen, aber für individuell
   </WikiArtikel>
   <WikiArtikel>
     <Id>235</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Blog:01.02.2026 WordPress und KI Die Zukunft der Plugin-Landschaft</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>283</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>WordPress steht vor einem spannenden Wandel. KI-Agenten werden künftig viele klassische Plugins ersetzen können, indem sie intelligente Tipps geben und passende Lösungen vorschlagen.
 
 ### Empfehlenswerte KI-Plugins für WordPress
@@ -22507,12 +22507,12 @@ WordPress bietet zwar viele Plugins und fertige Lösungen, aber für individuell
   </WikiArtikel>
   <WikiArtikel>
     <Id>236</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kategorie:01.02.2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>284</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>[Kategorie:02.2026](Kategorie:02.2026)</MarkdownInhalt>
         <Zeitpunkt>2026-02-03T13:37:30Z</Zeitpunkt>
         <Kategorie />
@@ -22522,12 +22522,12 @@ WordPress bietet zwar viele Plugins und fertige Lösungen, aber für individuell
   </WikiArtikel>
   <WikiArtikel>
     <Id>237</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kategorie:02.2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>285</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>[Kategorie:2026](Kategorie:2026)</MarkdownInhalt>
         <Zeitpunkt>2026-02-03T13:38:09Z</Zeitpunkt>
         <Kategorie />
@@ -22537,12 +22537,12 @@ WordPress bietet zwar viele Plugins und fertige Lösungen, aber für individuell
   </WikiArtikel>
   <WikiArtikel>
     <Id>238</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kategorie:2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>286</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>[kategorie:Blog](kategorie:Blog)</MarkdownInhalt>
         <Zeitpunkt>2026-02-03T13:41:07Z</Zeitpunkt>
         <Kategorie />
@@ -22552,12 +22552,12 @@ WordPress bietet zwar viele Plugins und fertige Lösungen, aber für individuell
   </WikiArtikel>
   <WikiArtikel>
     <Id>239</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kategorie:Blog</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>287</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Willkommen auf meine Blogs Seiten
 
 Hier finden Sie neue Blogartikel und Abschnitte zu verschiedenen Themen wie Technik, KI-Anwendungen, das Schreiben von MediaWiki-Extensions sowie zu ASP.NET Core MVC und Spring Boot.</MarkdownInhalt>
@@ -22569,12 +22569,12 @@ Hier finden Sie neue Blogartikel und Abschnitte zu verschiedenen Themen wie Tech
   </WikiArtikel>
   <WikiArtikel>
     <Id>240</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Blog:01.02.2026 Wissenmanage System</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>288</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Wissensmanagement: Selbst bauen oder bestehende Lösungen nutzen?
 
 Beim Aufbau eines eigenen Wissensmanagement-Systems stehen zwei Wege offen:
@@ -22777,12 +22777,12 @@ Wer spezielle Anforderungen hat (z. B. komplexe Rechteverwaltung, eigene KI-Work
   </WikiArtikel>
   <WikiArtikel>
     <Id>241</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Blog:03.02.2026 Schaltet ein paar Anwendungen ab.</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>289</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Ich schalte ein paar Anwendungen ab, weil es zu viel Aufwand ist, die Inhalte zu verwalten – deshalb lösche ich WordPress, XWiki, Wiki.js, Drupal und Typo3. Es handelt sich um keine wichtige Wissenssammlung.
 
 Wie lösche ich WordPress auf einem Ubuntu-Server mit nginx, wenn dort eine WordPress-Instanz läuft? Beispiel: Bei mir löscht man die Datei /etc/nginx/conf.d/wordpress.conf.
@@ -22824,12 +22824,12 @@ Und so Weiter
   </WikiArtikel>
   <WikiArtikel>
     <Id>242</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kategorie:03.02.2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>290</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>[kategorie:02.2026](kategorie:02.2026)</MarkdownInhalt>
         <Zeitpunkt>2026-02-03T15:28:06Z</Zeitpunkt>
         <Kategorie />
@@ -22839,12 +22839,12 @@ Und so Weiter
   </WikiArtikel>
   <WikiArtikel>
     <Id>243</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Blog:03.02.2026 – Inhalt verwalten</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>291</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Heute möchte ich über ein Thema sprechen, das mir am Herzen liegt: Ich bin kein Freund des Gutenberg-Editors von WordPress, des Drupal Canvas, des RTE in Typo3 oder des CKEditor. Ich möchte diese Web-Tools nicht schlechtmachen – sie haben ihre Berechtigung und viele Vorteile. Ich persönlich bin jedoch ein großer Fan des „Code as Docs“-Prinzips. Das bedeutet, dass ich meine Dokumentation direkt beim Programmieren, zum Beispiel in Visual Studio Code, schreibe. Für mich fühlt sich das natürlicher und freier an als die Arbeit mit klassischen Editoren wie WordPress. Dort habe ich oft das Gefühl, nicht die absolute Freiheit zu haben, die ich mir wünsche. Ich arbeite gern mit Markdown, AsciiDoc, LaTeX und Wikitext, weil ich so bessere Kontrolle habe.
 
 ## Beispielsprachen
@@ -23009,12 +23009,12 @@ Die Erweiterung hilft, Wikitext effizienter und fehlerfreier zu schreiben. Sie r
   </WikiArtikel>
   <WikiArtikel>
     <Id>247</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Visual Studio Code/Eigene Erweiterungen schreiben</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>295</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Generator installieren
 
 Um einen Generator zu installieren, öffne das Terminal und führe folgenden Befehl aus:
@@ -23227,12 +23227,12 @@ Zeile hinzufügen:
   </WikiArtikel>
   <WikiArtikel>
     <Id>249</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Blog:09.02.2026 Lesbar Url</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>297</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Was ist eine lesbare URL? Braucht man sie oder nicht? Die Suchmaschinen brauchen sie bessere Seiten zu indexieren.
 
 ## Wie geht das mit
@@ -23871,12 +23871,12 @@ Der folgende Zeitplan geht von einem durchschnittlichen Lernaufwand von ca. 8-10
   </WikiArtikel>
   <WikiArtikel>
     <Id>255</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>C</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>303</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Weblink
 
 - Jason Fedin / Tim Buchalka C Programming For Beginners - Master the C Language
@@ -24105,12 +24105,12 @@ Scribunto muss das Lua-Binary ausführen können. Setzen Sie die entsprechenden 
   </WikiArtikel>
   <WikiArtikel>
     <Id>258</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Modul:HalloWelt</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>306</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>local p = {}
 
 function p.hallo(frame)
@@ -24130,12 +24130,12 @@ end return p</MarkdownInhalt>
   </WikiArtikel>
   <WikiArtikel>
     <Id>259</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Test</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>307</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>{{#invoke:HalloWelt\|hallo}}
 
 {{#invoke:HalloWelt\|start}}</MarkdownInhalt>
@@ -24147,12 +24147,12 @@ end return p</MarkdownInhalt>
   </WikiArtikel>
   <WikiArtikel>
     <Id>260</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>308</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Willkommen im **ASP.NET Core Tutorial**! Dieses Tutorial führt dich schrittweise durch alle relevanten Themen der modernen Webentwicklung mit ASP.NET Core. Die Inhalte basieren auf der offiziellen Struktur der [Webframeworkk-Dokumentation](https://docs.ahrensburg.city/Webframeworkk/ASP.NET_Core). Diese Übersicht dient als Einstiegspunkt und Lernpfad. Arbeite die Themen am besten der Reihe nach ab, da sie logisch aufeinander aufbauen.
 
 ## Modul 1: [Grundlagen und Struktur](ASP_NET_Core/Grundlagen_und_Struktur)
@@ -24217,12 +24217,12 @@ Ohne Tests ist jedes Refactoring ein Risiko.
   </WikiArtikel>
   <WikiArtikel>
     <Id>261</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Routing</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>309</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieses Tutorial behandelt das Routing speziell im Kontext von ASP.NET Core MVC. Es erklärt, wie eingehende Anfragen an Controller und deren Action-Methoden weitergeleitet werden.
 
 ## 1. Routing-Typen in MVC
@@ -24410,12 +24410,12 @@ Diese Flexibilität macht Attribute Routing besonders für komplexe oder REST-or
   </WikiArtikel>
   <WikiArtikel>
     <Id>262</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Middleware</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>310</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieses Tutorial erklärt das Konzept der Middleware in ASP.NET Core, wie sie funktioniert, wie man sie konfiguriert und wie man eigene Middleware-Komponenten erstellt. Es basiert auf den bereitgestellten Notizen und ergänzendem Expertenwissen.
 
 ## Was ist Middleware?
@@ -24618,12 +24618,12 @@ app.UseWhen(
   </WikiArtikel>
   <WikiArtikel>
     <Id>263</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Http</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>311</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## 1. Was ist HTTP?
 
 HTTP (Hypertext Transfer Protocol) ist das grundlegende Protokoll für die Kommunikation im Web. Es arbeitet nach dem Client-Server-Modell: Ein Client (z.B. Browser) sendet eine Anfrage, der Server antwortet mit Ressourcen oder Fehlermeldungen. HTTP ist zustandslos – jeder Request ist unabhängig.
@@ -24718,12 +24718,12 @@ HTTP ist das Rückgrat des Webs. ASP.NET Core und Kestrel bieten eine moderne Pl
   </WikiArtikel>
   <WikiArtikel>
     <Id>264</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Controllers und IActionResult</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>312</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>In der \*\*Model-View-Controller (MVC)\*\* Architektur fungieren Controller als Orchestratoren der Webanwendung. Sie verarbeiten eingehende HTTP-Anfragen, interagieren mit dem Model (Datenbank oder Business-Logik) und wählen die passende View für die Antwort aus.
 
 - \*\*Controller\*\*: Klassen, die verwandte Action Methods gruppieren. Sie befinden sich typischerweise im Ordner \`Controllers\`.
@@ -24920,12 +24920,12 @@ return LocalRedirect("/products/details/1");
   </WikiArtikel>
   <WikiArtikel>
     <Id>265</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Model Binding und Validation</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>313</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Basierend auf der Analyse der Datei *Text.txt* bietet dieses Tutorial einen umfassenden Überblick über Model Binding und Validierung in ASP.NET Core MVC.
 
 ## 1. Einführung in Model Binding
@@ -25088,12 +25088,12 @@ Wenn das Standardverhalten nicht ausreicht, können Sie eigene Model Binder erst
   </WikiArtikel>
   <WikiArtikel>
     <Id>266</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Razor Views</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>314</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Basierend auf der Analyse von *start.txt* enthält dieses Dokument Tutorials und Erklärungen zu den Kernkonzepten von ASP.NET Core MVC, einschließlich Architektur, Views, Razor-Syntax, Datenübergabe und der Erstellung wiederverwendbarer Komponenten.
 
 ## MVC Architektur
@@ -25386,12 +25386,12 @@ Dieser Fallback-Mechanismus ermöglicht es Ihnen, globale Views im *Shared*-Ordn
   </WikiArtikel>
   <WikiArtikel>
     <Id>267</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Layout Views</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>315</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Einführung
 
 Layout Views sind ein zentrales Konzept in ASP.NET Core MVC, um einheitliche und wiederverwendbare Strukturen für Webseiten zu schaffen. Sie ermöglichen es, gemeinsame Elemente wie Kopfzeile, Navigation, Fußzeile und Seitenleisten zentral zu definieren.
@@ -25547,12 +25547,12 @@ Layout Views sind essenziell für Struktur, Wiederverwendbarkeit und Wartbarkeit
   </WikiArtikel>
   <WikiArtikel>
     <Id>268</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Partial Views</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>316</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Einführung
 
 In ASP.NET Core MVC ist eine **Partial View** (Teilansicht) ein wiederverwendbarer Block von Razor-Markup (.cshtml), der in andere Views eingebettet werden kann. Sie sind dafür konzipiert, spezifische UI-Elemente wie Listen, Formulare, Navigationsleisten oder Widgets zu kapseln.
@@ -25755,12 +25755,12 @@ public IActionResult GetLanguages()
   </WikiArtikel>
   <WikiArtikel>
     <Id>269</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/View Components</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>317</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieses Tutorial erklärt, was View Components in ASP.NET Core sind, wann man sie verwendet und wie man sie effektiv implementiert. Es deckt Standard-View Components, stark typisierte Implementierungen, die Übergabe von Parametern und die Rückgabe aus Controllern ab.
 
 ## 1. Was sind View Components?
@@ -25964,12 +25964,12 @@ public IActionResult LoadFriendsList()
   </WikiArtikel>
   <WikiArtikel>
     <Id>270</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Dependency Inversion</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>318</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## 1. Einführung: Was sind Services?
 
 In ASP.NET Core MVC sind **Services** Klassen, die für die Implementierung der Kern-Geschäftslogik Ihrer Anwendung verantwortlich sind. Sie sind darauf ausgelegt, wiederverwendbar, eigenständig und unabhängig von spezifischen Controllern oder Views zu sein.
@@ -26194,12 +26194,12 @@ DI ist ein mächtiges Werkzeug, um lose gekoppelte, testbare und wartbare Softwa
   </WikiArtikel>
   <WikiArtikel>
     <Id>271</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Laufzeitumgebung</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>319</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## 1. Einführung: Was sind Umgebungen?
 
 In ASP.NET Core sind Umgebungen benannte Konfigurationen, die es Ihnen ermöglichen, Einstellungen, Konfigurationen und Middleware-Pipelines für spezifische Szenarien anzupassen. Dies hilft bei der Verwaltung von Unterschieden zwischen der Entwicklung, dem Testen und dem produktiven Einsatz.
@@ -26402,12 +26402,12 @@ In Razor Views können Sie den `&lt;environment&gt;` Tag Helper verwenden, um HT
   </WikiArtikel>
   <WikiArtikel>
     <Id>272</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Konfiguration</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>320</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieses Tutorial bietet einen umfassenden Einstieg in das Konfigurationssystem von ASP.NET Core. Es richtet sich an Entwickler, die lernen möchten, wie man Einstellungen und sensible Daten sicher und flexibel verwaltet.
 
 ## 1. Grundlagen der Konfiguration
@@ -26491,12 +26491,12 @@ public class MyService {
   </WikiArtikel>
   <WikiArtikel>
     <Id>273</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Blog:19.02.2026 Web-Rendering-Verfahren</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>321</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Web-Rendering-Verfahren
 
 - **Client-Side Rendering (CSR)** – Ideal für interaktive Single-Page-Applications (SPAs) und desktopähnliche Webanwendungen.
@@ -26578,12 +26578,12 @@ Typischer Ablauf: Der Benutzer löst eine Aktion aus (z. B. Klick auf einen Butt
   </WikiArtikel>
   <WikiArtikel>
     <Id>274</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Blog:20.02.2026 KI-Zeitalter Speicherfresser und RAM-Verbrauch</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>322</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Heute stelle ich fest, dass viele KI-Anwendungen den Energieverbrauch deutlich steigern. Viele Unternehmen – mich eingeschlossen – nutzen KI-Agenten und entwickeln diese häufig mit Python, was viel Energie und natürliche Ressourcen verbraucht. Andere Sprachen wie C, C++, Rust, Go, Java, C# oder Node.js sind oft effizienter.
 
 | Platz | Programmiersprache | Energie-Faktor | Typ                       |
@@ -26800,12 +26800,12 @@ Effiziente Modelle und lokale Verarbeitung senken den Energieverbrauch und schon
   </WikiArtikel>
   <WikiArtikel>
     <Id>275</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kategorie:09.02.2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>323</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>[kategorie:02.2026](kategorie:02.2026)</MarkdownInhalt>
         <Zeitpunkt>2026-02-20T22:46:57Z</Zeitpunkt>
         <Kategorie />
@@ -26815,12 +26815,12 @@ Effiziente Modelle und lokale Verarbeitung senken den Energieverbrauch und schon
   </WikiArtikel>
   <WikiArtikel>
     <Id>276</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kategorie:19.02.2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>324</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>[kategorie:02.2026](kategorie:02.2026)</MarkdownInhalt>
         <Zeitpunkt>2026-02-20T22:51:25Z</Zeitpunkt>
         <Kategorie />
@@ -26830,12 +26830,12 @@ Effiziente Modelle und lokale Verarbeitung senken den Energieverbrauch und schon
   </WikiArtikel>
   <WikiArtikel>
     <Id>277</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kategorie:20.02.2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>325</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>[kategorie:02.2026](kategorie:02.2026)</MarkdownInhalt>
         <Zeitpunkt>2026-02-20T22:59:10Z</Zeitpunkt>
         <Kategorie />
@@ -26845,12 +26845,12 @@ Effiziente Modelle und lokale Verarbeitung senken den Energieverbrauch und schon
   </WikiArtikel>
   <WikiArtikel>
     <Id>278</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/xUnit</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>326</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieses Tutorial gibt dir einen Überblick über Unit Testing, Best Practices und die Verwendung des xUnit-Frameworks in .NET.
 
 ## 1. Einführung in Unit Testing
@@ -26940,12 +26940,12 @@ Dieses Tutorial dient als Grundlage für sauberes und effektives Unit Testing in
   </WikiArtikel>
   <WikiArtikel>
     <Id>279</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Crud Opertations</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>327</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Willkommen zu diesem umfassenden Tutorial zur Implementierung von **CRUD-Operationen (Create, Read, Update, Delete)** in ASP.NET Core MVC. Dieser Leitfaden konzentriert sich auf den Aufbau robuster, wartbarer und effizienter Webanwendungen.
 
 ------------------------------------------------------------------------
@@ -27070,12 +27070,12 @@ Wenn Sie sich auf ein technisches Interview vorbereiten, sollten Sie folgende Th
   </WikiArtikel>
   <WikiArtikel>
     <Id>280</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Tag-Helfer</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>328</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieses Tutorial führt dich durch die Konzepte von **Tag Helpern** in ASP.NET Core MVC und zeigt dir, wie du sie effektiv in einer **CRUD-Anwendung** (Create, Read, Update, Delete) einsetzt.
 
 ------------------------------------------------------------------------
@@ -27189,12 +27189,12 @@ ASP.NET Core bietet eine integrierte Validierungskette:
   </WikiArtikel>
   <WikiArtikel>
     <Id>281</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Entity Framework Core</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>329</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieses Tutorial bietet einen umfassenden Überblick über **Entity Framework Core (EF Core)**, das moderne, leichtgewichtige und plattformübergreifende Object-Relational Mapper (ORM) Framework für .NET.
 
 ------------------------------------------------------------------------
@@ -27382,12 +27382,12 @@ var persons = _db.Persons.FromSqlRaw("EXECUTE [dbo].[GetAllPersons]").ToList();
   </WikiArtikel>
   <WikiArtikel>
     <Id>282</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Erweiterter Unit-Test</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>330</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieses Tutorial bietet einen umfassenden Überblick über moderne Tools und Techniken für Unit- und Integrationstests in der .NET-Entwicklung. Wir konzentrieren uns auf **Fluent Assertions**, **AutoFixture**, **Mocking mit Moq** und **Integrationstests**.
 
 ------------------------------------------------------------------------
@@ -27519,12 +27519,12 @@ Um effektive Tests zu schreiben, sollten diese folgende Kriterien erfüllen:
   </WikiArtikel>
   <WikiArtikel>
     <Id>283</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Protokollierung und Serilog</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>331</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Logging ist ein unverzichtbares Werkzeug zur Überwachung, Fehlerbehebung und Gewinnung von Einblicken in das Verhalten deiner ASP.NET Core-Anwendung. Es dient als Fenster zu den Laufzeitereignissen deiner Anwendung und ermöglicht es dir, alles von Routineoperationen bis hin zu kritischen Fehlern zu verfolgen.
 
 ------------------------------------------------------------------------
@@ -27697,12 +27697,12 @@ builder.Host.UseSerilog((ctx, services, config) =&gt; config
   </WikiArtikel>
   <WikiArtikel>
     <Id>284</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Filter</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>332</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Filters sind leistungsstarke Komponenten in ASP.NET Core MVC, mit denen Sie Code vor, nach oder sogar während der Ausführung Ihrer Controller-Aktionen oder Razor-Pages abfangen und ausführen können. Sie bieten eine saubere und modulare Methode zur Implementierung von **Cross-Cutting Concerns** (querschnittlichen Belangen).
 
 ------------------------------------------------------------------------
@@ -27870,12 +27870,12 @@ Obwohl sie sich ähnlich sehen, gibt es wichtige Unterschiede:
   </WikiArtikel>
   <WikiArtikel>
     <Id>285</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Fehlerbehandlung</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>333</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Eine robuste Fehlerbehandlung ist entscheidend für die Erstellung benutzerfreundlicher und stabiler Webanwendungen. In ASP.NET Core MVC geht es darum, Ausnahmen elegant abzufangen, informatives Feedback zu geben und den reibungslosen Betrieb der Anwendung sicherzustellen.
 
 ------------------------------------------------------------------------
@@ -28001,12 +28001,12 @@ app.UseRouting();
   </WikiArtikel>
   <WikiArtikel>
     <Id>286</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/SOLID-Prinzipien</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>334</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieses Tutorial gibt einen umfassenden Überblick über die SOLID-Prinzipien, ein Akronym für fünf grundlegende Entwurfsmuster in der objektorientierten Programmierung. Das Ziel dieser Prinzipien ist es, die Wartbarkeit, Testbarkeit und Flexibilität Ihres Codes zu erhöhen, indem Abhängigkeiten reduziert werden.
 
 ------------------------------------------------------------------------
@@ -28164,12 +28164,12 @@ Die Anwendung der SOLID-Prinzipien bietet klare Vorteile:
   </WikiArtikel>
   <WikiArtikel>
     <Id>287</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Webframeworkk/ASP.NET Core/Saubere Architektur</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>335</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## 1. Einführung in die Clean Architecture
 
 Clean Architecture (auch bekannt als Onion Architecture) ist ein Softwaredesign-Prinzip, das auf **Separation of Concerns (Trennung von Belangen)**, **Testbarkeit** und **Wartbarkeit** setzt. Die Anwendung wird in Schichten organisiert, wobei jede Schicht eine spezifische Verantwortung trägt und die Abhängigkeiten klar definiert sind.
@@ -29831,12 +29831,12 @@ Dieser strukturierte 8-Wochen-Plan setzt einen Zeitaufwand von ca. 5-10 Stunden 
   </WikiArtikel>
   <WikiArtikel>
     <Id>298</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>TypeScript</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>346</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieser Leitfaden bietet einen strukturierten Weg, um TypeScript von Grund auf zu erlernen und in realen Projekten anzuwenden.
 
 ## Lernpfad
@@ -30809,12 +30809,12 @@ Die Wahl des passenden Tools obliegt dem Programmier-Paradigma der Entwickler:
   </WikiArtikel>
   <WikiArtikel>
     <Id>309</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Test Übung</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>357</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>&lt;quiz&gt; { Was war der ursprüngliche Name von C++, als Bjarne Stroustrup mit der Entwicklung begann? } - C Plus Plus + C with Classes (C mit Klassen) - Advanced C - C#
 
 { Welche der folgenden Programmierparadigmen unterstützt C++? (Mehrere Antworten möglich) } + Objektorientierte Programmierung + Prozedurale Programmierung + Generische Programmierung - Logische Programmierung
@@ -33566,12 +33566,12 @@ Die Gemini CLI ist mehr als ein Terminal-Chat. Es handelt sich um einen vollwert
   </WikiArtikel>
   <WikiArtikel>
     <Id>327</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>LMS Plattformen &amp; Code Execution APIs</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>375</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Diese Seite enthält eine Zusammenfassung von Open-Source Code-Execution-APIs und Autograding-Systemen für die Entwicklung einer eigenen LMS-Plattform für Programmiersprachen.
 
 ## Judge0
@@ -33616,12 +33616,12 @@ Die Gemini CLI ist mehr als ein Terminal-Chat. Es handelt sich um einen vollwert
   </WikiArtikel>
   <WikiArtikel>
     <Id>328</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Empfohlene Webframeworks (Kompilierte Sprachen, Enterprise-Ready)</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>376</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Auf Basis der Anforderungen (Verwaltung von über 10 Millionen Datensätzen, Enterprise-Standard, "Batteries Included", extrem sicher und stabil, integriertes Admin-Panel, KEINE Skriptsprachen wie PHP oder Python/Django, KEIN reines CMS) ergeben sich folgende Top-Empfehlungen aus der Welt der kompilierten Sprachen (Java, C#, Go, Rust).
 
 ## 1. ASP.NET Core mit ABP Framework (C#)
@@ -33829,12 +33829,12 @@ Der Einsatz von fortgeschrittenen KI-Agents oder CLI-Tools (wie Claude Code CLI 
   </WikiArtikel>
   <WikiArtikel>
     <Id>330</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>KI-Software und Tools Analyse 2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>378</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Diese Übersicht bietet eine Analyse aktueller KI-Technologien, kategorisiert nach Reifegrad (Tier), Industriestandard und Sicherheitsaspekten für den Unternehmenseinsatz.
 
 ### Reifegrad Definition (Tiers)
@@ -33902,12 +33902,12 @@ Der Einsatz von fortgeschrittenen KI-Agents oder CLI-Tools (wie Claude Code CLI 
   </WikiArtikel>
   <WikiArtikel>
     <Id>331</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Blog:08.03.2026 Ich nutze lieber Compilersprachen statt Interpretersprachen</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>379</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Ich nutze lieber Compilersprachen statt Interpretersprachen für die Backend-Programmierung, da hier präziser gearbeitet werden muss als bei Letzteren.
 
 Laravel, Django und Symfony sind gute Web-Frameworks, doch am wohlsten fühle ich mich mit Java und C#. Dort kann ich besser strukturieren, und die Frameworks sind sehr robust.
@@ -33966,12 +33966,12 @@ Fünfter Tipp: Prompten Sie das KI-Tool immer explizit: "Verwende für externe D
   </WikiArtikel>
   <WikiArtikel>
     <Id>332</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Lerntechnik 1</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>380</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Struktur und Benutzeroberfläche
 
 - **VS Code Integration:** Moderne Lernplattformen nutzen Editoren, die stark an Visual Studio Code angelehnt sind (z. B. VS Code Server oder Monaco Editor). Dies ermöglicht eine konsistente Erfahrung sowohl online im Browser als auch offline in der lokalen Entwicklungsumgebung.
@@ -34042,12 +34042,12 @@ Basierend auf den Kriterien Interaktivität, Validierung und Praxisrelevanz sind
   </WikiArtikel>
   <WikiArtikel>
     <Id>333</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Top-Programmiersprachen für sichere, robuste und große Enterprise-Webanwendungen</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>381</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Für die Entwicklung von hochsicheren, robusten und komplexen Enterprise-Webanwendungen mit dem Fokus auf minimale Datenlecks und Resilienz gegen Hackerangriffe eignen sich insbesondere Sprachen, die eine starke Typisierung, exzellente Speicherverwaltung, hohe Reife (Maturity) und ein bewährtes Ökosystem für Sicherheit (z.B. Kryptographie, Authentifizierung, Autorisierung) bieten.
 
 Folgende Programmiersprachen sind heute in diesem Bereich am relevantesten:
@@ -34107,12 +34107,12 @@ Wenn die Architektur jedoch auf **absolutem Top-Niveau der Systemsicherheit und 
   </WikiArtikel>
   <WikiArtikel>
     <Id>334</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Empfohlene Open-Source-Programmiersprachen für sichere Enterprise-Desktop-Anwendungen</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>382</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Für die Entwicklung von großen, komplexen, plattformübergreifenden (Windows, macOS, Linux/Ubuntu) und hochsicheren Desktop-Anwendungen im Enterprise-Bereich kommen aktuell nur Sprachen in Frage, die **Speichersicherheit (Memory Safety)**, ein starkes Typensystem und ein ausgereiftes Ökosystem bieten.
 
 ## 1. Rust
@@ -34178,12 +34178,12 @@ Normalerweise ist C++ (mit dem Framework Qt) der König der Desktop-Anwendungen 
   </WikiArtikel>
   <WikiArtikel>
     <Id>335</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Die besten Open-Source-Programmiersprachen für hochsichere Enterprise-Android-Apps</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>383</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Für die Entwicklung von hochsicheren, robusten, skalierbaren und großen Android-Anwendungen (Enterprise-Level), bei denen der Schutz vor Datenlecks und Hackerangriffen absolute Priorität hat, gibt es heutzutage klare Industriestandards. Die folgenden Sprachen sind rein Open Source und für den kommerziellen Einsatz uneingeschränkt und kostenlos freigegeben.
 
 ### 1. Kotlin (Der heutige Branchenstandard)
@@ -34236,12 +34236,12 @@ Für das Entwicklungsvorhaben einer maximal sicheren, geschäftskritischen und g
   </WikiArtikel>
   <WikiArtikel>
     <Id>336</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Empfehlung für eine Open-Source Game Engine</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>384</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Basierend auf den genannten hochkomplexen und anspruchsvollen Anforderungen:
 
 - **Rein Open Source** &amp; Kostenlos für den **kommerziellen Bereich** (keine versteckten Gebühren oder Royalties).
@@ -34369,12 +34369,12 @@ Rust ist aktuell der Industrie-Standard, wenn es um die Kombination aus maximale
   </WikiArtikel>
   <WikiArtikel>
     <Id>339</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Vergleich von Hochleistungssprachen für große Anwendungen</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>387</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Für die Entwicklung von großen, leistungsintensiven Anwendungen in den Jahren 2024 und 2025 sind **C**, **C++** und **Rust** die führenden Optionen. Jede Sprache hat spezifische Stärken und Einsatzgebiete.
 
 ### C
@@ -34416,12 +34416,12 @@ Während **C** für extrem hardwarenahe Software unverzichtbar bleibt, ist **C++
   </WikiArtikel>
   <WikiArtikel>
     <Id>340</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Vergleich von KI-Programmiertools</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>388</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Dieser Bericht vergleicht die führenden KI-gestützten Tools für die Softwareentwicklung: **Google AI**, **JetBrains AI**, **GitHub Copilot**, **Claude (Anthropic)** und **OpenAI**.
 
 ## Übersichtstabelle
@@ -34830,12 +34830,12 @@ Für Prototyping und Hobby-Projekte bieten viele Provider 2026 kostenlose API-Zu
   </WikiArtikel>
   <WikiArtikel>
     <Id>346</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Empfehlung_für_eine_Open-Source_Game_Engine</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>445</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>bbb</MarkdownInhalt>
         <Zeitpunkt>2026-03-26T04:04:57.578352Z</Zeitpunkt>
         <Kategorie />
@@ -34843,7 +34843,7 @@ Für Prototyping und Hobby-Projekte bieten viele Provider 2026 kostenlose API-Zu
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>443</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>bbb</MarkdownInhalt>
         <Zeitpunkt>2026-03-26T04:01:28.857388Z</Zeitpunkt>
         <Kategorie />
@@ -34851,7 +34851,7 @@ Für Prototyping und Hobby-Projekte bieten viele Provider 2026 kostenlose API-Zu
       </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>444</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>bbb</MarkdownInhalt>
         <Zeitpunkt>2026-03-26T04:01:42.748609Z</Zeitpunkt>
         <Kategorie />
@@ -34861,12 +34861,12 @@ Für Prototyping und Hobby-Projekte bieten viele Provider 2026 kostenlose API-Zu
   </WikiArtikel>
   <WikiArtikel>
     <Id>347</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>gakkki_hh</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>449</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Willkommen auf meine Seite</MarkdownInhalt>
         <Zeitpunkt>2026-03-26T04:10:46.474692Z</Zeitpunkt>
         <Kategorie />
@@ -34876,12 +34876,12 @@ Für Prototyping und Hobby-Projekte bieten viele Provider 2026 kostenlose API-Zu
   </WikiArtikel>
   <WikiArtikel>
     <Id>348</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Geschichte &amp; Allgemeines</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>451</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>**Ahrensburg** ist eine Stadt im Kreis Stormarn in Schleswig-Holstein, Deutschland. Sie liegt nordöstlich von Hamburg und ist bekannt für ihr Schloss sowie ihre gute Anbindung an die Metropolregion Hamburg.
 
 - [Geschichte der Stadt Ahrensburg](Geschichte_der_Stadt_Ahrensburg)
@@ -34927,12 +34927,12 @@ Mit der Säkularisation des Klosters Reinfeld im Jahr 1560 kam Woldenhorn in den
   </WikiArtikel>
   <WikiArtikel>
     <Id>350</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Geografie</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>453</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Ahrensburg ist eine Stadt im Kreis Stormarn in Schleswig-Holstein. Sie liegt nordöstlich von Hamburg und hat etwa 34.000 Einwohner. Ahrensburg befindet sich bei 10°14'30" östlicher Länge und 53°40'30" nördlicher Breite.
 
 Ahrensburg liegt etwa 20 km nordöstlich von Hamburg und etwa 30 km südwestlich von Lübeck. Die Stadt liegt am Rand des Hamburger Umlands und grenzt an die Gemeinden Ammersbek, Delingsdorf, Hammoor, Todendorf und Großhansdorf.
@@ -34974,12 +34974,12 @@ Ahrensburg ist rund 18 % bewaldet. Die größten Waldgebiete sind:
   </WikiArtikel>
   <WikiArtikel>
     <Id>351</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Sehenswürdigkeiten &amp; Kultur</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>454</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Ahrensburg bietet eine Vielzahl an Sehenswürdigkeiten und kulturellen Angeboten. Besonders bekannt ist das Ahrensburger Schloss, das als Wahrzeichen der Stadt gilt. Darüber hinaus laden Museen, Theater und regelmäßige Veranstaltungen dazu ein, die kulturelle Vielfalt der Stadt zu entdecken.
 
 - [Sehenswürdigkeiten](Sehenswürdigkeiten)
@@ -34993,12 +34993,12 @@ Ahrensburg ist rund 18 % bewaldet. Die größten Waldgebiete sind:
   </WikiArtikel>
   <WikiArtikel>
     <Id>352</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Sehenswürdigkeiten</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>455</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Sehenswürdigkeiten in Ahrensburg
 
 Ahrensburg bietet zahlreiche Sehenswürdigkeiten:
@@ -35084,12 +35084,12 @@ Die Kirche weist Elemente der Renaissance-Architektur auf und ist besonders für
   </WikiArtikel>
   <WikiArtikel>
     <Id>355</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Musik und Theater</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>458</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Alfred-Rust-Saal
 
 Der Alfred-Rust-Saal befindet sich in der Adresse Wulfsdorfer Weg 71, 22926 Ahrensburg. Er ist ein zentraler Ort für Theater, Musik, Events und Vorträge. Der Saal hat 462 Plätze. Die Gesamtfläche beträgt 441m².
@@ -35121,12 +35121,12 @@ Die Kulturbühne Kultavida in Ahrensburg wurde von Oliver Arndt ins Leben gerufe
   </WikiArtikel>
   <WikiArtikel>
     <Id>356</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Regelmäßige Feste &amp; Veranstaltungen</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>459</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Ahrensburger Stadtfest
 
 Das Ahrensburger Stadtfest ist ein dreitägiges Volksfest, das jährlich am zweiten Juniwochenende im Zentrum von Ahrensburg stattfindet. Veranstalter ist das Ahrensburger Stadtforum (der Verein der Kaufleute und Gewerbetreibenden), unterstützt von der Stadt Ahrensburg. Veranstaltungsorte: Große Straße, Hagener Allee, Rondell, Manhagener Allee, Hamburger Straße.
@@ -35177,12 +35177,12 @@ Ein Veranstaltungsklassiker des Ahrensburger Stadtforums: Kostenloser Eintritt z
   </WikiArtikel>
   <WikiArtikel>
     <Id>358</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Die Stadtteile im Porträt</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>461</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Die Stadtteile im Porträt in Ahrensburg:
 
 - **Ahrensburg (Zentrum)**: Das Zentrum ist das historische und kommerzielle Herz der Stadt. Hier befinden sich das bekannte Schloss Ahrensburg, die Fußgängerzone mit zahlreichen Geschäften, das Rathaus sowie zentrale Haltestellen für U- und S-Bahn. Das Zentrum ist geprägt von einer Mischung aus Altbauten, modernen Gebäuden und vielfältigen Einkaufsmöglichkeiten.
@@ -35201,12 +35201,12 @@ Ein Veranstaltungsklassiker des Ahrensburger Stadtforums: Kostenloser Eintritt z
   </WikiArtikel>
   <WikiArtikel>
     <Id>359</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Vereinsleben</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>462</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Das Vereinsleben in Ahrensburg bietet zahlreiche Möglichkeiten, sich zu treffen und gemeinsam die Freizeit zu gestalten. In Ahrensburg gibt es verschiedene Vereine, darunter Sportvereine, Kulturvereine sowie Gemeinschafts- und Ehrenamtsvereine.
 
 ## Sportvereine
@@ -35230,12 +35230,12 @@ Ein Veranstaltungsklassiker des Ahrensburger Stadtforums: Kostenloser Eintritt z
   </WikiArtikel>
   <WikiArtikel>
     <Id>360</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Wochenmarkt</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>463</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Der Wochenmarkt in Ahrensburg findet jeden Mittwoch und Samstag von 07:00 Uhr bis 13:00 Uhr auf dem Marktplatz vor dem Rathaus, Manfred-Samusch-Straße 5, 22926 Ahrensburg, statt. Bis zu 60 Stände bieten dort ihre Waren an. Er bietet eine Vielzahl frischer Lebensmittel, darunter Obst, Gemüse, Fleisch, Fisch und Backwaren. Viele Stände werden von lokalen Bauern und Produzenten betrieben, die ihre Waren direkt an die Kundinnen und Kunden verkaufen.</MarkdownInhalt>
         <Zeitpunkt>2026-01-03T21:07:23Z</Zeitpunkt>
         <Kategorie />
@@ -35245,12 +35245,12 @@ Ein Veranstaltungsklassiker des Ahrensburger Stadtforums: Kostenloser Eintritt z
   </WikiArtikel>
   <WikiArtikel>
     <Id>361</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Gastronomie-Führer</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>464</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Gastronomie-Führer in Ahrensburg. Hier finden Sie bekannte Restaurants.
 
 - [BLOCK HOUSE Ahrensburg](https://www.block-house.de/restaurants/ahrensburg/grosse-strasse/): Beliebtes Steakhouse direkt in der Innenstadt mit durchgehend warmer Küche und großer Terrasse.Ideal für Familienessen, saftige Steaks und entspannte Atmosphäre. Adresse: Große Str. 13, 22926 Ahrensburg, Telefon: 04102 54314.
@@ -35287,12 +35287,12 @@ Ein Veranstaltungsklassiker des Ahrensburger Stadtforums: Kostenloser Eintritt z
   </WikiArtikel>
   <WikiArtikel>
     <Id>363</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kirchen und religiöse Gemeinschaften</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>466</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Evangelisch-Lutherisch
 
 Die evangelisch-lutherische Kirche ist eine der größten christlichen Konfessionen und geht auf die Reformation Martin Luthers im 16. Jahrhundert zurück. Sie betont die Rechtfertigung des Menschen allein durch den Glauben, die Bedeutung der Bibel als höchste Glaubensquelle und die Verwaltung der Sakramente (Taufe und Abendmahl). In Deutschland ist sie in zahlreichen Landeskirchen organisiert und prägt das religiöse Leben vieler Gemeinden.
@@ -35332,12 +35332,12 @@ Die jüdische Religion, das Judentum, ist eine der ältesten monotheistischen We
   </WikiArtikel>
   <WikiArtikel>
     <Id>364</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Seniorentreff</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>467</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>- Das ProgrammCafé im Peter-Rantzau-Haus findet an jedem ersten Montag im Monat ab etwa 15 Uhr im Peter-Rantzau-Haus, Manfred-Samusch-Straße 9, Ahrensburg, statt und bietet Kaffee, Kuchen sowie nette Gespräche mit anderen Senior:innen in gemütlicher Runde. Veranstaltet wird es von der AWO Ahrensburg. Weitere Informationen finden Sie auf der Website: ahrensburg.drk-stormarn.de.
 - Senioren-Treff (AWO Ahrensburg): findet regelmäßig statt, zum Beispiel für gemeinsame Aktivitäten, Busfahrten, Spielrunden und mehr. Treffpunkt ist ebenfalls das Peter-Rantzau-Haus oder unterwegs. Ziel ist es, die Lebensqualität im Alter zu fördern und neue Kontakte zu knüpfen.
 - Der DRK Ortsverein Ahrensburg bietet aktuell Gesundheits- und Bewegungskurse wie „Tanz-Stuhl-Gymnastik“, „Yoga auf dem Stuhl“ und „Fitness im Alter“ in der Gemeinde- und Schlosskirche Ahrensburg an. Die Anmeldung zu den Kursen erfolgt über das DRK Ahrensburg.
@@ -35351,12 +35351,12 @@ Die jüdische Religion, das Judentum, ist eine der ältesten monotheistischen We
   </WikiArtikel>
   <WikiArtikel>
     <Id>365</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Gesundheit</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>468</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Großes Gesundheitszentrum Ahrensburg
 
 Das große Gesundheitszentrum Ahrensburg in der Hamburger Straße 23 vereint Haus- und Fachärzte wie Onkologie, Innere Medizin, Radiologie, Orthopädie, HNO, Neurologie, Psychiatrie, Urologie und Nuklearmedizin unter einem Dach. Direkt angeschlossen sind zudem eine Apotheke, eine Hörgeräteakustik und eine Physiotherapie. Alle Fachbereiche sind zentral und mit kurzen Wegen erreichbar.
@@ -35393,12 +35393,12 @@ Das große Gesundheitszentrum Ahrensburg in der Hamburger Straße 23 vereint Hau
   </WikiArtikel>
   <WikiArtikel>
     <Id>366</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Familie &amp; Bildung</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>469</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Kindertagesstätten und Offene Ganztagsschulen (OGS)
 
 - **Kita Helgolandring (DRK)**: Bietet qualifizierte Kinderbetreuung ab dem Krippenalter mit vielfältigen Spiel-, Lern- und Bewegungsangeboten.
@@ -35446,12 +35446,12 @@ Ahrensburg verfügt über ein umfassendes Bildungs- und Betreuungsnetzwerk für 
   </WikiArtikel>
   <WikiArtikel>
     <Id>367</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Natur &amp; Freizeit</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>470</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>- [Naherholungsgebiete](Naherholungsgebiete)
 - [Wander- und Radwege](Wander-_und_Radwege)
 - Spielplätze
@@ -35465,12 +35465,12 @@ Ahrensburg verfügt über ein umfassendes Bildungs- und Betreuungsnetzwerk für 
   </WikiArtikel>
   <WikiArtikel>
     <Id>368</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Naherholungsgebiete</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>471</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Naturschutz &amp; Natur erleben
 
 - **Stellmoor–Ahrensburger Tunneltal**: Ein großflächiges Naturschutzgebiet (ca. 339 ha) südlich von Ahrensburg. Die Landschaft ist geprägt von Mooren, Teichen sowie Bruchwäldern und eignet sich ideal zum Wandern und zur Vogelbeobachtung.
@@ -35488,12 +35488,12 @@ Ahrensburg verfügt über ein umfassendes Bildungs- und Betreuungsnetzwerk für 
   </WikiArtikel>
   <WikiArtikel>
     <Id>369</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Infrastruktur &amp; Wirtschaft</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>472</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>- [Verkehrsanbindung](Verkehrsanbindung)
 - [Wichtige Unternehmen &amp; Arbeitgeber](Wichtige_Unternehmen_&amp;_Arbeitgeber)
 - [Gewerbegebiete](Gewerbegebiete)
@@ -35507,12 +35507,12 @@ Ahrensburg verfügt über ein umfassendes Bildungs- und Betreuungsnetzwerk für 
   </WikiArtikel>
   <WikiArtikel>
     <Id>370</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Verkehrsanbindung</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>473</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Verkehrsanbindung in Ahrensburg
 
 ## Bahn &amp; Regionalverkehr
@@ -35538,12 +35538,12 @@ Ahrensburg ist über die südöstlich verlaufende A1 (Vogelfluglinie) mit eigene
   </WikiArtikel>
   <WikiArtikel>
     <Id>371</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Wichtige Unternehmen &amp; Arbeitgeber</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>474</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Wichtige Unternehmen &amp; Arbeitgeber in Ahrensburg
 
 Ahrensburg ist ein bedeutender Wirtschaftsstandort in Schleswig-Holstein und beheimatet zahlreiche namhafte Unternehmen aus verschiedenen Branchen. Hier finden Sie eine Übersicht wichtiger Arbeitgeber, die die Wirtschaft der Region prägen:
@@ -35566,12 +35566,12 @@ Diese Unternehmen bieten attraktive Arbeitsplätze und vielfältige Karrieremög
   </WikiArtikel>
   <WikiArtikel>
     <Id>372</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Gewerbegebiete</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>475</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Ahrensburg verfügt über drei große Gewerbegebiete, die sich durch ihre verkehrsgünstige Lage und hervorragende Anbindung an Autobahn, Bahn und die Hamburger Infrastruktur auszeichnen.
 
 ## Gewerbegebiete in Ahrensburg
@@ -35608,12 +35608,12 @@ Das **Gewerbegebiet West** erstreckt sich entlang der Bogenstraße und zeichnet 
   </WikiArtikel>
   <WikiArtikel>
     <Id>373</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Stadtverwaltung</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>476</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Stadtverwaltung Ahrensburg – Kontakt, Öffnungszeiten und Services
 
 Die Stadtverwaltung Ahrensburg bietet Bürgerinnen und Bürgern umfassende Dienstleistungen und Informationen.
@@ -35719,12 +35719,12 @@ Viele Anliegen können bequem über das [Bürgerportal](https://ahrensburg.buerg
   </WikiArtikel>
   <WikiArtikel>
     <Id>376</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Restaurant</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>481</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Restaurant in Ahrensburg
 
 Hier ist eine Übersicht der Gastronomie in Ahrensburg, sortiert nach Küchenstil und Beliebtheit:
@@ -35836,12 +35836,12 @@ Die italienische Küche ist berühmt für ihre Vielfalt an Pasta, Pizza, frische
   </WikiArtikel>
   <WikiArtikel>
     <Id>378</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Blog:04.02.2026 Besten Bloger Website</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>483</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>In Ahrensburg gibt es schöne Blogseiten. Hier sind bekannte Bloggerinnen aus Ahrensburg. Die Blogseite [Ahrensburg-blog.de](https://ahrensburg-blog.de) ist sehr gut aufgebaut. Die Startseite zeigt ein Bild von Ahrensburg. Sie bietet Themen wie Online-Reporterin, Interviews und persönliche Tipps sowie weitere Themen wie Ausflugsziele, Nachhaltigkeit, Veranstaltungen und Kultur. Sie hat eine gute Bildersammlung von Ahrensburg – von alt bis neu. Die Blogseite besuche ich jeden Tag und lese gern ihre Artikel.
 
 Sie ist auf Social Media sehr aktiv, wie [Instagram](https://www.instagram.com/ahrensburgblog/) und [Facebook](https://www.facebook.com/ahrensburgblog).
@@ -35855,12 +35855,12 @@ Sie ist auf Social Media sehr aktiv, wie [Instagram](https://www.instagram.com/a
   </WikiArtikel>
   <WikiArtikel>
     <Id>379</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Blog:04.02.2026 Beste Blogger-Website</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>484</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>In Ahrensburg gibt es schöne Blogseiten. Hier sind bekannte Bloggerinnen aus Ahrensburg. Die Blogseite [Ahrensburg-blog.de](https://ahrensburg-blog.de) ist sehr gut aufgebaut. Die Startseite zeigt ein Bild von Ahrensburg. Sie bietet Themen wie Online-Reporterin, Interviews und persönliche Tipps sowie weitere Themen wie Ausflugsziele, Nachhaltigkeit, Veranstaltungen und Kultur. Sie hat eine gute Bildersammlung von Ahrensburg – von alt bis neu. Die Blogseite besuche ich jeden Tag und lese gern ihre Artikel.
 
 Sie ist auf Social Media sehr aktiv, wie [Instagram](https://www.instagram.com/ahrensburgblog/) und [Facebook](https://www.facebook.com/ahrensburgblog).</MarkdownInhalt>
@@ -35872,12 +35872,12 @@ Sie ist auf Social Media sehr aktiv, wie [Instagram](https://www.instagram.com/a
   </WikiArtikel>
   <WikiArtikel>
     <Id>380</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kategorie:Blog 04.02.2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>485</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>[kategorie:Blog 02.2026](kategorie:Blog_02.2026)</MarkdownInhalt>
         <Zeitpunkt>2026-02-04T00:01:32Z</Zeitpunkt>
         <Kategorie />
@@ -35887,12 +35887,12 @@ Sie ist auf Social Media sehr aktiv, wie [Instagram](https://www.instagram.com/a
   </WikiArtikel>
   <WikiArtikel>
     <Id>381</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kategorie:Blog 02.2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>486</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>[kategorie:Blogs 2026](kategorie:Blogs_2026)</MarkdownInhalt>
         <Zeitpunkt>2026-02-04T00:03:55Z</Zeitpunkt>
         <Kategorie />
@@ -35902,12 +35902,12 @@ Sie ist auf Social Media sehr aktiv, wie [Instagram](https://www.instagram.com/a
   </WikiArtikel>
   <WikiArtikel>
     <Id>382</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kategorie:Blog 2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>487</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>[kategorie:Blogs](kategorie:Blogs)</MarkdownInhalt>
         <Zeitpunkt>2026-02-04T00:03:42Z</Zeitpunkt>
         <Kategorie />
@@ -35936,12 +35936,12 @@ Trotz Frost und Kälte lohnt sich ein Spaziergang zum Schlosspark. Die Luft ist 
   </WikiArtikel>
   <WikiArtikel>
     <Id>384</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kategorie:Blogs 04.02.2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>489</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>[Kategorie:Blogs 02.2026](Kategorie:Blogs_02.2026)</MarkdownInhalt>
         <Zeitpunkt>2026-02-04T12:55:58Z</Zeitpunkt>
         <Kategorie />
@@ -35951,12 +35951,12 @@ Trotz Frost und Kälte lohnt sich ein Spaziergang zum Schlosspark. Die Luft ist 
   </WikiArtikel>
   <WikiArtikel>
     <Id>385</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Kategorie:Blogs 02.2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>490</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>[Kategorie:Blogs 2026](Kategorie:Blogs_2026)</MarkdownInhalt>
         <Zeitpunkt>2026-02-04T12:56:38Z</Zeitpunkt>
         <Kategorie />
@@ -35966,12 +35966,12 @@ Trotz Frost und Kälte lohnt sich ein Spaziergang zum Schlosspark. Die Luft ist 
   </WikiArtikel>
   <WikiArtikel>
     <Id>386</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Blog:05.03.2026</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>491</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>## Heute moderne Technik beim Programmieren mit KI nutzen
 
 ### KI-Assistenten integriert
@@ -35994,12 +35994,12 @@ Trotz Frost und Kälte lohnt sich ein Spaziergang zum Schlosspark. Die Luft ist 
   </WikiArtikel>
   <WikiArtikel>
     <Id>387</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Wander- und Radwege</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>492</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Die Region um Ahrensburg, direkt vor den Toren Hamburgs, bietet eine Vielzahl an wunderschönen Wanderwegen für Naturliebhaber. Die abwechslungsreiche Landschaft umfasst Moore, dichte Wälder, historische Stätten und idyllische Flusstäler.
 
 ## Stellmoor-Ahrensburger Tunneltal
@@ -36039,12 +36039,12 @@ Zahlreiche kleinere und größere Routen durchziehen den Beimoorwald sowie die a
   </WikiArtikel>
   <WikiArtikel>
     <Id>388</Id>
-    <TenantId>main</TenantId>
+    <TenantId>doc</TenantId>
     <Slug>Blog:10.03.2026 Zuckersucht und Suchtverlagerung</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>493</VersionNummer>
-        <TenantId>main</TenantId>
+        <TenantId>doc</TenantId>
         <MarkdownInhalt>Herzlichen Glückwunsch zu Ihrem großartigen Erfolg! Das Rauchen und den Alkohol im Jahr 2006 aufzugeben, ist eine enorme Leistung, die viel Willenskraft erfordert. Dass sich danach eine **Zuckersucht** (oder der Drang nach süßen Limonaden/Brausen) entwickelt hat, ist ein bekanntes Phänomen, das als **Suchtverlagerung** bezeichnet wird.
 
 ## Wie der Körper lernt und Suchtverhalten ändert
