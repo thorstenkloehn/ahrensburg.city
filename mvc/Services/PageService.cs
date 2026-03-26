@@ -56,11 +56,14 @@ public class PageService : IPageService
 
     public async Task<WikiArtikel?> GetArtikelMitNeuesterVersionAsync(string slug)
     {
-        var artikel = await _context.WikiArtikels.FirstOrDefaultAsync(a => a.Slug == slug);
+        var currentTenantId = _context.CurrentTenantId;
+        var artikel = await _context.WikiArtikels
+            .FirstOrDefaultAsync(a => a.TenantId == currentTenantId && a.Slug == slug);
+        
         if (artikel == null) return null;
 
         var neuesteVersion = await _context.WikiArtikelVersions
-            .Where(v => v.WikiArtikelId == artikel.Id)
+            .Where(v => v.TenantId == currentTenantId && v.WikiArtikelId == artikel.Id)
             .OrderByDescending(v => v.Zeitpunkt)
             .FirstOrDefaultAsync();
 
@@ -73,9 +76,10 @@ public class PageService : IPageService
 
     public async Task<WikiArtikel?> GetArtikelMitHistorieAsync(string slug)
     {
+        var currentTenantId = _context.CurrentTenantId;
         return await _context.WikiArtikels
             .Include(a => a.Versionen)
-            .FirstOrDefaultAsync(w => w.Slug == slug);
+            .FirstOrDefaultAsync(w => w.TenantId == currentTenantId && w.Slug == slug);
     }
 
     public async Task ErstelleOderAktualisiereArtikelAsync(string slug, string markdownInhalt, List<string>? kategorien = null)
@@ -104,22 +108,25 @@ public class PageService : IPageService
 
         var htmlInhalt = Markdown.ToHtml(markdownInhalt, _pipeline);
         var sanitizedHtml = _sanitizer.Sanitize(htmlInhalt);
+        var currentTenantId = _context.CurrentTenantId;
 
         using var transaction = await _context.Database.BeginTransactionAsync();
         try
         {
             var artikel = await _context.WikiArtikels
                 .Include(a => a.Versionen)
-                .FirstOrDefaultAsync(a => a.Slug == slug);
+                .FirstOrDefaultAsync(a => a.TenantId == currentTenantId && a.Slug == slug);
 
             if (artikel == null)
             {
-                artikel = new WikiArtikel { Slug = slug };
+                artikel = new WikiArtikel { Slug = slug, TenantId = currentTenantId };
                 _context.WikiArtikels.Add(artikel);
             }
 
             var version = new WikiArtikelVersion
             {
+                WikiArtikelId = artikel.Id,
+                TenantId = currentTenantId,
                 MarkdownInhalt = markdownInhalt,
                 HtmlInhalt = sanitizedHtml,
                 Zeitpunkt = DateTime.UtcNow,
@@ -139,10 +146,11 @@ public class PageService : IPageService
 
     public async Task<List<WikiArtikel>> GetArtikelNachKategorieAsync(string kategorie)
     {
+        var currentTenantId = _context.CurrentTenantId;
         // 1. Wir suchen alle Artikel-IDs, die ÜBERHAUPT jemals dieser Kategorie zugeordnet waren.
         // Das reduziert die Datenmenge massiv und ist einfach zu übersetzen.
         var moeglicheArtikelIds = await _context.WikiArtikelVersions
-            .Where(v => v.Kategorie.Contains(kategorie))
+            .Where(v => v.TenantId == currentTenantId && v.Kategorie.Contains(kategorie))
             .Select(v => v.WikiArtikelId)
             .Distinct()
             .ToListAsync();
@@ -153,7 +161,7 @@ public class PageService : IPageService
         // 2. Wir laden die Versions-Metadaten dieser Artikel, um die aktuellste Version zu bestimmen.
         // Wir filtern im Speicher (Client-side), da EF Core GroupBy.First() oft nicht übersetzen kann.
         var alleVersionenDerKandidaten = await _context.WikiArtikelVersions
-            .Where(v => moeglicheArtikelIds.Contains(v.WikiArtikelId))
+            .Where(v => v.TenantId == currentTenantId && moeglicheArtikelIds.Contains(v.WikiArtikelId))
             .Select(v => new { v.WikiArtikelId, v.Zeitpunkt, v.Kategorie })
             .ToListAsync();
 
@@ -166,23 +174,26 @@ public class PageService : IPageService
 
         // 3. Die eigentlichen Artikel laden.
         return await _context.WikiArtikels
-            .Where(a => valideArtikelIds.Contains(a.Id))
+            .Where(a => a.TenantId == currentTenantId && valideArtikelIds.Contains(a.Id))
             .OrderBy(a => a.Slug)
             .ToListAsync();
     }
 
     public async Task<List<WikiArtikel>> GetAllArtikelAsync()
     {
+        var currentTenantId = _context.CurrentTenantId;
         return await _context.WikiArtikels
+            .Where(a => a.TenantId == currentTenantId)
             .OrderBy(a => a.Slug)
             .ToListAsync();
     }
 
     public async Task<bool> WiederherstellenAsync(long versionNummer)
     {
+        var currentTenantId = _context.CurrentTenantId;
         var alteVersion = await _context.WikiArtikelVersions
             .Include(v => v.WikiArtikel)
-            .FirstOrDefaultAsync(v => v.VersionNummer == versionNummer);
+            .FirstOrDefaultAsync(v => v.TenantId == currentTenantId && v.VersionNummer == versionNummer);
 
         if (alteVersion == null || alteVersion.WikiArtikel == null)
             return false;
@@ -192,6 +203,7 @@ public class PageService : IPageService
         var neueVersion = new WikiArtikelVersion
         {
             WikiArtikelId = alteVersion.WikiArtikelId,
+            TenantId = currentTenantId,
             MarkdownInhalt = alteVersion.MarkdownInhalt,
             HtmlInhalt = alteVersion.HtmlInhalt,
             Kategorie = alteVersion.Kategorie ?? new List<string>(),
@@ -205,9 +217,10 @@ public class PageService : IPageService
 
     public async Task<WikiArtikelVersion?> GetVersionAsync(long versionNummer)
     {
+        var currentTenantId = _context.CurrentTenantId;
         return await _context.WikiArtikelVersions
             .Include(v => v.WikiArtikel)
-            .FirstOrDefaultAsync(v => v.VersionNummer == versionNummer);
+            .FirstOrDefaultAsync(v => v.TenantId == currentTenantId && v.VersionNummer == versionNummer);
     }
 
     private (List<string>? kategorien, string inhalt) ExtrahiereMetadaten(string markdown)
