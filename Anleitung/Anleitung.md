@@ -19,6 +19,7 @@ Bevor Sie beginnen, stellen Sie sicher, dass folgende Komponenten installiert si
 Die Anwendung benötigt eine `appsettings.json`, um die Datenbankverbindung zu kennen. Kopieren Sie die Vorlage im Verzeichnis `mvc/`:
 ```bash
 cp mvc/_appsettings.json mvc/appsettings.json
+cp mvc/_appsettings.Development.json mvc/appsettings.Development.json
 ```
 
 ### Schritt 2: Datenbankverbindung anpassen
