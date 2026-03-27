@@ -27,10 +27,21 @@ public class MediaWikiParserTests
         // Output for debugging
         System.Console.WriteLine("DEBUG OUTPUT: " + html);
 
-        Assert.Contains("<h2 data-mw=\"heading\"> Heading </h2>", html);
+        Assert.Contains("<h2 data-mw=\"heading\">Heading</h2>", html);
         Assert.Contains("<b data-mw=\"bold\">bold</b>", html);
         Assert.Contains("<i data-mw=\"italic\">italic</i>", html);
         Assert.Contains("<a href=\"/Target\" data-mw=\"link\">Link</a>", html);
+    }
+
+    [Fact]
+    public void TestWindowsLineEndings()
+    {
+        // \r\n should work correctly for headings
+        string wikiText = "== Heading ==\r\nText after";
+        string html = _parser.ToHtml(wikiText);
+
+        Assert.Contains("<h2 data-mw=\"heading\">Heading</h2>", html);
+        Assert.Contains("Text after", html);
     }
 
     [Fact]

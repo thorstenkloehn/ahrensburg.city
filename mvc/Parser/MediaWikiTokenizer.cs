@@ -82,6 +82,15 @@ public class MediaWikiTokenizer : IMediaWikiTokenizer
                         break;
                     }
                 }
+                
+                // Fallback check for \r as NewLine if it's not followed by \n (which is in SimpleTokens)
+                if (!matched && pos < input.Length && input[pos] == '\r')
+                {
+                    yield return new Token(TokenType.NewLine, "\r", pos, 1);
+                    pos++;
+                    matched = true;
+                    startOfLine = true;
+                }
             }
 
             // Check for headings - ONLY at start of line OR if it's a trailing marker
@@ -95,7 +104,7 @@ public class MediaWikiTokenizer : IMediaWikiTokenizer
                     while (tempK < input.Length && input[tempK] == '=') tempK++;
                     int markerEnd = tempK;
                     while (tempK < input.Length && input[tempK] == ' ') tempK++;
-                    if (tempK == input.Length || input[tempK] == '\n') isTrailing = true;
+                    if (tempK == input.Length || input[tempK] == '\n' || input[tempK] == '\r') isTrailing = true;
                 }
 
                 if (startOfLine || isTrailing)
@@ -146,13 +155,15 @@ public class MediaWikiTokenizer : IMediaWikiTokenizer
                             break;
                         }
                     }
+                    if (!currentIsSpecial && input[pos] == '\r') currentIsSpecial = true; // Handle lone \r
+                    
                     if (currentIsSpecial && pos > start) break;
 
                     // Only stop for headings at start of line or if it looks like a trailing marker
                     if (input[pos] == '=')
                     {
                         // Check if it's a heading at start of line
-                        if (pos == 0 || input[pos-1] == '\n') 
+                        if (pos == 0 || input[pos-1] == '\n' || input[pos-1] == '\r') 
                         {
                             if (pos > start) break;
                         }
@@ -162,7 +173,7 @@ public class MediaWikiTokenizer : IMediaWikiTokenizer
                         while (tempK < input.Length && input[tempK] == '=') tempK++;
                         int markerEnd = tempK;
                         while (tempK < input.Length && input[tempK] == ' ') tempK++;
-                        if (tempK == input.Length || input[tempK] == '\n') 
+                        if (tempK == input.Length || input[tempK] == '\n' || input[tempK] == '\r') 
                         {
                             // This IS a trailing marker. Stop text token here.
                             if (pos > start) break;

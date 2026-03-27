@@ -61,6 +61,16 @@ public class MediaWikiASTBuilder : IMediaWikiASTBuilder
                 case TokenType.HeadingStart:
                     if (stack.Peek() is HeadingNode)
                     {
+                        var heading = (HeadingNode)stack.Peek();
+                        // Trim content of heading
+                        if (heading.Children.Count > 0)
+                        {
+                            if (heading.Children[0] is TextNode firstText) firstText.Text = firstText.Text.TrimStart();
+                            if (heading.Children.Last() is TextNode lastText) lastText.Text = lastText.Text.TrimEnd();
+                            
+                            // Remove empty text nodes after trimming
+                            heading.Children.RemoveAll(c => c is TextNode tn && string.IsNullOrEmpty(tn.Text));
+                        }
                         // Match - pop heading
                         stack.Pop();
                     }
