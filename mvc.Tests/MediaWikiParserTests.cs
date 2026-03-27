@@ -73,4 +73,13 @@ public class MediaWikiParserTests
         string html = _parser.ToHtml(wikiText);
         Assert.DoesNotContain("Kategorie:Auto", html);
     }
+
+    [Fact]
+    public void TestExternalLinks()
+    {
+        string wikiText = "[https://www.block-house.de/restaurants/ahrensburg/grosse-strasse/ BLOCK HOUSE Ahrensburg]";
+        string html = _parser.ToHtml(wikiText);
+
+        Assert.Contains("<a href=\"https://www.block-house.de/restaurants/ahrensburg/grosse-strasse/\" data-mw=\"link\">BLOCK HOUSE Ahrensburg</a>", html);
+    }
 }

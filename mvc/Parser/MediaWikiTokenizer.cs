@@ -18,6 +18,8 @@ public class MediaWikiTokenizer : IMediaWikiTokenizer
         ("''", TokenType.ItalicStart),
         ("[[", TokenType.LinkStart),
         ("]]", TokenType.LinkEnd),
+        ("[", TokenType.ExternalLinkStart),
+        ("]", TokenType.ExternalLinkEnd),
         ("{{", TokenType.TemplateStart),
         ("}}", TokenType.TemplateEnd),
         ("{|", TokenType.TableStart),

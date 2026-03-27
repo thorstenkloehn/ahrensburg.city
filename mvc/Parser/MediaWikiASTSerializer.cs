@@ -45,7 +45,8 @@ public class MediaWikiASTSerializer : IMediaWikiASTSerializer
                 sb.Append($"</h{heading.Level}>");
                 break;
             case LinkNode link:
-                sb.Append($"<a href=\"/{link.Target}\" data-mw=\"link\">{link.Display}</a>");
+                var url = link.IsExternal ? link.Target : $"/{link.Target}";
+                sb.Append($"<a href=\"{url}\" data-mw=\"link\">{link.Display}</a>");
                 break;
             case CategoryNode:
                 // Categories are metadata and not part of the visible HTML content

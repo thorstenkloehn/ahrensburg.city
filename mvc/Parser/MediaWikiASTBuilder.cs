@@ -87,6 +87,38 @@ public class MediaWikiASTBuilder : IMediaWikiASTBuilder
                     else i = tokenList.Count; // Else skip to end
                     break;
 
+                case TokenType.ExternalLinkStart:
+                    int l = i + 1;
+                    string extContent = "";
+                    while (l < tokenList.Count && tokenList[l].Type != TokenType.ExternalLinkEnd)
+                    {
+                        extContent += tokenList[l].Value;
+                        l++;
+                    }
+                    // External link is [URL Description] - split by first space
+                    var firstSpace = extContent.IndexOf(' ');
+                    if (firstSpace != -1)
+                    {
+                        stack.Peek().Children.Add(new LinkNode 
+                        { 
+                            Target = extContent.Substring(0, firstSpace), 
+                            Display = extContent.Substring(firstSpace + 1).Trim(),
+                            IsExternal = true
+                        });
+                    }
+                    else
+                    {
+                        stack.Peek().Children.Add(new LinkNode 
+                        { 
+                            Target = extContent, 
+                            Display = extContent,
+                            IsExternal = true
+                        });
+                    }
+                    if (l < tokenList.Count) i = l;
+                    else i = tokenList.Count;
+                    break;
+
                 case TokenType.CategoryStart:
                     int k = i + 1;
                     string catContent = "";
