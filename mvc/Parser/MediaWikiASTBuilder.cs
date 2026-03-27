@@ -18,6 +18,7 @@ public class MediaWikiASTBuilder : IMediaWikiASTBuilder
         stack.Push(root);
 
         var tokenList = tokens.ToList();
+        bool startOfLine = true;
         for (int i = 0; i < tokenList.Count; i++)
         {
             var token = tokenList[i];
@@ -26,6 +27,7 @@ public class MediaWikiASTBuilder : IMediaWikiASTBuilder
             {
                 case TokenType.Text:
                     stack.Peek().Children.Add(new TextNode { Text = token.Value });
+                    startOfLine = false;
                     break;
 
                 case TokenType.BoldStart:
@@ -39,6 +41,7 @@ public class MediaWikiASTBuilder : IMediaWikiASTBuilder
                         stack.Peek().Children.Add(bold);
                         stack.Push(bold);
                     }
+                    startOfLine = false;
                     break;
 
                 case TokenType.ItalicStart:
@@ -52,20 +55,32 @@ public class MediaWikiASTBuilder : IMediaWikiASTBuilder
                         stack.Peek().Children.Add(italic);
                         stack.Push(italic);
                     }
+                    startOfLine = false;
                     break;
                 
                 case TokenType.HeadingStart:
                     if (stack.Peek() is HeadingNode)
                     {
+                        // Match - pop heading
                         stack.Pop();
                     }
-                    else
+                    else if (startOfLine)
                     {
                         var level = token.Value.Trim().Length;
                         var heading = new HeadingNode { Level = level };
                         stack.Peek().Children.Add(heading);
                         stack.Push(heading);
                     }
+                    else
+                    {
+                        // Unmatched heading marker in the middle of a line -> treat as text
+                        // BUT ONLY if we are NOT inside a heading already (trailing marker case)
+                        if (!(stack.Peek() is HeadingNode))
+                        {
+                            stack.Peek().Children.Add(new TextNode { Text = token.Value });
+                        }
+                    }
+                    startOfLine = false;
                     break;
 
                 case TokenType.LinkStart:
@@ -85,6 +100,7 @@ public class MediaWikiASTBuilder : IMediaWikiASTBuilder
                     });
                     if (j < tokenList.Count) i = j; // Skip to LinkEnd if found
                     else i = tokenList.Count; // Else skip to end
+                    startOfLine = false;
                     break;
 
                 case TokenType.ExternalLinkStart:
@@ -117,6 +133,7 @@ public class MediaWikiASTBuilder : IMediaWikiASTBuilder
                     }
                     if (l < tokenList.Count) i = l;
                     else i = tokenList.Count;
+                    startOfLine = false;
                     break;
 
                 case TokenType.CategoryStart:
@@ -135,6 +152,94 @@ public class MediaWikiASTBuilder : IMediaWikiASTBuilder
                     });
                     if (k < tokenList.Count) i = k; // Skip to LinkEnd if found
                     else i = tokenList.Count; // Else skip to end
+                    startOfLine = false;
+                    break;
+
+                case TokenType.TableStart:
+                    var tableNode = new TableNode();
+                    // Peek next token for attributes
+                    if (i + 1 < tokenList.Count && tokenList[i+1].Type == TokenType.Text)
+                    {
+                        var attrToken = tokenList[i+1];
+                        if (!attrToken.Value.Contains("\n"))
+                        {
+                            tableNode.Attributes = attrToken.Value.Trim();
+                            i++; // Skip attribute token
+                        }
+                    }
+                    stack.Peek().Children.Add(tableNode);
+                    stack.Push(tableNode);
+                    startOfLine = false;
+                    break;
+
+                case TokenType.TableEnd:
+                    while (stack.Count > 1 && !(stack.Peek() is TableNode))
+                    {
+                        stack.Pop();
+                    }
+                    if (stack.Count > 1 && stack.Peek() is TableNode)
+                    {
+                        stack.Pop();
+                    }
+                    startOfLine = false;
+                    break;
+
+                case TokenType.TableRow:
+                    while (stack.Count > 1 && !(stack.Peek() is TableNode))
+                    {
+                        stack.Pop();
+                    }
+                    if (stack.Peek() is TableNode)
+                    {
+                        var rowNode = new TableRowNode();
+                        // Peek next token for attributes
+                        if (i + 1 < tokenList.Count && tokenList[i+1].Type == TokenType.Text)
+                        {
+                            var attrToken = tokenList[i+1];
+                            if (!attrToken.Value.Contains("\n"))
+                            {
+                                rowNode.Attributes = attrToken.Value.Trim();
+                                i++; // Skip attribute token
+                            }
+                        }
+                        stack.Peek().Children.Add(rowNode);
+                        stack.Push(rowNode);
+                    }
+                    startOfLine = false;
+                    break;
+
+                case TokenType.TableCell:
+                case TokenType.TableHeader:
+                    while (stack.Count > 1 && !(stack.Peek() is TableRowNode || stack.Peek() is TableNode))
+                    {
+                        stack.Pop();
+                    }
+                    
+                    if (stack.Peek() is TableNode table)
+                    {
+                        var autoRow = new TableRowNode();
+                        table.Children.Add(autoRow);
+                        stack.Push(autoRow);
+                    }
+
+                    if (stack.Peek() is TableRowNode row)
+                    {
+                        var cellNode = new TableCellNode { IsHeader = token.Type == TokenType.TableHeader };
+                        
+                        // In MediaWiki, cell attributes are separated by |
+                        // e.g. | style="color:red" | Content
+                        // Our tokenizer treats | as TableCell.
+                        // If we see TableCell + Text + TableCell, the middle Text is attributes.
+                        if (i + 2 < tokenList.Count && tokenList[i+1].Type == TokenType.Text && tokenList[i+2].Type == TokenType.TableCell)
+                        {
+                            cellNode.Attributes = tokenList[i+1].Value.Trim();
+                            i += 2; // Skip attributes and the second |
+                        }
+
+                        row.Children.Add(cellNode);
+                        stack.Push(cellNode);
+                    }
+                    startOfLine = false;
                     break;
 
                 case TokenType.BulletList:
@@ -154,11 +259,12 @@ public class MediaWikiASTBuilder : IMediaWikiASTBuilder
                     var listItem = new ListItemNode();
                     stack.Peek().Children.Add(listItem);
                     stack.Push(listItem);
+                    startOfLine = false;
                     break;
 
                 case TokenType.NewLine:
                     // Close list item and other inline nodes on newline
-                    while (stack.Count > 1 && (stack.Peek() is ListItemNode || stack.Peek() is BoldNode || stack.Peek() is ItalicNode || stack.Peek() is HeadingNode))
+                    while (stack.Count > 1 && (stack.Peek() is ListItemNode || stack.Peek() is BoldNode || stack.Peek() is ItalicNode || stack.Peek() is HeadingNode || stack.Peek() is TableCellNode || stack.Peek() is TableRowNode))
                     {
                         stack.Pop();
                     }
@@ -180,11 +286,13 @@ public class MediaWikiASTBuilder : IMediaWikiASTBuilder
                     }
 
                     stack.Peek().Children.Add(new TextNode { Text = "\n" });
+                    startOfLine = true;
                     break;
 
                 // Simple case for others
                 default:
                     stack.Peek().Children.Add(new TextNode { Text = token.Value });
+                    startOfLine = false;
                     break;
             }
         }

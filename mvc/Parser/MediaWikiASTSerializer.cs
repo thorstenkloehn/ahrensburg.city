@@ -62,6 +62,42 @@ public class MediaWikiASTSerializer : IMediaWikiASTSerializer
                 foreach (var child in listItem.Children) sb.Append(SerializeNodeToHtml(child));
                 sb.Append("</li>");
                 break;
+            case TableNode table:
+                var attributes = table.Attributes;
+                var finalClass = "table table-bordered table-striped";
+                
+                if (attributes.Contains("class=\""))
+                {
+                    // Merge class attribute
+                    attributes = attributes.Replace("class=\"", $"class=\"{finalClass} ");
+                }
+                else if (attributes.Contains("class='"))
+                {
+                    attributes = attributes.Replace("class='", $"class='{finalClass} ");
+                }
+                else
+                {
+                    attributes = $"class=\"{finalClass}\" " + attributes;
+                }
+
+                attributes = attributes.Trim();
+                sb.Append($"<table {attributes}>");
+                foreach (var child in table.Children) sb.Append(SerializeNodeToHtml(child));
+                sb.Append("</table>");
+                break;
+            case TableRowNode row:
+                var rowAttr = row.Attributes.Trim();
+                sb.Append($"<tr{(string.IsNullOrEmpty(rowAttr) ? "" : " " + rowAttr)}>");
+                foreach (var child in row.Children) sb.Append(SerializeNodeToHtml(child));
+                sb.Append("</tr>");
+                break;
+            case TableCellNode cell:
+                var cellTag = cell.IsHeader ? "th" : "td";
+                var cellAttr = cell.Attributes.Trim();
+                sb.Append($"<{cellTag}{(string.IsNullOrEmpty(cellAttr) ? "" : " " + cellAttr)}>");
+                foreach (var child in cell.Children) sb.Append(SerializeNodeToHtml(child));
+                sb.Append($"</{cellTag}>");
+                break;
             default:
                 foreach (var child in node.Children) sb.Append(SerializeNodeToHtml(child));
                 break;
@@ -112,6 +148,20 @@ public class MediaWikiASTSerializer : IMediaWikiASTSerializer
                     sb.Append(link.Display);
                 }
                 sb.Append("]]");
+                break;
+            case TableNode table:
+                sb.AppendLine("{|");
+                foreach (var child in table.Children) sb.Append(SerializeNodeToWikiText(child));
+                sb.AppendLine("|}");
+                break;
+            case TableRowNode row:
+                sb.AppendLine("|-");
+                foreach (var child in row.Children) sb.Append(SerializeNodeToWikiText(child));
+                break;
+            case TableCellNode cell:
+                sb.Append(cell.IsHeader ? "! " : "| ");
+                foreach (var child in cell.Children) sb.Append(SerializeNodeToWikiText(child));
+                sb.AppendLine();
                 break;
             default:
                 foreach (var child in node.Children) sb.Append(SerializeNodeToWikiText(child));

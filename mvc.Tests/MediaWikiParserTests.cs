@@ -82,4 +82,31 @@ public class MediaWikiParserTests
 
         Assert.Contains("<a href=\"https://www.block-house.de/restaurants/ahrensburg/grosse-strasse/\" data-mw=\"link\">BLOCK HOUSE Ahrensburg</a>", html);
     }
+
+    [Fact]
+    public void TestTables()
+    {
+        string wikiText = "{|\n! Header 1\n! Header 2\n|-\n| Cell 1\n| Cell 2\n|}";
+        string html = _parser.ToHtml(wikiText);
+
+        Assert.Contains("<table class=\"table table-bordered table-striped\">", html);
+        Assert.Contains("<th> Header 1</th>", html);
+        Assert.Contains("<th> Header 2</th>", html);
+        Assert.Contains("<tr>", html);
+        Assert.Contains("<td> Cell 1</td>", html);
+        Assert.Contains("<td> Cell 2</td>", html);
+        Assert.Contains("</table>", html);
+    }
+
+    [Fact]
+    public void TestTableWithAttributes()
+    {
+        string wikiText = "{| class=\"wikitable\"\n! Header\n|-\n| style=\"color:red\" | Cell\n|}";
+        string html = _parser.ToHtml(wikiText);
+        
+        System.Console.WriteLine("DEBUG TABLE ATTR: " + html);
+
+        Assert.Contains("class=\"table table-bordered table-striped wikitable\"", html);
+        Assert.Contains("<td style=\"color:red\"> Cell", html);
+    }
 }
