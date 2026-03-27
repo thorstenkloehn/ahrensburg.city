@@ -1,0 +1,121 @@
+using System.Text;
+using mvc.Parser.Models;
+
+namespace mvc.Parser;
+
+public interface IMediaWikiASTSerializer
+{
+    string ToHtml(WikiNode node);
+    string ToWikiText(WikiNode node);
+}
+
+public class MediaWikiASTSerializer : IMediaWikiASTSerializer
+{
+    public string ToHtml(WikiNode node)
+    {
+        var sb = new StringBuilder();
+        foreach (var child in node.Children)
+        {
+            sb.Append(SerializeNodeToHtml(child));
+        }
+        return sb.ToString();
+    }
+
+    private string SerializeNodeToHtml(WikiNode node)
+    {
+        var sb = new StringBuilder();
+        switch (node)
+        {
+            case TextNode text:
+                sb.Append(System.Net.WebUtility.HtmlEncode(text.Text));
+                break;
+            case BoldNode bold:
+                sb.Append("<b data-mw=\"bold\">");
+                foreach (var child in bold.Children) sb.Append(SerializeNodeToHtml(child));
+                sb.Append("</b>");
+                break;
+            case ItalicNode italic:
+                sb.Append("<i data-mw=\"italic\">");
+                foreach (var child in italic.Children) sb.Append(SerializeNodeToHtml(child));
+                sb.Append("</i>");
+                break;
+            case HeadingNode heading:
+                sb.Append($"<h{heading.Level} data-mw=\"heading\">");
+                foreach (var child in heading.Children) sb.Append(SerializeNodeToHtml(child));
+                sb.Append($"</h{heading.Level}>");
+                break;
+            case LinkNode link:
+                sb.Append($"<a href=\"/{link.Target}\" data-mw=\"link\">{link.Display}</a>");
+                break;
+            case CategoryNode:
+                // Categories are metadata and not part of the visible HTML content
+                break;
+            case ListNode list:
+                var tag = list.Type == ListType.Unordered ? "ul" : "ol";
+                sb.Append($"<{tag}>");
+                foreach (var child in list.Children) sb.Append(SerializeNodeToHtml(child));
+                sb.Append($"</{tag}>");
+                break;
+            case ListItemNode listItem:
+                sb.Append("<li>");
+                foreach (var child in listItem.Children) sb.Append(SerializeNodeToHtml(child));
+                sb.Append("</li>");
+                break;
+            default:
+                foreach (var child in node.Children) sb.Append(SerializeNodeToHtml(child));
+                break;
+        }
+        return sb.ToString();
+    }
+
+    public string ToWikiText(WikiNode node)
+    {
+        var sb = new StringBuilder();
+        foreach (var child in node.Children)
+        {
+            sb.Append(SerializeNodeToWikiText(child));
+        }
+        return sb.ToString();
+    }
+
+    private string SerializeNodeToWikiText(WikiNode node)
+    {
+        var sb = new StringBuilder();
+        switch (node)
+        {
+            case TextNode text:
+                sb.Append(text.Text);
+                break;
+            case BoldNode bold:
+                sb.Append("'''");
+                foreach (var child in bold.Children) sb.Append(SerializeNodeToWikiText(child));
+                sb.Append("'''");
+                break;
+            case ItalicNode italic:
+                sb.Append("''");
+                foreach (var child in italic.Children) sb.Append(SerializeNodeToWikiText(child));
+                sb.Append("''");
+                break;
+            case HeadingNode heading:
+                var markers = new string('=', heading.Level);
+                sb.Append(markers);
+                foreach (var child in heading.Children) sb.Append(SerializeNodeToWikiText(child));
+                sb.Append(markers);
+                break;
+            case LinkNode link:
+                sb.Append("[[");
+                sb.Append(link.Target);
+                if (link.Display != link.Target)
+                {
+                    sb.Append("|");
+                    sb.Append(link.Display);
+                }
+                sb.Append("]]");
+                break;
+            default:
+                foreach (var child in node.Children) sb.Append(SerializeNodeToWikiText(child));
+                break;
+        }
+        return sb.ToString();
+    }
+}

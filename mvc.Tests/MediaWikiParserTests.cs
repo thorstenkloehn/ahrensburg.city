@@ -1,0 +1,76 @@
+using Xunit;
+using mvc.Parser;
+using mvc.Parser.Models;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace mvc.Tests;
+
+public class MediaWikiParserTests
+{
+    private readonly IMediaWikiParser _parser;
+
+    public MediaWikiParserTests()
+    {
+        var tokenizer = new MediaWikiTokenizer();
+        var astBuilder = new MediaWikiASTBuilder();
+        var serializer = new MediaWikiASTSerializer();
+        _parser = new MediaWikiParser(tokenizer, astBuilder, serializer);
+    }
+
+    [Fact]
+    public void TestBasicParsing()
+    {
+        string wikiText = "== Heading ==\nThis is '''bold''' and ''italic''.\n[[Target|Link]]";
+        string html = _parser.ToHtml(wikiText);
+        
+        // Output for debugging
+        System.Console.WriteLine("DEBUG OUTPUT: " + html);
+
+        Assert.Contains("<h2 data-mw=\"heading\"> Heading </h2>", html);
+        Assert.Contains("<b data-mw=\"bold\">bold</b>", html);
+        Assert.Contains("<i data-mw=\"italic\">italic</i>", html);
+        Assert.Contains("<a href=\"/Target\" data-mw=\"link\">Link</a>", html);
+    }
+
+    [Fact]
+    public void TestTokenizerDetailed()
+    {
+        var tokenizer = new MediaWikiTokenizer();
+        var tokens = tokenizer.Tokenize("[[Target|Link]]").ToList();
+
+        foreach (var t in tokens)
+        {
+            System.Console.WriteLine($"TOKEN: {t}");
+        }
+
+        Assert.Equal(TokenType.LinkStart, tokens[0].Type);
+        Assert.Equal(TokenType.Text, tokens[1].Type); // Target
+        Assert.Equal(TokenType.TableCell, tokens[2].Type); // |
+        Assert.Equal(TokenType.Text, tokens[3].Type); // Link
+        Assert.Equal(TokenType.LinkEnd, tokens[4].Type);
+    }
+
+    [Fact]
+    public void TestLists()
+    {
+        string wikiText = "* Item 1\n* Item 2\n# Ordered 1\n# Ordered 2";
+        string html = _parser.ToHtml(wikiText);
+
+        Assert.Contains("<ul><li> Item 1</li><li> Item 2</li></ul>", html.Replace("\n", ""));
+        Assert.Contains("<ol><li> Ordered 1</li><li> Ordered 2</li></ol>", html.Replace("\n", ""));
+    }
+
+    [Fact]
+    public void TestCategories()
+    {
+        string wikiText = "Content\n[[Kategorie:Auto]]\n[[Category:Programming]]";
+        var categories = _parser.GetCategories(wikiText);
+
+        Assert.Contains("Auto", categories);
+        Assert.Contains("Programming", categories);
+        
+        string html = _parser.ToHtml(wikiText);
+        Assert.DoesNotContain("Kategorie:Auto", html);
+    }
+}

@@ -17,6 +17,8 @@ public class ApplicationDbContext : IdentityDbContext
 
     public DbSet<WikiArtikel> WikiArtikels { get; set; }
     public DbSet<WikiArtikelVersion> WikiArtikelVersions { get; set; }
+    public DbSet<WikiNamespace> WikiNamespaces { get; set; }
+    public DbSet<WikiCategory> WikiCategories { get; set; }
 
     /// <summary>
     /// Gibt die aktuelle TenantId dynamisch für den QueryFilter zurück.
@@ -34,6 +36,9 @@ public class ApplicationDbContext : IdentityDbContext
 
         builder.Entity<WikiArtikelVersion>()
             .HasQueryFilter(v => v.TenantId == CurrentTenantId);
+
+        builder.Entity<WikiCategory>()
+            .HasQueryFilter(c => c.TenantId == CurrentTenantId);
     }
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
@@ -68,6 +73,13 @@ public class ApplicationDbContext : IdentityDbContext
                         {
                             version.TenantId = currentTenantId;
                         }
+                    }
+                }
+                else if (entry.Entity is WikiCategory category)
+                {
+                    if (string.IsNullOrEmpty(category.TenantId))
+                    {
+                        category.TenantId = currentTenantId;
                     }
                 }
             }

@@ -10,6 +10,7 @@ public class WikiArtikelVersion
     public long VersionNummer { get; set; }
     public string TenantId { get; set; } = string.Empty;
     public string? MarkdownInhalt { get; set; }
+    public string? WikiTextInhalt { get; set; }
 
     [System.Xml.Serialization.XmlIgnore]
     [YamlDotNet.Serialization.YamlIgnore]

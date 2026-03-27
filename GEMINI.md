@@ -7,6 +7,8 @@ Dieses Projekt ist ein leichtgewichtiges Content-Management-System (CMS) mit Wik
 - **Go-Live bereit:** Das System hat das abschließende Sicherheits-Audit erfolgreich bestanden.
 - **Branding:** Hauptmandant wurde auf **ahrensburg.city** umgestellt.
 - **Multi-Tenancy:** Vollständig normalisierte Datenbank. Automatische Trennung von technischem Dokumentationsinhalt (`doc`) und Ahrensburg-spezifischen Inhalten (`main`) via Tenant-Migration-Tool durchgeführt.
+- **MediaWiki Parser:** Neuer Parsoid-ähnlicher Compiler-Parser (Tokenizer -> AST -> Serializer) für WikiText. Unterstützung für Bold, Italic, Headings, Links und RDFa-Annotationen.
+- **Strukturierte Metadaten:** Native Unterstützung für hierarchische Kategorien und Namensräume (PostgreSQL).
 - **Slug-Validierung:** Unterstützung für Unicode, Leerzeichen und Sonderzeichen wie `&`, `:`, `(`, `)`, `!`, `"`, `,`, `` ` ``, und `–`. Dies ermöglicht natürliche Titel wie "Geschichte & Allgemeines".
 - **Backup 2.0:** 
   - Unterstützung für **YAML** und **XML**.
@@ -18,8 +20,9 @@ Dieses Projekt ist ein leichtgewichtiges Content-Management-System (CMS) mit Wik
 
 - **`mvc/`**: Die Haupt-Webanwendung (Wiki-only).
   - **Multi-Tenancy**: Dynamische Mandantenerkennung via Hostname und **Request-spezifische Filterung** im `ApplicationDbContext`.
-  - **Models**: `WikiArtikel` und `WikiArtikelVersion`.
-- **`Services/`**: Geschäftslogik, `PageService`, `TenantService`.
+  - **Parser**: Parsoid-ähnlicher MediaWiki-Parser in `mvc/Parser/`.
+  - **Models**: `WikiArtikel`, `WikiArtikelVersion`, `WikiNamespace`, `WikiCategory`.
+- **`Services/`**: Geschäftslogik, `PageService` (mit Markdown & WikiText Support), `TenantService`.
 - **`UserAdmin/`**: Konsolenanwendung für die Verwaltung der Administratoren.
 - **`backup/`**: Spezialisiertes Tool für YAML/XML-Export und Import mit Normalisierungs-Logik.
 
@@ -47,6 +50,8 @@ Dieses Projekt ist ein leichtgewichtiges Content-Management-System (CMS) mit Wik
 - [x] **Multi-Tenancy:** Native Mandantenfähigkeit via Hostname-Erkennung.
 - [x] **Slug-Validierung:** Erweiterte Zeichenunterstützung (inkl. `&` und Leerzeichen).
 - [x] **Content-Migration:** Trennung von technischem Content (`doc`) und lokalem Content (`main`).
+- [x] **MediaWiki Support:** Compiler-basierter Parser für WikiText.
+- [x] **Strukturierte Kategorien:** Datenbankmodelle für Namespaces und hierarchische Kategorien.
 - [x] **Sicherheit:** Security Header (CSP, HSTS Tuning) und gehärtete Password Policy.
 - [x] **Rechtssicherheit:** Cookie-Banner Implementierung.
 - [ ] **Redirects:** Implementierung eines Alias/Redirect-Systems für umbenannte Slugs.

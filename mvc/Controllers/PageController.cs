@@ -60,25 +60,30 @@ namespace mvc.Controllers
         }
 
         /// <summary>
-        /// Erstellt eine neue Version eines Wiki-Artikels. Falls der Artikel noch nicht existiert, wird er angelegt.
+        /// Erstellt eine neue Version eines Wiki-Artikels.
         /// </summary>
         /// <param name="slug">Der Slug des Artikels.</param>
-        /// <param name="markdownInhalt">Der Inhalt im Markdown-Format.</param>
+        /// <param name="markdownInhalt">Der Inhalt im Markdown-Format (optional).</param>
+        /// <param name="wikiTextInhalt">Der Inhalt im MediaWiki-Format (optional).</param>
+        /// <param name="syntax">Der verwendete Syntax-Typ ("markdown" oder "mediawiki").</param>
+        /// <param name="kategorienRaw">Kommaseparierte Liste von Kategorien.</param>
         /// <returns>Eine Weiterleitung zur Index-Ansicht des Artikels.</returns>
         [HttpPost("Create")]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Create(string slug, string markdownInhalt, string? kategorienRaw)
+        public async Task<IActionResult> Create(string slug, string? markdownInhalt, string? wikiTextInhalt, string syntax, string? kategorienRaw)
         {
             slug = System.Net.WebUtility.UrlDecode(slug);
 
             if (!_pageService.IstSlugGueltig(slug))
                 return InvalidSlugResult(slug);
 
-            if (string.IsNullOrWhiteSpace(markdownInhalt))
+            var inhalt = syntax == "mediawiki" ? wikiTextInhalt : markdownInhalt;
+
+            if (string.IsNullOrWhiteSpace(inhalt))
                 return BadRequest("Inhalt darf nicht leer sein.");
 
-            if (markdownInhalt.Length > 100000)
+            if (inhalt.Length > 100000)
                 return BadRequest("Inhalt ist zu lang (maximal 100.000 Zeichen).");
 
             var kategorien = kategorienRaw?
@@ -87,7 +92,14 @@ namespace mvc.Controllers
 
             try
             {
-                await _pageService.ErstelleOderAktualisiereArtikelAsync(slug, markdownInhalt, kategorien);
+                if (syntax == "mediawiki")
+                {
+                    await _pageService.ErstelleOderAktualisiereWikiArtikelAsync(slug, wikiTextInhalt!, kategorien);
+                }
+                else
+                {
+                    await _pageService.ErstelleOderAktualisiereArtikelAsync(slug, markdownInhalt!, kategorien);
+                }
             }
             catch (ArgumentException ex)
             {
@@ -117,6 +129,8 @@ namespace mvc.Controllers
             if (artikel == null)
                 return NotFound();
 
+            var latestVersion = artikel.Versionen.FirstOrDefault();
+            ViewBag.Syntax = latestVersion?.WikiTextInhalt != null ? "mediawiki" : "markdown";
             ViewBag.UrlSlug = slug;
             return View(artikel);
         }
@@ -124,16 +138,13 @@ namespace mvc.Controllers
         /// <summary>
         /// Verarbeitet die Bearbeitung einer Wiki-Seite.
         /// </summary>
-        /// <param name="slug">Der Slug der Seite.</param>
-        /// <param name="markdownInhalt">Der neue Inhalt.</param>
-        /// <returns>Eine Weiterleitung zur Index-Ansicht.</returns>
         [HttpPost("Edit/{*slug}")]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Edit(string slug, string markdownInhalt, string? kategorienRaw)
+        public async Task<IActionResult> Edit(string slug, string? markdownInhalt, string? wikiTextInhalt, string syntax, string? kategorienRaw)
         {
             slug = System.Net.WebUtility.UrlDecode(slug);
-            return await Create(slug, markdownInhalt, kategorienRaw);
+            return await Create(slug, markdownInhalt, wikiTextInhalt, syntax, kategorienRaw);
         }
 
         /// <summary>

@@ -24,14 +24,16 @@ public class PageService : IPageService
     private readonly HtmlSanitizer _sanitizer;
     private readonly IDeserializer _yamlDeserializer;
     private readonly ILogger<PageService> _logger;
+    private readonly Parser.IMediaWikiParser _wikiParser;
     
     public const int MaxCategories = 10;
     public const int MaxCategoryLength = 50;
 
-    public PageService(ApplicationDbContext context, ILogger<PageService> logger)
+    public PageService(ApplicationDbContext context, ILogger<PageService> logger, Parser.IMediaWikiParser wikiParser)
     {
         _context = context;
         _logger = logger;
+        _wikiParser = wikiParser;
         _pipeline = new MarkdownPipelineBuilder()
             .UseAdvancedExtensions()
             .UseYamlFrontMatter()
@@ -43,11 +45,97 @@ public class PageService : IPageService
             .Build();
     }
 
+    public async Task ErstelleOderAktualisiereWikiArtikelAsync(string slug, string wikiTextInhalt, List<string>? kategorien = null)
+    {
+        var extrahiertKategorien = _wikiParser.GetCategories(wikiTextInhalt);
+        if (extrahiertKategorien.Any())
+        {
+            kategorien = (kategorien ?? new List<string>()).Concat(extrahiertKategorien).Distinct().ToList();
+        }
+
+        var htmlInhalt = _wikiParser.ToHtml(wikiTextInhalt);
+        await SicherArtikelAsync(slug, htmlInhalt, null, wikiTextInhalt, kategorien);
+    }
+
+    public async Task ErstelleOderAktualisiereArtikelAsync(string slug, string markdownInhalt, List<string>? kategorien = null)
+    {
+        // YAML Frontmatter Extraktion
+        var (extrahiertKategorien, _) = ExtrahiereMetadaten(markdownInhalt);
+        if (extrahiertKategorien != null) kategorien = extrahiertKategorien;
+
+        var htmlInhalt = Markdown.ToHtml(markdownInhalt, _pipeline);
+        await SicherArtikelAsync(slug, htmlInhalt, markdownInhalt, null, kategorien);
+    }
+
+    private async Task SicherArtikelAsync(string slug, string htmlInhalt, string? markdown, string? wikiText, List<string>? kategorien)
+    {
+        var sanitizedHtml = _sanitizer.Sanitize(htmlInhalt);
+        var currentTenantId = _context.CurrentTenantId;
+
+        // Kategorien Validierung
+        if (kategorien != null)
+        {
+            if (kategorien.Count > MaxCategories)
+                throw new ArgumentException($"Zu viele Kategorien (maximal {MaxCategories}).");
+
+            foreach (var kat in kategorien)
+            {
+                if (kat.Length > MaxCategoryLength)
+                    throw new ArgumentException($"Kategoriename '{kat}' ist zu lang (maximal {MaxCategoryLength} Zeichen).");
+            }
+        }
+
+        using var transaction = await _context.Database.BeginTransactionAsync();
+        try
+        {
+            var artikel = await _context.WikiArtikels
+                .Include(a => a.Versionen)
+                .FirstOrDefaultAsync(a => a.TenantId == currentTenantId && a.Slug == slug);
+
+            if (artikel == null)
+            {
+                artikel = new WikiArtikel { Slug = slug, TenantId = currentTenantId };
+                
+                // Namensraum Erkennung
+                if (slug.Contains(':'))
+                {
+                    var nsPart = slug.Split(':')[0];
+                    var ns = await _context.WikiNamespaces
+                        .FirstOrDefaultAsync(n => n.Name.ToLower() == nsPart.ToLower() || n.LocalizedName.ToLower() == nsPart.ToLower());
+                    if (ns != null)
+                    {
+                        artikel.NamespaceId = ns.Id;
+                    }
+                }
+
+                _context.WikiArtikels.Add(artikel);
+            }
+
+            var version = new WikiArtikelVersion
+            {
+                WikiArtikelId = artikel.Id,
+                TenantId = currentTenantId,
+                MarkdownInhalt = markdown,
+                WikiTextInhalt = wikiText,
+                HtmlInhalt = sanitizedHtml,
+                Zeitpunkt = DateTime.UtcNow,
+                Kategorie = kategorien ?? new List<string>()
+            };
+
+            artikel.Versionen.Add(version);
+            await _context.SaveChangesAsync();
+            await transaction.CommitAsync();
+        }
+        catch (Exception)
+        {
+            await transaction.RollbackAsync();
+            throw;
+        }
+    }
+
     public bool IstSlugGueltig(string slug)
     {
         if (string.IsNullOrEmpty(slug)) return false;
-        // Erlaubt Buchstaben (Unicode), Zahlen, Schrägstriche, Unterstriche, Bindestriche, Punkte, Prozentzeichen (für Encoded Slugs),
-        // sowie Sonderzeichen wie &, :, Leerzeichen, Klammern, !, ", Komma, Backtick und Gedankenstrich.
         if (!Regex.IsMatch(slug, @"^[\p{L}0-9/_\-\.%&:\ \(\)!,""`–]+$")) return false;
         if (slug.Contains("..")) return false;
         if (slug.Contains("//")) return false;
@@ -83,73 +171,9 @@ public class PageService : IPageService
             .FirstOrDefaultAsync(w => w.TenantId == currentTenantId && w.Slug == slug);
     }
 
-    public async Task ErstelleOderAktualisiereArtikelAsync(string slug, string markdownInhalt, List<string>? kategorien = null)
-    {
-        // YAML Frontmatter Extraktion
-        var (extrahiertKategorien, _) = ExtrahiereMetadaten(markdownInhalt);
-        
-        // YAML ist die primäre Quelle für Kategorien.
-        if (extrahiertKategorien != null)
-        {
-            kategorien = extrahiertKategorien;
-        }
-
-        // Validierung
-        if (kategorien != null)
-        {
-            if (kategorien.Count > MaxCategories)
-                throw new ArgumentException($"Zu viele Kategorien (maximal {MaxCategories}).");
-
-            foreach (var kat in kategorien)
-            {
-                if (kat.Length > MaxCategoryLength)
-                    throw new ArgumentException($"Kategoriename '{kat}' ist zu lang (maximal {MaxCategoryLength} Zeichen).");
-            }
-        }
-
-        var htmlInhalt = Markdown.ToHtml(markdownInhalt, _pipeline);
-        var sanitizedHtml = _sanitizer.Sanitize(htmlInhalt);
-        var currentTenantId = _context.CurrentTenantId;
-
-        using var transaction = await _context.Database.BeginTransactionAsync();
-        try
-        {
-            var artikel = await _context.WikiArtikels
-                .Include(a => a.Versionen)
-                .FirstOrDefaultAsync(a => a.TenantId == currentTenantId && a.Slug == slug);
-
-            if (artikel == null)
-            {
-                artikel = new WikiArtikel { Slug = slug, TenantId = currentTenantId };
-                _context.WikiArtikels.Add(artikel);
-            }
-
-            var version = new WikiArtikelVersion
-            {
-                WikiArtikelId = artikel.Id,
-                TenantId = currentTenantId,
-                MarkdownInhalt = markdownInhalt,
-                HtmlInhalt = sanitizedHtml,
-                Zeitpunkt = DateTime.UtcNow,
-                Kategorie = kategorien ?? new List<string>()
-            };
-
-            artikel.Versionen.Add(version);
-            await _context.SaveChangesAsync();
-            await transaction.CommitAsync();
-        }
-        catch (Exception)
-        {
-            await transaction.RollbackAsync();
-            throw;
-        }
-    }
-
     public async Task<List<WikiArtikel>> GetArtikelNachKategorieAsync(string kategorie)
     {
         var currentTenantId = _context.CurrentTenantId;
-        // 1. Wir suchen alle Artikel-IDs, die ÜBERHAUPT jemals dieser Kategorie zugeordnet waren.
-        // Das reduziert die Datenmenge massiv und ist einfach zu übersetzen.
         var moeglicheArtikelIds = await _context.WikiArtikelVersions
             .Where(v => v.TenantId == currentTenantId && v.Kategorie.Contains(kategorie))
             .Select(v => v.WikiArtikelId)
@@ -159,8 +183,6 @@ public class PageService : IPageService
         if (!moeglicheArtikelIds.Any())
             return new List<WikiArtikel>();
 
-        // 2. Wir laden die Versions-Metadaten dieser Artikel, um die aktuellste Version zu bestimmen.
-        // Wir filtern im Speicher (Client-side), da EF Core GroupBy.First() oft nicht übersetzen kann.
         var alleVersionenDerKandidaten = await _context.WikiArtikelVersions
             .Where(v => v.TenantId == currentTenantId && moeglicheArtikelIds.Contains(v.WikiArtikelId))
             .Select(v => new { v.WikiArtikelId, v.Zeitpunkt, v.Kategorie })
@@ -173,7 +195,6 @@ public class PageService : IPageService
             .Select(v => v.WikiArtikelId)
             .ToList();
 
-        // 3. Die eigentlichen Artikel laden.
         return await _context.WikiArtikels
             .Where(a => a.TenantId == currentTenantId && valideArtikelIds.Contains(a.Id))
             .OrderBy(a => a.Slug)
@@ -199,13 +220,12 @@ public class PageService : IPageService
         if (alteVersion == null || alteVersion.WikiArtikel == null)
             return false;
 
-        // Wir erstellen eine NEUE Version mit dem Inhalt der alten Version
-        // So bleibt die Historie linear und nachvollziehbar
         var neueVersion = new WikiArtikelVersion
         {
             WikiArtikelId = alteVersion.WikiArtikelId,
             TenantId = currentTenantId,
             MarkdownInhalt = alteVersion.MarkdownInhalt,
+            WikiTextInhalt = alteVersion.WikiTextInhalt,
             HtmlInhalt = alteVersion.HtmlInhalt,
             Kategorie = alteVersion.Kategorie ?? new List<string>(),
             Zeitpunkt = DateTime.UtcNow
@@ -227,11 +247,8 @@ public class PageService : IPageService
     private (List<string>? kategorien, string inhalt) ExtrahiereMetadaten(string markdown)
     {
         if (string.IsNullOrWhiteSpace(markdown)) return (null, markdown);
-
-        // Verbesserte Regex für YAML Frontmatter (beachtet verschiedene Zeilenumbrüche)
         var r = new Regex(@"^---\s*[\r\n]+(.*?)\s*[\r\n]+---\s*[\r\n]+", RegexOptions.Singleline);
         var match = r.Match(markdown);
-
         if (match.Success)
         {
             var yaml = match.Groups[1].Value;
@@ -242,40 +259,24 @@ public class PageService : IPageService
                 {
                     var key = metadata.Keys.FirstOrDefault(k => k.Equals("Kategorie", StringComparison.OrdinalIgnoreCase) 
                                                               || k.Equals("Categories", StringComparison.OrdinalIgnoreCase));
-                    
                     if (key != null)
                     {
                         var value = metadata[key];
                         if (value is List<object> list)
-                        {
                             return (list.Select(o => o.ToString() ?? "").Where(s => !string.IsNullOrEmpty(s)).ToList(), markdown);
-                        }
                         else if (value is string s)
-                        {
                             return (new List<string> { s }, markdown);
-                        }
                     }
                 }
             }
             catch { }
         }
-
         return (null, markdown);
     }
 
     public DiffPaneModel GenerateDiff(string oldContent, string newContent)
     {
-        var sw = Stopwatch.StartNew();
-        try
-        {
-            var differ = new InlineDiffBuilder(new DiffPlex.Differ());
-            return differ.BuildDiffModel(oldContent, newContent);
-        }
-        finally
-        {
-            sw.Stop();
-            _logger.LogInformation("Diff-Berechnung abgeschlossen in {ElapsedMilliseconds}ms (Alt: {OldLength} Zeichen, Neu: {NewLength} Zeichen)", 
-                sw.ElapsedMilliseconds, oldContent.Length, newContent.Length);
-        }
+        var differ = new InlineDiffBuilder(new DiffPlex.Differ());
+        return differ.BuildDiffModel(oldContent, newContent);
     }
 }

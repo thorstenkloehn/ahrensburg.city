@@ -5,7 +5,9 @@ Ein Mandantenfähiges (Multi-Tenancy) Wiki-CMS System entwickelt mit ASP.NET Cor
 ## Features
 
 - **Mandantenfähigkeit**: Unterstützung für mehrere Domains/Mandanten (z.B. `ahrensburg.city` für Stadtinhalte und `doc.ahrensburg.city` für technische Dokumentation).
-- **Wiki-Funktionalität**: Markdown-basierte Artikel mit voller Versionierung und Diff-Ansicht.
+- **MediaWiki Support**: Hochperformanter, compiler-basierter Parser für MediaWiki WikiText (Tokenizer -> AST -> Serializer) mit RDFa-Annotationen.
+- **Strukturierte Metadaten**: Native PostgreSQL-Unterstützung für hierarchische Kategorien und Namensraum-Trennung.
+- **Wiki-Funktionalität**: Markdown- und WikiText-basierte Artikel mit voller Versionierung und Diff-Ansicht.
 - **Sicherheit**:
   - `HtmlSanitizer` gegen XSS.
   - Strikte Content-Security-Policy (CSP).

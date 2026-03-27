@@ -26,6 +26,9 @@ public class WikiArtikel
     /// </summary>
     public string Slug { get; set; } = string.Empty;
 
+    public int NamespaceId { get; set; } = 0; // Default namespace (Main)
+    public WikiNamespace? Namespace { get; set; }
+
     /// <summary>
     /// Liste aller historischen und aktuellen Versionen dieses Artikels.
     /// </summary>

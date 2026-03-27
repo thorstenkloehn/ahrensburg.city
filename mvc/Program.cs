@@ -58,6 +58,10 @@ builder.Services.AddControllersWithViews(options =>
     options.Filters.Add(new Microsoft.AspNetCore.Mvc.AutoValidateAntiforgeryTokenAttribute());
 });
 builder.Services.AddScoped<mvc.Services.IPageService, mvc.Services.PageService>();
+builder.Services.AddScoped<mvc.Parser.IMediaWikiTokenizer, mvc.Parser.MediaWikiTokenizer>();
+builder.Services.AddScoped<mvc.Parser.IMediaWikiASTBuilder, mvc.Parser.MediaWikiASTBuilder>();
+builder.Services.AddScoped<mvc.Parser.IMediaWikiASTSerializer, mvc.Parser.MediaWikiASTSerializer>();
+builder.Services.AddScoped<mvc.Parser.IMediaWikiParser, mvc.Parser.MediaWikiParser>();
 
 builder.Services.AddHsts(options =>
 {

@@ -3,20 +3,43 @@
 @{
     var latestVersion = Model?.Versionen?.OrderByDescending(v => v.Zeitpunkt).FirstOrDefault();
     ViewData["Title"] = "Bearbeiten: " + (Model?.Slug ?? ViewBag.UrlSlug);
+    var syntax = ViewBag.Syntax as string ?? "markdown";
 }
 
 <h2>Seite bearbeiten: @(Model?.Slug ?? ViewBag.UrlSlug)</h2>
 
 <form asp-controller="Page" asp-action="Edit" asp-route-slug="@(Model?.Slug ?? ViewBag.UrlSlug)" method="post">
     @Html.AntiForgeryToken()
-    <div class="form-group">
+    
+    <div class="form-group mb-3">
+        <label for="syntax">Syntax:</label>
+        <select name="syntax" id="syntax" class="form-select" onchange="toggleSyntax()">
+            <!option value="markdown" @(syntax == "markdown" ? "selected" : "")>Markdown</!option>
+            <!option value="mediawiki" @(syntax == "mediawiki" ? "selected" : "")>MediaWiki</!option>
+        </select>
+    </div>
+
+    <div id="markdown-container" class="form-group @(syntax == "markdown" ? "" : "d-none")">
         <label for="markdownInhalt">Inhalt (Markdown):</label>
         <textarea name="markdownInhalt" id="markdownInhalt" class="form-control" rows="15" placeholder="Geben Sie hier Ihren Markdown-Inhalt ein...">@(latestVersion?.MarkdownInhalt)</textarea>
         <small class="text-muted">
-            Kategorien können am Anfang des Markdowns per YAML definiert werden, z.B.:<br />
-            <code>---<br />Kategorie: [Technik, Hilfe]<br />---</code>
+            Kategorien können am Anfang des Markdowns per YAML definiert werden.
         </small>
     </div>
+
+    <div id="mediawiki-container" class="form-group @(syntax == "mediawiki" ? "" : "d-none")">
+        <label for="wikiTextInhalt">Inhalt (MediaWiki):</label>
+        <textarea name="wikiTextInhalt" id="wikiTextInhalt" class="form-control" rows="15" placeholder="Geben Sie hier Ihren MediaWiki-Inhalt ein...">@(latestVersion?.WikiTextInhalt)</textarea>
+        <small class="text-muted">
+            Unterstützt [[Link]], '''Fett''', ''Kursiv'', == Überschriften ==.
+        </small>
+    </div>
+
+    <div class="form-group mt-3">
+        <label for="kategorienRaw">Kategorien (kommagetrennt):</label>
+        <input type="text" name="kategorienRaw" id="kategorienRaw" class="form-control" value="@(string.Join(", ", latestVersion?.Kategorie ?? new List<string>()))" />
+    </div>
+
     <div class="mt-3">
         <button type="submit" class="btn btn-primary">Speichern</button>
         <a asp-controller="Page" asp-action="Index" asp-route-slug="@Model?.Slug" class="btn btn-secondary">Abbrechen</a>
@@ -24,5 +47,17 @@
 </form>
 
 @section Scripts {
+    <script>
+        function toggleSyntax() {
+            var syntax = document.getElementById('syntax').value;
+            if (syntax === 'markdown') {
+                document.getElementById('markdown-container').classList.remove('d-none');
+                document.getElementById('mediawiki-container').classList.add('d-none');
+            } else {
+                document.getElementById('markdown-container').classList.add('d-none');
+                document.getElementById('mediawiki-container').classList.remove('d-none');
+            }
+        }
+    </script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
