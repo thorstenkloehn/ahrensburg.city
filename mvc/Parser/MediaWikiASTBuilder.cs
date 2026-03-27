@@ -189,21 +189,30 @@ public class MediaWikiASTBuilder : IMediaWikiASTBuilder
                     {
                         stack.Pop();
                     }
-                    if (stack.Peek() is TableNode)
+                    if (stack.Peek() is TableNode table)
                     {
-                        var rowNode = new TableRowNode();
-                        // Peek next token for attributes
-                        if (i + 1 < tokenList.Count && tokenList[i+1].Type == TokenType.Text)
+                        // Check if the last child of the table is an empty row
+                        if (table.Children.LastOrDefault() is TableRowNode lastRow && lastRow.Children.Count == 0)
                         {
-                            var attrToken = tokenList[i+1];
-                            if (!attrToken.Value.Contains("\n"))
-                            {
-                                rowNode.Attributes = attrToken.Value.Trim();
-                                i++; // Skip attribute token
-                            }
+                            // Reuse empty row
+                            stack.Push(lastRow);
                         }
-                        stack.Peek().Children.Add(rowNode);
-                        stack.Push(rowNode);
+                        else
+                        {
+                            var rowNode = new TableRowNode();
+                            // Peek next token for attributes
+                            if (i + 1 < tokenList.Count && tokenList[i+1].Type == TokenType.Text)
+                            {
+                                var attrToken = tokenList[i+1];
+                                if (!attrToken.Value.Contains("\n"))
+                                {
+                                    rowNode.Attributes = attrToken.Value.Trim();
+                                    i++; // Skip attribute token
+                                }
+                            }
+                            table.Children.Add(rowNode);
+                            stack.Push(rowNode);
+                        }
                     }
                     startOfLine = false;
                     break;
@@ -215,22 +224,28 @@ public class MediaWikiASTBuilder : IMediaWikiASTBuilder
                         stack.Pop();
                     }
                     
-                    if (stack.Peek() is TableNode table)
+                    if (stack.Peek() is TableNode currentTable)
                     {
                         var autoRow = new TableRowNode();
-                        table.Children.Add(autoRow);
+                        currentTable.Children.Add(autoRow);
                         stack.Push(autoRow);
                     }
 
                     if (stack.Peek() is TableRowNode row)
                     {
+                        // If we are already in a cell, pop it first (shorthand !! or || case)
+                        if (stack.Peek() is TableCellNode)
+                        {
+                            stack.Pop();
+                        }
+
                         var cellNode = new TableCellNode { IsHeader = token.Type == TokenType.TableHeader };
                         
                         // In MediaWiki, cell attributes are separated by |
                         // e.g. | style="color:red" | Content
-                        // Our tokenizer treats | as TableCell.
-                        // If we see TableCell + Text + TableCell, the middle Text is attributes.
-                        if (i + 2 < tokenList.Count && tokenList[i+1].Type == TokenType.Text && tokenList[i+2].Type == TokenType.TableCell)
+                        // ONLY for single | (TableCell) or single ! (TableHeader)
+                        // If the token value is "||" or "!!", it's shorthand and doesn't have attributes prefix.
+                        if (token.Value.Length == 1 && i + 2 < tokenList.Count && tokenList[i+1].Type == TokenType.Text && tokenList[i+2].Type == TokenType.TableCell)
                         {
                             cellNode.Attributes = tokenList[i+1].Value.Trim();
                             i += 2; // Skip attributes and the second |

@@ -25,6 +25,8 @@ public class MediaWikiTokenizer : IMediaWikiTokenizer
         ("{|", TokenType.TableStart),
         ("|}", TokenType.TableEnd),
         ("|-", TokenType.TableRow),
+        ("||", TokenType.TableCell),
+        ("!!", TokenType.TableHeader),
         ("|", TokenType.TableCell),
         ("!", TokenType.TableHeader),
         ("*", TokenType.BulletList),
@@ -86,6 +88,7 @@ public class MediaWikiTokenizer : IMediaWikiTokenizer
             if (!matched)
             {
                 bool isTrailing = false;
+                int markerPos = pos;
                 if (!startOfLine && input[pos] == '=')
                 {
                     int tempK = pos;
@@ -129,27 +132,30 @@ public class MediaWikiTokenizer : IMediaWikiTokenizer
             if (!matched)
             {
                 int start = pos;
-                // Move forward at least one character to avoid infinite loop
-                pos++; 
+                // DO NOT pos++ here immediately, check first char too
                 
                 while (pos < input.Length)
                 {
-                    bool nextIsSpecial = false;
+                    // Check if current position starts a special token
+                    bool currentIsSpecial = false;
                     foreach (var (key, _) in SimpleTokens)
                     {
                         if (pos + key.Length <= input.Length && input.Substring(pos, key.Length) == key)
                         {
-                            nextIsSpecial = true;
+                            currentIsSpecial = true;
                             break;
                         }
                     }
-                    if (nextIsSpecial) break;
-                    
+                    if (currentIsSpecial && pos > start) break;
+
                     // Only stop for headings at start of line or if it looks like a trailing marker
                     if (input[pos] == '=')
                     {
                         // Check if it's a heading at start of line
-                        if (pos == 0 || input[pos-1] == '\n') break;
+                        if (pos == 0 || input[pos-1] == '\n') 
+                        {
+                            if (pos > start) break;
+                        }
                         
                         // Check if it's a trailing marker (followed by spaces and newline/end)
                         int tempK = pos;
@@ -159,16 +165,27 @@ public class MediaWikiTokenizer : IMediaWikiTokenizer
                         if (tempK == input.Length || input[tempK] == '\n') 
                         {
                             // This IS a trailing marker. Stop text token here.
-                            break;
+                            if (pos > start) break;
                         }
+                    }
+
+                    // Stop at other special multi-char tokens like !! or ||
+                    if (pos + 2 <= input.Length)
+                    {
+                        string next2 = input.Substring(pos, 2);
+                        if ((next2 == "!!" || next2 == "||") && pos > start) break;
                     }
                     
                     pos++;
+                    if (currentIsSpecial) break; // If we just processed a single-char special token that didn't trigger 'pos > start'
                 }
                 
-                yield return new Token(TokenType.Text, input.Substring(start, pos - start), start, pos - start);
-                matched = true;
-                startOfLine = false;
+                if (pos > start)
+                {
+                    yield return new Token(TokenType.Text, input.Substring(start, pos - start), start, pos - start);
+                    matched = true;
+                    startOfLine = false;
+                }
             }
         }
     }

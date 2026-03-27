@@ -109,4 +109,18 @@ public class MediaWikiParserTests
         Assert.Contains("class=\"table table-bordered table-striped wikitable\"", html);
         Assert.Contains("<td style=\"color:red\"> Cell", html);
     }
+
+    [Fact]
+    public void TestTableShorthand()
+    {
+        string wikiText = "{| class=\"wikitable\"\n! Anbieter !! Modell-Zugang !! Limit (Rate Limits) !! Besonderheit\n|-\n| '''Google Gemini (AI Studio)''' || Gemini 2.5 Pro / Flash || bis zu 15 RPM / 1M Kontext || Bestes Gratis-Paket, kein CC nötig.\n|}";
+        string html = _parser.ToHtml(wikiText);
+        
+        System.Console.WriteLine("DEBUG SHORTHAND: " + html);
+
+        Assert.Contains("<th> Anbieter </th>", html);
+        Assert.Contains("<th> Modell-Zugang </th>", html);
+        Assert.Contains("<b data-mw=\"bold\">Google Gemini (AI Studio)</b>", html);
+        Assert.Contains("<td> Gemini 2.5 Pro / Flash </td>", html);
+    }
 }
