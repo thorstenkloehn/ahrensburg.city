@@ -65,3 +65,5 @@ public class ListNode : WikiNode
 public class ListItemNode : WikiNode { }
 
 public class ParagraphNode : WikiNode { }
+
+public class CodeNode : WikiNode { }

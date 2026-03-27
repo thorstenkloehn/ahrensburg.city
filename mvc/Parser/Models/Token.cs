@@ -23,7 +23,9 @@ public enum TokenType
     CategoryStart, // [[Kategorie: or [[Category:
     BulletList, // *
     NumberedList, // #
-    NewLine
+    NewLine,
+    CodeStart, // <code>
+    CodeEnd // </code>
 }
 
 public class Token

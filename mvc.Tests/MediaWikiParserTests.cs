@@ -134,4 +134,13 @@ public class MediaWikiParserTests
         Assert.Contains("<b data-mw=\"bold\">Google Gemini (AI Studio)</b>", html);
         Assert.Contains("<td> Gemini 2.5 Pro / Flash </td>", html);
     }
+
+    [Fact]
+    public void TestCodeTags()
+    {
+        string wikiText = "Here is some <code>var x = 10;</code>";
+        string html = _parser.ToHtml(wikiText);
+
+        Assert.Contains("Here is some <code>var x = 10;</code>", html);
+    }
 }

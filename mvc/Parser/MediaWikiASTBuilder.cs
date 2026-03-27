@@ -314,6 +314,21 @@ public class MediaWikiASTBuilder : IMediaWikiASTBuilder
                     startOfLine = true;
                     break;
 
+                case TokenType.CodeStart:
+                    var codeNode = new CodeNode();
+                    stack.Peek().Children.Add(codeNode);
+                    stack.Push(codeNode);
+                    startOfLine = false;
+                    break;
+
+                case TokenType.CodeEnd:
+                    if (stack.Peek() is CodeNode)
+                    {
+                        stack.Pop();
+                    }
+                    startOfLine = false;
+                    break;
+
                 // Simple case for others
                 default:
                     stack.Peek().Children.Add(new TextNode { Text = token.Value });

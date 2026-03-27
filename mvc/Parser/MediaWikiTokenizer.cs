@@ -31,7 +31,9 @@ public class MediaWikiTokenizer : IMediaWikiTokenizer
         ("!", TokenType.TableHeader),
         ("*", TokenType.BulletList),
         ("#", TokenType.NumberedList),
-        ("\n", TokenType.NewLine)
+        ("\n", TokenType.NewLine),
+        ("<code>", TokenType.CodeStart),
+        ("</code>", TokenType.CodeEnd)
     }.OrderByDescending(t => t.Item1.Length).ToArray();
 
     public IEnumerable<Token> Tokenize(string input)

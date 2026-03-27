@@ -98,6 +98,11 @@ public class MediaWikiASTSerializer : IMediaWikiASTSerializer
                 foreach (var child in cell.Children) sb.Append(SerializeNodeToHtml(child));
                 sb.Append($"</{cellTag}>");
                 break;
+            case CodeNode code:
+                sb.Append("<code>");
+                foreach (var child in code.Children) sb.Append(SerializeNodeToHtml(child));
+                sb.Append("</code>");
+                break;
             default:
                 foreach (var child in node.Children) sb.Append(SerializeNodeToHtml(child));
                 break;
@@ -162,6 +167,11 @@ public class MediaWikiASTSerializer : IMediaWikiASTSerializer
                 sb.Append(cell.IsHeader ? "! " : "| ");
                 foreach (var child in cell.Children) sb.Append(SerializeNodeToWikiText(child));
                 sb.AppendLine();
+                break;
+            case CodeNode codeNode:
+                sb.Append("<code>");
+                foreach (var child in codeNode.Children) sb.Append(SerializeNodeToWikiText(child));
+                sb.Append("</code>");
                 break;
             default:
                 foreach (var child in node.Children) sb.Append(SerializeNodeToWikiText(child));
