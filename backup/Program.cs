@@ -39,6 +39,12 @@ class Program
         services.AddDbContext<ApplicationDbContext>(options =>
             options.UseNpgsql(connectionString));
         
+        // MediaWiki Parser registrieren
+        services.AddScoped<mvc.Parser.IMediaWikiTokenizer, mvc.Parser.MediaWikiTokenizer>();
+        services.AddScoped<mvc.Parser.IMediaWikiASTBuilder, mvc.Parser.MediaWikiASTBuilder>();
+        services.AddScoped<mvc.Parser.IMediaWikiASTSerializer, mvc.Parser.MediaWikiASTSerializer>();
+        services.AddScoped<mvc.Parser.IMediaWikiParser, mvc.Parser.MediaWikiParser>();
+        
         var serviceProvider = services.BuildServiceProvider();
 
         // 3. Argumente verarbeiten
@@ -50,6 +56,7 @@ class Program
 
         using var scope = serviceProvider.CreateScope();
         var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var wikiParser = scope.ServiceProvider.GetRequiredService<mvc.Parser.IMediaWikiParser>();
 
         var command = args[0].ToLower();
 
@@ -77,7 +84,7 @@ class Program
                 return;
             }
             Console.WriteLine($"Importiere Daten aus {fileName}...");
-            await Import(context, fileName);
+            await Import(context, wikiParser, fileName);
         }
         else
         {
@@ -97,7 +104,7 @@ class Program
         Console.WriteLine("  import         Importiert Daten (Upsert-Logik)");
         Console.WriteLine("\nFormate:");
         Console.WriteLine("  .xml           Standard XML-Format");
-        Console.WriteLine("  .yaml, .yml    Kompaktes YAML-Format (ohne HTML, inkl. Markdown)");
+        Console.WriteLine("  .yaml, .yml    Kompaktes YAML-Format (ohne HTML, inkl. Markdown & WikiText)");
     }
 
     static async Task Export(ApplicationDbContext context, string fileName, bool full)
@@ -144,7 +151,7 @@ class Program
         Console.WriteLine($"ERFOLG: {artikel.Count} Artikel gesichert.");
     }
 
-    static async Task Import(ApplicationDbContext context, string fileName)
+    static async Task Import(ApplicationDbContext context, mvc.Parser.IMediaWikiParser wikiParser, string fileName)
     {
         List<WikiArtikel>? importDaten = null;
 
@@ -182,7 +189,12 @@ class Program
             
             if (dbA == null)
             {
-                dbA = new WikiArtikel { Slug = bA.Slug, TenantId = effectiveTenantId };
+                dbA = new WikiArtikel 
+                { 
+                    Slug = bA.Slug, 
+                    TenantId = effectiveTenantId,
+                    NamespaceId = bA.NamespaceId
+                };
                 context.WikiArtikels.Add(dbA);
                 await context.SaveChangesAsync();
                 neueArtikel++;
@@ -201,10 +213,26 @@ class Program
                     if (!exists)
                     {
                         string? html = v.HtmlInhalt;
-                        if (string.IsNullOrEmpty(html) && !string.IsNullOrEmpty(v.MarkdownInhalt))
+                        if (string.IsNullOrEmpty(html))
                         {
-                            // Falls HTML fehlt (YAML Export), regenerieren wir es
-                            html = Markdig.Markdown.ToHtml(v.MarkdownInhalt);
+                            if (!string.IsNullOrEmpty(v.MarkdownInhalt))
+                            {
+                                // Falls HTML fehlt (YAML/XML Export), regenerieren wir es aus Markdown
+                                html = Markdig.Markdown.ToHtml(v.MarkdownInhalt);
+                            }
+                            else if (!string.IsNullOrEmpty(v.WikiTextInhalt))
+                            {
+                                // Falls HTML fehlt, regenerieren wir es aus WikiText
+                                try 
+                                {
+                                    html = wikiParser.ToHtml(v.WikiTextInhalt);
+                                }
+                                catch (Exception ex)
+                                {
+                                    Console.WriteLine($"Warnung: Fehler beim Parsen von WikiText für {bA.Slug} ({v.Zeitpunkt}): {ex.Message}");
+                                    html = $"<div class='alert alert-danger'>Fehler beim Parsen von WikiText: {ex.Message}</div>";
+                                }
+                            }
                         }
 
                         context.WikiArtikelVersions.Add(new WikiArtikelVersion
@@ -212,6 +240,7 @@ class Program
                             WikiArtikelId = dbA.Id,
                             TenantId = effectiveVersionTenantId,
                             MarkdownInhalt = v.MarkdownInhalt,
+                            WikiTextInhalt = v.WikiTextInhalt,
                             HtmlInhalt = html,
                             Kategorie = v.Kategorie,
                             Zeitpunkt = v.Zeitpunkt
