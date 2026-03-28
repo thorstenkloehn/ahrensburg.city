@@ -48,4 +48,31 @@ sudo systemctl enable ahrensburgcity.service
 sudo systemctl start ahrensburgcity.service
 sudo systemctl status ahrensburgcity.service
 
+```
+==Nginx==
+```
+sudo nano /etc/nginx/conf.d/start.conf
+```
 
+```
+  GNU nano 7.2                                                                                                  hallo.conf                                                                                                            
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name doc.ahrensburg.city ahrensburg.city;
+    ssl_certificate /etc/letsencrypt/live/ahrensburg.city/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/ahrensburg.city/privkey.pem;
+
+    location / {
+        # Hier verbinden wir Nginx mit dem Unix Socket
+        proxy_pass         http://unix:/var/www/ahrensburgcity/meincms.sock;
+        proxy_http_version 1.1;
+        proxy_set_header   Upgrade $http_upgrade;
+        proxy_set_header   Connection keep-alive;
+        proxy_set_header   Host $host;
+        proxy_cache_bypass $http_upgrade;
+        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Proto $scheme;
+    }
+}
+```
