@@ -5,7 +5,7 @@ dotnet run --project backup -- export mein_umzug.xml --full
 dotnet publish -c Release -r linux-x64 --self-contained false -o /home/thorsten/publis/ahrensburgcity/
 dotnet ef migrations script -o migration.sql
 scp migration.sql thorsten@ttt.de:/var/www
-rsync -avzn --exclude 'bin' --exclude 'obj' /home/thorsten/publis/ahrensburgcity/ tt@ah.city:/var/www/ahrensburgcity/
+rsync -avz --exclude 'bin' --exclude 'obj' /home/thorsten/publis/ahrensburgcity/ tt@ah.city:/var/www/ahrensburgcity/
 ```
 
 ### Server Datenbank
