@@ -147,12 +147,24 @@ class Program
                 .WithNamingConvention(YamlDotNet.Serialization.NamingConventions.PascalCaseNamingConvention.Instance)
                 .Build();
             
+            var directory = Path.GetDirectoryName(fileName);
+            if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
             using var writer = new StreamWriter(fileName);
             serializer.Serialize(writer, artikel);
         }
         else
         {
             var serializer = new XmlSerializer(typeof(List<WikiArtikel>));
+            var directory = Path.GetDirectoryName(fileName);
+            if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
             using (var writer = new StreamWriter(fileName))
             {
                 serializer.Serialize(writer, artikel);
