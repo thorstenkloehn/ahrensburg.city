@@ -1,0 +1,51 @@
+## Vorbereitung
+### Entwicklung Rechner
+```bash
+dotnet run --project backup -- export mein_umzug.xml --full
+dotnet publish -c Release -r linux-x64 --self-contained false -o /home/thorsten/publis/ahrensburgcity/
+dotnet ef migrations script -o migration.sql
+scp migration.sql thorsten@ttt.de:/var/www
+rsync -avzn --exclude 'bin' --exclude 'obj' /home/thorsten/publis/ahrensburgcity/ tt@ah.city:/var/www/ahrensburgcity/
+```
+
+### Server Datenbank
+Migrationen (SQL-Befehle) aus der Datei `migration.sql` ausführen:
+```bash
+psql -h localhost -U dein_db_user -d deine_datenbank_name -f /tmp/migration.sql
+```
+
+### Rechner Systemctl 
+```
+sudo nano /etc/systemd/system/ahrensburgcity.service
+```
+
+```
+[Unit]
+Description=MeinCMS Wiki System (Unix Socket)
+After=network.target postgresql.service
+
+[Service]
+WorkingDirectory=/var/www/ahrensburgcity/
+# Wichtig: Wir starten die DLL direkt für maximale Performance
+ExecStart=/usr/bin/dotnet /var/www/ahrensburgcity/mvc.dll
+Restart=always
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=meincms
+User=www-data
+Group=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+# Verzeichnis für die Socket-Datei vorbereiten (/run/meincms)
+RuntimeDirectory=meincms
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```
+sudo systemctl daemon-reload
+sudo systemctl enable ahrensburgcity.service
+sudo systemctl start ahrensburgcity.service
+sudo systemctl status ahrensburgcity.service
+
+
