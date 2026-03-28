@@ -1997,6 +1997,69 @@ kkkkkk</MarkdownInhalt>
         <WikiArtikelId>2</WikiArtikelId>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
+        <VersionNummer>64</VersionNummer>
+        <TenantId>doc</TenantId>
+        <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
+## Hallo
+
+### Themenübersicht
+
+#### Content Management &amp;amp; Web
+
+- [CMS](CMS) — Übersicht der Content-Management-Systeme
+- [Webframework](Webframework)  Frameworks und Web-Technologien
+
+#### Entwicklung &amp;amp; KI-Integration
+
+- [AI](AI) — Grundlagen und Projekte im Bereich Künstliche Intelligenz
+- [KI-IDE](KI-IDE) — KI-gestützte Entwicklungsumgebungen
+- [IDE](IDE) — Konfiguration und Nutzung von Entwicklungsumgebungen
+
+#### Infrastruktur &amp;amp; Sicherheit
+
+- [Server](Server) — Serverkonfiguration und Administration
+- [Schwachstellen](Schwachstellen) — Sicherheitsanalysen und Best Practices
+- [DNS Domaine Verwalten](DNS) — Artikel zur Verwaltung von DNS-Domains
+
+### Top-Programmiersprachen
+
+- [Top Programmiersprachen für sichere, robuste und große Enterprise-Webanwendungen](Top-Programmiersprachen für sichere, robuste und große Enterprise-Webanwendungen)
+- [Empfohlene Open-Source-Programmiersprachen für sichere Enterprise-Desktop-Anwendungen](Empfohlene_Open-Source-Programmiersprachen_für_sichere_Enterprise-Desktop-Anwendungen)
+- [Die besten Open-Source-Programmiersprachen für hochsichere Enterprise-Android-Apps](Die_besten_Open-Source-Programmiersprachen_für_hochsichere_Enterprise-Android-Apps)
+- [Empfehlung für eine Open-Source Game Engine](Empfehlung_für_eine_Open-Source_Game_Engine)
+- [Programmiersprachen für sichere, robuste und komplexe Anwendungen mit C/C++ API-Unterstützung](Programmiersprachen_für_sichere,_robuste_und_komplexe_Anwendungen_mit_C/C++_API-Unterstützung)
+- [Geeignete Systemprogrammiersprachen für sichere, robuste und große C/C++ APIs](Geeignete_Systemprogrammiersprachen_für_sichere,_robuste_und_große_C/C++_APIs)
+- [Vergleich von Hochleistungssprachen für große Anwendungen](Vergleich_von_Hochleistungssprachen_für_große_Anwendungen)
+
+#### Programmiersprachen Backend
+
+- [Rust](Rust) — Moderne, sichere Systemprogrammiersprache
+- [Go](Golang) — Effiziente und einfache Programmiersprache von Google
+- [Java](Java) — Plattformunabhängige, objektorientierte Sprache für Unternehmensanwendungen
+- [C#](C-Sharp) — Microsofts Sprache für .NET-Entwicklung
+- [Python](Python)
+- [Prompt](Prompt)
+
+#### Programmiersprachen Frontend
+
+- [JavaScript](JavaScript) — Die Sprache des Webs für dynamische Anwendungen
+- [TypeScript](TypeScript)
+
+#### Systemnahe Programmierung
+
+- [C](C) — Leistungsfähige Programmiersprache für systemnahe Entwicklung
+- [C++](C++) — Erweiterung von C mit objektorientierten Konzepten
+- [Rust](Rust) — Moderne Alternative für sichere und effiziente Systemprogrammierung
+
+## LMS
+
+- [LMS Plattformen &amp;amp; Code Execution APIs](LMS_Plattformen_&amp;amp;_Code_Execution_APIs)
+</MarkdownInhalt>
+        <Zeitpunkt>2026-03-26T03:17:20.769924Z</Zeitpunkt>
+        <Kategorie />
+        <WikiArtikelId>2</WikiArtikelId>
+      </WikiArtikelVersion>
+      <WikiArtikelVersion>
         <VersionNummer>376</VersionNummer>
         <TenantId>doc</TenantId>
         <WikiTextInhalt>== Willkommen auf meiner Wissensdatenbank ==
@@ -3101,69 +3164,6 @@ Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentat
         <Kategorie />
         <WikiArtikelId>2</WikiArtikelId>
       </WikiArtikelVersion>
-      <WikiArtikelVersion>
-        <VersionNummer>64</VersionNummer>
-        <TenantId>doc</TenantId>
-        <MarkdownInhalt>Herzlich willkommen! Diese Seite dient als zentrale Anlaufstelle für Dokumentationen und Informationen zu meinen Projekten. Hier finden sich Details zu Implementierungen mit \*\*Drupal\*\*, \*\*Typo3\*\*, \*\*MediaWiki\*\* sowie meiner lokalen \*\*XWiki\*\*-Instanz.
-## Hallo
-
-### Themenübersicht
-
-#### Content Management &amp;amp; Web
-
-- [CMS](CMS) — Übersicht der Content-Management-Systeme
-- [Webframework](Webframework)  Frameworks und Web-Technologien
-
-#### Entwicklung &amp;amp; KI-Integration
-
-- [AI](AI) — Grundlagen und Projekte im Bereich Künstliche Intelligenz
-- [KI-IDE](KI-IDE) — KI-gestützte Entwicklungsumgebungen
-- [IDE](IDE) — Konfiguration und Nutzung von Entwicklungsumgebungen
-
-#### Infrastruktur &amp;amp; Sicherheit
-
-- [Server](Server) — Serverkonfiguration und Administration
-- [Schwachstellen](Schwachstellen) — Sicherheitsanalysen und Best Practices
-- [DNS Domaine Verwalten](DNS) — Artikel zur Verwaltung von DNS-Domains
-
-### Top-Programmiersprachen
-
-- [Top Programmiersprachen für sichere, robuste und große Enterprise-Webanwendungen](Top-Programmiersprachen für sichere, robuste und große Enterprise-Webanwendungen)
-- [Empfohlene Open-Source-Programmiersprachen für sichere Enterprise-Desktop-Anwendungen](Empfohlene_Open-Source-Programmiersprachen_für_sichere_Enterprise-Desktop-Anwendungen)
-- [Die besten Open-Source-Programmiersprachen für hochsichere Enterprise-Android-Apps](Die_besten_Open-Source-Programmiersprachen_für_hochsichere_Enterprise-Android-Apps)
-- [Empfehlung für eine Open-Source Game Engine](Empfehlung_für_eine_Open-Source_Game_Engine)
-- [Programmiersprachen für sichere, robuste und komplexe Anwendungen mit C/C++ API-Unterstützung](Programmiersprachen_für_sichere,_robuste_und_komplexe_Anwendungen_mit_C/C++_API-Unterstützung)
-- [Geeignete Systemprogrammiersprachen für sichere, robuste und große C/C++ APIs](Geeignete_Systemprogrammiersprachen_für_sichere,_robuste_und_große_C/C++_APIs)
-- [Vergleich von Hochleistungssprachen für große Anwendungen](Vergleich_von_Hochleistungssprachen_für_große_Anwendungen)
-
-#### Programmiersprachen Backend
-
-- [Rust](Rust) — Moderne, sichere Systemprogrammiersprache
-- [Go](Golang) — Effiziente und einfache Programmiersprache von Google
-- [Java](Java) — Plattformunabhängige, objektorientierte Sprache für Unternehmensanwendungen
-- [C#](C-Sharp) — Microsofts Sprache für .NET-Entwicklung
-- [Python](Python)
-- [Prompt](Prompt)
-
-#### Programmiersprachen Frontend
-
-- [JavaScript](JavaScript) — Die Sprache des Webs für dynamische Anwendungen
-- [TypeScript](TypeScript)
-
-#### Systemnahe Programmierung
-
-- [C](C) — Leistungsfähige Programmiersprache für systemnahe Entwicklung
-- [C++](C++) — Erweiterung von C mit objektorientierten Konzepten
-- [Rust](Rust) — Moderne Alternative für sichere und effiziente Systemprogrammierung
-
-## LMS
-
-- [LMS Plattformen &amp;amp; Code Execution APIs](LMS_Plattformen_&amp;amp;_Code_Execution_APIs)
-</MarkdownInhalt>
-        <Zeitpunkt>2026-03-26T03:17:20.769924Z</Zeitpunkt>
-        <Kategorie />
-        <WikiArtikelId>2</WikiArtikelId>
-      </WikiArtikelVersion>
     </Versionen>
   </WikiArtikel>
   <WikiArtikel>
@@ -3204,6 +3204,22 @@ Willkommen</MarkdownInhalt>
         <WikiArtikelId>4</WikiArtikelId>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
+        <VersionNummer>78</VersionNummer>
+        <TenantId>doc</TenantId>
+        <MarkdownInhalt>Willkommen</MarkdownInhalt>
+        <Zeitpunkt>2026-03-24T13:09:21.434568Z</Zeitpunkt>
+        <Kategorie />
+        <WikiArtikelId>4</WikiArtikelId>
+      </WikiArtikelVersion>
+      <WikiArtikelVersion>
+        <VersionNummer>79</VersionNummer>
+        <TenantId>doc</TenantId>
+        <MarkdownInhalt>Willkommen</MarkdownInhalt>
+        <Zeitpunkt>2026-03-24T13:09:21.434568Z</Zeitpunkt>
+        <Kategorie />
+        <WikiArtikelId>4</WikiArtikelId>
+      </WikiArtikelVersion>
+      <WikiArtikelVersion>
         <VersionNummer>80</VersionNummer>
         <TenantId>doc</TenantId>
         <MarkdownInhalt>---
@@ -3216,22 +3232,6 @@ Willkommen</MarkdownInhalt>
           <string>Programmierung</string>
           <string>Hilfe</string>
         </Kategorie>
-        <WikiArtikelId>4</WikiArtikelId>
-      </WikiArtikelVersion>
-      <WikiArtikelVersion>
-        <VersionNummer>79</VersionNummer>
-        <TenantId>doc</TenantId>
-        <MarkdownInhalt>Willkommen</MarkdownInhalt>
-        <Zeitpunkt>2026-03-24T13:09:21.434568Z</Zeitpunkt>
-        <Kategorie />
-        <WikiArtikelId>4</WikiArtikelId>
-      </WikiArtikelVersion>
-      <WikiArtikelVersion>
-        <VersionNummer>78</VersionNummer>
-        <TenantId>doc</TenantId>
-        <MarkdownInhalt>Willkommen</MarkdownInhalt>
-        <Zeitpunkt>2026-03-24T13:09:21.434568Z</Zeitpunkt>
-        <Kategorie />
         <WikiArtikelId>4</WikiArtikelId>
       </WikiArtikelVersion>
     </Versionen>
@@ -4862,117 +4862,6 @@ Kriterien
     <NamespaceId>0</NamespaceId>
     <Versionen>
       <WikiArtikelVersion>
-        <VersionNummer>114</VersionNummer>
-        <TenantId>main</TenantId>
-        <MarkdownInhalt>Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der EU-Datenschutzgrundverordnung (DSGVO), ist:
-
-- Thorsten Klöhn
-- Gerhardstraße 2
-- 22926 Ahrensburg
-- Telefon: 04102-2 17 40 07
-- e-Mail: thorstenkloehn@gmail.com
-
-&lt;span id="ihre-betroffenenrechte"&gt;&lt;/span&gt;
-
-## Ihre Betroffenenrechte
-
-Unter den angegebenen Kontaktdaten unseres Datenschutzbeauftragten können Sie jederzeit folgende Rechte ausüben:
-
-- Auskunft über Ihre bei uns gespeicherten Daten und deren Verarbeitung (Art. 15 DSGVO),
-- Berichtigung unrichtiger personenbezogener Daten (Art. 16 DSGVO),
-- Löschung Ihrer bei uns gespeicherten Daten (Art. 17 DSGVO),
-- Einschränkung der Datenverarbeitung, sofern wir Ihre Daten aufgrund gesetzlicher Pflichten noch nicht löschen dürfen (Art. 18 DSGVO),
-- Widerspruch gegen die Verarbeitung Ihrer Daten bei uns (Art. 21 DSGVO) und
-- Datenübertragbarkeit, sofern Sie in die Datenverarbeitung eingewilligt haben oder einen Vertrag mit uns abgeschlossen haben (Art. 20 DSGVO).
-
-Sofern Sie uns eine Einwilligung erteilt haben, können Sie diese jederzeit mit Wirkung für die Zukunft widerrufen.
-
-Sie können sich jederzeit mit einer Beschwerde an eine Aufsichtsbehörde wenden, z. B. an die zuständige Aufsichtsbehörde des Bundeslands Ihres Wohnsitzes oder an die für uns als verantwortliche Stelle zuständige Behörde.
-
-Eine Liste der Aufsichtsbehörden (für den nichtöffentlichen Bereich) mit Anschrift finden Sie unter: .
-
-&lt;span id="eingebettete-youtube-videos"&gt;&lt;/span&gt;
-
-## Eingebettete YouTube-Videos
-
-&lt;span id="art-und-zweck-der-verarbeitung"&gt;&lt;/span&gt;
-
-### Art und Zweck der Verarbeitung:
-
-Auf einigen unserer Webseiten betten wir YouTube-Videos ein. Betreiber der entsprechenden Plugins ist die YouTube, LLC, 901 Cherry Ave., San Bruno, CA 94066, USA (nachfolgend „YouTube“). Wenn Sie eine Seite mit dem YouTube-Plugin besuchen, wird eine Verbindung zu Servern von YouTube hergestellt. Dabei wird YouTube mitgeteilt, welche Seiten Sie besuchen. Wenn Sie in Ihrem YouTube-Account eingeloggt sind, kann YouTube Ihr Surfverhalten Ihnen persönlich zuzuordnen. Dies verhindern Sie, indem Sie sich vorher aus Ihrem YouTube-Account ausloggen.
-
-Wird ein YouTube-Video gestartet, setzt der Anbieter Cookies ein, die Hinweise über das Nutzerverhalten sammeln.
-
-Weitere Informationen zu Zweck und Umfang der Datenerhebung und ihrer Verarbeitung durch YouTube erhalten Sie in den Datenschutzerklärungen des Anbieters, Dort erhalten Sie auch weitere Informationen zu Ihren diesbezüglichen Rechten und Einstellungsmöglichkeiten zum Schutze Ihrer Privatsphäre (). Google verarbeitet Ihre Daten in den USA und hat sich dem EU-US Privacy Shield unterworfen &lt;https://www.privacyshield.gov/EU-US-Framework&gt;
-
-&lt;span id="rechtsgrundlage"&gt;&lt;/span&gt;
-
-### Rechtsgrundlage:
-
-Rechtsgrundlage für die Einbindung von YouTube und dem damit verbundenen Datentransfer zu Google ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).
-
-&lt;span id="empfänger"&gt;&lt;/span&gt;
-
-### Empfänger:
-
-Der Aufruf von YouTube löst automatisch eine Verbindung zu Google aus.
-
-&lt;span id="speicherdauer-und-widerruf-der-einwilligung"&gt;&lt;/span&gt;
-
-### Speicherdauer und Widerruf der Einwilligung:
-
-Wer das Speichern von Cookies für das Google-Ad-Programm deaktiviert hat, wird auch beim Anschauen von YouTube-Videos mit keinen solchen Cookies rechnen müssen. YouTube legt aber auch in anderen Cookies nicht-personenbezogene Nutzungsinformationen ab. Möchten Sie dies verhindern, so müssen Sie das Speichern von Cookies im Browser blockieren.
-
-Weitere Informationen zum Datenschutz bei „YouTube“ finden Sie in der Datenschutzerklärung des Anbieters unter:
-
-&lt;span id="drittlandtransfer"&gt;&lt;/span&gt;
-
-### Drittlandtransfer:
-
-Google verarbeitet Ihre Daten in den USA und hat sich dem EU_US Privacy Shield unterworfen .
-
-&lt;span id="bereitstellung-vorgeschrieben-oder-erforderlich"&gt;&lt;/span&gt;
-
-### Bereitstellung vorgeschrieben oder erforderlich:
-
-Die Bereitstellung Ihrer personenbezogenen Daten erfolgt freiwillig, allein auf Basis Ihrer Einwilligung. Sofern Sie den Zugriff unterbinden, kann es hierdurch zu Funktionseinschränkungen auf der Website kommen.
-
-&lt;span id="änderung-unserer-datenschutzbestimmungen"&gt;&lt;/span&gt;
-
-## Änderung unserer Datenschutzbestimmungen
-
-&lt;span id="ki-generierte-inhalte"&gt;&lt;/span&gt;
-
-## KI-generierte Inhalte und Speicherung
-
-Einige Inhalte dieser Website werden mit Hilfe von KI-Tools wie GitHub Copilot und Antigravity erstellt und weiter bearbeitet. Die generierten und bearbeiteten Inhalte werden ausschließlich auf unserem eigenen Server gespeichert und verarbeitet. Es erfolgt keine Speicherung oder Verarbeitung dieser Inhalte auf externen Servern der KI-Anbieter.
-
-&lt;span id="mediawiki-datenschutz"&gt;&lt;/span&gt;
-
-## Datenschutz im MediaWiki-System
-
-Dieses Wiki basiert auf der Software MediaWiki. Dabei werden folgende Daten verarbeitet:
-
-- Beim Besuch der Website werden Server-Logfiles (z. B. IP-Adresse, Zeitpunkt, aufgerufene Seiten) gespeichert. Diese Daten dienen der Fehleranalyse und Sicherheit und werden regelmäßig gelöscht.
-- MediaWiki verwendet Cookies, um die Anmeldung und die Nutzung zu ermöglichen. Diese Cookies enthalten keine personenbezogenen Daten, außer bei angemeldeten Nutzern.
-- Bei der Registrierung und Nutzung eines Benutzerkontos werden Name, E-Mail-Adresse und ggf. weitere freiwillige Angaben gespeichert. Beiträge, Bearbeitungen und Diskussionsbeiträge werden mit dem Benutzernamen und Zeitstempel öffentlich angezeigt und dauerhaft gespeichert.
-- Alle Inhalte und Bearbeitungen sind grundsätzlich öffentlich sichtbar. Bitte beachte dies bei der Veröffentlichung persönlicher Daten.
-- Es werden keine Tracking- oder Analyse-Tools eingesetzt, außer den bereits genannten technischen Protokollen.
-
-Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen, z.B. bei der Einführung neuer Services. Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung.
-
-&lt;span id="fragen-an-den-datenschutzbeauftragten"&gt;&lt;/span&gt;
-
-## Fragen an den Datenschutzbeauftragten
-
-Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte eine E-Mail oder wenden Sie sich direkt an die für den Datenschutz verantwortliche Person in unserer Organisation:
-
-*Die Datenschutzerklärung wurde mit dem* [*Datenschutzerklärungs-Generator der activeMind AG erstellt*](https://www.activemind.de/datenschutz/datenschutzhinweis-generator/) \*(Version 2018-09-24).c</MarkdownInhalt>
-        <Zeitpunkt>2026-02-17T21:15:33Z</Zeitpunkt>
-        <Kategorie />
-        <WikiArtikelId>36</WikiArtikelId>
-      </WikiArtikelVersion>
-      <WikiArtikelVersion>
         <VersionNummer>113</VersionNummer>
         <TenantId>main</TenantId>
         <MarkdownInhalt>Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der EU-Datenschutzgrundverordnung (DSGVO), ist:
@@ -5083,6 +4972,117 @@ Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte eine E-Mail oder 
         <Kategorie />
         <WikiArtikelId>36</WikiArtikelId>
       </WikiArtikelVersion>
+      <WikiArtikelVersion>
+        <VersionNummer>114</VersionNummer>
+        <TenantId>main</TenantId>
+        <MarkdownInhalt>Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der EU-Datenschutzgrundverordnung (DSGVO), ist:
+
+- Thorsten Klöhn
+- Gerhardstraße 2
+- 22926 Ahrensburg
+- Telefon: 04102-2 17 40 07
+- e-Mail: thorstenkloehn@gmail.com
+
+&lt;span id="ihre-betroffenenrechte"&gt;&lt;/span&gt;
+
+## Ihre Betroffenenrechte
+
+Unter den angegebenen Kontaktdaten unseres Datenschutzbeauftragten können Sie jederzeit folgende Rechte ausüben:
+
+- Auskunft über Ihre bei uns gespeicherten Daten und deren Verarbeitung (Art. 15 DSGVO),
+- Berichtigung unrichtiger personenbezogener Daten (Art. 16 DSGVO),
+- Löschung Ihrer bei uns gespeicherten Daten (Art. 17 DSGVO),
+- Einschränkung der Datenverarbeitung, sofern wir Ihre Daten aufgrund gesetzlicher Pflichten noch nicht löschen dürfen (Art. 18 DSGVO),
+- Widerspruch gegen die Verarbeitung Ihrer Daten bei uns (Art. 21 DSGVO) und
+- Datenübertragbarkeit, sofern Sie in die Datenverarbeitung eingewilligt haben oder einen Vertrag mit uns abgeschlossen haben (Art. 20 DSGVO).
+
+Sofern Sie uns eine Einwilligung erteilt haben, können Sie diese jederzeit mit Wirkung für die Zukunft widerrufen.
+
+Sie können sich jederzeit mit einer Beschwerde an eine Aufsichtsbehörde wenden, z. B. an die zuständige Aufsichtsbehörde des Bundeslands Ihres Wohnsitzes oder an die für uns als verantwortliche Stelle zuständige Behörde.
+
+Eine Liste der Aufsichtsbehörden (für den nichtöffentlichen Bereich) mit Anschrift finden Sie unter: .
+
+&lt;span id="eingebettete-youtube-videos"&gt;&lt;/span&gt;
+
+## Eingebettete YouTube-Videos
+
+&lt;span id="art-und-zweck-der-verarbeitung"&gt;&lt;/span&gt;
+
+### Art und Zweck der Verarbeitung:
+
+Auf einigen unserer Webseiten betten wir YouTube-Videos ein. Betreiber der entsprechenden Plugins ist die YouTube, LLC, 901 Cherry Ave., San Bruno, CA 94066, USA (nachfolgend „YouTube“). Wenn Sie eine Seite mit dem YouTube-Plugin besuchen, wird eine Verbindung zu Servern von YouTube hergestellt. Dabei wird YouTube mitgeteilt, welche Seiten Sie besuchen. Wenn Sie in Ihrem YouTube-Account eingeloggt sind, kann YouTube Ihr Surfverhalten Ihnen persönlich zuzuordnen. Dies verhindern Sie, indem Sie sich vorher aus Ihrem YouTube-Account ausloggen.
+
+Wird ein YouTube-Video gestartet, setzt der Anbieter Cookies ein, die Hinweise über das Nutzerverhalten sammeln.
+
+Weitere Informationen zu Zweck und Umfang der Datenerhebung und ihrer Verarbeitung durch YouTube erhalten Sie in den Datenschutzerklärungen des Anbieters, Dort erhalten Sie auch weitere Informationen zu Ihren diesbezüglichen Rechten und Einstellungsmöglichkeiten zum Schutze Ihrer Privatsphäre (). Google verarbeitet Ihre Daten in den USA und hat sich dem EU-US Privacy Shield unterworfen &lt;https://www.privacyshield.gov/EU-US-Framework&gt;
+
+&lt;span id="rechtsgrundlage"&gt;&lt;/span&gt;
+
+### Rechtsgrundlage:
+
+Rechtsgrundlage für die Einbindung von YouTube und dem damit verbundenen Datentransfer zu Google ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).
+
+&lt;span id="empfänger"&gt;&lt;/span&gt;
+
+### Empfänger:
+
+Der Aufruf von YouTube löst automatisch eine Verbindung zu Google aus.
+
+&lt;span id="speicherdauer-und-widerruf-der-einwilligung"&gt;&lt;/span&gt;
+
+### Speicherdauer und Widerruf der Einwilligung:
+
+Wer das Speichern von Cookies für das Google-Ad-Programm deaktiviert hat, wird auch beim Anschauen von YouTube-Videos mit keinen solchen Cookies rechnen müssen. YouTube legt aber auch in anderen Cookies nicht-personenbezogene Nutzungsinformationen ab. Möchten Sie dies verhindern, so müssen Sie das Speichern von Cookies im Browser blockieren.
+
+Weitere Informationen zum Datenschutz bei „YouTube“ finden Sie in der Datenschutzerklärung des Anbieters unter:
+
+&lt;span id="drittlandtransfer"&gt;&lt;/span&gt;
+
+### Drittlandtransfer:
+
+Google verarbeitet Ihre Daten in den USA und hat sich dem EU_US Privacy Shield unterworfen .
+
+&lt;span id="bereitstellung-vorgeschrieben-oder-erforderlich"&gt;&lt;/span&gt;
+
+### Bereitstellung vorgeschrieben oder erforderlich:
+
+Die Bereitstellung Ihrer personenbezogenen Daten erfolgt freiwillig, allein auf Basis Ihrer Einwilligung. Sofern Sie den Zugriff unterbinden, kann es hierdurch zu Funktionseinschränkungen auf der Website kommen.
+
+&lt;span id="änderung-unserer-datenschutzbestimmungen"&gt;&lt;/span&gt;
+
+## Änderung unserer Datenschutzbestimmungen
+
+&lt;span id="ki-generierte-inhalte"&gt;&lt;/span&gt;
+
+## KI-generierte Inhalte und Speicherung
+
+Einige Inhalte dieser Website werden mit Hilfe von KI-Tools wie GitHub Copilot und Antigravity erstellt und weiter bearbeitet. Die generierten und bearbeiteten Inhalte werden ausschließlich auf unserem eigenen Server gespeichert und verarbeitet. Es erfolgt keine Speicherung oder Verarbeitung dieser Inhalte auf externen Servern der KI-Anbieter.
+
+&lt;span id="mediawiki-datenschutz"&gt;&lt;/span&gt;
+
+## Datenschutz im MediaWiki-System
+
+Dieses Wiki basiert auf der Software MediaWiki. Dabei werden folgende Daten verarbeitet:
+
+- Beim Besuch der Website werden Server-Logfiles (z. B. IP-Adresse, Zeitpunkt, aufgerufene Seiten) gespeichert. Diese Daten dienen der Fehleranalyse und Sicherheit und werden regelmäßig gelöscht.
+- MediaWiki verwendet Cookies, um die Anmeldung und die Nutzung zu ermöglichen. Diese Cookies enthalten keine personenbezogenen Daten, außer bei angemeldeten Nutzern.
+- Bei der Registrierung und Nutzung eines Benutzerkontos werden Name, E-Mail-Adresse und ggf. weitere freiwillige Angaben gespeichert. Beiträge, Bearbeitungen und Diskussionsbeiträge werden mit dem Benutzernamen und Zeitstempel öffentlich angezeigt und dauerhaft gespeichert.
+- Alle Inhalte und Bearbeitungen sind grundsätzlich öffentlich sichtbar. Bitte beachte dies bei der Veröffentlichung persönlicher Daten.
+- Es werden keine Tracking- oder Analyse-Tools eingesetzt, außer den bereits genannten technischen Protokollen.
+
+Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen, z.B. bei der Einführung neuer Services. Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung.
+
+&lt;span id="fragen-an-den-datenschutzbeauftragten"&gt;&lt;/span&gt;
+
+## Fragen an den Datenschutzbeauftragten
+
+Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte eine E-Mail oder wenden Sie sich direkt an die für den Datenschutz verantwortliche Person in unserer Organisation:
+
+*Die Datenschutzerklärung wurde mit dem* [*Datenschutzerklärungs-Generator der activeMind AG erstellt*](https://www.activemind.de/datenschutz/datenschutzhinweis-generator/) \*(Version 2018-09-24).c</MarkdownInhalt>
+        <Zeitpunkt>2026-02-17T21:15:33Z</Zeitpunkt>
+        <Kategorie />
+        <WikiArtikelId>36</WikiArtikelId>
+      </WikiArtikelVersion>
     </Versionen>
   </WikiArtikel>
   <WikiArtikel>
@@ -5091,54 +5091,6 @@ Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte eine E-Mail oder 
     <Slug>Ahrensburg.city:Impressum</Slug>
     <NamespaceId>0</NamespaceId>
     <Versionen>
-      <WikiArtikelVersion>
-        <VersionNummer>116</VersionNummer>
-        <TenantId>main</TenantId>
-        <MarkdownInhalt>Angaben gemäß § 5 TMG
-
-- Thorsten Klöhn
-- Gerhardstraße 2
-- 22926 Ahrensburg
-
-&lt;span id="vertreten-durch"&gt;&lt;/span&gt;
-
-## Vertreten durch:
-
-Thorsten Klöhn
-
-&lt;span id="kontakt"&gt;&lt;/span&gt;
-
-## Kontakt:
-
-- Telefon: 04102-2 17 40 07  
-
-&lt;!-- --&gt;
-
-- E-Mail: thorstenkloehn@gmail.com
-
-&lt;span id="haftungsausschluss"&gt;&lt;/span&gt;
-
-## Haftungsausschluss:
-
-&lt;span id="haftung-für-inhalte"&gt;&lt;/span&gt;
-
-### Haftung für Inhalte
-
-Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen. \### Haftung für Links Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.  
-===Urheberrecht===
-
-Dieses Werk ist lizenziert unter einer [Creative Commons Namensnennung 4.0 International Lizenz](http://creativecommons.org/licenses/by/4.0/).Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
-
-### Datenschutz
-
-Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder eMail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.  
-Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich. Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.  
-
-Impressum vom [Impressum Generator](https://www.impressum-generator.de) der \[Kanzlei Hasselbach, Rechtsanwälte für Arbeitsrecht und Familienrecht\](https://www.kanzlei-hasselbach</MarkdownInhalt>
-        <Zeitpunkt>2026-01-07T02:37:20Z</Zeitpunkt>
-        <Kategorie />
-        <WikiArtikelId>37</WikiArtikelId>
-      </WikiArtikelVersion>
       <WikiArtikelVersion>
         <VersionNummer>379</VersionNummer>
         <TenantId>main</TenantId>
@@ -5232,6 +5184,54 @@ Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Komm
 
 Impressum vom [Impressum Generator](https://www.impressum-generator.de) der \[Kanzlei Hasselbach, Rechtsanwälte für Arbeitsrecht und Familienrecht\](https://www.kanzlei-hasselbach</MarkdownInhalt>
         <Zeitpunkt>2026-01-07T02:29:58Z</Zeitpunkt>
+        <Kategorie />
+        <WikiArtikelId>37</WikiArtikelId>
+      </WikiArtikelVersion>
+      <WikiArtikelVersion>
+        <VersionNummer>116</VersionNummer>
+        <TenantId>main</TenantId>
+        <MarkdownInhalt>Angaben gemäß § 5 TMG
+
+- Thorsten Klöhn
+- Gerhardstraße 2
+- 22926 Ahrensburg
+
+&lt;span id="vertreten-durch"&gt;&lt;/span&gt;
+
+## Vertreten durch:
+
+Thorsten Klöhn
+
+&lt;span id="kontakt"&gt;&lt;/span&gt;
+
+## Kontakt:
+
+- Telefon: 04102-2 17 40 07  
+
+&lt;!-- --&gt;
+
+- E-Mail: thorstenkloehn@gmail.com
+
+&lt;span id="haftungsausschluss"&gt;&lt;/span&gt;
+
+## Haftungsausschluss:
+
+&lt;span id="haftung-für-inhalte"&gt;&lt;/span&gt;
+
+### Haftung für Inhalte
+
+Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen. \### Haftung für Links Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.  
+===Urheberrecht===
+
+Dieses Werk ist lizenziert unter einer [Creative Commons Namensnennung 4.0 International Lizenz](http://creativecommons.org/licenses/by/4.0/).Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
+
+### Datenschutz
+
+Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder eMail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.  
+Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich. Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.  
+
+Impressum vom [Impressum Generator](https://www.impressum-generator.de) der \[Kanzlei Hasselbach, Rechtsanwälte für Arbeitsrecht und Familienrecht\](https://www.kanzlei-hasselbach</MarkdownInhalt>
+        <Zeitpunkt>2026-01-07T02:37:20Z</Zeitpunkt>
         <Kategorie />
         <WikiArtikelId>37</WikiArtikelId>
       </WikiArtikelVersion>
@@ -5361,73 +5361,6 @@ Impressum vom [Impressum Generator](https://www.impressum-generator.de) der \[Ka
         <WikiArtikelId>40</WikiArtikelId>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
-        <VersionNummer>343</VersionNummer>
-        <TenantId>doc</TenantId>
-        <WikiTextInhalt>* [[Empfohlene Webframeworks (Kompilierte Sprachen, Enterprise-Ready)]]
-== 1. Eigene CMS-Systeme ==
-
-{| class="wikitable"
-! Name
-! Sprache
-! Beschreibung
-! Dokumente
-|-
-| ASP.NET Core MVC
-| C#
-| Mein CMS mit ASP.NET Core MVC.
-| [[Arbeitsschritte/ASP.NET Core MVC/CMS/Arbeitsschritte|Arbeitsschritte]]
-|}
-
-== 2. Wiki-Systeme ==
-{| class="wikitable"
-! Name
-! Sprache
-! Beschreibung
-! Doc
-! Skriptsprachen in Wiki-Seiten einzubetten
-|-
-| [https://ahrensburg.city Mediawiki]
-| PHP
-| Wikipedia-Software, für sehr große Wikis
-| [[CMS/MediaWiki|Mediawiki]]
-! [[CMS/MediaWiki/Scribunto|Scribunto]]
-|}
-
-===3 CMS-Werkzeuge===
-
-{| class="wikitable"
-! Name
-! Plattform
-! Beschreibung
-! Doc
-|-
-| WordPress Post
-| VS Code
-| Visual Studio Code Erweiterung zum Veröffentlichen von Markdown-Artikeln direkt auf WordPress; erleichtert das Schreiben von Blog-Beiträgen in Markdown
-| [[CMS/WordPress/VSCode-Extension|WordPress Post]]
-|-
-| Wikitext
-| VS Code
-| Visual Studio Code Erweiterung zum Bearbeiten von MediaWiki-Seiten; unterstützt Syntax-Highlighting und direktes Veröffentlichen
-| [[CMS/MediaWiki/VSCode-Extension|Wikitext]]
-|}
-
-== 4 Wichtige Informationsressourcen ==
-
-=== 4.1 [[Visual Studio Code/Eigene Erweiterungen schreiben|Visual Studio Code: Eigene Erweiterung]] ===
-* [https://code.visualstudio.com/api VS Code Extension API-Dokumentation] – Offizielle Anleitung und API-Referenz zur Entwicklung eigener VS Code Extensions.
-* [https://github.com/microsoft/vscode-extension-samples Beispiel-Erweiterungen auf GitHub] – Sammlung von Beispielprojekten für verschiedene Extension-Typen.
-* [https://code.visualstudio.com/docs/extensions/overview Einstieg: Eigene VS Code Extension erstellen] – Schritt-für-Schritt-Anleitung für den Einstieg.
-* [https://learn.microsoft.com/de-de/shows/visual-studio-toolbox/creating-a-visual-studio-code-extension Video: Creating a Visual Studio Code Extension] – Microsoft Channel 9 Video mit praktischer Einführung und Tipps zur Extension-Entwicklung.
-
-
-=== 4.2 MCP-Programmierung ===
-</WikiTextInhalt>
-        <Zeitpunkt>2026-03-27T19:52:49.266662Z</Zeitpunkt>
-        <Kategorie />
-        <WikiArtikelId>40</WikiArtikelId>
-      </WikiArtikelVersion>
-      <WikiArtikelVersion>
         <VersionNummer>344</VersionNummer>
         <TenantId>doc</TenantId>
         <WikiTextInhalt>* [[Empfohlene Webframeworks (Kompilierte Sprachen, Enterprise-Ready)]]
@@ -5537,6 +5470,73 @@ Impressum vom [Impressum Generator](https://www.impressum-generator.de) der \[Ka
         <TenantId>doc</TenantId>
         <WikiTextInhalt>==Startseite==</WikiTextInhalt>
         <Zeitpunkt>2026-03-27T19:59:06.287777Z</Zeitpunkt>
+        <Kategorie />
+        <WikiArtikelId>40</WikiArtikelId>
+      </WikiArtikelVersion>
+      <WikiArtikelVersion>
+        <VersionNummer>343</VersionNummer>
+        <TenantId>doc</TenantId>
+        <WikiTextInhalt>* [[Empfohlene Webframeworks (Kompilierte Sprachen, Enterprise-Ready)]]
+== 1. Eigene CMS-Systeme ==
+
+{| class="wikitable"
+! Name
+! Sprache
+! Beschreibung
+! Dokumente
+|-
+| ASP.NET Core MVC
+| C#
+| Mein CMS mit ASP.NET Core MVC.
+| [[Arbeitsschritte/ASP.NET Core MVC/CMS/Arbeitsschritte|Arbeitsschritte]]
+|}
+
+== 2. Wiki-Systeme ==
+{| class="wikitable"
+! Name
+! Sprache
+! Beschreibung
+! Doc
+! Skriptsprachen in Wiki-Seiten einzubetten
+|-
+| [https://ahrensburg.city Mediawiki]
+| PHP
+| Wikipedia-Software, für sehr große Wikis
+| [[CMS/MediaWiki|Mediawiki]]
+! [[CMS/MediaWiki/Scribunto|Scribunto]]
+|}
+
+===3 CMS-Werkzeuge===
+
+{| class="wikitable"
+! Name
+! Plattform
+! Beschreibung
+! Doc
+|-
+| WordPress Post
+| VS Code
+| Visual Studio Code Erweiterung zum Veröffentlichen von Markdown-Artikeln direkt auf WordPress; erleichtert das Schreiben von Blog-Beiträgen in Markdown
+| [[CMS/WordPress/VSCode-Extension|WordPress Post]]
+|-
+| Wikitext
+| VS Code
+| Visual Studio Code Erweiterung zum Bearbeiten von MediaWiki-Seiten; unterstützt Syntax-Highlighting und direktes Veröffentlichen
+| [[CMS/MediaWiki/VSCode-Extension|Wikitext]]
+|}
+
+== 4 Wichtige Informationsressourcen ==
+
+=== 4.1 [[Visual Studio Code/Eigene Erweiterungen schreiben|Visual Studio Code: Eigene Erweiterung]] ===
+* [https://code.visualstudio.com/api VS Code Extension API-Dokumentation] – Offizielle Anleitung und API-Referenz zur Entwicklung eigener VS Code Extensions.
+* [https://github.com/microsoft/vscode-extension-samples Beispiel-Erweiterungen auf GitHub] – Sammlung von Beispielprojekten für verschiedene Extension-Typen.
+* [https://code.visualstudio.com/docs/extensions/overview Einstieg: Eigene VS Code Extension erstellen] – Schritt-für-Schritt-Anleitung für den Einstieg.
+* [https://learn.microsoft.com/de-de/shows/visual-studio-toolbox/creating-a-visual-studio-code-extension Video: Creating a Visual Studio Code Extension] – Microsoft Channel 9 Video mit praktischer Einführung und Tipps zur Extension-Entwicklung.
+
+
+=== 4.2 MCP-Programmierung ===
+</WikiTextInhalt>
+        <Zeitpunkt>2026-03-27T19:52:49.266662Z</Zeitpunkt>
         <Kategorie />
         <WikiArtikelId>40</WikiArtikelId>
       </WikiArtikelVersion>
@@ -14358,242 +14358,6 @@ public class Main {
     <NamespaceId>0</NamespaceId>
     <Versionen>
       <WikiArtikelVersion>
-        <VersionNummer>253</VersionNummer>
-        <TenantId>doc</TenantId>
-        <MarkdownInhalt>## Einleitung
-##
-Dieser Lernpfad und Lernplan führt dich Schritt für Schritt durch die Python-Programmierung – von den Grundlagen bis hin zu fortgeschrittenen Themen. Python zeichnet sich durch seine klare Syntax und Vielseitigkeit aus und eignet sich ideal für Anfänger sowie für Profis in Bereichen wie Webentwicklung, Datenanalyse und Automatisierung.
-
-## Lernpfad
-
-### Phase 1: Grundlagen der Programmierung
-
-- **Variablen und Datentypen**: Ganzzahlen (int), Fließkommazahlen (float), Zeichenketten (str), Wahrheitswerte (bool).
-- **Operatoren**: Arithmetische, logische und Vergleichsoperatoren.
-- **Kontrollstrukturen**: Bedingungen (\`if\`, \`elif\`, \`else\`).
-- **Schleifen**: Iterationen mit \`for\`- und \`while\`-Schleifen.
-- **Funktionen**: Definition von Funktionen (\`def\`), Parameter, Rückgabewerte und lokaler Skopus.
-
-### Phase 2: Datenstrukturen
-
-- **Listen (Lists)**: Erstellen, Modifizieren, Listen-Methoden (append, pop), Slicing und List Comprehensions.
-- **Tupel (Tuples)**: Unveränderbare (immutable) Datenstrukturen.
-- **Dictionaries**: Speicherung von Schlüssel-Wert-Paaren, schnelles Nachschlagen, Iteration über Keys und Values.
-- **Mengen (Sets)**: Einzigartige Elemente, Mengenoperationen (Schnittmenge, Vereinigung).
-
-### Phase 3: Fortgeschrittene Kozepte
-
-- **Fehlerbehandlung**: Ausnahmen abfangen (\`try\`, \`except\`, \`finally\`, \`raise\`).
-- **Datei-I/O**: Lesen und Schreiben von Dateien (\`open\`, \`read\`, \`write\`, \`with\`-Statement für Kontextmanager).
-- **Module und Pakete**: Code strukturieren, Importieren (\`import\`, \`from ... import ...\`), Nutzung des Paketmanagers \`pip\`.
-- **Virtuelle Umgebungen**: Isolation von Projektabhängigkeiten (\`venv\`).
-
-### Phase 4: Objektorientierte Programmierung (OOP)
-
-- **Klassen und Objekte**: Definition (\`class\`), Instanziierung.
-- **Attribute und Methoden**: Der Konstruktor \`\_\_init\_\_\`, Das Konzept von \`self\`.
-- **Vererbung und Polymorphie**: Wiederverwendung von Code, Überschreiben von Methoden der Elternklasse.
-- **Spezialmethoden**: Magic/Dunder-Methods (z.B. \`\_\_str\_\_\`, \`\_\_repr\_\_\`).
-
-### Phase 5: Praktische Anwendung und Bibliotheken
-
-- **Standardbibliothek**: Arbeiten mit Modulen wie \`os\`, \`sys\`, \`datetime\`, \`math\`, \`json\`, \`re\` (Reguläre Ausdrücke).
-- **Datenanalyse (optional)**: Einstieg in \`pandas\`, \`numpy\`, \`matplotlib\`.
-- **Webentwicklung (optional)**: Grundlagen von \`Flask\` oder \`FastAPI\`.
-- **Automatisierung**: Skripte für alltägliche Aufgaben, Web Scraping mit \`requests\` und \`BeautifulSoup\`.
-
-## Lernplan (Beispiel für 8 Wochen)
-
-Dieser strukturierte 8-Wochen-Plan setzt einen Zeitaufwand von ca. 5-10 Stunden pro Woche voraus.
-
-- **Woche 1: Einstieg und Code-Erstellung**
-  - Installation von Python und Einrichtung einer IDE (z.B. VS Code oder PyCharm).
-  - Kennenlernen des interaktiven Interpreters (REPL).
-  - Variablen, Datentypen und einfache Ein-/Ausgabe (\`print\`, \`input\`).
-  - *Projekt*: Ein interaktiver Taschenrechner in der Konsole.
-
-&lt;!-- --&gt;
-
-- **Woche 2: Logik und Schleifen**
-  - Kontrollstrukturen (\`if\`/\`else\`) implementieren.
-  - \`for\`- und \`while\`-Schleifen verstehen und anwenden.
-  - *Projekt*: Ein Zahlenratespiel (Zufallszahl zwischen 1 und 100 erraten).
-
-&lt;!-- --&gt;
-
-- **Woche 3: Arbeiten mit Daten**
-  - Vertiefung von Listen und Dictionaries.
-  - Kennenlernen von String-Manipulation und Formatierung (z.B. f-Strings).
-  - *Projekt*: Eine einfache To-Do-Listen-Verwaltung für die Konsole.
-
-&lt;!-- --&gt;
-
-- **Woche 4: Funktionen und Modularisierung**
-  - Eigenen Code in funktionen auslagern und strukturieren.
-  - Parameter und Rückgabewerte meistern.
-  - *Projekt*: Modularisierung des bisherigen Codes in verschiedene Dateien/Module.
-
-&lt;!-- --&gt;
-
-- **Woche 5: Fehlerbehandlung und Persistenz**
-  - Robuste Programme mit \`try\`/\`except\` schreiben.
-  - Daten dauerhaft speichern (Textdateien oder JSON).
-  - *Projekt*: Die To-Do-Liste so erweitern, dass die Einträge beim Neustart des Programms erhalten bleiben (Speichern in einer JSON-Datei).
-
-&lt;!-- --&gt;
-
-- **Woche 6: Objektorientierung (OOP)**
-  - OOP-Konzepte: Verstehen und anwenden von Klassen und Objekten.
-  - Attribute und Methoden definieren.
-  - *Projekt*: Ein textbasiertes Rollenspiel (z.B. Klassen für \`Spieler\` und \`Monster\`, die in einer Arena kämpfen).
-
-&lt;!-- --&gt;
-
-- **Woche 7: Erweiterung und Drittanbieter-Bibliotheken**
-  - Reguläre Ausdrücke (\`re\`) für Textsuche nutzen.
-  - Virtuelle Umgebung (\`venv\`) einrichten und Pakete über \`pip\` installieren.
-  - Erste Schritte mit APIs (z.B. über das \`requests\`-Modul).
-  - *Projekt*: Ein Skript, das Wetterdaten einer öffentlichen API abruft und formatiert anzeigt.
-
-&lt;!-- --&gt;
-
-- **Woche 8: Eigenes Abschlussprojekt**
-  - Planung und Umsetzung eines individuellen Projekts (z.B. ein Web Scraper, ein lokaler Webserver oder ein Datenanalyse-Tool).
-  - Code-Refactoring: Den geschriebenen Code lesbarer und effizienter machen (PEP 8 Richtlinien beachten).
-  - Ausblick: Den nächsten Themenfokus wählen (z.B. Webentwicklung, Machine Learning, Data Science).
-
-## Empfohlene Lernressourcen
-
-- **Offizielle Dokumentation**: [Python 3 Documentation](https://docs.python.org/3/)
-- **Tutorials &amp; Interaktives Lernen**:
-  - [Offizielles Python Tutorial](https://docs.python.org/3/tutorial/)
-  - freeCodeCamp (Scientific Computing with Python)
-  - Codecademy
-- **Bücher**:
-  - "Python Crash Course" von Eric Matthes (Sehr praxisorientiert)
-  - "Automate the Boring Stuff with Python" von Al Sweigart (Fokus auf praktische Automatisierung)
-- **Übungsplattformen (für Algorithmen)**:
-  - LeetCode, HackerRank, Codewars
-
-## Einleitung
-
-Dieser Lernpfad und Lernplan führt dich Schritt für Schritt durch die Python-Programmierung – von den Grundlagen bis hin zu fortgeschrittenen Themen. Python zeichnet sich durch seine klare Syntax und Vielseitigkeit aus und eignet sich ideal für Anfänger sowie für Profis in Bereichen wie Webentwicklung, Datenanalyse und Automatisierung.
-
-## Lernpfad
-
-### Phase 1: Grundlagen der Programmierung
-
-- **Variablen und Datentypen**: Ganzzahlen (int), Fließkommazahlen (float), Zeichenketten (str), Wahrheitswerte (bool).
-- **Operatoren**: Arithmetische, logische und Vergleichsoperatoren.
-- **Kontrollstrukturen**: Bedingungen (\`if\`, \`elif\`, \`else\`).
-- **Schleifen**: Iterationen mit \`for\`- und \`while\`-Schleifen.
-- **Funktionen**: Definition von Funktionen (\`def\`), Parameter, Rückgabewerte und lokaler Skopus.
-
-### Phase 2: Datenstrukturen
-
-- **Listen (Lists)**: Erstellen, Modifizieren, Listen-Methoden (append, pop), Slicing und List Comprehensions.
-- **Tupel (Tuples)**: Unveränderbare (immutable) Datenstrukturen.
-- **Dictionaries**: Speicherung von Schlüssel-Wert-Paaren, schnelles Nachschlagen, Iteration über Keys und Values.
-- **Mengen (Sets)**: Einzigartige Elemente, Mengenoperationen (Schnittmenge, Vereinigung).
-
-### Phase 3: Fortgeschrittene Kozepte
-
-- **Fehlerbehandlung**: Ausnahmen abfangen (\`try\`, \`except\`, \`finally\`, \`raise\`).
-- **Datei-I/O**: Lesen und Schreiben von Dateien (\`open\`, \`read\`, \`write\`, \`with\`-Statement für Kontextmanager).
-- **Module und Pakete**: Code strukturieren, Importieren (\`import\`, \`from ... import ...\`), Nutzung des Paketmanagers \`pip\`.
-- **Virtuelle Umgebungen**: Isolation von Projektabhängigkeiten (\`venv\`).
-
-### Phase 4: Objektorientierte Programmierung (OOP)
-
-- **Klassen und Objekte**: Definition (\`class\`), Instanziierung.
-- **Attribute und Methoden**: Der Konstruktor \`\_\_init\_\_\`, Das Konzept von \`self\`.
-- **Vererbung und Polymorphie**: Wiederverwendung von Code, Überschreiben von Methoden der Elternklasse.
-- **Spezialmethoden**: Magic/Dunder-Methods (z.B. \`\_\_str\_\_\`, \`\_\_repr\_\_\`).
-
-### Phase 5: Praktische Anwendung und Bibliotheken
-
-- **Standardbibliothek**: Arbeiten mit Modulen wie \`os\`, \`sys\`, \`datetime\`, \`math\`, \`json\`, \`re\` (Reguläre Ausdrücke).
-- **Datenanalyse (optional)**: Einstieg in \`pandas\`, \`numpy\`, \`matplotlib\`.
-- **Webentwicklung (optional)**: Grundlagen von \`Flask\` oder \`FastAPI\`.
-- **Automatisierung**: Skripte für alltägliche Aufgaben, Web Scraping mit \`requests\` und \`BeautifulSoup\`.
-
-## Lernplan (Beispiel für 8 Wochen)
-
-Dieser strukturierte 8-Wochen-Plan setzt einen Zeitaufwand von ca. 5-10 Stunden pro Woche voraus.
-
-- **Woche 1: Einstieg und Code-Erstellung**
-  - Installation von Python und Einrichtung einer IDE (z.B. VS Code oder PyCharm).
-  - Kennenlernen des interaktiven Interpreters (REPL).
-  - Variablen, Datentypen und einfache Ein-/Ausgabe (\`print\`, \`input\`).
-  - *Projekt*: Ein interaktiver Taschenrechner in der Konsole.
-
-&lt;!-- --&gt;
-
-- **Woche 2: Logik und Schleifen**
-  - Kontrollstrukturen (\`if\`/\`else\`) implementieren.
-  - \`for\`- und \`while\`-Schleifen verstehen und anwenden.
-  - *Projekt*: Ein Zahlenratespiel (Zufallszahl zwischen 1 und 100 erraten).
-
-&lt;!-- --&gt;
-
-- **Woche 3: Arbeiten mit Daten**
-  - Vertiefung von Listen und Dictionaries.
-  - Kennenlernen von String-Manipulation und Formatierung (z.B. f-Strings).
-  - *Projekt*: Eine einfache To-Do-Listen-Verwaltung für die Konsole.
-
-&lt;!-- --&gt;
-
-- **Woche 4: Funktionen und Modularisierung**
-  - Eigenen Code in funktionen auslagern und strukturieren.
-  - Parameter und Rückgabewerte meistern.
-  - *Projekt*: Modularisierung des bisherigen Codes in verschiedene Dateien/Module.
-
-&lt;!-- --&gt;
-
-- **Woche 5: Fehlerbehandlung und Persistenz**
-  - Robuste Programme mit \`try\`/\`except\` schreiben.
-  - Daten dauerhaft speichern (Textdateien oder JSON).
-  - *Projekt*: Die To-Do-Liste so erweitern, dass die Einträge beim Neustart des Programms erhalten bleiben (Speichern in einer JSON-Datei).
-
-&lt;!-- --&gt;
-
-- **Woche 6: Objektorientierung (OOP)**
-  - OOP-Konzepte: Verstehen und anwenden von Klassen und Objekten.
-  - Attribute und Methoden definieren.
-  - *Projekt*: Ein textbasiertes Rollenspiel (z.B. Klassen für \`Spieler\` und \`Monster\`, die in einer Arena kämpfen).
-
-&lt;!-- --&gt;
-
-- **Woche 7: Erweiterung und Drittanbieter-Bibliotheken**
-  - Reguläre Ausdrücke (\`re\`) für Textsuche nutzen.
-  - Virtuelle Umgebung (\`venv\`) einrichten und Pakete über \`pip\` installieren.
-  - Erste Schritte mit APIs (z.B. über das \`requests\`-Modul).
-  - *Projekt*: Ein Skript, das Wetterdaten einer öffentlichen API abruft und formatiert anzeigt.
-
-&lt;!-- --&gt;
-
-- **Woche 8: Eigenes Abschlussprojekt**
-  - Planung und Umsetzung eines individuellen Projekts (z.B. ein Web Scraper, ein lokaler Webserver oder ein Datenanalyse-Tool).
-  - Code-Refactoring: Den geschriebenen Code lesbarer und effizienter machen (PEP 8 Richtlinien beachten).
-  - Ausblick: Den nächsten Themenfokus wählen (z.B. Webentwicklung, Machine Learning, Data Science).
-
-## Empfohlene Lernressourcen
-
-- **Offizielle Dokumentation**: [Python 3 Documentation](https://docs.python.org/3/)
-- **Tutorials &amp; Interaktives Lernen**:
-  - [Offizielles Python Tutorial](https://docs.python.org/3/tutorial/)
-  - freeCodeCamp (Scientific Computing with Python)
-  - Codecademy
-- **Bücher**:
-  - "Python Crash Course" von Eric Matthes (Sehr praxisorientiert)
-  - "Automate the Boring Stuff with Python" von Al Sweigart (Fokus auf praktische Automatisierung)
-- **Übungsplattformen (für Algorithmen)**:
-  - LeetCode, HackerRank, Codewars</MarkdownInhalt>
-        <Zeitpunkt>2026-03-26T03:28:02.608038Z</Zeitpunkt>
-        <Kategorie />
-        <WikiArtikelId>127</WikiArtikelId>
-      </WikiArtikelVersion>
-      <WikiArtikelVersion>
         <VersionNummer>206</VersionNummer>
         <TenantId>doc</TenantId>
         <MarkdownInhalt>## Einleitung
@@ -14826,6 +14590,242 @@ Dieser strukturierte 8-Wochen-Plan setzt einen Zeitaufwand von ca. 5-10 Stunden 
 - **Übungsplattformen (für Algorithmen)**:
   - LeetCode, HackerRank, Codewars</MarkdownInhalt>
         <Zeitpunkt>2026-03-03T18:58:50Z</Zeitpunkt>
+        <Kategorie />
+        <WikiArtikelId>127</WikiArtikelId>
+      </WikiArtikelVersion>
+      <WikiArtikelVersion>
+        <VersionNummer>253</VersionNummer>
+        <TenantId>doc</TenantId>
+        <MarkdownInhalt>## Einleitung
+##
+Dieser Lernpfad und Lernplan führt dich Schritt für Schritt durch die Python-Programmierung – von den Grundlagen bis hin zu fortgeschrittenen Themen. Python zeichnet sich durch seine klare Syntax und Vielseitigkeit aus und eignet sich ideal für Anfänger sowie für Profis in Bereichen wie Webentwicklung, Datenanalyse und Automatisierung.
+
+## Lernpfad
+
+### Phase 1: Grundlagen der Programmierung
+
+- **Variablen und Datentypen**: Ganzzahlen (int), Fließkommazahlen (float), Zeichenketten (str), Wahrheitswerte (bool).
+- **Operatoren**: Arithmetische, logische und Vergleichsoperatoren.
+- **Kontrollstrukturen**: Bedingungen (\`if\`, \`elif\`, \`else\`).
+- **Schleifen**: Iterationen mit \`for\`- und \`while\`-Schleifen.
+- **Funktionen**: Definition von Funktionen (\`def\`), Parameter, Rückgabewerte und lokaler Skopus.
+
+### Phase 2: Datenstrukturen
+
+- **Listen (Lists)**: Erstellen, Modifizieren, Listen-Methoden (append, pop), Slicing und List Comprehensions.
+- **Tupel (Tuples)**: Unveränderbare (immutable) Datenstrukturen.
+- **Dictionaries**: Speicherung von Schlüssel-Wert-Paaren, schnelles Nachschlagen, Iteration über Keys und Values.
+- **Mengen (Sets)**: Einzigartige Elemente, Mengenoperationen (Schnittmenge, Vereinigung).
+
+### Phase 3: Fortgeschrittene Kozepte
+
+- **Fehlerbehandlung**: Ausnahmen abfangen (\`try\`, \`except\`, \`finally\`, \`raise\`).
+- **Datei-I/O**: Lesen und Schreiben von Dateien (\`open\`, \`read\`, \`write\`, \`with\`-Statement für Kontextmanager).
+- **Module und Pakete**: Code strukturieren, Importieren (\`import\`, \`from ... import ...\`), Nutzung des Paketmanagers \`pip\`.
+- **Virtuelle Umgebungen**: Isolation von Projektabhängigkeiten (\`venv\`).
+
+### Phase 4: Objektorientierte Programmierung (OOP)
+
+- **Klassen und Objekte**: Definition (\`class\`), Instanziierung.
+- **Attribute und Methoden**: Der Konstruktor \`\_\_init\_\_\`, Das Konzept von \`self\`.
+- **Vererbung und Polymorphie**: Wiederverwendung von Code, Überschreiben von Methoden der Elternklasse.
+- **Spezialmethoden**: Magic/Dunder-Methods (z.B. \`\_\_str\_\_\`, \`\_\_repr\_\_\`).
+
+### Phase 5: Praktische Anwendung und Bibliotheken
+
+- **Standardbibliothek**: Arbeiten mit Modulen wie \`os\`, \`sys\`, \`datetime\`, \`math\`, \`json\`, \`re\` (Reguläre Ausdrücke).
+- **Datenanalyse (optional)**: Einstieg in \`pandas\`, \`numpy\`, \`matplotlib\`.
+- **Webentwicklung (optional)**: Grundlagen von \`Flask\` oder \`FastAPI\`.
+- **Automatisierung**: Skripte für alltägliche Aufgaben, Web Scraping mit \`requests\` und \`BeautifulSoup\`.
+
+## Lernplan (Beispiel für 8 Wochen)
+
+Dieser strukturierte 8-Wochen-Plan setzt einen Zeitaufwand von ca. 5-10 Stunden pro Woche voraus.
+
+- **Woche 1: Einstieg und Code-Erstellung**
+  - Installation von Python und Einrichtung einer IDE (z.B. VS Code oder PyCharm).
+  - Kennenlernen des interaktiven Interpreters (REPL).
+  - Variablen, Datentypen und einfache Ein-/Ausgabe (\`print\`, \`input\`).
+  - *Projekt*: Ein interaktiver Taschenrechner in der Konsole.
+
+&lt;!-- --&gt;
+
+- **Woche 2: Logik und Schleifen**
+  - Kontrollstrukturen (\`if\`/\`else\`) implementieren.
+  - \`for\`- und \`while\`-Schleifen verstehen und anwenden.
+  - *Projekt*: Ein Zahlenratespiel (Zufallszahl zwischen 1 und 100 erraten).
+
+&lt;!-- --&gt;
+
+- **Woche 3: Arbeiten mit Daten**
+  - Vertiefung von Listen und Dictionaries.
+  - Kennenlernen von String-Manipulation und Formatierung (z.B. f-Strings).
+  - *Projekt*: Eine einfache To-Do-Listen-Verwaltung für die Konsole.
+
+&lt;!-- --&gt;
+
+- **Woche 4: Funktionen und Modularisierung**
+  - Eigenen Code in funktionen auslagern und strukturieren.
+  - Parameter und Rückgabewerte meistern.
+  - *Projekt*: Modularisierung des bisherigen Codes in verschiedene Dateien/Module.
+
+&lt;!-- --&gt;
+
+- **Woche 5: Fehlerbehandlung und Persistenz**
+  - Robuste Programme mit \`try\`/\`except\` schreiben.
+  - Daten dauerhaft speichern (Textdateien oder JSON).
+  - *Projekt*: Die To-Do-Liste so erweitern, dass die Einträge beim Neustart des Programms erhalten bleiben (Speichern in einer JSON-Datei).
+
+&lt;!-- --&gt;
+
+- **Woche 6: Objektorientierung (OOP)**
+  - OOP-Konzepte: Verstehen und anwenden von Klassen und Objekten.
+  - Attribute und Methoden definieren.
+  - *Projekt*: Ein textbasiertes Rollenspiel (z.B. Klassen für \`Spieler\` und \`Monster\`, die in einer Arena kämpfen).
+
+&lt;!-- --&gt;
+
+- **Woche 7: Erweiterung und Drittanbieter-Bibliotheken**
+  - Reguläre Ausdrücke (\`re\`) für Textsuche nutzen.
+  - Virtuelle Umgebung (\`venv\`) einrichten und Pakete über \`pip\` installieren.
+  - Erste Schritte mit APIs (z.B. über das \`requests\`-Modul).
+  - *Projekt*: Ein Skript, das Wetterdaten einer öffentlichen API abruft und formatiert anzeigt.
+
+&lt;!-- --&gt;
+
+- **Woche 8: Eigenes Abschlussprojekt**
+  - Planung und Umsetzung eines individuellen Projekts (z.B. ein Web Scraper, ein lokaler Webserver oder ein Datenanalyse-Tool).
+  - Code-Refactoring: Den geschriebenen Code lesbarer und effizienter machen (PEP 8 Richtlinien beachten).
+  - Ausblick: Den nächsten Themenfokus wählen (z.B. Webentwicklung, Machine Learning, Data Science).
+
+## Empfohlene Lernressourcen
+
+- **Offizielle Dokumentation**: [Python 3 Documentation](https://docs.python.org/3/)
+- **Tutorials &amp; Interaktives Lernen**:
+  - [Offizielles Python Tutorial](https://docs.python.org/3/tutorial/)
+  - freeCodeCamp (Scientific Computing with Python)
+  - Codecademy
+- **Bücher**:
+  - "Python Crash Course" von Eric Matthes (Sehr praxisorientiert)
+  - "Automate the Boring Stuff with Python" von Al Sweigart (Fokus auf praktische Automatisierung)
+- **Übungsplattformen (für Algorithmen)**:
+  - LeetCode, HackerRank, Codewars
+
+## Einleitung
+
+Dieser Lernpfad und Lernplan führt dich Schritt für Schritt durch die Python-Programmierung – von den Grundlagen bis hin zu fortgeschrittenen Themen. Python zeichnet sich durch seine klare Syntax und Vielseitigkeit aus und eignet sich ideal für Anfänger sowie für Profis in Bereichen wie Webentwicklung, Datenanalyse und Automatisierung.
+
+## Lernpfad
+
+### Phase 1: Grundlagen der Programmierung
+
+- **Variablen und Datentypen**: Ganzzahlen (int), Fließkommazahlen (float), Zeichenketten (str), Wahrheitswerte (bool).
+- **Operatoren**: Arithmetische, logische und Vergleichsoperatoren.
+- **Kontrollstrukturen**: Bedingungen (\`if\`, \`elif\`, \`else\`).
+- **Schleifen**: Iterationen mit \`for\`- und \`while\`-Schleifen.
+- **Funktionen**: Definition von Funktionen (\`def\`), Parameter, Rückgabewerte und lokaler Skopus.
+
+### Phase 2: Datenstrukturen
+
+- **Listen (Lists)**: Erstellen, Modifizieren, Listen-Methoden (append, pop), Slicing und List Comprehensions.
+- **Tupel (Tuples)**: Unveränderbare (immutable) Datenstrukturen.
+- **Dictionaries**: Speicherung von Schlüssel-Wert-Paaren, schnelles Nachschlagen, Iteration über Keys und Values.
+- **Mengen (Sets)**: Einzigartige Elemente, Mengenoperationen (Schnittmenge, Vereinigung).
+
+### Phase 3: Fortgeschrittene Kozepte
+
+- **Fehlerbehandlung**: Ausnahmen abfangen (\`try\`, \`except\`, \`finally\`, \`raise\`).
+- **Datei-I/O**: Lesen und Schreiben von Dateien (\`open\`, \`read\`, \`write\`, \`with\`-Statement für Kontextmanager).
+- **Module und Pakete**: Code strukturieren, Importieren (\`import\`, \`from ... import ...\`), Nutzung des Paketmanagers \`pip\`.
+- **Virtuelle Umgebungen**: Isolation von Projektabhängigkeiten (\`venv\`).
+
+### Phase 4: Objektorientierte Programmierung (OOP)
+
+- **Klassen und Objekte**: Definition (\`class\`), Instanziierung.
+- **Attribute und Methoden**: Der Konstruktor \`\_\_init\_\_\`, Das Konzept von \`self\`.
+- **Vererbung und Polymorphie**: Wiederverwendung von Code, Überschreiben von Methoden der Elternklasse.
+- **Spezialmethoden**: Magic/Dunder-Methods (z.B. \`\_\_str\_\_\`, \`\_\_repr\_\_\`).
+
+### Phase 5: Praktische Anwendung und Bibliotheken
+
+- **Standardbibliothek**: Arbeiten mit Modulen wie \`os\`, \`sys\`, \`datetime\`, \`math\`, \`json\`, \`re\` (Reguläre Ausdrücke).
+- **Datenanalyse (optional)**: Einstieg in \`pandas\`, \`numpy\`, \`matplotlib\`.
+- **Webentwicklung (optional)**: Grundlagen von \`Flask\` oder \`FastAPI\`.
+- **Automatisierung**: Skripte für alltägliche Aufgaben, Web Scraping mit \`requests\` und \`BeautifulSoup\`.
+
+## Lernplan (Beispiel für 8 Wochen)
+
+Dieser strukturierte 8-Wochen-Plan setzt einen Zeitaufwand von ca. 5-10 Stunden pro Woche voraus.
+
+- **Woche 1: Einstieg und Code-Erstellung**
+  - Installation von Python und Einrichtung einer IDE (z.B. VS Code oder PyCharm).
+  - Kennenlernen des interaktiven Interpreters (REPL).
+  - Variablen, Datentypen und einfache Ein-/Ausgabe (\`print\`, \`input\`).
+  - *Projekt*: Ein interaktiver Taschenrechner in der Konsole.
+
+&lt;!-- --&gt;
+
+- **Woche 2: Logik und Schleifen**
+  - Kontrollstrukturen (\`if\`/\`else\`) implementieren.
+  - \`for\`- und \`while\`-Schleifen verstehen und anwenden.
+  - *Projekt*: Ein Zahlenratespiel (Zufallszahl zwischen 1 und 100 erraten).
+
+&lt;!-- --&gt;
+
+- **Woche 3: Arbeiten mit Daten**
+  - Vertiefung von Listen und Dictionaries.
+  - Kennenlernen von String-Manipulation und Formatierung (z.B. f-Strings).
+  - *Projekt*: Eine einfache To-Do-Listen-Verwaltung für die Konsole.
+
+&lt;!-- --&gt;
+
+- **Woche 4: Funktionen und Modularisierung**
+  - Eigenen Code in funktionen auslagern und strukturieren.
+  - Parameter und Rückgabewerte meistern.
+  - *Projekt*: Modularisierung des bisherigen Codes in verschiedene Dateien/Module.
+
+&lt;!-- --&gt;
+
+- **Woche 5: Fehlerbehandlung und Persistenz**
+  - Robuste Programme mit \`try\`/\`except\` schreiben.
+  - Daten dauerhaft speichern (Textdateien oder JSON).
+  - *Projekt*: Die To-Do-Liste so erweitern, dass die Einträge beim Neustart des Programms erhalten bleiben (Speichern in einer JSON-Datei).
+
+&lt;!-- --&gt;
+
+- **Woche 6: Objektorientierung (OOP)**
+  - OOP-Konzepte: Verstehen und anwenden von Klassen und Objekten.
+  - Attribute und Methoden definieren.
+  - *Projekt*: Ein textbasiertes Rollenspiel (z.B. Klassen für \`Spieler\` und \`Monster\`, die in einer Arena kämpfen).
+
+&lt;!-- --&gt;
+
+- **Woche 7: Erweiterung und Drittanbieter-Bibliotheken**
+  - Reguläre Ausdrücke (\`re\`) für Textsuche nutzen.
+  - Virtuelle Umgebung (\`venv\`) einrichten und Pakete über \`pip\` installieren.
+  - Erste Schritte mit APIs (z.B. über das \`requests\`-Modul).
+  - *Projekt*: Ein Skript, das Wetterdaten einer öffentlichen API abruft und formatiert anzeigt.
+
+&lt;!-- --&gt;
+
+- **Woche 8: Eigenes Abschlussprojekt**
+  - Planung und Umsetzung eines individuellen Projekts (z.B. ein Web Scraper, ein lokaler Webserver oder ein Datenanalyse-Tool).
+  - Code-Refactoring: Den geschriebenen Code lesbarer und effizienter machen (PEP 8 Richtlinien beachten).
+  - Ausblick: Den nächsten Themenfokus wählen (z.B. Webentwicklung, Machine Learning, Data Science).
+
+## Empfohlene Lernressourcen
+
+- **Offizielle Dokumentation**: [Python 3 Documentation](https://docs.python.org/3/)
+- **Tutorials &amp; Interaktives Lernen**:
+  - [Offizielles Python Tutorial](https://docs.python.org/3/tutorial/)
+  - freeCodeCamp (Scientific Computing with Python)
+  - Codecademy
+- **Bücher**:
+  - "Python Crash Course" von Eric Matthes (Sehr praxisorientiert)
+  - "Automate the Boring Stuff with Python" von Al Sweigart (Fokus auf praktische Automatisierung)
+- **Übungsplattformen (für Algorithmen)**:
+  - LeetCode, HackerRank, Codewars</MarkdownInhalt>
+        <Zeitpunkt>2026-03-26T03:28:02.608038Z</Zeitpunkt>
         <Kategorie />
         <WikiArtikelId>127</WikiArtikelId>
       </WikiArtikelVersion>
@@ -19792,7 +19792,7 @@ Für Prototyping und Hobby-Projekte bieten viele Provider 2026 kostenlose API-Zu
     <NamespaceId>0</NamespaceId>
     <Versionen>
       <WikiArtikelVersion>
-        <VersionNummer>250</VersionNummer>
+        <VersionNummer>254</VersionNummer>
         <TenantId>doc</TenantId>
         <MarkdownInhalt>## KI-Editoren &amp; Entwicklungsumgebungen (IDEs)
 
@@ -19858,7 +19858,7 @@ Für Prototyping und Hobby-Projekte bieten viele Provider 2026 kostenlose API-Zu
         <WikiArtikelId>171</WikiArtikelId>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
-        <VersionNummer>254</VersionNummer>
+        <VersionNummer>250</VersionNummer>
         <TenantId>doc</TenantId>
         <MarkdownInhalt>## KI-Editoren &amp; Entwicklungsumgebungen (IDEs)
 
@@ -19956,18 +19956,18 @@ Für Prototyping und Hobby-Projekte bieten viele Provider 2026 kostenlose API-Zu
         <WikiArtikelId>173</WikiArtikelId>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
-        <VersionNummer>257</VersionNummer>
-        <TenantId>doc</TenantId>
-        <MarkdownInhalt>bbb</MarkdownInhalt>
-        <Zeitpunkt>2026-03-26T04:01:42.748609Z</Zeitpunkt>
-        <Kategorie />
-        <WikiArtikelId>173</WikiArtikelId>
-      </WikiArtikelVersion>
-      <WikiArtikelVersion>
         <VersionNummer>258</VersionNummer>
         <TenantId>doc</TenantId>
         <MarkdownInhalt>bbb</MarkdownInhalt>
         <Zeitpunkt>2026-03-26T04:04:57.578352Z</Zeitpunkt>
+        <Kategorie />
+        <WikiArtikelId>173</WikiArtikelId>
+      </WikiArtikelVersion>
+      <WikiArtikelVersion>
+        <VersionNummer>257</VersionNummer>
+        <TenantId>doc</TenantId>
+        <MarkdownInhalt>bbb</MarkdownInhalt>
+        <Zeitpunkt>2026-03-26T04:01:42.748609Z</Zeitpunkt>
         <Kategorie />
         <WikiArtikelId>173</WikiArtikelId>
       </WikiArtikelVersion>
@@ -21260,52 +21260,6 @@ Ihr Körper hat bereits bewiesen, dass er in der Lage ist, schwere Süchte (wie 
     <NamespaceId>0</NamespaceId>
     <Versionen>
       <WikiArtikelVersion>
-        <VersionNummer>310</VersionNummer>
-        <TenantId>main</TenantId>
-        <WikiTextInhalt>
-== Inoffizielle Stadtseite von Ahrensburg – Dokumente ==
-Dokumentensammlung: Texte über Ahrensburg
-
-== Eine Wissensdatenbank über Ahrensburg ==
-Dies ist eine private Sammlung, die jeder nutzen, herunterladen und weiterbearbeiten kann. Leider können Sie die Website nicht direkt bearbeiten, da keine Nutzerdaten gespeichert werden. In Deutschland gibt es keine gemeinfreien Lizenzen wie in den USA. Die Inhalte stehen jedoch unter einer freien Lizenz und können weiterverwendet werden. Unten finden Sie weitere Informationen zur Lizenz „Namensnennung – Weitergabe unter gleichen Bedingungen 4.0 International“: [https://creativecommons.org/licenses/by-sa/4.0/ Namensnennung – Weitergabe unter gleichen Bedingungen 4.0 International].
-
-Wenn Sie Texte im Internet veröffentlichen möchten, sollten diese umformuliert werden, da Suchmaschinen doppelte Inhalte nicht bevorzugen. Wenn Sie ein Buch schreiben oder Texte ausdrucken möchten, genügt es, meine Homepage-Adresse anzugeben.
-== Allgemeines ==
-* [[Geschichte &amp; Allgemeines]]
-* [[Sehenswürdigkeiten &amp; Kultur]]
-* [[Alltag &amp; Leben in Ahrensburg]]
-* [[Natur &amp; Freizeit]]
-* [[Infrastruktur &amp; Wirtschaft]]
-* [[Ahrensburg Nachrichten Website]]
-</WikiTextInhalt>
-        <Zeitpunkt>2026-03-27T13:26:36.471618Z</Zeitpunkt>
-        <Kategorie />
-        <WikiArtikelId>216</WikiArtikelId>
-      </WikiArtikelVersion>
-      <WikiArtikelVersion>
-        <VersionNummer>311</VersionNummer>
-        <TenantId>main</TenantId>
-        <WikiTextInhalt>
-== Inoffizielle Stadtseite von Ahrensburg – Dokumente ==
-Dokumentensammlung: Texte über Ahrensburg
-
-== Eine Wissensdatenbank über Ahrensburg ==
-Dies ist eine private Sammlung, die jeder nutzen, herunterladen und weiterbearbeiten kann. Leider können Sie die Website nicht direkt bearbeiten, da keine Nutzerdaten gespeichert werden. In Deutschland gibt es keine gemeinfreien Lizenzen wie in den USA. Die Inhalte stehen jedoch unter einer freien Lizenz und können weiterverwendet werden. Unten finden Sie weitere Informationen zur Lizenz „Namensnennung – Weitergabe unter gleichen Bedingungen 4.0 International“: [https://creativecommons.org/licenses/by-sa/4.0/ Namensnennung – Weitergabe unter gleichen Bedingungen 4.0 International].
-
-Wenn Sie Texte im Internet veröffentlichen möchten, sollten diese umformuliert werden, da Suchmaschinen doppelte Inhalte nicht bevorzugen. Wenn Sie ein Buch schreiben oder Texte ausdrucken möchten, genügt es, meine Homepage-Adresse anzugeben.
-== Allgemeines ==
-* [[Geschichte &amp; Allgemeines]]
-* [[Sehenswürdigkeiten &amp; Kultur]]
-* [[Alltag &amp; Leben in Ahrensburg]]
-* [[Natur &amp; Freizeit]]
-* [[Infrastruktur &amp; Wirtschaft]]
-* [[Ahrensburg Nachrichten Website]]
-[[kategorie:Auto]]</WikiTextInhalt>
-        <Zeitpunkt>2026-03-27T13:31:36.25651Z</Zeitpunkt>
-        <Kategorie />
-        <WikiArtikelId>216</WikiArtikelId>
-      </WikiArtikelVersion>
-      <WikiArtikelVersion>
         <VersionNummer>312</VersionNummer>
         <TenantId>main</TenantId>
         <WikiTextInhalt>
@@ -21354,6 +21308,50 @@ Wenn Sie Texte im Internet veröffentlichen möchten, sollten diese umformuliert
         <WikiArtikelId>216</WikiArtikelId>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
+        <VersionNummer>305</VersionNummer>
+        <TenantId>main</TenantId>
+        <WikiTextInhalt>==Hallo==</WikiTextInhalt>
+        <Zeitpunkt>2026-03-27T13:16:57.429258Z</Zeitpunkt>
+        <Kategorie />
+        <WikiArtikelId>216</WikiArtikelId>
+      </WikiArtikelVersion>
+      <WikiArtikelVersion>
+        <VersionNummer>306</VersionNummer>
+        <TenantId>main</TenantId>
+        <WikiTextInhalt>
+== Inoffizielle Stadtseite von Ahrensburg – Dokumente ==
+Dokumentensammlung: Texte über Ahrensburg
+
+== Eine Wissensdatenbank über Ahrensburg ==
+Dies ist eine private Sammlung, die jeder nutzen, herunterladen und weiterbearbeiten kann. Leider können Sie die Website nicht direkt bearbeiten, da keine Nutzerdaten gespeichert werden. In Deutschland gibt es keine gemeinfreien Lizenzen wie in den USA. Die Inhalte stehen jedoch unter einer freien Lizenz und können weiterverwendet werden. Unten finden Sie weitere Informationen zur Lizenz „Namensnennung – Weitergabe unter gleichen Bedingungen 4.0 International“: [https://creativecommons.org/licenses/by-sa/4.0/ Namensnennung – Weitergabe unter gleichen Bedingungen 4.0 International].
+
+Wenn Sie Texte im Internet veröffentlichen möchten, sollten diese umformuliert werden, da Suchmaschinen doppelte Inhalte nicht bevorzugen. Wenn Sie ein Buch schreiben oder Texte ausdrucken möchten, genügt es, meine Homepage-Adresse anzugeben.
+==Nachrichten==
+&lt;DynamicPageList&gt;
+namespace=Nachrichten
+count=10
+&lt;/DynamicPageList&gt;
+==Blog Artikel==
+&lt;DynamicPageList&gt;
+namespace=Blog
+count=10
+&lt;/DynamicPageList&gt;
+
+== Allgemeines ==
+* [[Geschichte &amp; Allgemeines]]
+* [[Sehenswürdigkeiten &amp; Kultur]]
+* [[Alltag &amp; Leben in Ahrensburg]]
+* [[Natur &amp; Freizeit]]
+* [[Infrastruktur &amp; Wirtschaft]]
+
+
+* [[Ahrensburg Nachrichten Website]]
+</WikiTextInhalt>
+        <Zeitpunkt>2026-03-27T13:18:23.457827Z</Zeitpunkt>
+        <Kategorie />
+        <WikiArtikelId>216</WikiArtikelId>
+      </WikiArtikelVersion>
+      <WikiArtikelVersion>
         <VersionNummer>307</VersionNummer>
         <TenantId>main</TenantId>
         <WikiTextInhalt>
@@ -21383,6 +21381,14 @@ count=10
 * [[Ahrensburg Nachrichten Website]]
 </WikiTextInhalt>
         <Zeitpunkt>2026-03-27T13:19:10.82304Z</Zeitpunkt>
+        <Kategorie />
+        <WikiArtikelId>216</WikiArtikelId>
+      </WikiArtikelVersion>
+      <WikiArtikelVersion>
+        <VersionNummer>302</VersionNummer>
+        <TenantId>main</TenantId>
+        <MarkdownInhalt>hhh</MarkdownInhalt>
+        <Zeitpunkt>2026-03-26T19:30:34.177522Z</Zeitpunkt>
         <Kategorie />
         <WikiArtikelId>216</WikiArtikelId>
       </WikiArtikelVersion>
@@ -21437,7 +21443,7 @@ Wenn Sie Texte im Internet veröffentlichen möchten, sollten diese umformuliert
         <WikiArtikelId>216</WikiArtikelId>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
-        <VersionNummer>306</VersionNummer>
+        <VersionNummer>310</VersionNummer>
         <TenantId>main</TenantId>
         <WikiTextInhalt>
 == Inoffizielle Stadtseite von Ahrensburg – Dokumente ==
@@ -21447,44 +21453,38 @@ Dokumentensammlung: Texte über Ahrensburg
 Dies ist eine private Sammlung, die jeder nutzen, herunterladen und weiterbearbeiten kann. Leider können Sie die Website nicht direkt bearbeiten, da keine Nutzerdaten gespeichert werden. In Deutschland gibt es keine gemeinfreien Lizenzen wie in den USA. Die Inhalte stehen jedoch unter einer freien Lizenz und können weiterverwendet werden. Unten finden Sie weitere Informationen zur Lizenz „Namensnennung – Weitergabe unter gleichen Bedingungen 4.0 International“: [https://creativecommons.org/licenses/by-sa/4.0/ Namensnennung – Weitergabe unter gleichen Bedingungen 4.0 International].
 
 Wenn Sie Texte im Internet veröffentlichen möchten, sollten diese umformuliert werden, da Suchmaschinen doppelte Inhalte nicht bevorzugen. Wenn Sie ein Buch schreiben oder Texte ausdrucken möchten, genügt es, meine Homepage-Adresse anzugeben.
-==Nachrichten==
-&lt;DynamicPageList&gt;
-namespace=Nachrichten
-count=10
-&lt;/DynamicPageList&gt;
-==Blog Artikel==
-&lt;DynamicPageList&gt;
-namespace=Blog
-count=10
-&lt;/DynamicPageList&gt;
-
 == Allgemeines ==
 * [[Geschichte &amp; Allgemeines]]
 * [[Sehenswürdigkeiten &amp; Kultur]]
 * [[Alltag &amp; Leben in Ahrensburg]]
 * [[Natur &amp; Freizeit]]
 * [[Infrastruktur &amp; Wirtschaft]]
-
-
 * [[Ahrensburg Nachrichten Website]]
 </WikiTextInhalt>
-        <Zeitpunkt>2026-03-27T13:18:23.457827Z</Zeitpunkt>
+        <Zeitpunkt>2026-03-27T13:26:36.471618Z</Zeitpunkt>
         <Kategorie />
         <WikiArtikelId>216</WikiArtikelId>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
-        <VersionNummer>305</VersionNummer>
+        <VersionNummer>311</VersionNummer>
         <TenantId>main</TenantId>
-        <WikiTextInhalt>==Hallo==</WikiTextInhalt>
-        <Zeitpunkt>2026-03-27T13:16:57.429258Z</Zeitpunkt>
-        <Kategorie />
-        <WikiArtikelId>216</WikiArtikelId>
-      </WikiArtikelVersion>
-      <WikiArtikelVersion>
-        <VersionNummer>304</VersionNummer>
-        <TenantId>main</TenantId>
-        <MarkdownInhalt>==Hallo==</MarkdownInhalt>
-        <Zeitpunkt>2026-03-27T13:12:19.736807Z</Zeitpunkt>
+        <WikiTextInhalt>
+== Inoffizielle Stadtseite von Ahrensburg – Dokumente ==
+Dokumentensammlung: Texte über Ahrensburg
+
+== Eine Wissensdatenbank über Ahrensburg ==
+Dies ist eine private Sammlung, die jeder nutzen, herunterladen und weiterbearbeiten kann. Leider können Sie die Website nicht direkt bearbeiten, da keine Nutzerdaten gespeichert werden. In Deutschland gibt es keine gemeinfreien Lizenzen wie in den USA. Die Inhalte stehen jedoch unter einer freien Lizenz und können weiterverwendet werden. Unten finden Sie weitere Informationen zur Lizenz „Namensnennung – Weitergabe unter gleichen Bedingungen 4.0 International“: [https://creativecommons.org/licenses/by-sa/4.0/ Namensnennung – Weitergabe unter gleichen Bedingungen 4.0 International].
+
+Wenn Sie Texte im Internet veröffentlichen möchten, sollten diese umformuliert werden, da Suchmaschinen doppelte Inhalte nicht bevorzugen. Wenn Sie ein Buch schreiben oder Texte ausdrucken möchten, genügt es, meine Homepage-Adresse anzugeben.
+== Allgemeines ==
+* [[Geschichte &amp; Allgemeines]]
+* [[Sehenswürdigkeiten &amp; Kultur]]
+* [[Alltag &amp; Leben in Ahrensburg]]
+* [[Natur &amp; Freizeit]]
+* [[Infrastruktur &amp; Wirtschaft]]
+* [[Ahrensburg Nachrichten Website]]
+[[kategorie:Auto]]</WikiTextInhalt>
+        <Zeitpunkt>2026-03-27T13:31:36.25651Z</Zeitpunkt>
         <Kategorie />
         <WikiArtikelId>216</WikiArtikelId>
       </WikiArtikelVersion>
@@ -21497,10 +21497,10 @@ count=10
         <WikiArtikelId>216</WikiArtikelId>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
-        <VersionNummer>302</VersionNummer>
+        <VersionNummer>304</VersionNummer>
         <TenantId>main</TenantId>
-        <MarkdownInhalt>hhh</MarkdownInhalt>
-        <Zeitpunkt>2026-03-26T19:30:34.177522Z</Zeitpunkt>
+        <MarkdownInhalt>==Hallo==</MarkdownInhalt>
+        <Zeitpunkt>2026-03-27T13:12:19.736807Z</Zeitpunkt>
         <Kategorie />
         <WikiArtikelId>216</WikiArtikelId>
       </WikiArtikelVersion>
@@ -21753,21 +21753,6 @@ Er bietet eine Vielzahl frischer Lebensmittel, darunter Obst, Gemüse, Fleisch, 
     <NamespaceId>0</NamespaceId>
     <Versionen>
       <WikiArtikelVersion>
-        <VersionNummer>324</VersionNummer>
-        <TenantId>main</TenantId>
-        <WikiTextInhalt>Gastronomie-Führer in Ahrensburg. Hier finden Sie bekannte Restaurants.
-
-* [https://www.block-house.de/restaurants/ahrensburg/grosse-strasse/ BLOCK HOUSE Ahrensburg]: Beliebtes Steakhouse direkt in der Innenstadt mit durchgehend warmer Küche und großer Terrasse.Ideal für Familienessen, saftige Steaks und entspannte Atmosphäre. Adresse: Große Str. 13, 22926 Ahrensburg, Telefon: 04102 54314.
-
-* [https://restaurantstrehl.de/ Restaurant Strehl]: Familiengeführter Betrieb mit Schwerpunkt auf Wild- und deutscher Küche. Besonders gelobt: das gebratene Lachsfilet. Adresse: Reeshoop 50, 22926 Ahrensburg, Telefon: 04102 41261.
-* [http://www.villaromana-ahrensburg.de/ Villa Romana]: Authentisch italienisches Ambiente in einer alten Kate, gut geeignet für gemütliche Abendessen mit klassischer Pasta- und Fleischküche. Adresse: b. d. Alten Kate 6, 22926 Ahrensburg, Telefon: 04102 6672596.
-* [https://www.restaurantkroatien.de/ Kroatien Restaurant Mediterraneo]: Mediterrane, kroatische Gerichte, z. B. gemischte Vorspeisenteller (Prosciutto, Garnelen etc.). Empfehlenswert für besondere Anlässe oder Familienessen. Adresse: Reeshoop 48, 22926 Ahrensburg, Telefon: 04102 4737184.
-</WikiTextInhalt>
-        <Zeitpunkt>2026-03-27T14:17:04.021131Z</Zeitpunkt>
-        <Kategorie />
-        <WikiArtikelId>226</WikiArtikelId>
-      </WikiArtikelVersion>
-      <WikiArtikelVersion>
         <VersionNummer>323</VersionNummer>
         <TenantId>main</TenantId>
         <WikiTextInhalt>Gastronomie-Führer in Ahrensburg. Hier finden Sie bekannte Restaurants.
@@ -21779,6 +21764,21 @@ Er bietet eine Vielzahl frischer Lebensmittel, darunter Obst, Gemüse, Fleisch, 
 * [https://www.restaurantkroatien.de/ Kroatien Restaurant Mediterraneo]: Mediterrane, kroatische Gerichte, z. B. gemischte Vorspeisenteller (Prosciutto, Garnelen etc.). Empfehlenswert für besondere Anlässe oder Familienessen. Adresse: Reeshoop 48, 22926 Ahrensburg, Telefon: 04102 4737184.
 </WikiTextInhalt>
         <Zeitpunkt>2026-03-27T14:09:14.832491Z</Zeitpunkt>
+        <Kategorie />
+        <WikiArtikelId>226</WikiArtikelId>
+      </WikiArtikelVersion>
+      <WikiArtikelVersion>
+        <VersionNummer>324</VersionNummer>
+        <TenantId>main</TenantId>
+        <WikiTextInhalt>Gastronomie-Führer in Ahrensburg. Hier finden Sie bekannte Restaurants.
+
+* [https://www.block-house.de/restaurants/ahrensburg/grosse-strasse/ BLOCK HOUSE Ahrensburg]: Beliebtes Steakhouse direkt in der Innenstadt mit durchgehend warmer Küche und großer Terrasse.Ideal für Familienessen, saftige Steaks und entspannte Atmosphäre. Adresse: Große Str. 13, 22926 Ahrensburg, Telefon: 04102 54314.
+
+* [https://restaurantstrehl.de/ Restaurant Strehl]: Familiengeführter Betrieb mit Schwerpunkt auf Wild- und deutscher Küche. Besonders gelobt: das gebratene Lachsfilet. Adresse: Reeshoop 50, 22926 Ahrensburg, Telefon: 04102 41261.
+* [http://www.villaromana-ahrensburg.de/ Villa Romana]: Authentisch italienisches Ambiente in einer alten Kate, gut geeignet für gemütliche Abendessen mit klassischer Pasta- und Fleischküche. Adresse: b. d. Alten Kate 6, 22926 Ahrensburg, Telefon: 04102 6672596.
+* [https://www.restaurantkroatien.de/ Kroatien Restaurant Mediterraneo]: Mediterrane, kroatische Gerichte, z. B. gemischte Vorspeisenteller (Prosciutto, Garnelen etc.). Empfehlenswert für besondere Anlässe oder Familienessen. Adresse: Reeshoop 48, 22926 Ahrensburg, Telefon: 04102 4737184.
+</WikiTextInhalt>
+        <Zeitpunkt>2026-03-27T14:17:04.021131Z</Zeitpunkt>
         <Kategorie />
         <WikiArtikelId>226</WikiArtikelId>
       </WikiArtikelVersion>
@@ -22345,20 +22345,20 @@ Ohne Tests ist jedes Refactoring ein Risiko.
     <NamespaceId>0</NamespaceId>
     <Versionen>
       <WikiArtikelVersion>
-        <VersionNummer>348</VersionNummer>
-        <TenantId>doc</TenantId>
-        <WikiTextInhalt>* [[Webframework/Spring Boot/Dependency Injection in reinem Java ohne Interfaces|Dependency Injection in reinem Java ohne Interfaces]]
-</WikiTextInhalt>
-        <Zeitpunkt>2026-03-27T20:05:56.42778Z</Zeitpunkt>
-        <Kategorie />
-        <WikiArtikelId>243</WikiArtikelId>
-      </WikiArtikelVersion>
-      <WikiArtikelVersion>
         <VersionNummer>347</VersionNummer>
         <TenantId>doc</TenantId>
         <WikiTextInhalt>* [[Webframework/Spring Boot/Dependency Injection in reinem Java ohne Interfaces|Dependency Injection in reinem Java ohne Interfaces]]
 </WikiTextInhalt>
         <Zeitpunkt>2026-03-27T20:05:18.576738Z</Zeitpunkt>
+        <Kategorie />
+        <WikiArtikelId>243</WikiArtikelId>
+      </WikiArtikelVersion>
+      <WikiArtikelVersion>
+        <VersionNummer>348</VersionNummer>
+        <TenantId>doc</TenantId>
+        <WikiTextInhalt>* [[Webframework/Spring Boot/Dependency Injection in reinem Java ohne Interfaces|Dependency Injection in reinem Java ohne Interfaces]]
+</WikiTextInhalt>
+        <Zeitpunkt>2026-03-27T20:05:56.42778Z</Zeitpunkt>
         <Kategorie />
         <WikiArtikelId>243</WikiArtikelId>
       </WikiArtikelVersion>
@@ -22371,7 +22371,7 @@ Ohne Tests ist jedes Refactoring ein Risiko.
     <NamespaceId>0</NamespaceId>
     <Versionen>
       <WikiArtikelVersion>
-        <VersionNummer>360</VersionNummer>
+        <VersionNummer>354</VersionNummer>
         <TenantId>doc</TenantId>
         <WikiTextInhalt>Dieser Bericht vergleicht die führenden KI-gestützten Tools für die Softwareentwicklung: '''Google AI''', '''JetBrains AI''', '''GitHub Copilot''', '''Claude (Anthropic)''' und '''OpenAI'''.
 
@@ -22697,7 +22697,7 @@ Für Prototyping und Hobby-Projekte bieten viele Provider 2026 kostenlose API-Zu
 * '''Leistungssieger (Agenten):''' Claude Pro ($20).
 * '''Beste Gratis-Option (Allrounder):''' Google Gemini Individual / AI Studio
 </WikiTextInhalt>
-        <Zeitpunkt>2026-03-27T20:52:15.828136Z</Zeitpunkt>
+        <Zeitpunkt>2026-03-27T20:31:56.357466Z</Zeitpunkt>
         <Kategorie />
         <WikiArtikelId>244</WikiArtikelId>
       </WikiArtikelVersion>
@@ -24354,7 +24354,7 @@ Für Prototyping und Hobby-Projekte bieten viele Provider 2026 kostenlose API-Zu
         <WikiArtikelId>244</WikiArtikelId>
       </WikiArtikelVersion>
       <WikiArtikelVersion>
-        <VersionNummer>354</VersionNummer>
+        <VersionNummer>360</VersionNummer>
         <TenantId>doc</TenantId>
         <WikiTextInhalt>Dieser Bericht vergleicht die führenden KI-gestützten Tools für die Softwareentwicklung: '''Google AI''', '''JetBrains AI''', '''GitHub Copilot''', '''Claude (Anthropic)''' und '''OpenAI'''.
 
@@ -24680,7 +24680,7 @@ Für Prototyping und Hobby-Projekte bieten viele Provider 2026 kostenlose API-Zu
 * '''Leistungssieger (Agenten):''' Claude Pro ($20).
 * '''Beste Gratis-Option (Allrounder):''' Google Gemini Individual / AI Studio
 </WikiTextInhalt>
-        <Zeitpunkt>2026-03-27T20:31:56.357466Z</Zeitpunkt>
+        <Zeitpunkt>2026-03-27T20:52:15.828136Z</Zeitpunkt>
         <Kategorie />
         <WikiArtikelId>244</WikiArtikelId>
       </WikiArtikelVersion>
@@ -25557,99 +25557,6 @@ Hier sind die zentralen Quellen zum Lernen und Nachschlagen:
     <NamespaceId>0</NamespaceId>
     <Versionen>
       <WikiArtikelVersion>
-        <VersionNummer>367</VersionNummer>
-        <TenantId>doc</TenantId>
-        <WikiTextInhalt>
-== Einleitung ==
-GitHub Copilot CLI ist ein leistungsstarker, nativer autonomer Codierungsagent für das Terminal. Er ermöglicht die Steuerung von Git, GitHub CLI und Shell-Befehlen durch natürliche Sprache und transformiert das Terminal in eine interaktive Entwicklungsumgebung, die unter anderem einen Plan- und einen Autopilot-Modus bietet. Da Sie sich nicht mehr an exakte Kommandozeilensyntax erinnern müssen, wird Ihr Workflow massiv beschleunigt.
-
-== 1. Lernpfad (Learning Path) ==
-
-Der Lernpfad ist in vier aufeinander aufbauende Module unterteilt, die jeweils theoretische und praktische Anteile verbinden.
-
-=== Modul 1: Grundlagen und Installation ===
-* '''Ziel:''' Das Tool installieren, einrichten und die grundlegende Funktionsweise verstehen.
-* '''Inhalte:'''
-** Systemvoraussetzungen (aktives GitHub Copilot-Abonnement, Berechtigungen in der Organisation).
-** Installation der Copilot CLI (z.B. per &lt;code&gt;npm&lt;/code&gt;, Homebrew oder WinGet).
-** Authentifizierung bei Ihrem GitHub-Konto (&lt;code&gt;gh auth login&lt;/code&gt; bzw. CLI-spezifischer Login).
-** Aufruf der interaktiven Agenten-Umgebung im Terminal über den Terminal-Befehl &lt;code&gt;copilot&lt;/code&gt;.
-
-=== Modul 2: Basis-Interaktion und Navigation ===
-* '''Ziel:''' Routinierter Umgang mit grundlegenden CLI-Kommandos und Git/GitHub-Integration in natürlicher Sprache.
-* '''Inhalte:'''
-** Erste Anfragen in natürlicher Sprache ("Wie lösche ich sicher alle rekursiv verschachtelten .tmp-Dateien?").
-** Git-Befehle übersetzen lassen ("Erstelle einen neuen Branch für mein Feature und wechsle dorthin").
-** Die interaktive Konversationsschnittstelle des Terminals effektiv nutzen.
-** Umgang mit Lösungsvorschlägen: Diese bewerten, anpassen und direkt ausführen.
-
-=== Modul 3: Agentic Features (Plan- &amp; Autopilot-Modus) ===
-* '''Ziel:''' Komplexe, mehrstufige Aufgaben autonom durch die Copilot CLI strukturieren und ausführen lassen.
-* '''Inhalte:'''
-** '''Plan-Modus (Plan Mode):''' Copilot analysiert die Anfrage, stellt bei Bedarf klärende Fragen und formuliert einen strukturierten, mehrstufigen Implementierungsplan, bevor ein Code geschrieben wird. Prüfung und Freigabe durch den Nutzer.
-** '''Autopilot-Modus (Autopilot Mode):''' Autonome Ausführung des Plans, bei der die CLI Arbeitsdateien modifiziert, Skripte ausführt und iteriert, bis die Aufgabe abgeschlossen ist.
-** Debugging: Übertragung von Terminal-Fehlermeldungen an Copilot zur automatischen Analyse und Fehlerbehebung.
-
-=== Modul 4: Kontextmanagement und Best Practices ===
-* '''Ziel:''' Die KI effizient in großen Projekten steuern und die Übersicht bewahren.
-* '''Inhalte:'''
-** Nutzung des &lt;code&gt;/context&lt;/code&gt; Slash-Commands, um dem Modell spezifische Dateien, Verzeichnisse oder Vorwissen für die aktuelle Sitzung mitzugeben.
-** Nutzung von &lt;code&gt;/usage&lt;/code&gt;, um Nutzungsstatistiken und Quotas im Blick zu behalten.
-** Prompt-Design für die Befehlszeile: Erstellen präziser, kleiner Anweisungen für beste Vorhersagen.
-
-== 2. Lernplan (Zeitplan) ==
-
-Ein strukturierter Plan, der sich in den täglichen Arbeitsfluss integrieren lässt (ca. 2 Wochen bei 30 Minuten täglich).
-
-{| class="wikitable"
-|-
-! Tag !! Thema !! Praktische Übung
-|-
-| 1 || Installation &amp; Setup || Copilot CLI über das bevorzugte Paketmanagement installieren, authentifizieren und mit &lt;code&gt;copilot&lt;/code&gt; starten.
-|-
-| 2 || Shell-Grundbefehle || 5 alltägliche Shell-Aufgaben (Dateien suchen, Rechte ändern, Prozesse anzeigen) in natürlicher Sprache von Copilot ausführen lassen.
-|-
-| 3 || Git-Operationen || Ein Repository bearbeiten: Neues Feature via Copilot branchen, verändern und committen.
-|-
-| 4 || GitHub-Integration || Über die CLI Zusammenfassungen für Issues oder PR-Titel-Ideen auf Grundlage der Diffs generieren lassen.
-|-
-| 5 || Start in den Plan-Modus || Eine funktionale Anforderung stellen (z.B. "Schreibe ein Backup-Skript") und den Plan von Copilot ausarbeiten lassen.
-|-
-| 6 || Autopilot und Ausführung || Den ausgearbeiteten Plan genehmigen und die autonome Abarbeitung durch die Copilot CLI überwachen.
-|-
-| 7 || Debugging || Einen absichtlichen Fehler in ein Shell-Skript einbauen, ausführen und Copilot bitten, das Problem aufgrund der Shell-Fehlermeldung zu beheben.
-|-
-| 8-9 || Kontext-Management || Das Kommando &lt;code&gt;/context&lt;/code&gt; erforschen. Füge bewusst 2-3 komplexe Source-Files zum Kontext hinzu und stelle architektonische Fragen dazu.
-|-
-| 10 || Wiederholung &amp; Routinen || Den gesamten Arbeitstag versuchen, für alle Terminal-Aktionen (Git, Shell, Datei-Ops) ausschließlich die Copilot CLI zu verwenden.
-|}
-
-== 3. Lernressourcen ==
-
-Hier sind die offiziellen und besten Ressourcen, um GitHub Copilot CLI zu beherrschen. Gehen Sie diese am besten sequenziell durch:
-
-=== Offizielle GitHub-Dokumentation ===
-* [https://docs.github.com/de/copilot/github-copilot-in-the-cli/about-github-copilot-in-the-cli Über GitHub Copilot in der CLI (DE)] - Grundlegende Konzepte und Funktionsweise des Konversationsassistenten.
-* [https://docs.github.com/de/copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli Verwendung von GitHub Copilot in der CLI] - Der ausführliche Leitfaden zur Schritt-für-Schritt Einrichtung, Authentifizierung und Nutzung der verschiedenen Modi.
-* [https://docs.github.com/de/copilot GitHub Copilot Hauptdokumentation] - Der Einstieg für alle anderen Copilot-Oberflächen im Vergleich zur CLI.
-* [https://github.blog/ GitHub Blog] - Die beste Quelle für Updates zu den neusten Features der Copilot CLI (z.B. Release-Notes für den Plan-Mode und Autopilot-Mode).
-
-=== Community und Best Practices ===
-* '''GitHub Community Discussions:''' Unter [https://github.com/community GitHub Discussions] lassen sich Use Cases und Prompts von anderen Entwicklern rund um die CLI finden.
-* '''YouTube / Videoquellen:''' Suche nach Begriffen wie "GitHub Copilot Terminal Agent", "Copilot CLI Plan Mode" oder "Copilot Autopilot CLI", um Beispiele in Aktion zu sehen.
-
-=== Referenz-Cheatsheet für die Sitzung ===
-* &lt;code&gt;copilot&lt;/code&gt; - Startet die Agentic CLI-Sitzung.
-* &lt;code&gt;/context&lt;/code&gt; - Fügt dem aktuellen Prompt-Kontext bestimmte Dateien hinzu oder entfernt diese.
-* &lt;code&gt;/usage&lt;/code&gt; - Zeigt aktuelle Telemetrie oder Statistiken der Nutzungen an.
-* &lt;code&gt;/clear&lt;/code&gt; - Setzt das aktuelle Kontextfenster und den Chatverlauf zurück.
-* &lt;code&gt;/help&lt;/code&gt; - Zeigt alle im Agenten verfügbaren Befehle und Bedienhilfen.
-</WikiTextInhalt>
-        <Zeitpunkt>2026-03-27T21:06:43.86761Z</Zeitpunkt>
-        <Kategorie />
-        <WikiArtikelId>253</WikiArtikelId>
-      </WikiArtikelVersion>
-      <WikiArtikelVersion>
         <VersionNummer>368</VersionNummer>
         <TenantId>doc</TenantId>
         <WikiTextInhalt>
@@ -25739,6 +25646,99 @@ Hier sind die offiziellen und besten Ressourcen, um GitHub Copilot CLI zu beherr
 * &lt;code&gt;/help&lt;/code&gt; - Zeigt alle im Agenten verfügbaren Befehle und Bedienhilfen.
 </WikiTextInhalt>
         <Zeitpunkt>2026-03-27T21:21:43.410849Z</Zeitpunkt>
+        <Kategorie />
+        <WikiArtikelId>253</WikiArtikelId>
+      </WikiArtikelVersion>
+      <WikiArtikelVersion>
+        <VersionNummer>367</VersionNummer>
+        <TenantId>doc</TenantId>
+        <WikiTextInhalt>
+== Einleitung ==
+GitHub Copilot CLI ist ein leistungsstarker, nativer autonomer Codierungsagent für das Terminal. Er ermöglicht die Steuerung von Git, GitHub CLI und Shell-Befehlen durch natürliche Sprache und transformiert das Terminal in eine interaktive Entwicklungsumgebung, die unter anderem einen Plan- und einen Autopilot-Modus bietet. Da Sie sich nicht mehr an exakte Kommandozeilensyntax erinnern müssen, wird Ihr Workflow massiv beschleunigt.
+
+== 1. Lernpfad (Learning Path) ==
+
+Der Lernpfad ist in vier aufeinander aufbauende Module unterteilt, die jeweils theoretische und praktische Anteile verbinden.
+
+=== Modul 1: Grundlagen und Installation ===
+* '''Ziel:''' Das Tool installieren, einrichten und die grundlegende Funktionsweise verstehen.
+* '''Inhalte:'''
+** Systemvoraussetzungen (aktives GitHub Copilot-Abonnement, Berechtigungen in der Organisation).
+** Installation der Copilot CLI (z.B. per &lt;code&gt;npm&lt;/code&gt;, Homebrew oder WinGet).
+** Authentifizierung bei Ihrem GitHub-Konto (&lt;code&gt;gh auth login&lt;/code&gt; bzw. CLI-spezifischer Login).
+** Aufruf der interaktiven Agenten-Umgebung im Terminal über den Terminal-Befehl &lt;code&gt;copilot&lt;/code&gt;.
+
+=== Modul 2: Basis-Interaktion und Navigation ===
+* '''Ziel:''' Routinierter Umgang mit grundlegenden CLI-Kommandos und Git/GitHub-Integration in natürlicher Sprache.
+* '''Inhalte:'''
+** Erste Anfragen in natürlicher Sprache ("Wie lösche ich sicher alle rekursiv verschachtelten .tmp-Dateien?").
+** Git-Befehle übersetzen lassen ("Erstelle einen neuen Branch für mein Feature und wechsle dorthin").
+** Die interaktive Konversationsschnittstelle des Terminals effektiv nutzen.
+** Umgang mit Lösungsvorschlägen: Diese bewerten, anpassen und direkt ausführen.
+
+=== Modul 3: Agentic Features (Plan- &amp; Autopilot-Modus) ===
+* '''Ziel:''' Komplexe, mehrstufige Aufgaben autonom durch die Copilot CLI strukturieren und ausführen lassen.
+* '''Inhalte:'''
+** '''Plan-Modus (Plan Mode):''' Copilot analysiert die Anfrage, stellt bei Bedarf klärende Fragen und formuliert einen strukturierten, mehrstufigen Implementierungsplan, bevor ein Code geschrieben wird. Prüfung und Freigabe durch den Nutzer.
+** '''Autopilot-Modus (Autopilot Mode):''' Autonome Ausführung des Plans, bei der die CLI Arbeitsdateien modifiziert, Skripte ausführt und iteriert, bis die Aufgabe abgeschlossen ist.
+** Debugging: Übertragung von Terminal-Fehlermeldungen an Copilot zur automatischen Analyse und Fehlerbehebung.
+
+=== Modul 4: Kontextmanagement und Best Practices ===
+* '''Ziel:''' Die KI effizient in großen Projekten steuern und die Übersicht bewahren.
+* '''Inhalte:'''
+** Nutzung des &lt;code&gt;/context&lt;/code&gt; Slash-Commands, um dem Modell spezifische Dateien, Verzeichnisse oder Vorwissen für die aktuelle Sitzung mitzugeben.
+** Nutzung von &lt;code&gt;/usage&lt;/code&gt;, um Nutzungsstatistiken und Quotas im Blick zu behalten.
+** Prompt-Design für die Befehlszeile: Erstellen präziser, kleiner Anweisungen für beste Vorhersagen.
+
+== 2. Lernplan (Zeitplan) ==
+
+Ein strukturierter Plan, der sich in den täglichen Arbeitsfluss integrieren lässt (ca. 2 Wochen bei 30 Minuten täglich).
+
+{| class="wikitable"
+|-
+! Tag !! Thema !! Praktische Übung
+|-
+| 1 || Installation &amp; Setup || Copilot CLI über das bevorzugte Paketmanagement installieren, authentifizieren und mit &lt;code&gt;copilot&lt;/code&gt; starten.
+|-
+| 2 || Shell-Grundbefehle || 5 alltägliche Shell-Aufgaben (Dateien suchen, Rechte ändern, Prozesse anzeigen) in natürlicher Sprache von Copilot ausführen lassen.
+|-
+| 3 || Git-Operationen || Ein Repository bearbeiten: Neues Feature via Copilot branchen, verändern und committen.
+|-
+| 4 || GitHub-Integration || Über die CLI Zusammenfassungen für Issues oder PR-Titel-Ideen auf Grundlage der Diffs generieren lassen.
+|-
+| 5 || Start in den Plan-Modus || Eine funktionale Anforderung stellen (z.B. "Schreibe ein Backup-Skript") und den Plan von Copilot ausarbeiten lassen.
+|-
+| 6 || Autopilot und Ausführung || Den ausgearbeiteten Plan genehmigen und die autonome Abarbeitung durch die Copilot CLI überwachen.
+|-
+| 7 || Debugging || Einen absichtlichen Fehler in ein Shell-Skript einbauen, ausführen und Copilot bitten, das Problem aufgrund der Shell-Fehlermeldung zu beheben.
+|-
+| 8-9 || Kontext-Management || Das Kommando &lt;code&gt;/context&lt;/code&gt; erforschen. Füge bewusst 2-3 komplexe Source-Files zum Kontext hinzu und stelle architektonische Fragen dazu.
+|-
+| 10 || Wiederholung &amp; Routinen || Den gesamten Arbeitstag versuchen, für alle Terminal-Aktionen (Git, Shell, Datei-Ops) ausschließlich die Copilot CLI zu verwenden.
+|}
+
+== 3. Lernressourcen ==
+
+Hier sind die offiziellen und besten Ressourcen, um GitHub Copilot CLI zu beherrschen. Gehen Sie diese am besten sequenziell durch:
+
+=== Offizielle GitHub-Dokumentation ===
+* [https://docs.github.com/de/copilot/github-copilot-in-the-cli/about-github-copilot-in-the-cli Über GitHub Copilot in der CLI (DE)] - Grundlegende Konzepte und Funktionsweise des Konversationsassistenten.
+* [https://docs.github.com/de/copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli Verwendung von GitHub Copilot in der CLI] - Der ausführliche Leitfaden zur Schritt-für-Schritt Einrichtung, Authentifizierung und Nutzung der verschiedenen Modi.
+* [https://docs.github.com/de/copilot GitHub Copilot Hauptdokumentation] - Der Einstieg für alle anderen Copilot-Oberflächen im Vergleich zur CLI.
+* [https://github.blog/ GitHub Blog] - Die beste Quelle für Updates zu den neusten Features der Copilot CLI (z.B. Release-Notes für den Plan-Mode und Autopilot-Mode).
+
+=== Community und Best Practices ===
+* '''GitHub Community Discussions:''' Unter [https://github.com/community GitHub Discussions] lassen sich Use Cases und Prompts von anderen Entwicklern rund um die CLI finden.
+* '''YouTube / Videoquellen:''' Suche nach Begriffen wie "GitHub Copilot Terminal Agent", "Copilot CLI Plan Mode" oder "Copilot Autopilot CLI", um Beispiele in Aktion zu sehen.
+
+=== Referenz-Cheatsheet für die Sitzung ===
+* &lt;code&gt;copilot&lt;/code&gt; - Startet die Agentic CLI-Sitzung.
+* &lt;code&gt;/context&lt;/code&gt; - Fügt dem aktuellen Prompt-Kontext bestimmte Dateien hinzu oder entfernt diese.
+* &lt;code&gt;/usage&lt;/code&gt; - Zeigt aktuelle Telemetrie oder Statistiken der Nutzungen an.
+* &lt;code&gt;/clear&lt;/code&gt; - Setzt das aktuelle Kontextfenster und den Chatverlauf zurück.
+* &lt;code&gt;/help&lt;/code&gt; - Zeigt alle im Agenten verfügbaren Befehle und Bedienhilfen.
+</WikiTextInhalt>
+        <Zeitpunkt>2026-03-27T21:06:43.86761Z</Zeitpunkt>
         <Kategorie />
         <WikiArtikelId>253</WikiArtikelId>
       </WikiArtikelVersion>
@@ -27207,6 +27207,292 @@ Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte eine E-Mail oder 
     <NamespaceId>0</NamespaceId>
     <Versionen>
       <WikiArtikelVersion>
+        <VersionNummer>385</VersionNummer>
+        <TenantId>doc</TenantId>
+        <MarkdownInhalt>Diese Anleitung erklärt dir, wie du dein Wiki-System mit maximaler Performance (via Unix Domain Sockets) auf einen Ubuntu-Server installierst.
+
+---
+
+## Teil 1: Das Backup (Deine Daten sichern)
+
+1. Öffne ein Terminal in deinem Projektordner auf deinem Computer.
+2. Gib diesen Befehl ein:
+   ```bash
+   dotnet run --project backup -- export mein_umzug.xml --full
+   ```
+3. Sichere die Datei `mein_umzug.xml`.
+
+---
+
+## Teil 2: Vorbereitung auf dem Server
+
+1. **Server aktualisieren:**
+   ```bash
+   sudo apt update &amp;&amp; sudo apt upgrade -y
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:dotnet/backports
+sudo apt-get update
+sudo apt-get install -y aspnetcore-runtime-10.0
+sudo apt-get install -y aspnetcore-runtime-9.0
+sudo apt-get install -y aspnetcore-runtime-8.0
+ ```
+2. **.NET 10 installieren:**
+   ```bash
+   sudo apt install -y dotnet-sdk-10.0
+   ```
+3. **PostgreSQL installieren &amp; einrichten:**
+   ```bash
+   sudo apt install -y postgresql postgresql-contrib
+   sudo -u postgres psql
+   # In psql:
+   CREATE DATABASE meincms;
+   CREATE USER cmsuser WITH PASSWORD 'DeinSicheresPasswort';
+   GRANT ALL PRIVILEGES ON DATABASE meincms TO cmsuser;
+   \q
+   ```
+
+---
+
+## Teil 3: Installation &amp; Unix Socket Setup
+
+### 1. Code hochladen
+Kopiere dein Projekt auf den Server (z.B. nach `/var/www/meincms`).
+
+### 2. Konfiguration anpassen
+Bearbeite `mvc/appsettings.json` (Passwort &amp; Socket-Pfad):
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=localhost;Database=meincms;Username=cmsuser;Password=DeinSicheresPasswort"
+  },
+  "Kestrel": {
+    "UnixSocket": "/run/meincms.sock"
+  }
+}
+```
+
+### 3. Der System-Dienst (Motor)
+Wir erstellen den Dienst so, dass er die Socket-Datei nutzen kann.
+```bash
+sudo nano /etc/systemd/system/meincms.service
+```
+Inhalt (Pfade anpassen!):
+```ini
+[Unit]
+Description=MeinCMS Wiki System (Unix Socket)
+After=network.target postgresql.service
+
+[Service]
+WorkingDirectory=/var/www/meincms/mvc
+# Wichtig: Wir starten die DLL direkt für bessere Stabilität
+ExecStart=/usr/bin/dotnet run --project /var/www/meincms/mvc/mvc.csproj --configuration Release
+Restart=always
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=meincms
+User=www-data
+Group=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+# Verzeichnis für die Socket-Datei vorbereiten
+RuntimeDirectory=meincms
+
+[Install]
+WantedBy=multi-user.target
+```
+
+### 4. Nginx als Schutzschild (Konfiguration für Sockets)
+```bash
+sudo apt install -y nginx
+sudo nano /etc/nginx/sites-available/default
+```
+Ersetze den Inhalt durch (Domain anpassen!):
+```nginx
+server {
+    listen 80;
+    server_name deine-stadt.de;
+
+    location / {
+        # Hier verbinden wir Nginx mit dem Unix Socket
+        proxy_pass         http://unix:/run/meincms.sock;
+        proxy_http_version 1.1;
+        proxy_set_header   Upgrade $http_upgrade;
+        proxy_set_header   Connection keep-alive;
+        proxy_set_header   Host $host;
+        proxy_cache_bypass $http_upgrade;
+        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Proto $scheme;
+    }
+}
+```
+
+---
+
+## Teil 4: Start &amp; Import
+
+1. **Dienste aktivieren:**
+   ```bash
+   sudo systemctl daemon-reload
+   sudo systemctl enable meincms
+   sudo systemctl start meincms
+   sudo systemctl restart nginx
+   ```
+
+2. **Daten importieren:**
+   ```bash
+   cd /var/www/meincms
+   dotnet run --project backup -- import mein_umzug.xml
+   ```
+
+**FERTIG!** Dein System läuft jetzt über den hochperformanten **Unix Socket**. Das ist die professionellste Art, ASP.NET Core unter Linux zu betreiben.
+</MarkdownInhalt>
+        <Zeitpunkt>2026-03-27T22:53:28.893676Z</Zeitpunkt>
+        <Kategorie />
+        <WikiArtikelId>263</WikiArtikelId>
+      </WikiArtikelVersion>
+      <WikiArtikelVersion>
+        <VersionNummer>386</VersionNummer>
+        <TenantId>doc</TenantId>
+        <MarkdownInhalt>Diese Anleitung erklärt dir, wie du dein Wiki-System mit maximaler Performance (via Unix Domain Sockets) auf einen Ubuntu-Server installierst.
+
+---
+
+## Teil 1: Das Backup (Deine Daten sichern)
+
+1. Öffne ein Terminal in deinem Projektordner auf deinem Computer.
+2. Gib diesen Befehl ein:
+   ```bash
+   dotnet run --project backup -- export mein_umzug.xml --full
+   ```
+3. Sichere die Datei `mein_umzug.xml`.
+
+---
+
+## Teil 2: Vorbereitung auf dem Server
+
+1. **Server aktualisieren:**
+```bash
+   sudo apt update &amp;&amp; sudo apt upgrade -y
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:dotnet/backports
+sudo apt-get update
+sudo apt-get install -y aspnetcore-runtime-10.0
+sudo apt-get install -y aspnetcore-runtime-9.0
+sudo apt-get install -y aspnetcore-runtime-8.0
+ ```
+2. **.NET 10 installieren:**
+   ```bash
+   sudo apt install -y dotnet-sdk-10.0
+   ```
+3. **PostgreSQL installieren &amp; einrichten:**
+   ```bash
+   sudo apt install -y postgresql postgresql-contrib
+   sudo -u postgres psql
+   # In psql:
+   CREATE DATABASE meincms;
+   CREATE USER cmsuser WITH PASSWORD 'DeinSicheresPasswort';
+   GRANT ALL PRIVILEGES ON DATABASE meincms TO cmsuser;
+   \q
+   ```
+
+---
+
+## Teil 3: Installation &amp; Unix Socket Setup
+
+### 1. Code hochladen
+Kopiere dein Projekt auf den Server (z.B. nach `/var/www/meincms`).
+
+### 2. Konfiguration anpassen
+Bearbeite `mvc/appsettings.json` (Passwort &amp; Socket-Pfad):
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=localhost;Database=meincms;Username=cmsuser;Password=DeinSicheresPasswort"
+  },
+  "Kestrel": {
+    "UnixSocket": "/run/meincms.sock"
+  }
+}
+```
+
+### 3. Der System-Dienst (Motor)
+Wir erstellen den Dienst so, dass er die Socket-Datei nutzen kann.
+```bash
+sudo nano /etc/systemd/system/meincms.service
+```
+Inhalt (Pfade anpassen!):
+```ini
+[Unit]
+Description=MeinCMS Wiki System (Unix Socket)
+After=network.target postgresql.service
+
+[Service]
+WorkingDirectory=/var/www/meincms/mvc
+# Wichtig: Wir starten die DLL direkt für bessere Stabilität
+ExecStart=/usr/bin/dotnet run --project /var/www/meincms/mvc/mvc.csproj --configuration Release
+Restart=always
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=meincms
+User=www-data
+Group=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+# Verzeichnis für die Socket-Datei vorbereiten
+RuntimeDirectory=meincms
+
+[Install]
+WantedBy=multi-user.target
+```
+
+### 4. Nginx als Schutzschild (Konfiguration für Sockets)
+```bash
+sudo apt install -y nginx
+sudo nano /etc/nginx/sites-available/default
+```
+Ersetze den Inhalt durch (Domain anpassen!):
+```nginx
+server {
+    listen 80;
+    server_name deine-stadt.de;
+
+    location / {
+        # Hier verbinden wir Nginx mit dem Unix Socket
+        proxy_pass         http://unix:/run/meincms.sock;
+        proxy_http_version 1.1;
+        proxy_set_header   Upgrade $http_upgrade;
+        proxy_set_header   Connection keep-alive;
+        proxy_set_header   Host $host;
+        proxy_cache_bypass $http_upgrade;
+        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Proto $scheme;
+    }
+}
+```
+
+---
+
+## Teil 4: Start &amp; Import
+
+1. **Dienste aktivieren:**
+   ```bash
+   sudo systemctl daemon-reload
+   sudo systemctl enable meincms
+   sudo systemctl start meincms
+   sudo systemctl restart nginx
+   ```
+
+2. **Daten importieren:**
+   ```bash
+   cd /var/www/meincms
+   dotnet run --project backup -- import mein_umzug.xml
+   ```
+
+**FERTIG!** Dein System läuft jetzt über den hochperformanten **Unix Socket**. Das ist die professionellste Art, ASP.NET Core unter Linux zu betreiben.
+</MarkdownInhalt>
+        <Zeitpunkt>2026-03-27T22:54:10.299575Z</Zeitpunkt>
+        <Kategorie />
+        <WikiArtikelId>263</WikiArtikelId>
+      </WikiArtikelVersion>
+      <WikiArtikelVersion>
         <VersionNummer>382</VersionNummer>
         <TenantId>doc</TenantId>
         <MarkdownInhalt>Diese Anleitung erklärt dir, wie du dein Wiki-System mit maximaler Performance (via Unix Domain Sockets) auf einen Ubuntu-Server installierst.
@@ -27340,6 +27626,301 @@ server {
 **FERTIG!** Dein System läuft jetzt über den hochperformanten **Unix Socket**. Das ist die professionellste Art, ASP.NET Core unter Linux zu betreiben.
 </MarkdownInhalt>
         <Zeitpunkt>2026-03-27T22:15:21.203413Z</Zeitpunkt>
+        <Kategorie />
+        <WikiArtikelId>263</WikiArtikelId>
+      </WikiArtikelVersion>
+      <WikiArtikelVersion>
+        <VersionNummer>383</VersionNummer>
+        <TenantId>doc</TenantId>
+        <MarkdownInhalt>Diese Anleitung erklärt dir, wie du dein Wiki-System mit maximaler Performance (via Unix Domain Sockets) auf einen Ubuntu-Server installierst.
+
+---
+
+## Teil 1: Das Backup (Deine Daten sichern)
+
+1. Öffne ein Terminal in deinem Projektordner auf deinem Computer.
+2. Gib diesen Befehl ein:
+   ```bash
+   dotnet run --project backup -- export mein_umzug.xml --full
+   ```
+3. Sichere die Datei `mein_umzug.xml`.
+
+---
+
+## Teil 2: Vorbereitung auf dem Server
+
+1. **Server aktualisieren:**
+   ```bash
+   sudo apt update &amp;&amp; sudo apt upgrade -y
+sudo apt install software-properties-common
+
+# Fügt das .NET Backports-Repository hinzu, um verschiedene .NET-Versionen zu erhalten
+sudo add-apt-repository ppa:dotnet/backports
+
+# Aktualisiert die Paketquellen
+sudo apt-get update
+
+# Installiert mehrere Versionen der ASP.NET Core Runtime für parallele Anwendungskompatibilität
+sudo apt-get install -y aspnetcore-runtime-10.0
+sudo apt-get install -y aspnetcore-runtime-9.0
+sudo apt-get install -y aspnetcore-runtime-8.0
+   ```
+2. **.NET 10 installieren:**
+   ```bash
+   sudo apt install -y dotnet-sdk-10.0
+   ```
+3. **PostgreSQL installieren &amp; einrichten:**
+   ```bash
+   sudo apt install -y postgresql postgresql-contrib
+   sudo -u postgres psql
+   # In psql:
+   CREATE DATABASE meincms;
+   CREATE USER cmsuser WITH PASSWORD 'DeinSicheresPasswort';
+   GRANT ALL PRIVILEGES ON DATABASE meincms TO cmsuser;
+   \q
+   ```
+
+---
+
+## Teil 3: Installation &amp; Unix Socket Setup
+
+### 1. Code hochladen
+Kopiere dein Projekt auf den Server (z.B. nach `/var/www/meincms`).
+
+### 2. Konfiguration anpassen
+Bearbeite `mvc/appsettings.json` (Passwort &amp; Socket-Pfad):
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=localhost;Database=meincms;Username=cmsuser;Password=DeinSicheresPasswort"
+  },
+  "Kestrel": {
+    "UnixSocket": "/run/meincms.sock"
+  }
+}
+```
+
+### 3. Der System-Dienst (Motor)
+Wir erstellen den Dienst so, dass er die Socket-Datei nutzen kann.
+```bash
+sudo nano /etc/systemd/system/meincms.service
+```
+Inhalt (Pfade anpassen!):
+```ini
+[Unit]
+Description=MeinCMS Wiki System (Unix Socket)
+After=network.target postgresql.service
+
+[Service]
+WorkingDirectory=/var/www/meincms/mvc
+# Wichtig: Wir starten die DLL direkt für bessere Stabilität
+ExecStart=/usr/bin/dotnet run --project /var/www/meincms/mvc/mvc.csproj --configuration Release
+Restart=always
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=meincms
+User=www-data
+Group=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+# Verzeichnis für die Socket-Datei vorbereiten
+RuntimeDirectory=meincms
+
+[Install]
+WantedBy=multi-user.target
+```
+
+### 4. Nginx als Schutzschild (Konfiguration für Sockets)
+```bash
+sudo apt install -y nginx
+sudo nano /etc/nginx/sites-available/default
+```
+Ersetze den Inhalt durch (Domain anpassen!):
+```nginx
+server {
+    listen 80;
+    server_name deine-stadt.de;
+
+    location / {
+        # Hier verbinden wir Nginx mit dem Unix Socket
+        proxy_pass         http://unix:/run/meincms.sock;
+        proxy_http_version 1.1;
+        proxy_set_header   Upgrade $http_upgrade;
+        proxy_set_header   Connection keep-alive;
+        proxy_set_header   Host $host;
+        proxy_cache_bypass $http_upgrade;
+        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Proto $scheme;
+    }
+}
+```
+
+---
+
+## Teil 4: Start &amp; Import
+
+1. **Dienste aktivieren:**
+   ```bash
+   sudo systemctl daemon-reload
+   sudo systemctl enable meincms
+   sudo systemctl start meincms
+   sudo systemctl restart nginx
+   ```
+
+2. **Daten importieren:**
+   ```bash
+   cd /var/www/meincms
+   dotnet run --project backup -- import mein_umzug.xml
+   ```
+
+**FERTIG!** Dein System läuft jetzt über den hochperformanten **Unix Socket**. Das ist die professionellste Art, ASP.NET Core unter Linux zu betreiben.
+</MarkdownInhalt>
+        <Zeitpunkt>2026-03-27T22:52:04.295887Z</Zeitpunkt>
+        <Kategorie />
+        <WikiArtikelId>263</WikiArtikelId>
+      </WikiArtikelVersion>
+      <WikiArtikelVersion>
+        <VersionNummer>384</VersionNummer>
+        <TenantId>doc</TenantId>
+        <MarkdownInhalt>Diese Anleitung erklärt dir, wie du dein Wiki-System mit maximaler Performance (via Unix Domain Sockets) auf einen Ubuntu-Server installierst.
+
+---
+
+## Teil 1: Das Backup (Deine Daten sichern)
+
+1. Öffne ein Terminal in deinem Projektordner auf deinem Computer.
+2. Gib diesen Befehl ein:
+   ```bash
+   dotnet run --project backup -- export mein_umzug.xml --full
+   ```
+3. Sichere die Datei `mein_umzug.xml`.
+
+---
+
+## Teil 2: Vorbereitung auf dem Server
+
+1. **Server aktualisieren:**
+   ```bash
+   sudo apt update &amp;&amp; sudo apt upgrade -y
+sudo apt install software-properties-common
+# Fügt das .NET Backports-Repository hinzu, um verschiedene .NET-Versionen zu erhalten
+sudo add-apt-repository ppa:dotnet/backports
+# Aktualisiert die Paketquellen
+sudo apt-get update
+# Installiert mehrere Versionen der ASP.NET Core Runtime für parallele Anwendungskompatibilität
+sudo apt-get install -y aspnetcore-runtime-10.0
+sudo apt-get install -y aspnetcore-runtime-9.0
+sudo apt-get install -y aspnetcore-runtime-8.0
+ ```
+2. **.NET 10 installieren:**
+   ```bash
+   sudo apt install -y dotnet-sdk-10.0
+   ```
+3. **PostgreSQL installieren &amp; einrichten:**
+   ```bash
+   sudo apt install -y postgresql postgresql-contrib
+   sudo -u postgres psql
+   # In psql:
+   CREATE DATABASE meincms;
+   CREATE USER cmsuser WITH PASSWORD 'DeinSicheresPasswort';
+   GRANT ALL PRIVILEGES ON DATABASE meincms TO cmsuser;
+   \q
+   ```
+
+---
+
+## Teil 3: Installation &amp; Unix Socket Setup
+
+### 1. Code hochladen
+Kopiere dein Projekt auf den Server (z.B. nach `/var/www/meincms`).
+
+### 2. Konfiguration anpassen
+Bearbeite `mvc/appsettings.json` (Passwort &amp; Socket-Pfad):
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=localhost;Database=meincms;Username=cmsuser;Password=DeinSicheresPasswort"
+  },
+  "Kestrel": {
+    "UnixSocket": "/run/meincms.sock"
+  }
+}
+```
+
+### 3. Der System-Dienst (Motor)
+Wir erstellen den Dienst so, dass er die Socket-Datei nutzen kann.
+```bash
+sudo nano /etc/systemd/system/meincms.service
+```
+Inhalt (Pfade anpassen!):
+```ini
+[Unit]
+Description=MeinCMS Wiki System (Unix Socket)
+After=network.target postgresql.service
+
+[Service]
+WorkingDirectory=/var/www/meincms/mvc
+# Wichtig: Wir starten die DLL direkt für bessere Stabilität
+ExecStart=/usr/bin/dotnet run --project /var/www/meincms/mvc/mvc.csproj --configuration Release
+Restart=always
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=meincms
+User=www-data
+Group=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+# Verzeichnis für die Socket-Datei vorbereiten
+RuntimeDirectory=meincms
+
+[Install]
+WantedBy=multi-user.target
+```
+
+### 4. Nginx als Schutzschild (Konfiguration für Sockets)
+```bash
+sudo apt install -y nginx
+sudo nano /etc/nginx/sites-available/default
+```
+Ersetze den Inhalt durch (Domain anpassen!):
+```nginx
+server {
+    listen 80;
+    server_name deine-stadt.de;
+
+    location / {
+        # Hier verbinden wir Nginx mit dem Unix Socket
+        proxy_pass         http://unix:/run/meincms.sock;
+        proxy_http_version 1.1;
+        proxy_set_header   Upgrade $http_upgrade;
+        proxy_set_header   Connection keep-alive;
+        proxy_set_header   Host $host;
+        proxy_cache_bypass $http_upgrade;
+        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Proto $scheme;
+    }
+}
+```
+
+---
+
+## Teil 4: Start &amp; Import
+
+1. **Dienste aktivieren:**
+   ```bash
+   sudo systemctl daemon-reload
+   sudo systemctl enable meincms
+   sudo systemctl start meincms
+   sudo systemctl restart nginx
+   ```
+
+2. **Daten importieren:**
+   ```bash
+   cd /var/www/meincms
+   dotnet run --project backup -- import mein_umzug.xml
+   ```
+
+**FERTIG!** Dein System läuft jetzt über den hochperformanten **Unix Socket**. Das ist die professionellste Art, ASP.NET Core unter Linux zu betreiben.
+</MarkdownInhalt>
+        <Zeitpunkt>2026-03-27T22:52:36.387746Z</Zeitpunkt>
         <Kategorie />
         <WikiArtikelId>263</WikiArtikelId>
       </WikiArtikelVersion>

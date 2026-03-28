@@ -4,6 +4,14 @@ using mvc.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Einheitliche Konfiguration aus Hauptordner UND config-Ordner laden
+builder.Configuration.SetBasePath(Directory.GetCurrentDirectory());
+builder.Configuration.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+builder.Configuration.AddJsonFile("config/appsettings.json", optional: true, reloadOnChange: true);
+builder.Configuration.AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true, reloadOnChange: true);
+builder.Configuration.AddJsonFile($"config/appsettings.{builder.Environment.EnvironmentName}.json", optional: true, reloadOnChange: true);
+builder.Configuration.AddEnvironmentVariables();
+
 // Configure Kestrel for Unix Domain Sockets if requested
 builder.WebHost.ConfigureKestrel(options =>
 {

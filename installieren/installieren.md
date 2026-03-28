@@ -12,6 +12,7 @@ Diese Anleitung erklärt dir, wie du dein Wiki-System mit maximaler Performance 
    dotnet run --project backup -- export mein_umzug.xml --full
    ```
 3. Sichere die Datei `mein_umzug.xml`.
+4. dotnet publish --configuration Release --output /home/thorsten/thomas
 
 ---
 
@@ -19,7 +20,9 @@ Diese Anleitung erklärt dir, wie du dein Wiki-System mit maximaler Performance 
 
 1. **Server aktualisieren:**
    ```bash
+
    sudo apt update && sudo apt upgrade -y
+
    ```
 2. **.NET 10 installieren:**
    ```bash

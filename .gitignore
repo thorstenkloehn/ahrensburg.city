@@ -21,6 +21,7 @@ publish/
 # User secrets and local configuration
 mvc/appsettings.Development.json
 mvc/appsettings.json
+appsettings.json
 
 # Verhindere, dass versehentlich Passwörter in appsettings.json landen
 # Man sollte stattdessen _appsettings.json (Vorlage) committen

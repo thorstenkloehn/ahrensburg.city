@@ -12,15 +12,24 @@ class Program
     static async Task Main(string[] args)
     {
         // Konfiguration laden
-        string appSettingsPath = Path.Combine(Directory.GetCurrentDirectory(), "mvc", "appsettings.json");
+        string appSettingsPath = Path.Combine(Directory.GetCurrentDirectory(), "config", "appsettings.json");
+        if (!File.Exists(appSettingsPath))
+        {
+             appSettingsPath = Path.Combine(Directory.GetCurrentDirectory(), "mvc", "appsettings.json");
+        }
         if (!File.Exists(appSettingsPath))
         {
              appSettingsPath = Path.Combine(Directory.GetCurrentDirectory(), "..", "mvc", "appsettings.json");
         }
+        if (!File.Exists(appSettingsPath))
+        {
+             appSettingsPath = Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "mvc", "appsettings.json");
+        }
         
         if (!File.Exists(appSettingsPath))
         {
-            Console.WriteLine($"Fehler: appsettings.json nicht gefunden unter {appSettingsPath}.");
+            Console.WriteLine($"Fehler: appsettings.json nicht gefunden.");
+            Console.WriteLine($"Geprüfter Pfad: {appSettingsPath}");
             return;
         }
 
