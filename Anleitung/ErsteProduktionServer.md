@@ -1,5 +1,9 @@
 ## Vorbereitung
+
 ### Entwicklung Rechner
+
+Führe folgende Befehle aus, um die Anwendung zu exportieren, zu veröffentlichen und auf den Server zu übertragen:
+
 ```bash
 dotnet run --project backup -- export mein_umzug.xml --full
 dotnet publish -c Release -r linux-x64 --self-contained false -o /home/thorsten/publis/ahrensburgcity/
@@ -9,24 +13,30 @@ rsync -avz --exclude 'bin' --exclude 'obj' /home/thorsten/publis/ahrensburgcity/
 ```
 
 ### Server Datenbank
-Migrationen (SQL-Befehle) aus der Datei `migration.sql` ausführen:
+
+Führe die SQL-Migrationen aus der Datei `migration.sql` aus:
+
 ```bash
 psql -h localhost -U dein_db_user -d deine_datenbank_name -f /tmp/migration.sql
 ```
 
-### Rechner Systemctl 
-```
+### Systemd Service
+
+Erstelle die Service-Datei:
+
+```bash
 sudo nano /etc/systemd/system/ahrensburgcity.service
 ```
 
-```
+Füge folgenden Inhalt ein:
+
+```ini
 [Unit]
 Description=MeinCMS Wiki System (Unix Socket)
 After=network.target postgresql.service
 
 [Service]
 WorkingDirectory=/var/www/ahrensburgcity/
-# Wichtig: Wir starten die DLL direkt für maximale Performance
 ExecStart=/usr/bin/dotnet /var/www/ahrensburgcity/mvc.dll
 Restart=always
 RestartSec=10
@@ -35,27 +45,32 @@ SyslogIdentifier=meincms
 User=www-data
 Group=www-data
 Environment=ASPNETCORE_ENVIRONMENT=Production
-# Verzeichnis für die Socket-Datei vorbereiten (/run/meincms)
 RuntimeDirectory=meincms
 
 [Install]
 WantedBy=multi-user.target
 ```
 
-```
+Aktiviere und starte den Service:
+
+```bash
 sudo systemctl daemon-reload
 sudo systemctl enable ahrensburgcity.service
 sudo systemctl start ahrensburgcity.service
 sudo systemctl status ahrensburgcity.service
+```
 
-```
-==Nginx==
-```
+### Nginx Konfiguration
+
+Bearbeite die Nginx-Konfiguration:
+
+```bash
 sudo nano /etc/nginx/conf.d/start.conf
 ```
 
-```
-  GNU nano 7.2                                                                                                  hallo.conf                                                                                                            
+Füge folgenden Server-Block ein:
+
+```nginx
 server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
@@ -64,7 +79,6 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/ahrensburg.city/privkey.pem;
 
     location / {
-        # Hier verbinden wir Nginx mit dem Unix Socket
         proxy_pass         http://unix:/var/www/ahrensburgcity/meincms.sock;
         proxy_http_version 1.1;
         proxy_set_header   Upgrade $http_upgrade;
@@ -76,3 +90,4 @@ server {
     }
 }
 ```
+
