@@ -1,0 +1,80 @@
+using System.Text;
+using System.Web;
+using Mardown.Models;
+
+namespace Mardown.Parser;
+
+public class MarkdownASTSerializer
+{
+    public string ToHtml(MarkdownNode node)
+    {
+        var sb = new StringBuilder();
+        Serialize(node, sb);
+        return sb.ToString();
+    }
+
+    private void Serialize(MarkdownNode node, StringBuilder sb)
+    {
+        switch (node)
+        {
+            case RootNode root:
+                foreach (var child in root.Children) Serialize(child, sb);
+                break;
+
+            case HeadingNode h:
+                sb.Append($"<h{h.Level}>");
+                foreach (var child in h.Children) Serialize(child, sb);
+                sb.Append($"</h{h.Level}>\n");
+                break;
+
+            case BoldNode b:
+                sb.Append("<strong>");
+                foreach (var child in b.Children) Serialize(child, sb);
+                sb.Append("</strong>");
+                break;
+
+            case ItalicNode i:
+                sb.Append("<em>");
+                foreach (var child in i.Children) Serialize(child, sb);
+                sb.Append("</em>");
+                break;
+
+            case LinkNode l:
+                sb.Append($"<a href=\"{HttpUtility.HtmlAttributeEncode(l.Url)}\">{HttpUtility.HtmlEncode(l.Label)}</a>");
+                break;
+
+            case TemplateNode t:
+                sb.Append($"<div class=\"markdown-template\" data-name=\"{HttpUtility.HtmlAttributeEncode(t.Name)}\">");
+                sb.Append(HttpUtility.HtmlEncode(string.Join(", ", t.Parameters)));
+                sb.Append("</div>");
+                break;
+
+            case ListNode list:
+                var tag = list.IsOrdered ? "ol" : "ul";
+                sb.Append($"<{tag}>\n");
+                foreach (var child in list.Children) Serialize(child, sb);
+                sb.Append($"</{tag}>\n");
+                break;
+
+            case ListItemNode item:
+                sb.Append("<li>");
+                foreach (var child in item.Children) Serialize(child, sb);
+                sb.Append("</li>\n");
+                break;
+
+            case TextNode text:
+                sb.Append(HttpUtility.HtmlEncode(text.Text));
+                break;
+
+            case ParagraphNode p:
+                sb.Append("<p>");
+                foreach (var child in p.Children) Serialize(child, sb);
+                sb.Append("</p>\n");
+                break;
+
+            case CategoryNode:
+                // Kategorien werden im HTML nicht angezeigt (gelöscht)
+                break;
+        }
+    }
+}

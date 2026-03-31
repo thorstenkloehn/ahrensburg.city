@@ -1,4 +1,6 @@
 <Solution>
+  <Project Path="Mardown.Tests/Mardown.Tests.csproj" />
+  <Project Path="Mardown/Mardown.csproj" />
   <Project Path="mvc.Tests/mvc.Tests.csproj" />
   <Project Path="mvc/mvc.csproj" />
   <Project Path="Services/Services.csproj" />

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using DiffPlex.DiffBuilder;
 using DiffPlex.DiffBuilder.Model;
 using Ganss.Xss;
-using Markdig;
+using Mardown.Parser;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using mvc.Data;
@@ -20,7 +20,7 @@ namespace mvc.Services;
 public class PageService : IPageService
 {
     private readonly ApplicationDbContext _context;
-    private readonly MarkdownPipeline _pipeline;
+    private readonly MarkdownParser _markdownParser;
     private readonly HtmlSanitizer _sanitizer;
     private readonly IDeserializer _yamlDeserializer;
     private readonly ILogger<PageService> _logger;
@@ -34,10 +34,7 @@ public class PageService : IPageService
         _context = context;
         _logger = logger;
         _wikiParser = wikiParser;
-        _pipeline = new MarkdownPipelineBuilder()
-            .UseAdvancedExtensions()
-            .UseYamlFrontMatter()
-            .Build();
+        _markdownParser = new MarkdownParser();
         _sanitizer = new HtmlSanitizer();
         _yamlDeserializer = new DeserializerBuilder()
             .WithNamingConvention(PascalCaseNamingConvention.Instance)
@@ -63,7 +60,14 @@ public class PageService : IPageService
         var (extrahiertKategorien, _) = ExtrahiereMetadaten(markdownInhalt);
         if (extrahiertKategorien != null) kategorien = extrahiertKategorien;
 
-        var htmlInhalt = Markdown.ToHtml(markdownInhalt, _pipeline);
+        // MediaWiki-style Kategorien Extraktion [[kategorie:Name]]
+        var mwKategorien = _markdownParser.GetCategories(markdownInhalt);
+        if (mwKategorien.Any())
+        {
+            kategorien = (kategorien ?? new List<string>()).Concat(mwKategorien).Distinct().ToList();
+        }
+
+        var htmlInhalt = _markdownParser.ToHtml(markdownInhalt);
         await SicherArtikelAsync(slug, htmlInhalt, markdownInhalt, null, kategorien);
     }
 

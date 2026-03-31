@@ -241,7 +241,8 @@ class Program
                             if (!string.IsNullOrEmpty(v.MarkdownInhalt))
                             {
                                 // Falls HTML fehlt (YAML/XML Export), regenerieren wir es aus Markdown
-                                html = Markdig.Markdown.ToHtml(v.MarkdownInhalt);
+                                var markdownParser = new Mardown.Parser.MarkdownParser();
+                                html = markdownParser.ToHtml(v.MarkdownInhalt);
                             }
                             else if (!string.IsNullOrEmpty(v.WikiTextInhalt))
                             {
