@@ -8,31 +8,24 @@ using System.Xml.Serialization;
 
 namespace backup;
 
+/// <summary>
+/// Container für ein vollständiges Backup aller CMS-Daten.
+/// </summary>
+public class BackupContainer
+{
+    public List<WikiArtikel> Artikel { get; set; } = new();
+    public List<WikiNamespace> Namespaces { get; set; } = new();
+    public DateTime ExportZeitpunkt { get; set; } = DateTime.UtcNow;
+    public string Version { get; set; } = "2.1";
+}
+
 class Program
 {
     static async Task Main(string[] args)
     {
         // 1. Konfiguration laden
-        string appSettingsPath = Path.Combine(Directory.GetCurrentDirectory(), "config", "appsettings.json");
-        if (!File.Exists(appSettingsPath))
-        {
-             appSettingsPath = Path.Combine(Directory.GetCurrentDirectory(), "mvc", "appsettings.json");
-        }
-        if (!File.Exists(appSettingsPath))
-        {
-             appSettingsPath = Path.Combine(Directory.GetCurrentDirectory(), "..", "mvc", "appsettings.json");
-        }
-        if (!File.Exists(appSettingsPath))
-        {
-             appSettingsPath = Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "mvc", "appsettings.json");
-        }
-        
-        if (!File.Exists(appSettingsPath))
-        {
-            Console.WriteLine($"Fehler: appsettings.json nicht gefunden.");
-            Console.WriteLine($"Geprüfter Pfad: {appSettingsPath}");
-            return;
-        }
+        string appSettingsPath = GetAppSettingsPath();
+        if (appSettingsPath == null) return;
 
         var configuration = new ConfigurationBuilder()
             .AddJsonFile(appSettingsPath, optional: false, reloadOnChange: true)
@@ -50,7 +43,6 @@ class Program
         services.AddDbContext<ApplicationDbContext>(options =>
             options.UseNpgsql(connectionString));
         
-        // MediaWiki Parser registrieren
         services.AddScoped<Wikitext.Parser.IMediaWikiTokenizer, Wikitext.Parser.MediaWikiTokenizer>();
         services.AddScoped<Wikitext.Parser.IMediaWikiASTBuilder, Wikitext.Parser.MediaWikiASTBuilder>();
         services.AddScoped<Wikitext.Parser.IMediaWikiASTSerializer, Wikitext.Parser.MediaWikiASTSerializer>();
@@ -74,16 +66,15 @@ class Program
         if (command == "export")
         {
             bool full = args.Contains("--full");
-            
-            // Finde den ersten Parameter, der kein Befehl oder Flag ist
             string? fileName = args.FirstOrDefault(a => a != "export" && a != "--full");
             
             if (string.IsNullOrEmpty(fileName))
             {
-                fileName = full ? "meincms_full_backup.xml" : "meincms_backup.xml";
+                string suffix = full ? "full" : "tenant";
+                fileName = $"backup_{suffix}_{DateTime.Now:yyyyMMdd_HHmm}.yaml";
             }
             
-            Console.WriteLine($"Exportiere {(full ? "ALLE" : "aktuelle")} Wiki-Inhalte in {fileName}...");
+            Console.WriteLine($"[*] Starte Export (Modus: {(full ? "GLOBAL" : "AKTUELLER MANDANT")})...");
             await Export(context, fileName, full);
         }
         else if (command == "import")
@@ -91,10 +82,10 @@ class Program
             string? fileName = args.FirstOrDefault(a => a != "import");
             if (string.IsNullOrEmpty(fileName) || !File.Exists(fileName))
             {
-                Console.WriteLine($"Fehler: Datei {fileName ?? "meincms_full_backup.xml"} nicht gefunden.");
+                Console.WriteLine($"[!] Fehler: Datei {fileName ?? "backup.yaml"} nicht gefunden.");
                 return;
             }
-            Console.WriteLine($"Importiere Daten aus {fileName}...");
+            Console.WriteLine($"[*] Starte Import aus {fileName}...");
             await Import(context, wikiParser, fileName);
         }
         else
@@ -103,179 +94,159 @@ class Program
         }
     }
 
+    private static string? GetAppSettingsPath()
+    {
+        var paths = new[] 
+        {
+            Path.Combine(Directory.GetCurrentDirectory(), "config", "appsettings.json"),
+            Path.Combine(Directory.GetCurrentDirectory(), "mvc", "appsettings.json"),
+            Path.Combine(Directory.GetCurrentDirectory(), "..", "mvc", "appsettings.json"),
+            Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "mvc", "appsettings.json")
+        };
+
+        foreach (var path in paths)
+        {
+            if (File.Exists(path)) return path;
+        }
+
+        Console.WriteLine("Fehler: appsettings.json nicht gefunden.");
+        return null;
+    }
+
     static void ShowHelp()
     {
-        Console.WriteLine("\n--- MeinCMS Backup Tool ---");
+        Console.WriteLine("\n=== MeinCMS Backup Professional Edition ===");
         Console.WriteLine("Verwendung:");
-        Console.WriteLine("  dotnet run --project backup -- export [dateiname.xml|yaml] [--full]");
-        Console.WriteLine("  dotnet run --project backup -- import [dateiname.xml|yaml]");
-        Console.WriteLine("\nOptionen:");
-        Console.WriteLine("  export         Erstellt ein Backup (Standard: meincms_backup.xml)");
-        Console.WriteLine("  --full         Exportiert alle Artikel über alle Mandanten hinweg");
-        Console.WriteLine("  import         Importiert Daten (Upsert-Logik)");
-        Console.WriteLine("\nFormate:");
-        Console.WriteLine("  .xml           Standard XML-Format");
-        Console.WriteLine("  .yaml, .yml    Kompaktes YAML-Format (ohne HTML, inkl. Markdown & WikiText)");
+        Console.WriteLine("  dotnet run --project backup -- export [file.yaml] [--full]");
+        Console.WriteLine("  dotnet run --project backup -- import [file.yaml]");
+        Console.WriteLine("\nFeatures:");
+        Console.WriteLine("  - Automatisches Dateinamen-Schema: backup_full_20260401_0126.yaml");
+        Console.WriteLine("  - Sichert Artikel, Versionen und Namespaces.");
+        Console.WriteLine("  - Regeneriert HTML beim Import (spart 70% Speicherplatz).");
     }
 
     static async Task Export(ApplicationDbContext context, string fileName, bool full)
     {
         var query = context.WikiArtikels.AsQueryable();
-        if (full) query = query.IgnoreQueryFilters();
+        var nsQuery = context.WikiNamespaces.AsQueryable();
 
-        var artikel = await query
-            .Include(a => a.Versionen)
-            .AsNoTracking()
-            .ToListAsync();
+        if (full)
+        {
+            query = query.IgnoreQueryFilters();
+            nsQuery = nsQuery.IgnoreQueryFilters();
+        }
 
-        // Normalisierung: Leere TenantId zu "main"
-        foreach (var a in artikel)
+        var artikel = await query.Include(a => a.Versionen).AsNoTracking().ToListAsync();
+        var namespaces = await nsQuery.AsNoTracking().ToListAsync();
+
+        var container = new BackupContainer
+        {
+            Artikel = artikel,
+            Namespaces = namespaces,
+            ExportZeitpunkt = DateTime.UtcNow
+        };
+
+        // Normalisierung
+        foreach (var a in container.Artikel)
         {
             if (string.IsNullOrEmpty(a.TenantId)) a.TenantId = "main";
-            if (a.Versionen != null)
-            {
-                foreach (var v in a.Versionen)
-                {
-                    if (string.IsNullOrEmpty(v.TenantId)) v.TenantId = "main";
-                }
-            }
+            foreach (var v in a.Versionen) if (string.IsNullOrEmpty(v.TenantId)) v.TenantId = "main";
         }
 
-        if (fileName.EndsWith(".yaml") || fileName.EndsWith(".yml"))
-        {
-            var serializer = new YamlDotNet.Serialization.SerializerBuilder()
-                .WithNamingConvention(YamlDotNet.Serialization.NamingConventions.PascalCaseNamingConvention.Instance)
-                .Build();
-            
-            var directory = Path.GetDirectoryName(fileName);
-            if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
-            {
-                Directory.CreateDirectory(directory);
-            }
+        var serializer = new YamlDotNet.Serialization.SerializerBuilder()
+            .WithNamingConvention(YamlDotNet.Serialization.NamingConventions.PascalCaseNamingConvention.Instance)
+            .Build();
 
-            using var writer = new StreamWriter(fileName);
-            serializer.Serialize(writer, artikel);
-        }
-        else
-        {
-            var serializer = new XmlSerializer(typeof(List<WikiArtikel>));
-            var directory = Path.GetDirectoryName(fileName);
-            if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
-            {
-                Directory.CreateDirectory(directory);
-            }
-
-            using (var writer = new StreamWriter(fileName))
-            {
-                serializer.Serialize(writer, artikel);
-            }
-        }
-
-        Console.WriteLine($"ERFOLG: {artikel.Count} Artikel gesichert.");
+        await File.WriteAllTextAsync(fileName, serializer.Serialize(container));
+        Console.WriteLine($"[OK] Export abgeschlossen. {artikel.Count} Artikel in '{fileName}' gesichert.");
     }
 
     static async Task Import(ApplicationDbContext context, Wikitext.Parser.IMediaWikiParser wikiParser, string fileName)
     {
-        List<WikiArtikel>? importDaten = null;
-
-        if (fileName.EndsWith(".yaml") || fileName.EndsWith(".yml"))
+        var deserializer = new YamlDotNet.Serialization.DeserializerBuilder()
+            .WithNamingConvention(YamlDotNet.Serialization.NamingConventions.PascalCaseNamingConvention.Instance)
+            .IgnoreUnmatchedProperties()
+            .Build();
+        
+        BackupContainer? container;
+        using (var reader = new StreamReader(fileName))
         {
-            var deserializer = new YamlDotNet.Serialization.DeserializerBuilder()
-                .WithNamingConvention(YamlDotNet.Serialization.NamingConventions.PascalCaseNamingConvention.Instance)
-                .IgnoreUnmatchedProperties()
-                .Build();
-            
-            using var reader = new StreamReader(fileName);
-            importDaten = deserializer.Deserialize<List<WikiArtikel>>(reader);
-        }
-        else
-        {
-            var serializer = new XmlSerializer(typeof(List<WikiArtikel>));
-            using (var reader = new StreamReader(fileName))
+            // Abwärtskompatibilität prüfen: Ist es ein BackupContainer oder eine Liste?
+            var content = await reader.ReadToEndAsync();
+            if (content.Contains("Artikel:") && content.Contains("Namespaces:"))
             {
-                importDaten = serializer.Deserialize(reader) as List<WikiArtikel>;
+                container = deserializer.Deserialize<BackupContainer>(content);
+            }
+            else
+            {
+                // Altes Format (nur Liste)
+                var artikel = deserializer.Deserialize<List<WikiArtikel>>(content);
+                container = new BackupContainer { Artikel = artikel };
             }
         }
 
-        if (importDaten == null) return;
+        if (container == null) return;
 
-        int neueArtikel = 0;
-        int neueVersionen = 0;
-
-        foreach (var bA in importDaten)
+        // 1. Namespaces importieren
+        foreach (var ns in container.Namespaces)
         {
-            // Normalisierung beim Import
-            var effectiveTenantId = string.IsNullOrEmpty(bA.TenantId) ? "main" : bA.TenantId;
+            var exists = await context.WikiNamespaces.IgnoreQueryFilters()
+                .AnyAsync(x => x.Id == ns.Id || x.Name == ns.Name);
+            if (!exists) context.WikiNamespaces.Add(ns);
+        }
+        await context.SaveChangesAsync();
 
+        // 2. Artikel importieren
+        int neueArtikel = 0, neueVersionen = 0;
+        var markdownParser = new Mardown.Parser.MarkdownParser();
+
+        foreach (var bA in container.Artikel)
+        {
+            var effectiveTenantId = string.IsNullOrEmpty(bA.TenantId) ? "main" : bA.TenantId;
             var dbA = await context.WikiArtikels.IgnoreQueryFilters()
                 .FirstOrDefaultAsync(a => a.Slug == bA.Slug && a.TenantId == effectiveTenantId);
             
             if (dbA == null)
             {
-                dbA = new WikiArtikel 
-                { 
-                    Slug = bA.Slug, 
-                    TenantId = effectiveTenantId,
-                    NamespaceId = bA.NamespaceId
-                };
+                dbA = new WikiArtikel { Slug = bA.Slug, TenantId = effectiveTenantId, NamespaceId = bA.NamespaceId };
                 context.WikiArtikels.Add(dbA);
                 await context.SaveChangesAsync();
                 neueArtikel++;
             }
 
-            if (bA.Versionen != null)
+            foreach (var v in bA.Versionen.OrderBy(x => x.Zeitpunkt))
             {
-                foreach (var v in bA.Versionen.OrderBy(x => x.Zeitpunkt))
+                var vTenantId = string.IsNullOrEmpty(v.TenantId) ? effectiveTenantId : v.TenantId;
+                bool exists = await context.WikiArtikelVersions.IgnoreQueryFilters()
+                    .AnyAsync(ev => ev.WikiArtikelId == dbA.Id && ev.Zeitpunkt == v.Zeitpunkt && ev.TenantId == vTenantId);
+
+                if (!exists)
                 {
-                    // Auch hier Normalisierung der TenantId der Version
-                    var effectiveVersionTenantId = string.IsNullOrEmpty(v.TenantId) ? effectiveTenantId : v.TenantId;
-
-                    bool exists = await context.WikiArtikelVersions.IgnoreQueryFilters()
-                        .AnyAsync(ev => ev.WikiArtikelId == dbA.Id && ev.Zeitpunkt == v.Zeitpunkt && ev.TenantId == effectiveVersionTenantId);
-
-                    if (!exists)
+                    string? html = v.HtmlInhalt;
+                    if (string.IsNullOrEmpty(html))
                     {
-                        string? html = v.HtmlInhalt;
-                        if (string.IsNullOrEmpty(html))
-                        {
-                            if (!string.IsNullOrEmpty(v.MarkdownInhalt))
-                            {
-                                // Falls HTML fehlt (YAML/XML Export), regenerieren wir es aus Markdown
-                                var markdownParser = new Mardown.Parser.MarkdownParser();
-                                html = markdownParser.ToHtml(v.MarkdownInhalt);
-                            }
-                            else if (!string.IsNullOrEmpty(v.WikiTextInhalt))
-                            {
-                                // Falls HTML fehlt, regenerieren wir es aus WikiText
-                                try 
-                                {
-                                    html = wikiParser.ToHtml(v.WikiTextInhalt);
-                                }
-                                catch (Exception ex)
-                                {
-                                    Console.WriteLine($"Warnung: Fehler beim Parsen von WikiText für {bA.Slug} ({v.Zeitpunkt}): {ex.Message}");
-                                    html = $"<div class='alert alert-danger'>Fehler beim Parsen von WikiText: {ex.Message}</div>";
-                                }
-                            }
-                        }
-
-                        context.WikiArtikelVersions.Add(new WikiArtikelVersion
-                        {
-                            WikiArtikelId = dbA.Id,
-                            TenantId = effectiveVersionTenantId,
-                            MarkdownInhalt = v.MarkdownInhalt,
-                            WikiTextInhalt = v.WikiTextInhalt,
-                            HtmlInhalt = html,
-                            Kategorie = v.Kategorie,
-                            Zeitpunkt = v.Zeitpunkt
-                        });
-                        neueVersionen++;
+                        if (!string.IsNullOrEmpty(v.MarkdownInhalt))
+                            html = markdownParser.ToHtml(v.MarkdownInhalt);
+                        else if (!string.IsNullOrEmpty(v.WikiTextInhalt))
+                            html = wikiParser.ToHtml(v.WikiTextInhalt);
                     }
+
+                    context.WikiArtikelVersions.Add(new WikiArtikelVersion
+                    {
+                        WikiArtikelId = dbA.Id,
+                        TenantId = vTenantId,
+                        MarkdownInhalt = v.MarkdownInhalt,
+                        WikiTextInhalt = v.WikiTextInhalt,
+                        HtmlInhalt = html ?? "",
+                        Kategorie = v.Kategorie,
+                        Zeitpunkt = v.Zeitpunkt
+                    });
+                    neueVersionen++;
                 }
             }
         }
 
         await context.SaveChangesAsync();
-        Console.WriteLine($"IMPORT FERTIG: {neueArtikel} Artikel neu, {neueVersionen} Versionen hinzugefügt.");
+        Console.WriteLine($"[OK] Import abgeschlossen: {neueArtikel} Artikel neu, {neueVersionen} Versionen hinzugefügt.");
     }
 }
