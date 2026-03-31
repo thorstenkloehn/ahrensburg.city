@@ -1,7 +1,7 @@
 using System.Text;
-using mvc.Parser.Models;
+using Wikitext.Models;
 
-namespace mvc.Parser;
+namespace Wikitext.Parser;
 
 public interface IMediaWikiASTSerializer
 {
@@ -13,12 +13,7 @@ public class MediaWikiASTSerializer : IMediaWikiASTSerializer
 {
     public string ToHtml(WikiNode node)
     {
-        var sb = new StringBuilder();
-        foreach (var child in node.Children)
-        {
-            sb.Append(SerializeNodeToHtml(child));
-        }
-        return sb.ToString();
+        return SerializeNodeToHtml(node);
     }
 
     private string SerializeNodeToHtml(WikiNode node)
@@ -112,12 +107,7 @@ public class MediaWikiASTSerializer : IMediaWikiASTSerializer
 
     public string ToWikiText(WikiNode node)
     {
-        var sb = new StringBuilder();
-        foreach (var child in node.Children)
-        {
-            sb.Append(SerializeNodeToWikiText(child));
-        }
-        return sb.ToString();
+        return SerializeNodeToWikiText(node);
     }
 
     private string SerializeNodeToWikiText(WikiNode node)
@@ -147,12 +137,59 @@ public class MediaWikiASTSerializer : IMediaWikiASTSerializer
             case LinkNode link:
                 sb.Append("[[");
                 sb.Append(link.Target);
-                if (link.Display != link.Target)
+                if (!string.IsNullOrEmpty(link.Display) && link.Display != link.Target)
                 {
                     sb.Append("|");
                     sb.Append(link.Display);
                 }
                 sb.Append("]]");
+                break;
+            case CategoryNode category:
+                sb.Append("[[Kategorie:");
+                sb.Append(category.CategoryName);
+                if (!string.IsNullOrEmpty(category.SortKey))
+                {
+                    sb.Append("|");
+                    sb.Append(category.SortKey);
+                }
+                sb.Append("]]");
+                break;
+            case TemplateNode template:
+                sb.Append("{{");
+                sb.Append(template.TemplateName);
+                foreach (var param in template.Parameters)
+                {
+                    sb.Append("|");
+                    if (!string.IsNullOrEmpty(param.Key) && !int.TryParse(param.Key, out _))
+                    {
+                        sb.Append(param.Key);
+                        sb.Append("=");
+                    }
+                    sb.Append(param.Value);
+                }
+                sb.Append("}}");
+                break;
+            case ListNode list:
+                var prefix = list.Type == ListType.Unordered ? "*" : "#";
+                foreach (var child in list.Children)
+                {
+                    if (child is ListItemNode listItem)
+                    {
+                        sb.Append(prefix);
+                        sb.Append(" ");
+                        foreach (var itemChild in listItem.Children) sb.Append(SerializeNodeToWikiText(itemChild));
+                        sb.AppendLine();
+                    }
+                    else
+                    {
+                        sb.Append(SerializeNodeToWikiText(child));
+                    }
+                }
+                break;
+            case ParagraphNode paragraph:
+                foreach (var child in paragraph.Children) sb.Append(SerializeNodeToWikiText(child));
+                sb.AppendLine();
+                sb.AppendLine();
                 break;
             case TableNode table:
                 sb.AppendLine("{|");
@@ -172,6 +209,9 @@ public class MediaWikiASTSerializer : IMediaWikiASTSerializer
                 sb.Append("<code>");
                 foreach (var child in codeNode.Children) sb.Append(SerializeNodeToWikiText(child));
                 sb.Append("</code>");
+                break;
+            case RootNode root:
+                foreach (var child in root.Children) sb.Append(SerializeNodeToWikiText(child));
                 break;
             default:
                 foreach (var child in node.Children) sb.Append(SerializeNodeToWikiText(child));

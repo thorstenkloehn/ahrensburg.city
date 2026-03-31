@@ -51,10 +51,10 @@ class Program
             options.UseNpgsql(connectionString));
         
         // MediaWiki Parser registrieren
-        services.AddScoped<mvc.Parser.IMediaWikiTokenizer, mvc.Parser.MediaWikiTokenizer>();
-        services.AddScoped<mvc.Parser.IMediaWikiASTBuilder, mvc.Parser.MediaWikiASTBuilder>();
-        services.AddScoped<mvc.Parser.IMediaWikiASTSerializer, mvc.Parser.MediaWikiASTSerializer>();
-        services.AddScoped<mvc.Parser.IMediaWikiParser, mvc.Parser.MediaWikiParser>();
+        services.AddScoped<Wikitext.Parser.IMediaWikiTokenizer, Wikitext.Parser.MediaWikiTokenizer>();
+        services.AddScoped<Wikitext.Parser.IMediaWikiASTBuilder, Wikitext.Parser.MediaWikiASTBuilder>();
+        services.AddScoped<Wikitext.Parser.IMediaWikiASTSerializer, Wikitext.Parser.MediaWikiASTSerializer>();
+        services.AddScoped<Wikitext.Parser.IMediaWikiParser, Wikitext.Parser.MediaWikiParser>();
         
         var serviceProvider = services.BuildServiceProvider();
 
@@ -67,7 +67,7 @@ class Program
 
         using var scope = serviceProvider.CreateScope();
         var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-        var wikiParser = scope.ServiceProvider.GetRequiredService<mvc.Parser.IMediaWikiParser>();
+        var wikiParser = scope.ServiceProvider.GetRequiredService<Wikitext.Parser.IMediaWikiParser>();
 
         var command = args[0].ToLower();
 
@@ -174,7 +174,7 @@ class Program
         Console.WriteLine($"ERFOLG: {artikel.Count} Artikel gesichert.");
     }
 
-    static async Task Import(ApplicationDbContext context, mvc.Parser.IMediaWikiParser wikiParser, string fileName)
+    static async Task Import(ApplicationDbContext context, Wikitext.Parser.IMediaWikiParser wikiParser, string fileName)
     {
         List<WikiArtikel>? importDaten = null;
 

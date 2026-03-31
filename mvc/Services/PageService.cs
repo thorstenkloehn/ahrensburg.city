@@ -24,12 +24,12 @@ public class PageService : IPageService
     private readonly HtmlSanitizer _sanitizer;
     private readonly IDeserializer _yamlDeserializer;
     private readonly ILogger<PageService> _logger;
-    private readonly Parser.IMediaWikiParser _wikiParser;
+    private readonly Wikitext.Parser.IMediaWikiParser _wikiParser;
     
     public const int MaxCategories = 10;
     public const int MaxCategoryLength = 50;
 
-    public PageService(ApplicationDbContext context, ILogger<PageService> logger, Parser.IMediaWikiParser wikiParser)
+    public PageService(ApplicationDbContext context, ILogger<PageService> logger, Wikitext.Parser.IMediaWikiParser wikiParser)
     {
         _context = context;
         _logger = logger;

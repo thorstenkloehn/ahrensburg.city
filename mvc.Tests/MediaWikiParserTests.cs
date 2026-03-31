@@ -1,6 +1,6 @@
 using Xunit;
-using mvc.Parser;
-using mvc.Parser.Models;
+using Wikitext.Parser;
+using Wikitext.Models;
 using System.Collections.Generic;
 using System.Linq;
 

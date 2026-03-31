@@ -24,10 +24,10 @@ public class PageServiceTests
 
     private PageService CreateService(ApplicationDbContext context)
     {
-        var tokenizer = new mvc.Parser.MediaWikiTokenizer();
-        var astBuilder = new mvc.Parser.MediaWikiASTBuilder();
-        var serializer = new mvc.Parser.MediaWikiASTSerializer();
-        var wikiParser = new mvc.Parser.MediaWikiParser(tokenizer, astBuilder, serializer);
+        var tokenizer = new Wikitext.Parser.MediaWikiTokenizer();
+        var astBuilder = new Wikitext.Parser.MediaWikiASTBuilder();
+        var serializer = new Wikitext.Parser.MediaWikiASTSerializer();
+        var wikiParser = new Wikitext.Parser.MediaWikiParser(tokenizer, astBuilder, serializer);
         return new PageService(context, NullLogger<PageService>.Instance, wikiParser);
     }
     private ApplicationDbContext GetInMemoryContext(ITenantService? tenantService = null)

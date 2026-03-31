@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace mvc.Parser.Models;
+namespace Wikitext.Models;
 
 public abstract class WikiNode
 {

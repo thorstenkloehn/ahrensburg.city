@@ -1,6 +1,6 @@
-using mvc.Parser.Models;
+using Wikitext.Models;
 
-namespace mvc.Parser;
+namespace Wikitext.Parser;
 
 public interface IMediaWikiParser
 {

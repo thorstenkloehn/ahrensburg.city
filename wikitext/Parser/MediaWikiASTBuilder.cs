@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using mvc.Parser.Models;
+using Wikitext.Models;
 
-namespace mvc.Parser;
+namespace Wikitext.Parser;
 
 public interface IMediaWikiASTBuilder
 {

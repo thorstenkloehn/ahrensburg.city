@@ -1,4 +1,4 @@
-namespace mvc.Parser.Models;
+namespace Wikitext.Models;
 
 public enum TokenType
 {

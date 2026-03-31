@@ -5,4 +5,5 @@
   <Project Path="UserAdmin/UserAdmin.csproj" />
   <Project Path="backup/backup.csproj" />
   <Project Path="TempMigrate/TempMigrate.csproj" />
+  <Project Path="wikitext/wikitext.csproj" />
 </Solution>
