@@ -57,17 +57,17 @@ public class PageService : IPageService
     public async Task ErstelleOderAktualisiereArtikelAsync(string slug, string markdownInhalt, List<string>? kategorien = null)
     {
         // YAML Frontmatter Extraktion
-        var (extrahiertKategorien, _) = ExtrahiereMetadaten(markdownInhalt);
+        var (extrahiertKategorien, inhaltOhneMetadaten) = ExtrahiereMetadaten(markdownInhalt);
         if (extrahiertKategorien != null) kategorien = extrahiertKategorien;
 
         // MediaWiki-style Kategorien Extraktion [[kategorie:Name]]
-        var mwKategorien = _markdownParser.GetCategories(markdownInhalt);
+        var mwKategorien = _markdownParser.GetCategories(inhaltOhneMetadaten);
         if (mwKategorien.Any())
         {
             kategorien = (kategorien ?? new List<string>()).Concat(mwKategorien).Distinct().ToList();
         }
 
-        var htmlInhalt = _markdownParser.ToHtml(markdownInhalt);
+        var htmlInhalt = _markdownParser.ToHtml(inhaltOhneMetadaten);
         await SicherArtikelAsync(slug, htmlInhalt, markdownInhalt, null, kategorien);
     }
 
@@ -251,10 +251,11 @@ public class PageService : IPageService
     private (List<string>? kategorien, string inhalt) ExtrahiereMetadaten(string markdown)
     {
         if (string.IsNullOrWhiteSpace(markdown)) return (null, markdown);
-        var r = new Regex(@"^---\s*[\r\n]+(.*?)\s*[\r\n]+---\s*[\r\n]+", RegexOptions.Singleline);
+        var r = new Regex(@"^---\s*[\r\n]+(.*?)\s*[\r\n]+---\s*[\r\n]*", RegexOptions.Singleline);
         var match = r.Match(markdown);
         if (match.Success)
         {
+            var inhalt = markdown.Substring(match.Length);
             var yaml = match.Groups[1].Value;
             try
             {
@@ -267,13 +268,14 @@ public class PageService : IPageService
                     {
                         var value = metadata[key];
                         if (value is List<object> list)
-                            return (list.Select(o => o.ToString() ?? "").Where(s => !string.IsNullOrEmpty(s)).ToList(), markdown);
+                            return (list.Select(o => o.ToString() ?? "").Where(s => !string.IsNullOrEmpty(s)).ToList(), inhalt);
                         else if (value is string s)
-                            return (new List<string> { s }, markdown);
+                            return (new List<string> { s }, inhalt);
                     }
                 }
             }
             catch { }
+            return (null, inhalt);
         }
         return (null, markdown);
     }

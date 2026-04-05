@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using mvc.Data;
 using mvc.Models;
 using System.Xml.Serialization;
+using System.Text.RegularExpressions;
 
 namespace backup;
 
@@ -24,7 +25,7 @@ class Program
     static async Task Main(string[] args)
     {
         // 1. Konfiguration laden
-        string appSettingsPath = GetAppSettingsPath();
+        string? appSettingsPath = GetAppSettingsPath();
         if (appSettingsPath == null) return;
 
         var configuration = new ConfigurationBuilder()
@@ -88,11 +89,51 @@ class Program
             Console.WriteLine($"[*] Starte Import aus {fileName}...");
             await Import(context, wikiParser, fileName);
         }
+        else if (command == "repair")
+        {
+            Console.WriteLine("[*] Starte Reparatur aller HTML-Inhalte in der Datenbank...");
+            await Repair(context, wikiParser);
+        }
         else
         {
             ShowHelp();
         }
     }
+
+    static async Task Repair(ApplicationDbContext context, Wikitext.Parser.IMediaWikiParser wikiParser)
+    {
+        var versions = await context.WikiArtikelVersions.IgnoreQueryFilters().ToListAsync();
+        var markdownParser = new Mardown.Parser.MarkdownParser();
+        var yamlDeserializer = new YamlDotNet.Serialization.DeserializerBuilder()
+            .WithNamingConvention(YamlDotNet.Serialization.NamingConventions.PascalCaseNamingConvention.Instance)
+            .IgnoreUnmatchedProperties()
+            .Build();
+
+        int repariert = 0;
+        foreach (var v in versions)
+        {
+            string? newHtml = null;
+            if (!string.IsNullOrEmpty(v.MarkdownInhalt))
+            {
+                var (_, strippedContent) = ExtrahiereMetadaten(v.MarkdownInhalt, yamlDeserializer);
+                newHtml = markdownParser.ToHtml(strippedContent);
+            }
+            else if (!string.IsNullOrEmpty(v.WikiTextInhalt))
+            {
+                newHtml = wikiParser.ToHtml(v.WikiTextInhalt);
+            }
+
+            if (newHtml != null && v.HtmlInhalt != newHtml)
+            {
+                v.HtmlInhalt = newHtml;
+                repariert++;
+            }
+        }
+
+        await context.SaveChangesAsync();
+        Console.WriteLine($"[OK] Reparatur abgeschlossen. {repariert} Versionen wurden aktualisiert.");
+    }
+
 
     private static string? GetAppSettingsPath()
     {
@@ -236,6 +277,10 @@ class Program
         // 2. Artikel importieren
         int neueArtikel = 0, neueVersionen = 0;
         var markdownParser = new Mardown.Parser.MarkdownParser();
+        var yamlDeserializer = new YamlDotNet.Serialization.DeserializerBuilder()
+            .WithNamingConvention(YamlDotNet.Serialization.NamingConventions.PascalCaseNamingConvention.Instance)
+            .IgnoreUnmatchedProperties()
+            .Build();
 
         foreach (var bA in container.Artikel)
         {
@@ -260,12 +305,40 @@ class Program
                 if (!exists)
                 {
                     string? html = v.HtmlInhalt;
-                    if (string.IsNullOrEmpty(html))
+                    var kategorien = v.Kategorie ?? new List<string>();
+
+                    if (!string.IsNullOrEmpty(v.MarkdownInhalt))
                     {
-                        if (!string.IsNullOrEmpty(v.MarkdownInhalt))
-                            html = markdownParser.ToHtml(v.MarkdownInhalt);
-                        else if (!string.IsNullOrEmpty(v.WikiTextInhalt))
+                        var (extractedKats, strippedContent) = ExtrahiereMetadaten(v.MarkdownInhalt, yamlDeserializer);
+                        if (extractedKats != null && extractedKats.Any())
+                        {
+                            kategorien = kategorien.Concat(extractedKats).Distinct().ToList();
+                        }
+                        
+                        // MediaWiki-style categories in Markdown
+                        var mwKats = markdownParser.GetCategories(strippedContent);
+                        if (mwKats.Any())
+                        {
+                            kategorien = kategorien.Concat(mwKats).Distinct().ToList();
+                        }
+
+                        if (string.IsNullOrEmpty(html))
+                        {
+                            html = markdownParser.ToHtml(strippedContent);
+                        }
+                    }
+                    else if (!string.IsNullOrEmpty(v.WikiTextInhalt))
+                    {
+                        var mwKats = wikiParser.GetCategories(v.WikiTextInhalt);
+                        if (mwKats.Any())
+                        {
+                            kategorien = kategorien.Concat(mwKats).Distinct().ToList();
+                        }
+
+                        if (string.IsNullOrEmpty(html))
+                        {
                             html = wikiParser.ToHtml(v.WikiTextInhalt);
+                        }
                     }
 
                     context.WikiArtikelVersions.Add(new WikiArtikelVersion
@@ -275,7 +348,7 @@ class Program
                         MarkdownInhalt = v.MarkdownInhalt,
                         WikiTextInhalt = v.WikiTextInhalt,
                         HtmlInhalt = html ?? "",
-                        Kategorie = v.Kategorie,
+                        Kategorie = kategorien,
                         Zeitpunkt = v.Zeitpunkt
                     });
                     neueVersionen++;
@@ -286,4 +359,37 @@ class Program
         await context.SaveChangesAsync();
         Console.WriteLine($"[OK] Import abgeschlossen: {neueArtikel} Artikel neu, {neueVersionen} Versionen hinzugefügt.");
     }
+
+    private static (List<string>? kategorien, string inhalt) ExtrahiereMetadaten(string markdown, YamlDotNet.Serialization.IDeserializer yamlDeserializer)
+    {
+        if (string.IsNullOrWhiteSpace(markdown)) return (null, markdown);
+        var r = new Regex(@"^---\s*[\r\n]+(.*?)\s*[\r\n]+---\s*[\r\n]*", RegexOptions.Singleline);
+        var match = r.Match(markdown);
+        if (match.Success)
+        {
+            var inhalt = markdown.Substring(match.Length);
+            var yaml = match.Groups[1].Value;
+            try
+            {
+                var metadata = yamlDeserializer.Deserialize<Dictionary<string, object>>(yaml);
+                if (metadata != null)
+                {
+                    var key = metadata.Keys.FirstOrDefault(k => k.Equals("Kategorie", StringComparison.OrdinalIgnoreCase) 
+                                                              || k.Equals("Categories", StringComparison.OrdinalIgnoreCase));
+                    if (key != null)
+                    {
+                        var value = metadata[key];
+                        if (value is List<object> list)
+                            return (list.Select(o => o.ToString() ?? "").Where(s => !string.IsNullOrEmpty(s)).ToList(), inhalt);
+                        else if (value is string s)
+                            return (new List<string> { s }, inhalt);
+                    }
+                }
+            }
+            catch { }
+            return (null, inhalt);
+        }
+        return (null, markdown);
+    }
+
 }

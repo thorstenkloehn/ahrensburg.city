@@ -22,7 +22,7 @@ public class MediaWikiASTSerializer : IMediaWikiASTSerializer
         switch (node)
         {
             case TextNode text:
-                sb.Append(System.Net.WebUtility.HtmlEncode(text.Text));
+                sb.Append(System.Net.WebUtility.HtmlEncode(text.Text).Replace("\n", "<br />\n"));
                 break;
             case BoldNode bold:
                 sb.Append("<b data-mw=\"bold\">");
@@ -97,6 +97,19 @@ public class MediaWikiASTSerializer : IMediaWikiASTSerializer
                 sb.Append("<code>");
                 foreach (var child in code.Children) sb.Append(SerializeNodeToHtml(child));
                 sb.Append("</code>");
+                break;
+            case ParagraphNode paragraph:
+                sb.Append("<p>");
+                foreach (var child in paragraph.Children) sb.Append(SerializeNodeToHtml(child));
+                sb.Append("</p>\n");
+                break;
+            case HtmlTagNode htmlTag:
+                sb.Append(htmlTag.Tag);
+                break;
+            case TemplateNode template:
+                sb.Append($"<div class=\"mediawiki-template\" data-mw=\"template\" data-name=\"{System.Net.WebUtility.HtmlEncode(template.TemplateName)}\">");
+                sb.Append(System.Net.WebUtility.HtmlEncode(string.Join(", ", template.Parameters.Select(p => $"{p.Key}={p.Value}"))));
+                sb.Append("</div>");
                 break;
             default:
                 foreach (var child in node.Children) sb.Append(SerializeNodeToHtml(child));

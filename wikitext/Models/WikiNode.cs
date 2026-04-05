@@ -67,3 +67,8 @@ public class ListItemNode : WikiNode { }
 public class ParagraphNode : WikiNode { }
 
 public class CodeNode : WikiNode { }
+
+public class HtmlTagNode : WikiNode
+{
+    public string Tag { get; set; } = string.Empty;
+}

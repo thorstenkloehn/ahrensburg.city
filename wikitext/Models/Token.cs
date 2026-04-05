@@ -25,7 +25,9 @@ public enum TokenType
     NumberedList, // #
     NewLine,
     CodeStart, // <code>
-    CodeEnd // </code>
+    CodeEnd, // </code>
+    TagStart, // <
+    TagEnd // >
 }
 
 public class Token
