@@ -117,9 +117,10 @@ class Program
     {
         Console.WriteLine("\n=== MeinCMS Backup Professional Edition ===");
         Console.WriteLine("Verwendung:");
-        Console.WriteLine("  dotnet run --project backup -- export [file.yaml] [--full]");
-        Console.WriteLine("  dotnet run --project backup -- import [file.yaml]");
+        Console.WriteLine("  dotnet run --project backup -- export [file.yaml|.xml] [--full]");
+        Console.WriteLine("  dotnet run --project backup -- import [file.yaml|.xml]");
         Console.WriteLine("\nFeatures:");
+        Console.WriteLine("  - Unterstützt YAML und XML (automatische Erkennung via Endung).");
         Console.WriteLine("  - Automatisches Dateinamen-Schema: backup_full_20260401_0126.yaml");
         Console.WriteLine("  - Sichert Artikel, Versionen und Namespaces.");
         Console.WriteLine("  - Regeneriert HTML beim Import (spart 70% Speicherplatz).");
@@ -153,39 +154,75 @@ class Program
             foreach (var v in a.Versionen) if (string.IsNullOrEmpty(v.TenantId)) v.TenantId = "main";
         }
 
-        var serializer = new YamlDotNet.Serialization.SerializerBuilder()
-            .WithNamingConvention(YamlDotNet.Serialization.NamingConventions.PascalCaseNamingConvention.Instance)
-            .Build();
+        if (fileName.EndsWith(".xml", StringComparison.OrdinalIgnoreCase))
+        {
+            var xmlSerializer = new System.Xml.Serialization.XmlSerializer(typeof(BackupContainer));
+            using var writer = new StreamWriter(fileName);
+            xmlSerializer.Serialize(writer, container);
+        }
+        else
+        {
+            var serializer = new YamlDotNet.Serialization.SerializerBuilder()
+                .WithNamingConvention(YamlDotNet.Serialization.NamingConventions.PascalCaseNamingConvention.Instance)
+                .Build();
 
-        await File.WriteAllTextAsync(fileName, serializer.Serialize(container));
+            await File.WriteAllTextAsync(fileName, serializer.Serialize(container));
+        }
+
         Console.WriteLine($"[OK] Export abgeschlossen. {artikel.Count} Artikel in '{fileName}' gesichert.");
     }
 
     static async Task Import(ApplicationDbContext context, Wikitext.Parser.IMediaWikiParser wikiParser, string fileName)
     {
-        var deserializer = new YamlDotNet.Serialization.DeserializerBuilder()
-            .WithNamingConvention(YamlDotNet.Serialization.NamingConventions.PascalCaseNamingConvention.Instance)
-            .IgnoreUnmatchedProperties()
-            .Build();
-        
-        BackupContainer? container;
-        using (var reader = new StreamReader(fileName))
+        BackupContainer? container = null;
+
+        if (fileName.EndsWith(".xml", StringComparison.OrdinalIgnoreCase))
         {
-            // Abwärtskompatibilität prüfen: Ist es ein BackupContainer oder eine Liste?
-            var content = await reader.ReadToEndAsync();
-            if (content.Contains("Artikel:") && content.Contains("Namespaces:"))
+            var content = await File.ReadAllTextAsync(fileName);
+            if (content.Contains("<BackupContainer"))
             {
-                container = deserializer.Deserialize<BackupContainer>(content);
+                var serializer = new System.Xml.Serialization.XmlSerializer(typeof(BackupContainer));
+                using var reader = new StringReader(content);
+                container = (BackupContainer?)serializer.Deserialize(reader);
             }
             else
             {
-                // Altes Format (nur Liste)
-                var artikel = deserializer.Deserialize<List<WikiArtikel>>(content);
-                container = new BackupContainer { Artikel = artikel };
+                // Altes Format (List<WikiArtikel>)
+                var serializer = new System.Xml.Serialization.XmlSerializer(typeof(List<WikiArtikel>));
+                using var reader = new StringReader(content);
+                var artikel = (List<WikiArtikel>?)serializer.Deserialize(reader);
+                if (artikel != null) container = new BackupContainer { Artikel = artikel };
+            }
+        }
+        else
+        {
+            var deserializer = new YamlDotNet.Serialization.DeserializerBuilder()
+                .WithNamingConvention(YamlDotNet.Serialization.NamingConventions.PascalCaseNamingConvention.Instance)
+                .IgnoreUnmatchedProperties()
+                .Build();
+            
+            using (var reader = new StreamReader(fileName))
+            {
+                // Abwärtskompatibilität prüfen: Ist es ein BackupContainer oder eine Liste?
+                var content = await reader.ReadToEndAsync();
+                if (content.Contains("Artikel:") && content.Contains("Namespaces:"))
+                {
+                    container = deserializer.Deserialize<BackupContainer>(content);
+                }
+                else
+                {
+                    // Altes Format (nur Liste)
+                    var artikel = deserializer.Deserialize<List<WikiArtikel>>(content);
+                    container = new BackupContainer { Artikel = artikel };
+                }
             }
         }
 
-        if (container == null) return;
+        if (container == null)
+        {
+            Console.WriteLine("[!] Fehler: Backup konnte nicht geladen werden.");
+            return;
+        }
 
         // 1. Namespaces importieren
         foreach (var ns in container.Namespaces)
