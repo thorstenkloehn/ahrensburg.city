@@ -21,7 +21,8 @@ Das System ist in drei Hauptphasen unterteilt:
 - **Überschriften**: `# H1` bis `###### H6`.
 - **Formatierung**: `**Fett**` oder `__Fett__`, `*Kursiv*` oder `_Kursiv_`.
 - **Links**: `[Label](URL)`.
-- **Listen**: Einfache ungeordnete Listen mit `*`, `+` oder `-`.
+- **Listen**: Einfache ungeordnete Listen mit `*`, `+` oder `-`. Automatische Gruppierung aufeinanderfolgender Elemente.
+- **Tabellen**: GFM-ähnliche Tabellen (`| Header |` / `| --- |`). Unterstützt Inline-Formatierung in Zellen.
 - **Templates**: Unterstützung für MediaWiki-ähnliche Templates `{{Name|Parameter}}`.
 - **Zeilenumbrüche**: Automatische Behandlung von Newlines.
 

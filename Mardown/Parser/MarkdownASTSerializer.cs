@@ -63,7 +63,7 @@ public class MarkdownASTSerializer
                 break;
 
             case TextNode text:
-                sb.Append(HttpUtility.HtmlEncode(text.Text));
+                sb.Append(HttpUtility.HtmlEncode(text.Text).Replace("\n", "<br />\n"));
                 break;
 
             case ParagraphNode p:
@@ -74,6 +74,36 @@ public class MarkdownASTSerializer
 
             case CategoryNode:
                 // Kategorien werden im HTML nicht angezeigt (gelöscht)
+                break;
+
+            case TableNode table:
+                sb.Append("<table>\n");
+                foreach (var child in table.Children) Serialize(child, sb);
+                sb.Append("</table>\n");
+                break;
+
+            case TableRowNode row:
+                sb.Append("<tr>\n");
+                foreach (var child in row.Children)
+                {
+                    if (row.IsHeader && child is TableCellNode cell)
+                    {
+                        sb.Append("<th>");
+                        foreach (var c in cell.Children) Serialize(c, sb);
+                        sb.Append("</th>");
+                    }
+                    else
+                    {
+                        Serialize(child, sb);
+                    }
+                }
+                sb.Append("</tr>\n");
+                break;
+
+            case TableCellNode cell:
+                sb.Append("<td>");
+                foreach (var child in cell.Children) Serialize(child, sb);
+                sb.Append("</td>");
                 break;
         }
     }

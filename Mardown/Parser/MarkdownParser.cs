@@ -20,7 +20,7 @@ public class MarkdownParser
         if (string.IsNullOrWhiteSpace(markdown)) return string.Empty;
 
         var tokens = _tokenizer.Tokenize(markdown);
-        var ast = _astBuilder.Build(tokens);
+        var ast = _astBuilder.Build(tokens, _tokenizer);
         return _serializer.ToHtml(ast);
     }
 

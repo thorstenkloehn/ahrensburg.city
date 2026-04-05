@@ -48,3 +48,12 @@ public class CategoryNode : MarkdownNode
 {
     public string Name { get; set; } = string.Empty;
 }
+
+public class TableNode : MarkdownNode { }
+
+public class TableRowNode : MarkdownNode
+{
+    public bool IsHeader { get; set; }
+}
+
+public class TableCellNode : MarkdownNode { }

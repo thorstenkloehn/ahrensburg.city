@@ -10,7 +10,9 @@ public enum MarkdownTokenType
     Template,
     List,
     Newline,
-    Category
+    Category,
+    TableRow,
+    TableDivider
 }
 
 public class MarkdownToken

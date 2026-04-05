@@ -32,6 +32,28 @@ public class MarkdownTokenizer
                 continue;
             }
 
+            // Tables (detect rows like | a | b |)
+            var trimmedLine = line.Trim();
+            if (trimmedLine.StartsWith('|') && trimmedLine.EndsWith('|'))
+            {
+                // Check if it is a divider like |---| or | :--- | ---: |
+                // Standard GFM divider: at least one dash per cell (common requirement).
+                // We'll look for lines that only contain |, -, :, and whitespace, and have at least one dash.
+                if (Regex.IsMatch(trimmedLine, @"^\|[\s\-\|:]+\|$") && trimmedLine.Contains('-'))
+                {
+                    tokens.Add(new MarkdownToken { Type = MarkdownTokenType.TableDivider });
+                }
+                else
+                {
+                    tokens.Add(new MarkdownToken 
+                    { 
+                        Type = MarkdownTokenType.TableRow, 
+                        Value = trimmedLine 
+                    });
+                }
+                continue;
+            }
+
             // Lists
             var listMatch = Regex.Match(line, @"^(\s*)([*+-]|\d+\.)\s+(.*)$");
             if (listMatch.Success)
@@ -60,69 +82,75 @@ public class MarkdownTokenizer
             }
 
             // Standard line (could contain bold, italic, links, and categories)
-            ProcessInlineTokens(line, tokens);
+            TokenizeInline(line, tokens);
             tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Newline });
         }
 
         return tokens;
     }
 
-    private void ProcessInlineTokens(string line, List<MarkdownToken> tokens)
+    public void TokenizeInline(string text, List<MarkdownToken> tokens)
     {
-        var current = line;
-        
-        // 1. Mark Categories: [[kategorie:Name]] -> [[CAT:Name]]
-        current = Regex.Replace(current, @"\[\[[kK]ategorie:(.*?)\]\]", "[[CAT:$1]]");
+        if (string.IsNullOrEmpty(text)) return;
 
-        // 2. Mark Bold: **text** or __text__
-        current = Regex.Replace(current, @"(\*\*|__)(.*?)\1", "[[BOLD:$2]]");
-        
-        // 3. Mark Italic: *text* or _text_
-        current = Regex.Replace(current, @"(\*|_)(.*?)\1", "[[ITALIC:$2]]");
-        
-        // 4. Mark Links: [label](url)
-        current = Regex.Replace(current, @"\[(.*?)\]\((.*?)\)", "[[LINK:$2|$1]]");
+        // Find the first match among all possible inline patterns
+        var patterns = new (string Pattern, MarkdownTokenType Type)[] 
+        { 
+            (@"\[\[[kK]ategorie:(.*?)\]\]", MarkdownTokenType.Category),
+            (@"(\*\*|__)(.*?)\1", MarkdownTokenType.Bold),
+            (@"(\*|_)(.*?)\1", MarkdownTokenType.Italic),
+            (@"\[(.*?)\]\((.*?)\)", MarkdownTokenType.Link)
+        };
 
-        // Split by all our markers
-        var parts = Regex.Split(current, @"(\[\[CAT:.*?\]\]|\[\[BOLD:.*?\]\]|\[\[ITALIC:.*?\]\]|\[\[LINK:.*?\]\])");
-        foreach (var part in parts)
+        // Find earliest match
+        Match? earliestMatch = null;
+        MarkdownTokenType matchedType = MarkdownTokenType.Text;
+
+        foreach (var p in patterns)
         {
-            if (string.IsNullOrEmpty(part)) continue;
-
-            if (part.StartsWith("[[CAT:"))
+            var match = Regex.Match(text, p.Pattern);
+            if (match.Success && (earliestMatch == null || match.Index < earliestMatch.Index))
             {
-                tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Category, Value = part[6..^2].Trim() });
-            }
-            else if (part.StartsWith("[[BOLD:"))
-            {
-                tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Bold, Value = part[7..^2] });
-            }
-            else if (part.StartsWith("[[ITALIC:"))
-            {
-                tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Italic, Value = part[9..^2] });
-            }
-            else if (part.StartsWith("[[LINK:"))
-            {
-                var linkContent = part[7..^2];
-                var pipeIndex = linkContent.IndexOf('|');
-                if (pipeIndex >= 0)
-                {
-                    tokens.Add(new MarkdownToken 
-                    { 
-                        Type = MarkdownTokenType.Link, 
-                        Value = linkContent[..pipeIndex], 
-                        Parameters = new List<string> { linkContent[(pipeIndex + 1)..] } 
-                    });
-                }
-                else
-                {
-                    tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Link, Value = linkContent });
-                }
-            }
-            else
-            {
-                tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Text, Value = part });
+                earliestMatch = match;
+                matchedType = p.Type;
             }
         }
+
+        if (earliestMatch == null)
+        {
+            tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Text, Value = text });
+            return;
+        }
+
+        // Add text before the match
+        if (earliestMatch.Index > 0)
+        {
+            tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Text, Value = text[..earliestMatch.Index] });
+        }
+
+        // Add the matched token
+        switch (matchedType)
+        {
+            case MarkdownTokenType.Category:
+                tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Category, Value = earliestMatch.Groups[1].Value.Trim() });
+                break;
+            case MarkdownTokenType.Bold:
+                tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Bold, Value = earliestMatch.Groups[2].Value });
+                break;
+            case MarkdownTokenType.Italic:
+                tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Italic, Value = earliestMatch.Groups[2].Value });
+                break;
+            case MarkdownTokenType.Link:
+                tokens.Add(new MarkdownToken 
+                { 
+                    Type = MarkdownTokenType.Link, 
+                    Value = earliestMatch.Groups[2].Value, 
+                    Parameters = new List<string> { earliestMatch.Groups[1].Value } 
+                });
+                break;
+        }
+
+        // Recurse on the remaining text
+        TokenizeInline(text[(earliestMatch.Index + earliestMatch.Length)..], tokens);
     }
 }
