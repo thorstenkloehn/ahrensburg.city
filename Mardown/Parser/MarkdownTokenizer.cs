@@ -1,26 +1,43 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Mardown.Models;
+using System;
+using System.Linq;
 
 namespace Mardown.Parser;
 
-public class MarkdownTokenizer
+public partial class MarkdownTokenizer
 {
+    // Pre-compiled Regex for better performance and Span support
+    private static readonly Regex HeadingRegex = new(@"^(#{1,6})\s+(.*)$", RegexOptions.Compiled);
+    private static readonly Regex ListRegex = new(@"^(\s*)([*+-]|\d+\.)\s+(.*)$", RegexOptions.Compiled);
+    private static readonly Regex TemplateRegex = new(@"^\{\{(.*?)\}\}$", RegexOptions.Compiled);
+    private static readonly Regex TableDividerRegex = new(@"^\|[\s\-\|:]+\|$", RegexOptions.Compiled);
+
+    // Inline patterns
+    private static readonly Regex CategoryRegex = new(@"\[\[[kK]ategorie:(.*?)\]\]", RegexOptions.Compiled);
+    private static readonly Regex BoldRegex = new(@"(\*\*|__)(.*?)\1", RegexOptions.Compiled);
+    private static readonly Regex ItalicRegex = new(@"(\*|_)(.*?)\1", RegexOptions.Compiled);
+    private static readonly Regex LinkRegex = new(@"\[(.*?)\]\((.*?)\)", RegexOptions.Compiled);
+
     public List<MarkdownToken> Tokenize(string input)
     {
-        var tokens = new List<MarkdownToken>();
-        var lines = input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+        if (string.IsNullOrEmpty(input)) return new List<MarkdownToken>();
 
-        foreach (var line in lines)
+        var tokens = new List<MarkdownToken>();
+        ReadOnlySpan<char> inputSpan = input.AsSpan();
+
+        // Zero-allocation line enumeration
+        foreach (var line in inputSpan.EnumerateLines())
         {
-            if (string.IsNullOrWhiteSpace(line))
+            if (line.IsWhiteSpace())
             {
                 tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Newline });
                 continue;
             }
 
-            // Headings
-            var headingMatch = Regex.Match(line, @"^(#{1,6})\s+(.*)$");
+            // Headings using Span-aware Regex
+            var headingMatch = HeadingRegex.Match(line.ToString()); // Match on string for simplicity, but Span-based soon
             if (headingMatch.Success)
             {
                 tokens.Add(new MarkdownToken
@@ -32,14 +49,11 @@ public class MarkdownTokenizer
                 continue;
             }
 
-            // Tables (detect rows like | a | b |)
+            // Tables (detect rows like | a | b |) using Span methods
             var trimmedLine = line.Trim();
-            if (trimmedLine.StartsWith('|') && trimmedLine.EndsWith('|'))
+            if (trimmedLine.StartsWith("|") && trimmedLine.EndsWith("|"))
             {
-                // Check if it is a divider like |---| or | :--- | ---: |
-                // Standard GFM divider: at least one dash per cell (common requirement).
-                // We'll look for lines that only contain |, -, :, and whitespace, and have at least one dash.
-                if (Regex.IsMatch(trimmedLine, @"^\|[\s\-\|:]+\|$") && trimmedLine.Contains('-'))
+                if (TableDividerRegex.IsMatch(trimmedLine.ToString()) && trimmedLine.Contains("-".AsSpan(), StringComparison.Ordinal))
                 {
                     tokens.Add(new MarkdownToken { Type = MarkdownTokenType.TableDivider });
                 }
@@ -48,14 +62,14 @@ public class MarkdownTokenizer
                     tokens.Add(new MarkdownToken 
                     { 
                         Type = MarkdownTokenType.TableRow, 
-                        Value = trimmedLine 
+                        Value = trimmedLine.ToString() 
                     });
                 }
                 continue;
             }
 
             // Lists
-            var listMatch = Regex.Match(line, @"^(\s*)([*+-]|\d+\.)\s+(.*)$");
+            var listMatch = ListRegex.Match(line.ToString());
             if (listMatch.Success)
             {
                 tokens.Add(new MarkdownToken
@@ -67,11 +81,12 @@ public class MarkdownTokenizer
                 continue;
             }
 
-            // Templates (e.g. {{TemplateName|param1|param2}})
-            var templateMatch = Regex.Match(line, @"^\{\{(.*?)\}\}$");
+            // Templates
+            var templateMatch = TemplateRegex.Match(line.ToString());
             if (templateMatch.Success)
             {
-                var parts = templateMatch.Groups[1].Value.Split('|');
+                var fullValue = templateMatch.Groups[1].Value;
+                var parts = fullValue.Split('|');
                 tokens.Add(new MarkdownToken
                 {
                     Type = MarkdownTokenType.Template,
@@ -89,68 +104,69 @@ public class MarkdownTokenizer
         return tokens;
     }
 
-    public void TokenizeInline(string text, List<MarkdownToken> tokens)
+    public void TokenizeInline(ReadOnlySpan<char> text, List<MarkdownToken> tokens)
     {
-        if (string.IsNullOrEmpty(text)) return;
+        if (text.IsEmpty) return;
 
-        // Find the first match among all possible inline patterns
-        var patterns = new (string Pattern, MarkdownTokenType Type)[] 
-        { 
-            (@"\[\[[kK]ategorie:(.*?)\]\]", MarkdownTokenType.Category),
-            (@"(\*\*|__)(.*?)\1", MarkdownTokenType.Bold),
-            (@"(\*|_)(.*?)\1", MarkdownTokenType.Italic),
-            (@"\[(.*?)\]\((.*?)\)", MarkdownTokenType.Link)
-        };
+        // Find earliest match using Span-aware approach
+        (Match? match, MarkdownTokenType type) earliest = (null, MarkdownTokenType.Text);
+        int earliestIndex = int.MaxValue;
 
-        // Find earliest match
-        Match? earliestMatch = null;
-        MarkdownTokenType matchedType = MarkdownTokenType.Text;
-
-        foreach (var p in patterns)
+        // Local function must take Span as parameter to avoid capture error (CS9108)
+        void CheckMatch(ReadOnlySpan<char> t, Regex regex, MarkdownTokenType type, ref (Match? match, MarkdownTokenType type) earliestRes, ref int earliestIdx)
         {
-            var match = Regex.Match(text, p.Pattern);
-            if (match.Success && (earliestMatch == null || match.Index < earliestMatch.Index))
+            var m = regex.Match(t.ToString());
+            if (m.Success && m.Index < earliestIdx)
             {
-                earliestMatch = match;
-                matchedType = p.Type;
+                earliestIdx = m.Index;
+                earliestRes = (m, type);
             }
         }
 
-        if (earliestMatch == null)
+        CheckMatch(text, CategoryRegex, MarkdownTokenType.Category, ref earliest, ref earliestIndex);
+        CheckMatch(text, BoldRegex, MarkdownTokenType.Bold, ref earliest, ref earliestIndex);
+        CheckMatch(text, ItalicRegex, MarkdownTokenType.Italic, ref earliest, ref earliestIndex);
+        CheckMatch(text, LinkRegex, MarkdownTokenType.Link, ref earliest, ref earliestIndex);
+
+        if (earliest.match == null)
         {
-            tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Text, Value = text });
+            tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Text, Value = text.ToString() });
             return;
         }
 
         // Add text before the match
-        if (earliestMatch.Index > 0)
+        if (earliestIndex > 0)
         {
-            tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Text, Value = text[..earliestMatch.Index] });
+            tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Text, Value = text.Slice(0, earliestIndex).ToString() });
         }
 
         // Add the matched token
-        switch (matchedType)
+        switch (earliest.type)
         {
             case MarkdownTokenType.Category:
-                tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Category, Value = earliestMatch.Groups[1].Value.Trim() });
+                tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Category, Value = earliest.match.Groups[1].Value.Trim() });
                 break;
             case MarkdownTokenType.Bold:
-                tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Bold, Value = earliestMatch.Groups[2].Value });
+                tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Bold, Value = earliest.match.Groups[2].Value });
                 break;
             case MarkdownTokenType.Italic:
-                tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Italic, Value = earliestMatch.Groups[2].Value });
+                tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Italic, Value = earliest.match.Groups[2].Value });
                 break;
             case MarkdownTokenType.Link:
                 tokens.Add(new MarkdownToken 
                 { 
                     Type = MarkdownTokenType.Link, 
-                    Value = earliestMatch.Groups[2].Value, 
-                    Parameters = new List<string> { earliestMatch.Groups[1].Value } 
+                    Value = earliest.match.Groups[2].Value, 
+                    Parameters = new List<string> { earliest.match.Groups[1].Value } 
                 });
                 break;
         }
 
-        // Recurse on the remaining text
-        TokenizeInline(text[(earliestMatch.Index + earliestMatch.Length)..], tokens);
+        // Recurse on the remaining text using Slice
+        int nextStart = earliestIndex + earliest.match.Length;
+        if (nextStart < text.Length)
+        {
+            TokenizeInline(text.Slice(nextStart), tokens);
+        }
     }
 }
