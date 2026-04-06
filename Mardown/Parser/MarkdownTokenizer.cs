@@ -14,8 +14,12 @@ public partial class MarkdownTokenizer
     private static readonly Regex TemplateRegex = new(@"^\{\{(.*?)\}\}$", RegexOptions.Compiled);
     private static readonly Regex TableDividerRegex = new(@"^\|[\s\-\|:]+\|$", RegexOptions.Compiled);
 
+    // Code block detection
+    private static readonly Regex CodeBlockStartRegex = new(@"^(\s*)(```|''')\s*(.*)$", RegexOptions.Compiled);
+
     // Inline patterns
     private static readonly Regex CategoryRegex = new(@"\[\[[kK]ategorie:(.*?)\]\]", RegexOptions.Compiled);
+    private static readonly Regex CodeInlineRegex = new(@"`(.*?)`", RegexOptions.Compiled);
     private static readonly Regex BoldRegex = new(@"(\*\*|__)(.*?)\1", RegexOptions.Compiled);
     private static readonly Regex ItalicRegex = new(@"(\*|_)(.*?)\1", RegexOptions.Compiled);
     private static readonly Regex LinkRegex = new(@"\[(.*?)\]\((.*?)\)", RegexOptions.Compiled);
@@ -25,19 +29,45 @@ public partial class MarkdownTokenizer
         if (string.IsNullOrEmpty(input)) return new List<MarkdownToken>();
 
         var tokens = new List<MarkdownToken>();
-        ReadOnlySpan<char> inputSpan = input.AsSpan();
+        var lines = input.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+        bool inCodeBlock = false;
+        string currentCodeMarker = "";
+        string currentCodeContent = "";
 
-        // Zero-allocation line enumeration
-        foreach (var line in inputSpan.EnumerateLines())
+        foreach (var line in lines)
         {
-            if (line.IsWhiteSpace())
+            var trimmedLine = line.Trim();
+
+            // Code block handling
+            if (inCodeBlock)
+            {
+                if (trimmedLine.EndsWith(currentCodeMarker) && trimmedLine.Length == currentCodeMarker.Length)
+                {
+                    tokens.Add(new MarkdownToken { Type = MarkdownTokenType.CodeBlock, Value = currentCodeContent.TrimEnd() });
+                    inCodeBlock = false;
+                    currentCodeContent = "";
+                    continue;
+                }
+                currentCodeContent += line + "\n";
+                continue;
+            }
+
+            var codeMatch = CodeBlockStartRegex.Match(line);
+            if (codeMatch.Success)
+            {
+                inCodeBlock = true;
+                currentCodeMarker = codeMatch.Groups[2].Value;
+                continue;
+            }
+
+            if (string.IsNullOrWhiteSpace(line))
             {
                 tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Newline });
                 continue;
             }
 
-            // Headings using Span-aware Regex
-            var headingMatch = HeadingRegex.Match(line.ToString()); // Match on string for simplicity, but Span-based soon
+            // Headings
+            var headingMatch = HeadingRegex.Match(line);
             if (headingMatch.Success)
             {
                 tokens.Add(new MarkdownToken
@@ -49,11 +79,10 @@ public partial class MarkdownTokenizer
                 continue;
             }
 
-            // Tables (detect rows like | a | b |) using Span methods
-            var trimmedLine = line.Trim();
+            // Tables
             if (trimmedLine.StartsWith("|") && trimmedLine.EndsWith("|"))
             {
-                if (TableDividerRegex.IsMatch(trimmedLine.ToString()) && trimmedLine.Contains("-".AsSpan(), StringComparison.Ordinal))
+                if (TableDividerRegex.IsMatch(trimmedLine) && trimmedLine.Contains("-"))
                 {
                     tokens.Add(new MarkdownToken { Type = MarkdownTokenType.TableDivider });
                 }
@@ -62,14 +91,14 @@ public partial class MarkdownTokenizer
                     tokens.Add(new MarkdownToken 
                     { 
                         Type = MarkdownTokenType.TableRow, 
-                        Value = trimmedLine.ToString() 
+                        Value = trimmedLine 
                     });
                 }
                 continue;
             }
 
             // Lists
-            var listMatch = ListRegex.Match(line.ToString());
+            var listMatch = ListRegex.Match(line);
             if (listMatch.Success)
             {
                 tokens.Add(new MarkdownToken
@@ -82,7 +111,7 @@ public partial class MarkdownTokenizer
             }
 
             // Templates
-            var templateMatch = TemplateRegex.Match(line.ToString());
+            var templateMatch = TemplateRegex.Match(line);
             if (templateMatch.Success)
             {
                 var fullValue = templateMatch.Groups[1].Value;
@@ -97,7 +126,7 @@ public partial class MarkdownTokenizer
             }
 
             // Standard line (could contain bold, italic, links, and categories)
-            TokenizeInline(line, tokens);
+            TokenizeInline(line.AsSpan(), tokens);
             tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Newline });
         }
 
@@ -124,6 +153,7 @@ public partial class MarkdownTokenizer
         }
 
         CheckMatch(text, CategoryRegex, MarkdownTokenType.Category, ref earliest, ref earliestIndex);
+        CheckMatch(text, CodeInlineRegex, MarkdownTokenType.CodeInline, ref earliest, ref earliestIndex);
         CheckMatch(text, BoldRegex, MarkdownTokenType.Bold, ref earliest, ref earliestIndex);
         CheckMatch(text, ItalicRegex, MarkdownTokenType.Italic, ref earliest, ref earliestIndex);
         CheckMatch(text, LinkRegex, MarkdownTokenType.Link, ref earliest, ref earliestIndex);
@@ -145,6 +175,9 @@ public partial class MarkdownTokenizer
         {
             case MarkdownTokenType.Category:
                 tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Category, Value = earliest.match.Groups[1].Value.Trim() });
+                break;
+            case MarkdownTokenType.CodeInline:
+                tokens.Add(new MarkdownToken { Type = MarkdownTokenType.CodeInline, Value = earliest.match.Groups[1].Value });
                 break;
             case MarkdownTokenType.Bold:
                 tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Bold, Value = earliest.match.Groups[2].Value });

@@ -54,6 +54,22 @@ public class MarkdownParserTests
     }
 
     [Fact]
+    public void ToHtml_Code_Works()
+    {
+        // Inline Code
+        var inlineResult = _parser.ToHtml("Benutze `var x = 1;`!");
+        Assert.Equal("<p>Benutze <code>var x = 1;</code>!</p>\n", inlineResult);
+
+        // Standard Code Block
+        var blockResult = _parser.ToHtml("```\nConsole.WriteLine();\n```");
+        Assert.Equal("<pre><code>Console.WriteLine();</code></pre>\n", blockResult);
+
+        // Your Triple Single Quote Code Block
+        var specialResult = _parser.ToHtml("'''\nSpecial Code\n'''");
+        Assert.Equal("<pre><code>Special Code</code></pre>\n", specialResult);
+    }
+
+    [Fact]
     public void GetCategories_Works()
     {
         var categories = _parser.GetCategories("[[kategorie:A]]\n[[Kategorie:B]]");

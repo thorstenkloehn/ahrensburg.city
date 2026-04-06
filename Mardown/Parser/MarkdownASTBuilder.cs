@@ -102,6 +102,12 @@ public class MarkdownASTBuilder
                 continue;
             }
 
+            if (token.Type == MarkdownTokenType.CodeBlock)
+            {
+                parent.Children.Add(new CodeBlockNode { Code = token.Value });
+                continue;
+            }
+
             if (token.Type == MarkdownTokenType.TableRow)
             {
                 var table = new TableNode();
@@ -244,6 +250,10 @@ public class MarkdownASTBuilder
                 });
                 break;
 
+            case MarkdownTokenType.CodeInline:
+                parent.Children.Add(new CodeInlineNode { Code = token.Value });
+                break;
+
             case MarkdownTokenType.Text:
                 parent.Children.Add(new TextNode { Text = token.Value });
                 break;
@@ -260,6 +270,7 @@ public class MarkdownASTBuilder
                type == MarkdownTokenType.Bold || 
                type == MarkdownTokenType.Italic || 
                type == MarkdownTokenType.Link || 
-               type == MarkdownTokenType.Category;
+               type == MarkdownTokenType.Category ||
+               type == MarkdownTokenType.CodeInline;
     }
 }

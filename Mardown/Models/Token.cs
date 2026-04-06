@@ -12,7 +12,9 @@ public enum MarkdownTokenType
     Newline,
     Category,
     TableRow,
-    TableDivider
+    TableDivider,
+    CodeInline,
+    CodeBlock
 }
 
 public class MarkdownToken

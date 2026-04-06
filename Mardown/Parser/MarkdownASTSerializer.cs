@@ -105,6 +105,18 @@ public class MarkdownASTSerializer
                 foreach (var child in cell.Children) Serialize(child, sb);
                 sb.Append("</td>");
                 break;
+
+            case CodeInlineNode ci:
+                sb.Append("<code>");
+                sb.Append(HttpUtility.HtmlEncode(ci.Code));
+                sb.Append("</code>");
+                break;
+
+            case CodeBlockNode cb:
+                sb.Append("<pre><code>");
+                sb.Append(HttpUtility.HtmlEncode(cb.Code));
+                sb.Append("</code></pre>\n");
+                break;
         }
     }
 }

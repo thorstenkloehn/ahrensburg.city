@@ -57,3 +57,13 @@ public class TableRowNode : MarkdownNode
 }
 
 public class TableCellNode : MarkdownNode { }
+
+public class CodeInlineNode : MarkdownNode
+{
+    public string Code { get; set; } = string.Empty;
+}
+
+public class CodeBlockNode : MarkdownNode
+{
+    public string Code { get; set; } = string.Empty;
+}
