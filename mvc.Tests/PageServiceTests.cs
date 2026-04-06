@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging.Abstractions;
 using Moq;
 using mvc.Data;
@@ -28,7 +29,8 @@ public class PageServiceTests
         var astBuilder = new Wikitext.Parser.MediaWikiASTBuilder();
         var serializer = new Wikitext.Parser.MediaWikiASTSerializer();
         var wikiParser = new Wikitext.Parser.MediaWikiParser(tokenizer, astBuilder, serializer);
-        return new PageService(context, NullLogger<PageService>.Instance, wikiParser);
+        var cache = new MemoryCache(new MemoryCacheOptions());
+        return new PageService(context, NullLogger<PageService>.Instance, wikiParser, cache);
     }
     private ApplicationDbContext GetInMemoryContext(ITenantService? tenantService = null)
     {
@@ -245,6 +247,28 @@ public class PageServiceTests
             Assert.Single(result);
             Assert.Equal("artikel2", result[0].Slug);
         }
+    }
+
+    [Fact]
+    public async Task SucheArtikelAsync_FindetInhalte_BasicLogic()
+    {
+        // Arrange
+        using var context = GetInMemoryContext();
+        var service = CreateService(context);
+        await service.ErstelleOderAktualisiereArtikelAsync("suche-1", "Dies ist ein Test über Ahrensburg.");
+        await service.ErstelleOderAktualisiereArtikelAsync("suche-2", "Hier geht es um etwas völlig anderes.");
+
+        // Act
+        var result1 = await service.SucheArtikelAsync("Ahrensburg");
+        var result2 = await service.SucheArtikelAsync("völlig");
+        var resultEmpty = await service.SucheArtikelAsync("NichtVorhanden");
+
+        // Assert
+        Assert.Single(result1);
+        Assert.Equal("suche-1", result1[0].Slug);
+        Assert.Single(result2);
+        Assert.Equal("suche-2", result2[0].Slug);
+        Assert.Empty(resultEmpty);
     }
 
     [Fact]

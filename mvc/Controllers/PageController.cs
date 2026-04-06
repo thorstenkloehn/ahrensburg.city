@@ -148,6 +148,37 @@ namespace mvc.Controllers
         }
 
         /// <summary>
+        /// Sucht nach Wiki-Artikeln.
+        /// </summary>
+        /// <param name="q">Der Suchbegriff.</param>
+        /// <returns>Eine Liste der gefundenen Artikel.</returns>
+        [HttpGet("Suche")]
+        public async Task<IActionResult> Suche(string q)
+        {
+            ViewData["Title"] = $"Suche: {q}";
+            ViewData["SearchQuery"] = q;
+
+            if (string.IsNullOrWhiteSpace(q))
+            {
+                return View(new List<WikiArtikel>());
+            }
+
+            var ergebnisse = await _pageService.SucheArtikelAsync(q);
+            
+            // Wir laden die neuesten Versionen für die Anzeige (Snippets etc.)
+            foreach (var artikel in ergebnisse)
+            {
+                var vollerArtikel = await _pageService.GetArtikelMitNeuesterVersionAsync(artikel.Slug);
+                if (vollerArtikel != null)
+                {
+                    artikel.Versionen = vollerArtikel.Versionen;
+                }
+            }
+
+            return View(ergebnisse);
+        }
+
+        /// <summary>
         /// Zeigt alle Wiki-Artikel an.
         /// </summary>
         /// <returns>Eine Übersicht aller Artikel.</returns>

@@ -1,0 +1,75 @@
+@model List<WikiArtikel>
+
+@{
+    ViewData["Title"] = $"Suche: {ViewData["SearchQuery"]}";
+}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Suche</li>
+  </ol>
+</nav>
+
+<div class="search-results">
+    <h1>Suchergebnisse für "@ViewData["SearchQuery"]"</h1>
+    <hr />
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-warning">
+            Es wurden keine Artikel gefunden, die Ihrem Suchbegriff entsprechen.
+        </div>
+        
+        <div class="mt-4">
+            <h5>Tipps für die Suche:</h5>
+            <ul>
+                <li>Überprüfen Sie die Rechtschreibung.</li>
+                <li>Verwenden Sie allgemeinere Begriffe.</li>
+                <li>Suchen Sie nach Wortstämmen (z. B. "Ahrensburg" statt "Ahrensburger").</li>
+            </ul>
+        </div>
+    }
+    else
+    {
+        <p class="text-muted">@Model.Count Ergebnisse gefunden.</p>
+        
+        <div class="list-group mt-3">
+            @foreach (var artikel in Model)
+            {
+                var latestVersion = artikel.Versionen.OrderByDescending(v => v.Zeitpunkt).FirstOrDefault();
+                var encodedSlug = string.Join("/", artikel.Slug.Split('/').Select(s => System.Net.WebUtility.UrlEncode(s)));
+                
+                <a href="~/@encodedSlug" class="list-group-item list-group-item-action mb-2 border rounded shadow-sm">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1 text-primary">@artikel.Slug</h5>
+                        @if (latestVersion != null)
+                        {
+                            <small class="text-muted">@latestVersion.Zeitpunkt.ToString("dd.MM.yyyy")</small>
+                        }
+                    </div>
+                    
+                    @if (latestVersion != null)
+                    {
+                        <p class="mb-1 text-dark">
+                            @{
+                                // Einfaches Snippet: HTML-Tags entfernen und kürzen
+                                var plainText = System.Text.RegularExpressions.Regex.Replace(latestVersion.HtmlInhalt ?? "", "<.*?>", " ");
+                                if (plainText.Length > 200) {
+                                    plainText = plainText.Substring(0, 197) + "...";
+                                }
+                            }
+                            @plainText
+                        </p>
+                    }
+                    
+                    <small class="text-info">/@artikel.Slug</small>
+                </a>
+            }
+        </div>
+    }
+
+    <div class="mt-4">
+        <a href="/" class="btn btn-secondary">Zurück zur Startseite</a>
+    </div>
+</div>

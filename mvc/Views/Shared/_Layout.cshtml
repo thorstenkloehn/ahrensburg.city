@@ -39,6 +39,10 @@
                             </li>
                         }
                     </ul>
+                    <form class="d-flex me-2" asp-controller="Page" asp-action="Suche" method="get">
+                        <input class="form-control me-2" type="search" name="q" placeholder="Volltextsuchen..." aria-label="Suche" value="@ViewData["SearchQuery"]">
+                        <button class="btn btn-outline-primary" type="submit">Suche</button>
+                    </form>
                     <partial name="_LoginPartial" />
                 </div>
             </div>

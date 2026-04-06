@@ -36,6 +36,7 @@ if (builder.Environment.EnvironmentName != "Testing")
 }
 
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddMemoryCache();
 builder.Services.AddScoped<mvc.Services.ITenantService, mvc.Services.TenantService>();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => 

@@ -9,6 +9,7 @@ using DiffPlex.DiffBuilder.Model;
 using Ganss.Xss;
 using Mardown.Parser;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using mvc.Data;
 using mvc.Models;
@@ -20,6 +21,7 @@ namespace mvc.Services;
 public class PageService : IPageService
 {
     private readonly ApplicationDbContext _context;
+    private readonly IMemoryCache _cache;
     private readonly MarkdownParser _markdownParser;
     private readonly HtmlSanitizer _sanitizer;
     private readonly IDeserializer _yamlDeserializer;
@@ -29,11 +31,12 @@ public class PageService : IPageService
     public const int MaxCategories = 10;
     public const int MaxCategoryLength = 50;
 
-    public PageService(ApplicationDbContext context, ILogger<PageService> logger, Wikitext.Parser.IMediaWikiParser wikiParser)
+    public PageService(ApplicationDbContext context, ILogger<PageService> logger, Wikitext.Parser.IMediaWikiParser wikiParser, IMemoryCache cache)
     {
         _context = context;
         _logger = logger;
         _wikiParser = wikiParser;
+        _cache = cache;
         _markdownParser = new MarkdownParser();
         _sanitizer = new HtmlSanitizer();
         _yamlDeserializer = new DeserializerBuilder()
@@ -41,6 +44,8 @@ public class PageService : IPageService
             .IgnoreUnmatchedProperties()
             .Build();
     }
+
+    private string GetCacheKey(string slug) => $"wiki_{_context.CurrentTenantId}_{slug}";
 
     public async Task ErstelleOderAktualisiereWikiArtikelAsync(string slug, string wikiTextInhalt, List<string>? kategorien = null)
     {
@@ -129,6 +134,8 @@ public class PageService : IPageService
             artikel.Versionen.Add(version);
             await _context.SaveChangesAsync();
             await transaction.CommitAsync();
+
+            _cache.Remove(GetCacheKey(slug));
         }
         catch (Exception)
         {
@@ -149,6 +156,12 @@ public class PageService : IPageService
 
     public async Task<WikiArtikel?> GetArtikelMitNeuesterVersionAsync(string slug)
     {
+        var cacheKey = GetCacheKey(slug);
+        if (_cache.TryGetValue(cacheKey, out WikiArtikel? cachedArtikel))
+        {
+            return cachedArtikel;
+        }
+
         var currentTenantId = _context.CurrentTenantId;
         var artikel = await _context.WikiArtikels
             .FirstOrDefaultAsync(a => a.TenantId == currentTenantId && a.Slug == slug);
@@ -163,6 +176,12 @@ public class PageService : IPageService
         artikel.Versionen = neuesteVersion != null 
             ? new List<WikiArtikelVersion> { neuesteVersion } 
             : new List<WikiArtikelVersion>();
+
+        var cacheEntryOptions = new MemoryCacheEntryOptions()
+            .SetSlidingExpiration(TimeSpan.FromMinutes(30))
+            .SetAbsoluteExpiration(TimeSpan.FromHours(4));
+
+        _cache.Set(cacheKey, artikel, cacheEntryOptions);
 
         return artikel;
     }
@@ -214,6 +233,58 @@ public class PageService : IPageService
             .ToListAsync();
     }
 
+    public async Task<List<WikiArtikel>> SucheArtikelAsync(string query)
+    {
+        if (string.IsNullOrWhiteSpace(query)) return new List<WikiArtikel>();
+        
+        var currentTenantId = _context.CurrentTenantId;
+
+        List<long> matchingWikiArtikelIds;
+
+        if (_context.Database.ProviderName == "Microsoft.EntityFrameworkCore.InMemory")
+        {
+            // Fallback für Unit-Tests (In-Memory)
+            matchingWikiArtikelIds = await _context.WikiArtikelVersions
+                .Where(v => v.TenantId == currentTenantId)
+                .Where(v => (v.HtmlInhalt ?? "").Contains(query) || (v.MarkdownInhalt ?? "").Contains(query) || (v.WikiTextInhalt ?? "").Contains(query))
+                .Select(v => v.WikiArtikelId)
+                .Distinct()
+                .ToListAsync();
+        }
+        else
+        {
+            // Echtes PostgreSQL Full-Text Search
+            var matches = await _context.WikiArtikelVersions
+                .Where(v => v.TenantId == currentTenantId)
+                .Where(v => EF.Functions.ToTsVector("german", (v.HtmlInhalt ?? "") + " " + (v.MarkdownInhalt ?? "") + " " + (v.WikiTextInhalt ?? ""))
+                    .Matches(EF.Functions.WebSearchToTsQuery("german", query)))
+                .Select(v => new { v.WikiArtikelId, v.Zeitpunkt })
+                .ToListAsync();
+
+            if (!matches.Any()) return new List<WikiArtikel>();
+
+            // Nur die IDs der Artikel nehmen, deren Treffer-Version auch die aktuellste ist
+            var neuesteVersionen = await _context.WikiArtikelVersions
+                .Where(v => v.TenantId == currentTenantId)
+                .GroupBy(v => v.WikiArtikelId)
+                .Select(g => new { WikiArtikelId = g.Key, MaxZeitpunkt = g.Max(v => v.Zeitpunkt) })
+                .ToListAsync();
+
+            matchingWikiArtikelIds = matches
+                .GroupBy(m => m.WikiArtikelId)
+                .Where(g => g.Any(m => neuesteVersionen.Any(nv => nv.WikiArtikelId == g.Key && nv.MaxZeitpunkt == m.Zeitpunkt)))
+                .Select(g => g.Key)
+                .ToList();
+        }
+
+        if (!matchingWikiArtikelIds.Any()) return new List<WikiArtikel>();
+
+        return await _context.WikiArtikels
+            .Where(a => a.TenantId == currentTenantId && matchingWikiArtikelIds.Contains(a.Id))
+            .OrderBy(a => a.Slug)
+            .ToListAsync();
+    }
+
     public async Task<bool> WiederherstellenAsync(long versionNummer)
     {
         var currentTenantId = _context.CurrentTenantId;
@@ -237,6 +308,8 @@ public class PageService : IPageService
 
         _context.WikiArtikelVersions.Add(neueVersion);
         await _context.SaveChangesAsync();
+
+        _cache.Remove(GetCacheKey(alteVersion.WikiArtikel.Slug));
         return true;
     }
 

@@ -16,5 +16,6 @@ public interface IPageService
     Task<List<WikiArtikel>> GetAllArtikelAsync();
     Task<bool> WiederherstellenAsync(long versionNummer);
     Task<WikiArtikelVersion?> GetVersionAsync(long versionNummer);
+    Task<List<WikiArtikel>> SucheArtikelAsync(string query);
     DiffPaneModel GenerateDiff(string oldContent, string newContent);
 }
