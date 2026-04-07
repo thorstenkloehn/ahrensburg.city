@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using mvc.Data;
+using System.Linq;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -80,6 +81,19 @@ builder.Services.AddHsts(options =>
 });
 
 var app = builder.Build();
+
+// Automatisierte Datenbank-Migrationen via Kommandozeile
+if (args.Contains("--migrate"))
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        Console.WriteLine("Datenbank-Migrationen werden angewendet...");
+        dbContext.Database.Migrate();
+        Console.WriteLine("Migrationen erfolgreich abgeschlossen.");
+    }
+    return;
+}
 
 // Configure Security Headers
 app.Use(async (context, next) =>

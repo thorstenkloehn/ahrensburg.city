@@ -7,4 +7,6 @@ dotnet publish -c Release -r linux-x64 --self-contained false -o /home/thorsten/
 
 # Veröffentlichte Dateien zum Remote-Server synchronisieren
 rsync -avz --exclude 'bin' --exclude 'obj' --exclude 'config' /home/thorsten/publis/ahrensburgcity/ tt@ah.city:/var/www/ahrensburgcity/
+
+dotnet mvc.dll --migrate
 ```

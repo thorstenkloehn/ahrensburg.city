@@ -2,10 +2,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\mvc\mvc.csproj" />
-    <Content Include="..\mvc\appsettings.json">
-      <Link>config\appsettings.json</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
 
   <ItemGroup>
