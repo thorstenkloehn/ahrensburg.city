@@ -11,7 +11,7 @@ public partial class MarkdownTokenizer
     // Pre-compiled Regex for better performance and Span support
     private static readonly Regex HeadingRegex = new(@"^(#{1,6})\s+(.*)$", RegexOptions.Compiled);
     private static readonly Regex ListRegex = new(@"^(\s*)([*+-]|\d+\.)\s+(.*)$", RegexOptions.Compiled);
-    private static readonly Regex TemplateRegex = new(@"^\{\{(.*?)\}\}$", RegexOptions.Compiled);
+    private static readonly Regex TemplateRegex = new(@"\{\{(.*?)\}\}", RegexOptions.Compiled);
     private static readonly Regex TableDividerRegex = new(@"^\|[\s\-\|:]+\|$", RegexOptions.Compiled);
 
     // Code block detection
@@ -154,6 +154,7 @@ public partial class MarkdownTokenizer
 
         CheckMatch(text, CategoryRegex, MarkdownTokenType.Category, ref earliest, ref earliestIndex);
         CheckMatch(text, CodeInlineRegex, MarkdownTokenType.CodeInline, ref earliest, ref earliestIndex);
+        CheckMatch(text, TemplateRegex, MarkdownTokenType.Template, ref earliest, ref earliestIndex);
         CheckMatch(text, BoldRegex, MarkdownTokenType.Bold, ref earliest, ref earliestIndex);
         CheckMatch(text, ItalicRegex, MarkdownTokenType.Italic, ref earliest, ref earliestIndex);
         CheckMatch(text, LinkRegex, MarkdownTokenType.Link, ref earliest, ref earliestIndex);
@@ -173,6 +174,16 @@ public partial class MarkdownTokenizer
         // Add the matched token
         switch (earliest.type)
         {
+            case MarkdownTokenType.Template:
+                var fullValue = earliest.match.Groups[1].Value;
+                var tParts = fullValue.Split('|');
+                tokens.Add(new MarkdownToken
+                {
+                    Type = MarkdownTokenType.Template,
+                    Value = tParts[0].Trim(),
+                    Parameters = tParts.Skip(1).Select(p => p.Trim()).ToList()
+                });
+                break;
             case MarkdownTokenType.Category:
                 tokens.Add(new MarkdownToken { Type = MarkdownTokenType.Category, Value = earliest.match.Groups[1].Value.Trim() });
                 break;
