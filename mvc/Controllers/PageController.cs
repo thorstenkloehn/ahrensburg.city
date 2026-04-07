@@ -183,8 +183,6 @@ namespace mvc.Controllers
         /// </summary>
         /// <returns>Eine Übersicht aller Artikel.</returns>
         [HttpGet("Alle")]
-        [Microsoft.AspNetCore.OutputCaching.OutputCache(Duration = 60)]
-        [ResponseCache(Duration = 300, Location = ResponseCacheLocation.Any)]
         public async Task<ActionResult> Alle()
         {
             var artikel = await _pageService.GetAllArtikelAsync();
@@ -197,8 +195,6 @@ namespace mvc.Controllers
         /// <param name="kategorie">Die gewünschte Kategorie.</param>
         /// <returns>Eine Übersicht der Artikel.</returns>
         [HttpGet("Kategorie/{kategorie}")]
-        [Microsoft.AspNetCore.OutputCaching.OutputCache(Duration = 60)]
-        [ResponseCache(Duration = 300, Location = ResponseCacheLocation.Any)]
         public async Task<ActionResult> Kategorie(string kategorie)
         {
             if (string.IsNullOrEmpty(kategorie))
@@ -304,8 +300,6 @@ namespace mvc.Controllers
         /// <param name="slug">Der Slug der anzuzeigenden Seite.</param>
         /// <returns>Die Seite oder eine Fehlermeldung.</returns>
         [HttpGet("{*slug}")]
-        [Microsoft.AspNetCore.OutputCaching.OutputCache(Duration = 60)]
-        [ResponseCache(Duration = 300, Location = ResponseCacheLocation.Any)]
         public async Task<ActionResult> Index(string slug)
         {
             if (string.IsNullOrEmpty(slug))

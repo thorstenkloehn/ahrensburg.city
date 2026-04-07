@@ -42,12 +42,12 @@ builder.Services.AddResponseCompression(options =>
 {
     options.EnableForHttps = true;
 });
-builder.Services.AddResponseCaching();
-builder.Services.AddOutputCache(options =>
-{
-    // Default policy: vary by host (Tenant) and slug
-    options.AddBasePolicy(builder => builder.With(c => true).SetVaryByHost(true));
-});
+// builder.Services.AddResponseCaching();
+// builder.Services.AddOutputCache(options =>
+// {
+//     // Default policy: vary by host (Tenant) and slug
+//     options.AddBasePolicy(builder => builder.With(c => true).SetVaryByHost(true));
+// });
 builder.Services.AddScoped<mvc.Services.ITenantService, mvc.Services.TenantService>();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => 
@@ -133,39 +133,18 @@ app.UseResponseCompression();
 app.UseHttpsRedirection();
 app.UseRouting();
 
-app.UseResponseCaching();
-app.UseOutputCache();
+// app.UseResponseCaching();
+// app.UseOutputCache();
 
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Admin No-Cache Middleware (placed after Authorization to have access to User and Roles)
+// Global No-Cache Middleware
 app.Use(async (context, next) =>
 {
-    var path = context.Request.Path.Value?.ToLower() ?? "";
-    bool isAdminArea = path.Contains("/edit/") || 
-                       path.Contains("/create") || 
-                       path.Contains("/neuformular") || 
-                       path.Contains("/restore/") || 
-                       path.Contains("/compare/") || 
-                       path.Contains("/history/") || 
-                       path.Contains("/version/") || 
-                       path.Contains("/identity/account/");
-
-    if (isAdminArea || (context.User.Identity?.IsAuthenticated == true && context.User.IsInRole("Admin")))
-    {
-        context.Response.Headers.CacheControl = "no-cache, no-store, must-revalidate";
-        context.Response.Headers.Pragma = "no-cache";
-        context.Response.Headers.Expires = "0";
-        
-        // Disable Output Caching for this request
-        var outputCacheFeature = context.Features.Get<Microsoft.AspNetCore.OutputCaching.IOutputCacheFeature>();
-        if (outputCacheFeature != null)
-        {
-            outputCacheFeature.Context.AllowCacheLookup = false;
-            outputCacheFeature.Context.AllowCacheStorage = false;
-        }
-    }
+    context.Response.Headers.CacheControl = "no-cache, no-store, must-revalidate";
+    context.Response.Headers.Pragma = "no-cache";
+    context.Response.Headers.Expires = "0";
     await next();
 });
 
