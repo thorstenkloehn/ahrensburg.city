@@ -38,6 +38,16 @@ if (builder.Environment.EnvironmentName != "Testing")
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddMemoryCache();
+builder.Services.AddResponseCompression(options =>
+{
+    options.EnableForHttps = true;
+});
+builder.Services.AddResponseCaching();
+builder.Services.AddOutputCache(options =>
+{
+    // Default policy: vary by host (Tenant) and slug
+    options.AddBasePolicy(builder => builder.With(c => true).SetVaryByHost(true));
+});
 builder.Services.AddScoped<mvc.Services.ITenantService, mvc.Services.TenantService>();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => 
@@ -119,8 +129,12 @@ else
 
 app.UseStatusCodePagesWithReExecute("/Error/{0}");
 
+app.UseResponseCompression();
 app.UseHttpsRedirection();
 app.UseRouting();
+
+app.UseResponseCaching();
+app.UseOutputCache();
 
 app.UseAuthentication();
 app.UseAuthorization();

@@ -29,8 +29,7 @@ public class ApplicationDbContext : IdentityDbContext
     {
         base.OnModelCreating(builder);
 
-        // Globaler Abfragefilter für Mandantentrennung - muss auf die Property zugreifen,
-        // damit EF Core ihn bei jeder Abfrage dynamisch auswertet.
+        // Globaler Abfragefilter für Mandantentrennung
         builder.Entity<WikiArtikel>()
             .HasQueryFilter(a => a.TenantId == CurrentTenantId);
 
@@ -39,6 +38,17 @@ public class ApplicationDbContext : IdentityDbContext
 
         builder.Entity<WikiCategory>()
             .HasQueryFilter(c => c.TenantId == CurrentTenantId);
+
+        // Performance Indizes
+        builder.Entity<WikiArtikel>()
+            .HasIndex(a => new { a.TenantId, a.Slug })
+            .IsUnique();
+
+        builder.Entity<WikiArtikelVersion>()
+            .HasIndex(v => new { v.TenantId, v.WikiArtikelId, v.Zeitpunkt });
+
+        builder.Entity<WikiCategory>()
+            .HasIndex(c => c.TenantId);
     }
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

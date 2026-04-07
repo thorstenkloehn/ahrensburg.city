@@ -164,11 +164,13 @@ public class PageService : IPageService
 
         var currentTenantId = _context.CurrentTenantId;
         var artikel = await _context.WikiArtikels
+            .AsNoTracking()
             .FirstOrDefaultAsync(a => a.TenantId == currentTenantId && a.Slug == slug);
         
         if (artikel == null) return null;
 
         var neuesteVersion = await _context.WikiArtikelVersions
+            .AsNoTracking()
             .Where(v => v.TenantId == currentTenantId && v.WikiArtikelId == artikel.Id)
             .OrderByDescending(v => v.Zeitpunkt)
             .FirstOrDefaultAsync();
@@ -190,6 +192,7 @@ public class PageService : IPageService
     {
         var currentTenantId = _context.CurrentTenantId;
         return await _context.WikiArtikels
+            .AsNoTracking()
             .Include(a => a.Versionen)
             .FirstOrDefaultAsync(w => w.TenantId == currentTenantId && w.Slug == slug);
     }
@@ -198,6 +201,7 @@ public class PageService : IPageService
     {
         var currentTenantId = _context.CurrentTenantId;
         var moeglicheArtikelIds = await _context.WikiArtikelVersions
+            .AsNoTracking()
             .Where(v => v.TenantId == currentTenantId && v.Kategorie.Contains(kategorie))
             .Select(v => v.WikiArtikelId)
             .Distinct()
@@ -207,6 +211,7 @@ public class PageService : IPageService
             return new List<WikiArtikel>();
 
         var alleVersionenDerKandidaten = await _context.WikiArtikelVersions
+            .AsNoTracking()
             .Where(v => v.TenantId == currentTenantId && moeglicheArtikelIds.Contains(v.WikiArtikelId))
             .Select(v => new { v.WikiArtikelId, v.Zeitpunkt, v.Kategorie })
             .ToListAsync();
@@ -219,6 +224,7 @@ public class PageService : IPageService
             .ToList();
 
         return await _context.WikiArtikels
+            .AsNoTracking()
             .Where(a => a.TenantId == currentTenantId && valideArtikelIds.Contains(a.Id))
             .OrderBy(a => a.Slug)
             .ToListAsync();
@@ -228,6 +234,7 @@ public class PageService : IPageService
     {
         var currentTenantId = _context.CurrentTenantId;
         return await _context.WikiArtikels
+            .AsNoTracking()
             .Where(a => a.TenantId == currentTenantId)
             .OrderBy(a => a.Slug)
             .ToListAsync();
@@ -239,47 +246,43 @@ public class PageService : IPageService
         
         var currentTenantId = _context.CurrentTenantId;
 
-        List<long> matchingWikiArtikelIds;
+        // Wir suchen nur in den Versionen, die:
+        // 1. Zum aktuellen Mandanten gehören
+        // 2. Die aktuellste Version ihres Artikels sind
+        // 3. Den Suchbegriff enthalten
+        
+        var queryable = _context.WikiArtikelVersions
+            .AsNoTracking()
+            .Where(v => v.TenantId == currentTenantId);
+
+        // Filter für die aktuellste Version (Subquery)
+        queryable = queryable.Where(v => v.Zeitpunkt == _context.WikiArtikelVersions
+            .Where(v2 => v2.TenantId == currentTenantId && v2.WikiArtikelId == v.WikiArtikelId)
+            .Max(v2 => v2.Zeitpunkt));
 
         if (_context.Database.ProviderName == "Microsoft.EntityFrameworkCore.InMemory")
         {
-            // Fallback für Unit-Tests (In-Memory)
-            matchingWikiArtikelIds = await _context.WikiArtikelVersions
-                .Where(v => v.TenantId == currentTenantId)
-                .Where(v => (v.HtmlInhalt ?? "").Contains(query) || (v.MarkdownInhalt ?? "").Contains(query) || (v.WikiTextInhalt ?? "").Contains(query))
-                .Select(v => v.WikiArtikelId)
-                .Distinct()
-                .ToListAsync();
+            queryable = queryable.Where(v => 
+                (v.HtmlInhalt ?? "").Contains(query) || 
+                (v.MarkdownInhalt ?? "").Contains(query) || 
+                (v.WikiTextInhalt ?? "").Contains(query));
         }
         else
         {
-            // Echtes PostgreSQL Full-Text Search
-            var matches = await _context.WikiArtikelVersions
-                .Where(v => v.TenantId == currentTenantId)
-                .Where(v => EF.Functions.ToTsVector("german", (v.HtmlInhalt ?? "") + " " + (v.MarkdownInhalt ?? "") + " " + (v.WikiTextInhalt ?? ""))
-                    .Matches(EF.Functions.WebSearchToTsQuery("german", query)))
-                .Select(v => new { v.WikiArtikelId, v.Zeitpunkt })
-                .ToListAsync();
-
-            if (!matches.Any()) return new List<WikiArtikel>();
-
-            // Nur die IDs der Artikel nehmen, deren Treffer-Version auch die aktuellste ist
-            var neuesteVersionen = await _context.WikiArtikelVersions
-                .Where(v => v.TenantId == currentTenantId)
-                .GroupBy(v => v.WikiArtikelId)
-                .Select(g => new { WikiArtikelId = g.Key, MaxZeitpunkt = g.Max(v => v.Zeitpunkt) })
-                .ToListAsync();
-
-            matchingWikiArtikelIds = matches
-                .GroupBy(m => m.WikiArtikelId)
-                .Where(g => g.Any(m => neuesteVersionen.Any(nv => nv.WikiArtikelId == g.Key && nv.MaxZeitpunkt == m.Zeitpunkt)))
-                .Select(g => g.Key)
-                .ToList();
+            queryable = queryable.Where(v => 
+                EF.Functions.ToTsVector("german", (v.HtmlInhalt ?? "") + " " + (v.MarkdownInhalt ?? "") + " " + (v.WikiTextInhalt ?? ""))
+                .Matches(EF.Functions.WebSearchToTsQuery("german", query)));
         }
+
+        var matchingWikiArtikelIds = await queryable
+            .Select(v => v.WikiArtikelId)
+            .Distinct()
+            .ToListAsync();
 
         if (!matchingWikiArtikelIds.Any()) return new List<WikiArtikel>();
 
         return await _context.WikiArtikels
+            .AsNoTracking()
             .Where(a => a.TenantId == currentTenantId && matchingWikiArtikelIds.Contains(a.Id))
             .OrderBy(a => a.Slug)
             .ToListAsync();
@@ -289,6 +292,7 @@ public class PageService : IPageService
     {
         var currentTenantId = _context.CurrentTenantId;
         var alteVersion = await _context.WikiArtikelVersions
+            .AsNoTracking()
             .Include(v => v.WikiArtikel)
             .FirstOrDefaultAsync(v => v.TenantId == currentTenantId && v.VersionNummer == versionNummer);
 
@@ -317,6 +321,7 @@ public class PageService : IPageService
     {
         var currentTenantId = _context.CurrentTenantId;
         return await _context.WikiArtikelVersions
+            .AsNoTracking()
             .Include(v => v.WikiArtikel)
             .FirstOrDefaultAsync(v => v.TenantId == currentTenantId && v.VersionNummer == versionNummer);
     }
