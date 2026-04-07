@@ -107,23 +107,9 @@ public class MediaWikiASTSerializer : IMediaWikiASTSerializer
                 sb.Append(htmlTag.Tag);
                 break;
             case TemplateNode template:
-                if (template.TemplateName.Equals("Map", StringComparison.OrdinalIgnoreCase) || 
-                    template.TemplateName.Equals("Karte", StringComparison.OrdinalIgnoreCase))
-                {
-                    var lat = template.Parameters.GetValueOrDefault("lat", "53.6761");
-                    var lon = template.Parameters.GetValueOrDefault("lon", "10.2736");
-                    var zoom = template.Parameters.GetValueOrDefault("zoom", "13");
-                    var marker = template.Parameters.GetValueOrDefault("marker", "");
-                    var height = template.Parameters.GetValueOrDefault("height", "400px");
-
-                    sb.Append($"<div class=\"wiki-map\" data-mw=\"map\" data-lat=\"{System.Net.WebUtility.HtmlEncode(lat)}\" data-lon=\"{System.Net.WebUtility.HtmlEncode(lon)}\" data-zoom=\"{System.Net.WebUtility.HtmlEncode(zoom)}\" data-marker=\"{System.Net.WebUtility.HtmlEncode(marker)}\" style=\"height: {System.Net.WebUtility.HtmlEncode(height)}; width: 100%;\"></div>");
-                }
-                else
-                {
-                    sb.Append($"<div class=\"mediawiki-template\" data-mw=\"template\" data-name=\"{System.Net.WebUtility.HtmlEncode(template.TemplateName)}\">");
-                    sb.Append(System.Net.WebUtility.HtmlEncode(string.Join(", ", template.Parameters.Select(p => $"{p.Key}={p.Value}"))));
-                    sb.Append("</div>");
-                }
+                sb.Append($"<div class=\"mediawiki-template\" data-mw=\"template\" data-name=\"{System.Net.WebUtility.HtmlEncode(template.TemplateName)}\">");
+                sb.Append(System.Net.WebUtility.HtmlEncode(string.Join(", ", template.Parameters.Select(p => $"{p.Key}={p.Value}"))));
+                sb.Append("</div>");
                 break;
             default:
                 foreach (var child in node.Children) sb.Append(SerializeNodeToHtml(child));

@@ -44,23 +44,9 @@ public class MarkdownASTSerializer
                 break;
 
             case TemplateNode t:
-                if (t.Name.Equals("Map", StringComparison.OrdinalIgnoreCase) || 
-                    t.Name.Equals("Karte", StringComparison.OrdinalIgnoreCase))
-                {
-                    var lat = t.Parameters.Count > 0 ? t.Parameters[0] : "53.6761";
-                    var lon = t.Parameters.Count > 1 ? t.Parameters[1] : "10.2736";
-                    var zoom = t.Parameters.Count > 2 ? t.Parameters[2] : "13";
-                    var marker = t.Parameters.Count > 3 ? t.Parameters[3] : "";
-                    var height = t.Parameters.Count > 4 ? t.Parameters[4] : "400px";
-
-                    sb.Append($"<div class=\"wiki-map\" data-lat=\"{HttpUtility.HtmlAttributeEncode(lat)}\" data-lon=\"{HttpUtility.HtmlAttributeEncode(lon)}\" data-zoom=\"{HttpUtility.HtmlAttributeEncode(zoom)}\" data-marker=\"{HttpUtility.HtmlAttributeEncode(marker)}\" style=\"height: {HttpUtility.HtmlAttributeEncode(height)}; width: 100%;\"></div>");
-                }
-                else
-                {
-                    sb.Append($"<div class=\"markdown-template\" data-name=\"{HttpUtility.HtmlAttributeEncode(t.Name)}\">");
-                    sb.Append(HttpUtility.HtmlEncode(string.Join(", ", t.Parameters)));
-                    sb.Append("</div>");
-                }
+                sb.Append($"<div class=\"markdown-template\" data-name=\"{HttpUtility.HtmlAttributeEncode(t.Name)}\">");
+                sb.Append(HttpUtility.HtmlEncode(string.Join(", ", t.Parameters)));
+                sb.Append("</div>");
                 break;
 
             case ListNode list:
