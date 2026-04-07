@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const map = L.map(mapId).setView([lat, lon], zoom);
 
             // Standard OSM Tiles
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            L.tileLayer('https://ahrensburg.city/hot/{z}/{x}/{y}.png', {
                 maxZoom: 19,
                 attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map);
