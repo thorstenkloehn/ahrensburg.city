@@ -29,3 +29,22 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+/* Leaflet Fixes */
+.leaflet-container img {
+  max-width: none !important;
+}
+
+.wiki-map {
+  margin: 1.5rem 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  z-index: 1; /* Sicherstellen, dass Map unter Navbar bleibt */
+}
+
+/* Ensure navbar is above map */
+header {
+  z-index: 1030 !important; /* Bootstrap default for fixed top is 1030 */
+}

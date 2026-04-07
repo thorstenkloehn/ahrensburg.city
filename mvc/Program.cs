@@ -108,7 +108,7 @@ if (args.Contains("--migrate"))
 // Configure Security Headers
 app.Use(async (context, next) =>
 {
-    context.Response.Headers.Append("Content-Security-Policy", "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self';");
+    context.Response.Headers.Append("Content-Security-Policy", "default-src 'self' unpkg.com; script-src 'self' unpkg.com 'unsafe-inline'; style-src 'self' unpkg.com 'unsafe-inline'; img-src 'self' *.tile.openstreetmap.org unpkg.com data:; font-src 'self'; connect-src 'self';");
     context.Response.Headers.Append("X-Content-Type-Options", "nosniff");
     context.Response.Headers.Append("X-Frame-Options", "DENY");
     context.Response.Headers.Append("Referrer-Policy", "strict-origin-when-cross-origin");
@@ -138,6 +138,37 @@ app.UseOutputCache();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+// Admin No-Cache Middleware (placed after Authorization to have access to User and Roles)
+app.Use(async (context, next) =>
+{
+    var path = context.Request.Path.Value?.ToLower() ?? "";
+    bool isAdminArea = path.Contains("/edit/") || 
+                       path.Contains("/create") || 
+                       path.Contains("/neuformular") || 
+                       path.Contains("/restore/") || 
+                       path.Contains("/compare/") || 
+                       path.Contains("/history/") || 
+                       path.Contains("/version/") || 
+                       path.Contains("/identity/account/");
+
+    if (isAdminArea || (context.User.Identity?.IsAuthenticated == true && context.User.IsInRole("Admin")))
+    {
+        context.Response.Headers.CacheControl = "no-cache, no-store, must-revalidate";
+        context.Response.Headers.Pragma = "no-cache";
+        context.Response.Headers.Expires = "0";
+        
+        // Disable Output Caching for this request
+        var outputCacheFeature = context.Features.Get<Microsoft.AspNetCore.OutputCaching.IOutputCacheFeature>();
+        if (outputCacheFeature != null)
+        {
+            outputCacheFeature.Context.AllowCacheLookup = false;
+            outputCacheFeature.Context.AllowCacheStorage = false;
+        }
+    }
+    await next();
+});
+
 app.MapStaticAssets();
 
 app.MapControllers()
