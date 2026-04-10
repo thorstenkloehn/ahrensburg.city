@@ -1,0 +1,80 @@
+@{
+    ViewData["Title"] = "Karte";
+}
+
+<h2>Karte</h2>
+
+<div class="mb-3 d-flex gap-2">
+    <input id="poi-suche" type="text" class="form-control" placeholder="Ort suchen, z.B. Rathaus, Schule ..." />
+    <button id="poi-suchen-btn" class="btn btn-primary">Suchen</button>
+    <button id="poi-reset-btn" class="btn btn-outline-secondary" style="display:none">Zurücksetzen</button>
+</div>
+<div id="poi-fehler" class="alert alert-warning" style="display:none"></div>
+
+<div id="map" style="height: 75vh; width: 100%; border-radius: 4px;"></div>
+
+@section Scripts {
+<script>
+    const map = L.map('map').setView([53.674, 10.227], 13);
+
+    L.tileLayer('@ViewBag.TileUrl', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    const markerGruppe = L.layerGroup().addTo(map);
+
+    async function poiSuchen() {
+        const q = document.getElementById('poi-suche').value.trim();
+        if (q.length < 2) return;
+
+        markerGruppe.clearLayers();
+        document.getElementById('poi-fehler').style.display = 'none';
+
+        try {
+            const res = await fetch(`/api/poi?q=${encodeURIComponent(q)}`);
+            if (!res.ok) {
+                document.getElementById('poi-fehler').textContent = 'Keine Ergebnisse gefunden.';
+                document.getElementById('poi-fehler').style.display = 'block';
+                return;
+            }
+
+            const orte = await res.json();
+            if (orte.length === 0) {
+                document.getElementById('poi-fehler').textContent = 'Keine Ergebnisse gefunden.';
+                document.getElementById('poi-fehler').style.display = 'block';
+                return;
+            }
+
+            const bounds = [];
+            orte.forEach(ort => {
+                const marker = L.marker([ort.lat, ort.lon])
+                    .bindPopup(`<b>${ort.name}</b>${ort.typ ? '<br>' + ort.typ : ''}`)
+                    .addTo(markerGruppe);
+                bounds.push([ort.lat, ort.lon]);
+            });
+
+            map.fitBounds(bounds, { maxZoom: 16 });
+            document.getElementById('poi-reset-btn').style.display = '';
+
+        } catch (e) {
+            document.getElementById('poi-fehler').textContent = 'Fehler bei der Suche.';
+            document.getElementById('poi-fehler').style.display = 'block';
+        }
+    }
+
+    document.getElementById('poi-suchen-btn').addEventListener('click', poiSuchen);
+
+    document.getElementById('poi-suche').addEventListener('keydown', e => {
+        if (e.key === 'Enter') poiSuchen();
+    });
+
+    document.getElementById('poi-reset-btn').addEventListener('click', () => {
+        markerGruppe.clearLayers();
+        document.getElementById('poi-suche').value = '';
+        document.getElementById('poi-reset-btn').style.display = 'none';
+        document.getElementById('poi-fehler').style.display = 'none';
+        map.setView([53.674, 10.227], 13);
+    });
+</script>
+}

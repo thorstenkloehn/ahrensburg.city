@@ -106,6 +106,16 @@ public class MediaWikiASTSerializer : IMediaWikiASTSerializer
             case HtmlTagNode htmlTag:
                 sb.Append(htmlTag.Tag);
                 break;
+            case TemplateNode template when template.TemplateName.Equals("Karte", StringComparison.OrdinalIgnoreCase):
+                var lat = System.Net.WebUtility.HtmlEncode(template.Parameters.GetValueOrDefault("lat", "53.6761"));
+                var lon = System.Net.WebUtility.HtmlEncode(template.Parameters.GetValueOrDefault("lon", "10.2736"));
+                var zoom = System.Net.WebUtility.HtmlEncode(template.Parameters.GetValueOrDefault("zoom", "13"));
+                var markerRaw = template.Parameters.GetValueOrDefault("marker", "");
+                var markerAttr = !string.IsNullOrEmpty(markerRaw)
+                    ? $" data-marker=\"{System.Net.WebUtility.HtmlEncode(markerRaw)}\""
+                    : "";
+                sb.Append($"<div data-lat=\"{lat}\" data-lon=\"{lon}\" data-zoom=\"{zoom}\"{markerAttr} style=\"height: 400px;\"></div>");
+                break;
             case TemplateNode template:
                 sb.Append($"<div class=\"mediawiki-template\" data-mw=\"template\" data-name=\"{System.Net.WebUtility.HtmlEncode(template.TemplateName)}\">");
                 sb.Append(System.Net.WebUtility.HtmlEncode(string.Join(", ", template.Parameters.Select(p => $"{p.Key}={p.Value}"))));

@@ -40,11 +40,16 @@ public class PageService : IPageService
         _markdownParser = new MarkdownParser();
         _sanitizer = new HtmlSanitizer();
         _sanitizer.AllowedAttributes.Add("data-mw");
+        _sanitizer.AllowedAttributes.Add("data-lat");
+        _sanitizer.AllowedAttributes.Add("data-lon");
+        _sanitizer.AllowedAttributes.Add("data-zoom");
+        _sanitizer.AllowedAttributes.Add("data-marker");
         _sanitizer.AllowedAttributes.Add("style");
         _sanitizer.AllowedCssProperties.Add("height");
         _sanitizer.AllowedCssProperties.Add("width");
         _sanitizer.AllowedClasses.Add("mediawiki-template");
         _sanitizer.AllowedClasses.Add("markdown-template");
+        _sanitizer.AllowedClasses.Add("wiki-map");
         
         _yamlDeserializer = new DeserializerBuilder()
             .WithNamingConvention(PascalCaseNamingConvention.Instance)

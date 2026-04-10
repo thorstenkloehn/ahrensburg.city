@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Wiki-Map Initialization
     if (typeof L !== "undefined") {
-        const mapElements = document.querySelectorAll(".wiki-map");
+        const mapElements = document.querySelectorAll("div[data-lat]");
         console.log("Found " + mapElements.length + " map elements.");
 
         mapElements.forEach(function (el, index) {
