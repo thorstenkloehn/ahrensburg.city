@@ -22,6 +22,7 @@ publish/
 mvc/appsettings.Development.json
 mvc/appsettings.json
 appsettings.json
+config/
 
 # Verhindere, dass versehentlich Passwörter in appsettings.json landen
 # Man sollte stattdessen _appsettings.json (Vorlage) committen

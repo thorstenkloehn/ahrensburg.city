@@ -25,4 +25,4 @@ Ein Mandantenfähiges (Multi-Tenancy) Wiki-CMS System entwickelt mit ASP.NET Cor
 
 ## Lizenz
 
-Privates Projekt - Alle Rechte vorbehalten.
+Dieses Projekt ist unter der **GNU Affero General Public License v3.0 (AGPL-3.0)** lizenziert. Weitere Details finden Sie in der [LICENSE](LICENSE) Datei.
