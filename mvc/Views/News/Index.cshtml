@@ -1,0 +1,77 @@
+@using mvc.Models
+@model List<WikiArtikel>
+
+@{
+    ViewData["Title"] = "Aktuelle Nachrichten";
+}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">News</li>
+  </ol>
+</nav>
+
+<div class="news-index">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>Aktuelle Nachrichten</h1>
+        @if (User.IsInRole("Admin"))
+        {
+            var defaultSlug = "News:" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm");
+            <a asp-controller="Page" asp-action="Neuformular" asp-route-slug="@defaultSlug" class="btn btn-success">Neue Nachricht</a>
+        }
+    </div>
+    <hr />
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info">
+            Es wurden keine aktuellen Nachrichten gefunden.
+        </div>
+    }
+    else
+    {
+        <div class="list-group mt-4">
+            @foreach (var artikel in Model)
+            {
+                var latestVersion = artikel.Versionen.FirstOrDefault();
+                var encodedSlug = string.Join("/", artikel.Slug.Split('/').Select(s => System.Net.WebUtility.UrlEncode(s)));
+                
+                <a href="~/@encodedSlug" class="list-group-item list-group-item-action d-flex flex-column align-items-start mb-4 border-start border-4 border-primary rounded-end shadow-sm">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1 text-primary">@artikel.Slug.Replace("News:", "")</h2>
+                        <span class="badge bg-secondary text-white p-2">@latestVersion?.Zeitpunkt.ToString("dd.MM.yyyy HH:mm")</span>
+                    </div>
+                    
+                    @if (latestVersion != null)
+                    {
+                        <div class="mb-3 text-dark fs-5">
+                            @{
+                                var plainText = System.Text.RegularExpressions.Regex.Replace(latestVersion.HtmlInhalt ?? "", "<.*?>", String.Empty);
+                                var snippet = plainText.Length > 250 ? plainText.Substring(0, 250) + "..." : plainText;
+                            }
+                            @snippet
+                        </div>
+                    }
+                    
+                    <div class="mt-auto d-flex justify-content-between w-100 align-items-center">
+                        <div>
+                        @if (latestVersion?.Kategorie != null && latestVersion.Kategorie.Any())
+                        {
+                            @foreach (var kat in latestVersion.Kategorie)
+                            {
+                                <span class="badge bg-info text-dark me-1">@kat</span>
+                            }
+                        }
+                        </div>
+                        <span class="text-primary fw-bold text-uppercase">Vollständiger Bericht &raquo;</span>
+                    </div>
+                </a>
+            }
+        </div>
+    }
+
+    <div class="mt-4">
+        <a href="/" class="btn btn-secondary">Zurück zur Startseite</a>
+    </div>
+</div>

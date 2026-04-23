@@ -24,7 +24,7 @@
     else
     {
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h1>@Model.Slug</h1>
+            <h1>@Model.Slug.Replace("Blog:", "").Replace("News:", "").Replace("_", " ")</h1>
             <div>
                 @if (User.IsInRole("Admin"))
                 {

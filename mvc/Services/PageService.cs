@@ -270,6 +270,62 @@ public class PageService : IPageService
             .ToListAsync();
     }
 
+    public async Task<List<WikiArtikel>> GetBlogArticlesAsync(int count = 10)
+    {
+        return await GetArtikelNachNamespaceAsync(100, count);
+    }
+
+    public async Task<List<WikiArtikel>> GetNewsArticlesAsync(int count = 10)
+    {
+        return await GetArtikelNachNamespaceAsync(101, count);
+    }
+
+    private async Task<List<WikiArtikel>> GetArtikelNachNamespaceAsync(int namespaceId, int count)
+    {
+        var currentTenantId = _context.CurrentTenantId;
+        
+        // Wir brauchen die neuesten Versionen, um nach Datum zu sortieren
+        var artikelIds = await _context.WikiArtikels
+            .AsNoTracking()
+            .Where(a => a.TenantId == currentTenantId && a.NamespaceId == namespaceId)
+            .Select(a => a.Id)
+            .ToListAsync();
+
+        if (!artikelIds.Any()) return new List<WikiArtikel>();
+
+        // Sicherer Ansatz für EF Core: Filter auf die Version mit dem maximalen Zeitpunkt pro Artikel
+        var neuesteVersionen = await _context.WikiArtikelVersions
+            .AsNoTracking()
+            .Where(v => v.TenantId == currentTenantId && artikelIds.Contains(v.WikiArtikelId))
+            .Where(v => v.Zeitpunkt == _context.WikiArtikelVersions
+                .Where(v2 => v2.WikiArtikelId == v.WikiArtikelId && v2.TenantId == currentTenantId)
+                .Max(v2 => v2.Zeitpunkt))
+            .OrderByDescending(v => v.Zeitpunkt)
+            .Take(count)
+            .ToListAsync();
+
+        var resultIds = neuesteVersionen.Select(v => v.WikiArtikelId).ToList();
+
+        var artikel = await _context.WikiArtikels
+            .AsNoTracking()
+            .Where(a => a.TenantId == currentTenantId && resultIds.Contains(a.Id))
+            .ToListAsync();
+
+        // Wieder in die richtige Reihenfolge bringen (nach Datum der neuesten Version)
+        var result = new List<WikiArtikel>();
+        foreach (var v in neuesteVersionen)
+        {
+            var a = artikel.FirstOrDefault(art => art.Id == v.WikiArtikelId);
+            if (a != null)
+            {
+                a.Versionen = new List<WikiArtikelVersion> { v };
+                result.Add(a);
+            }
+        }
+
+        return result;
+    }
+
     public async Task<List<WikiArtikel>> SucheArtikelAsync(string query)
     {
         if (string.IsNullOrWhiteSpace(query)) return new List<WikiArtikel>();

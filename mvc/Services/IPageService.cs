@@ -32,6 +32,8 @@ public interface IPageService
     Task ErstelleOderAktualisiereWikiArtikelAsync(string slug, string wikiTextInhalt, List<string>? kategorien = null);
     Task<List<WikiArtikel>> GetArtikelNachKategorieAsync(string kategorie);
     Task<List<WikiArtikel>> GetAllArtikelAsync();
+    Task<List<WikiArtikel>> GetBlogArticlesAsync(int count = 10);
+    Task<List<WikiArtikel>> GetNewsArticlesAsync(int count = 10);
     Task<bool> WiederherstellenAsync(long versionNummer);
     Task<WikiArtikelVersion?> GetVersionAsync(long versionNummer);
     Task<List<WikiArtikel>> SucheArtikelAsync(string query);
