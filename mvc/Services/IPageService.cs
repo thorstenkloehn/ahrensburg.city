@@ -25,7 +25,7 @@ namespace mvc.Services;
 
 public interface IPageService
 {
-    bool IstSlugGueltig(string slug);
+    bool IstSlugGueltig(string? slug);
     Task<WikiArtikel?> GetArtikelMitNeuesterVersionAsync(string slug);
     Task<WikiArtikel?> GetArtikelMitHistorieAsync(string slug);
     Task ErstelleOderAktualisiereArtikelAsync(string slug, string markdownInhalt, List<string>? kategorien = null);

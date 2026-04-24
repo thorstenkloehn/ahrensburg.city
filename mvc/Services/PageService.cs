@@ -169,7 +169,7 @@ public class PageService : IPageService
         }
     }
 
-    public bool IstSlugGueltig(string slug)
+    public bool IstSlugGueltig(string? slug)
     {
         if (string.IsNullOrEmpty(slug)) return false;
         if (!Regex.IsMatch(slug, @"^[\p{L}0-9/_\-\.%&:\ \(\)!,""`–]+$")) return false;

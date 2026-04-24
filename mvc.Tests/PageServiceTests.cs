@@ -77,7 +77,7 @@ public class PageServiceTests
     [InlineData("mit//doppelslash", false)]
     [InlineData("/startslash", false)]
     [InlineData("endslash/", false)]
-    public void IstSlugGueltig_ValidatesCorrectly(string slug, bool expectedResult)
+    public void IstSlugGueltig_ValidatesCorrectly(string? slug, bool expectedResult)
     {
         // Arrange
         using var context = GetInMemoryContext();
