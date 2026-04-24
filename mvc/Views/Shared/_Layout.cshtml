@@ -13,7 +13,6 @@
     <title>@pageTitle - @tenantTitle</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/lib/leaflet/leaflet.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/mvc.styles.css" asp-append-version="true" />
     @* Tenant-spezifisches CSS, falls vorhanden *@
@@ -43,12 +42,6 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="News" asp-action="Index">News</a>
-                            </li>
-                        }
-                        @if (tenantId == "main")
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Map" asp-action="Index">Karte</a>
                             </li>
                         }
                     </ul>
@@ -99,8 +92,7 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/lib/leaflet/leaflet.js" asp-append-version="true"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true" />
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
