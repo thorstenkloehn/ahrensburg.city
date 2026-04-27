@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MeinCMS Dokumentation</title>
+    <link>//localhost:1313/</link>
+    <description>Recent content on MeinCMS Dokumentation</description>
+    <generator>Hugo</generator>
+    <language>de-de</language>
+    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Einführung in MeinCMS</title>
+      <link>//localhost:1313/articles/intro/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/articles/intro/</guid>
+      <description>&lt;h1 id=&#34;einführung-in-meincms&#34;&gt;Einführung in MeinCMS&lt;/h1&gt;&#xA;&lt;p&gt;MeinCMS (ahrensburg.city) ist ein hochspezialisiertes, leichtgewichtiges Content-Management-System mit Wiki-Fokus. Es wurde entwickelt, um sowohl technische Dokumentation als auch regionale Inhalte (wie für die Stadt Ahrensburg) effizient und sicher zu verwalten.&lt;/p&gt;&#xA;&lt;h2 id=&#34;kernphilosophie&#34;&gt;Kernphilosophie&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Einfachheit:&lt;/strong&gt; Verzicht auf komplexe Abhängigkeiten; Nutzung nativer .NET 10.0 Features.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Mandantenfähigkeit:&lt;/strong&gt; Native Trennung von Inhalten (z. B. technisches Wiki vs. Stadt-Wiki) innerhalb einer einzigen Datenbank-Instanz.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Performance:&lt;/strong&gt; Optimiert für hohe Lasten durch Unix Domain Sockets und effiziente PostgreSQL-Abfragen.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;hauptmerkmale&#34;&gt;Hauptmerkmale&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;MediaWiki-Kompatibilität:&lt;/strong&gt; Ein eigener Compiler-Parser erlaubt die Nutzung von WikiText-Syntax.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Markdown-First:&lt;/strong&gt; Native Unterstützung für Markdown mit YAML-Frontmatter.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Sicherheit:&lt;/strong&gt; Integrierte HTML-Bereinigung, gehärtete Identitätsprüfung und CSRF-Schutz.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Backup &amp;amp; Recovery:&lt;/strong&gt; Robuste Tools für den Datenexport und die automatische Regeneration von Inhalten.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;zielsetzung&#34;&gt;Zielsetzung&lt;/h2&gt;&#xA;&lt;p&gt;Das System dient als zentraler Wissensknoten für &lt;strong&gt;ahrensburg.city&lt;/strong&gt;, wobei es technische Flexibilität mit einfacher Bedienbarkeit kombiniert.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Projektstatus April 2026</title>
+      <link>//localhost:1313/articles/status_2026/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/articles/status_2026/</guid>
+      <description>&lt;h1 id=&#34;projektstatus-stand-24042026&#34;&gt;Projektstatus (Stand 24.04.2026)&lt;/h1&gt;&#xA;&lt;p&gt;Das Projekt hat im April 2026 einen bedeutenden Reifegrad erreicht und ist bereit für den produktiven Einsatz.&lt;/p&gt;&#xA;&lt;h2 id=&#34;wichtige-meilensteine&#34;&gt;Wichtige Meilensteine&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-bereinigung--optimierung-streamlining&#34;&gt;1. Bereinigung &amp;amp; Optimierung (Streamlining)&lt;/h3&gt;&#xA;&lt;p&gt;Alle nicht mehr benötigten Kartendienste (Leaflet, GeoJSON) wurden entfernt. Das System ist nun schlanker und fokussiert sich auf seine Kernkompetenz als Wiki-CMS.&lt;/p&gt;&#xA;&lt;h3 id=&#34;2-multi-tenancy&#34;&gt;2. Multi-Tenancy&lt;/h3&gt;&#xA;&lt;p&gt;Die Mandantenfähigkeit ist vollständig implementiert.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Mandant &lt;code&gt;main&lt;/code&gt;:&lt;/strong&gt; Ahrensburg-spezifische Inhalte.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Mandant &lt;code&gt;doc&lt;/code&gt;:&lt;/strong&gt; Technische Dokumentation.&lt;/li&gt;&#xA;&lt;li&gt;Die Trennung erfolgt auf Datenbankebene über globale Abfragefilter.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;3-parser-evolution&#34;&gt;3. Parser-Evolution&lt;/h3&gt;&#xA;&lt;p&gt;Es stehen zwei leistungsstarke Parser zur Verfügung:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

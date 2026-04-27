@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de-de" lang="de-de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.154.5">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MeinCMS Dokumentation</title>
+  <meta name="description" content="Zentrale Wissensdatenbank für ahrensburg.city" />
+
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/print.css"
+    media="print" />
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/hyde-bundle.css"
+    media="all" />  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="//localhost:1313/index.xml" rel="alternate" type="application/rss+xml" title="MeinCMS Dokumentation" />
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="//localhost:1313/"><h1>MeinCMS Dokumentation</h1></a>
+      <p class="lead">
+       Zentrale Wissensdatenbank für ahrensburg.city 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="//localhost:1313/">Home</a> </li>
+        <li><a href="/"> Startseite </a></li><li><a href="/articles/"> Artikel </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2026. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="posts">
+<article class="post">
+  <h1 class="post-title">
+    <a href="//localhost:1313/articles/intro/">Einführung in MeinCMS</a>
+  </h1>
+  <time datetime="0001-01-01T00:00:00Z" class="post-date">Mon, Jan 1, 0001</time>
+  <h1 id="einführung-in-meincms">Einführung in MeinCMS</h1>
+<p>MeinCMS (ahrensburg.city) ist ein hochspezialisiertes, leichtgewichtiges Content-Management-System mit Wiki-Fokus. Es wurde entwickelt, um sowohl technische Dokumentation als auch regionale Inhalte (wie für die Stadt Ahrensburg) effizient und sicher zu verwalten.</p>
+<h2 id="kernphilosophie">Kernphilosophie</h2>
+<ul>
+<li><strong>Einfachheit:</strong> Verzicht auf komplexe Abhängigkeiten; Nutzung nativer .NET 10.0 Features.</li>
+<li><strong>Mandantenfähigkeit:</strong> Native Trennung von Inhalten (z. B. technisches Wiki vs. Stadt-Wiki) innerhalb einer einzigen Datenbank-Instanz.</li>
+<li><strong>Performance:</strong> Optimiert für hohe Lasten durch Unix Domain Sockets und effiziente PostgreSQL-Abfragen.</li>
+</ul>
+<h2 id="hauptmerkmale">Hauptmerkmale</h2>
+<ul>
+<li><strong>MediaWiki-Kompatibilität:</strong> Ein eigener Compiler-Parser erlaubt die Nutzung von WikiText-Syntax.</li>
+<li><strong>Markdown-First:</strong> Native Unterstützung für Markdown mit YAML-Frontmatter.</li>
+<li><strong>Sicherheit:</strong> Integrierte HTML-Bereinigung, gehärtete Identitätsprüfung und CSRF-Schutz.</li>
+<li><strong>Backup &amp; Recovery:</strong> Robuste Tools für den Datenexport und die automatische Regeneration von Inhalten.</li>
+</ul>
+<h2 id="zielsetzung">Zielsetzung</h2>
+<p>Das System dient als zentraler Wissensknoten für <strong>ahrensburg.city</strong>, wobei es technische Flexibilität mit einfacher Bedienbarkeit kombiniert.</p>
+  
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="//localhost:1313/articles/status_2026/">Projektstatus April 2026</a>
+  </h1>
+  <time datetime="0001-01-01T00:00:00Z" class="post-date">Mon, Jan 1, 0001</time>
+  <h1 id="projektstatus-stand-24042026">Projektstatus (Stand 24.04.2026)</h1>
+<p>Das Projekt hat im April 2026 einen bedeutenden Reifegrad erreicht und ist bereit für den produktiven Einsatz.</p>
+<h2 id="wichtige-meilensteine">Wichtige Meilensteine</h2>
+<h3 id="1-bereinigung--optimierung-streamlining">1. Bereinigung &amp; Optimierung (Streamlining)</h3>
+<p>Alle nicht mehr benötigten Kartendienste (Leaflet, GeoJSON) wurden entfernt. Das System ist nun schlanker und fokussiert sich auf seine Kernkompetenz als Wiki-CMS.</p>
+<h3 id="2-multi-tenancy">2. Multi-Tenancy</h3>
+<p>Die Mandantenfähigkeit ist vollständig implementiert.</p>
+<ul>
+<li><strong>Mandant <code>main</code>:</strong> Ahrensburg-spezifische Inhalte.</li>
+<li><strong>Mandant <code>doc</code>:</strong> Technische Dokumentation.</li>
+<li>Die Trennung erfolgt auf Datenbankebene über globale Abfragefilter.</li>
+</ul>
+<h3 id="3-parser-evolution">3. Parser-Evolution</h3>
+<p>Es stehen zwei leistungsstarke Parser zur Verfügung:</p>
+  
+  <div class="read-more-link">
+    <a href="/articles/status_2026/">Read More…</a>
+  </div>
+  
+</article>
+</div>
+    </main>
+
+    
+  </body>
+</html>

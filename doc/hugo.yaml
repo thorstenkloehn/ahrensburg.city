@@ -1,0 +1,23 @@
+baseURL: "/"
+languageCode: "de-de"
+title: "MeinCMS Dokumentation"
+theme: "hyde"
+
+params:
+  description: "Zentrale Wissensdatenbank für ahrensburg.city"
+  sidebar:
+    - name: "Startseite"
+      url: "/"
+    - name: "Einführung"
+      url: "/articles/intro/"
+    - name: "Projektstatus 2026"
+      url: "/articles/status_2026/"
+
+menu:
+  main:
+    - name: "Startseite"
+      url: "/"
+      weight: 10
+    - name: "Artikel"
+      url: "/articles/"
+      weight: 20
