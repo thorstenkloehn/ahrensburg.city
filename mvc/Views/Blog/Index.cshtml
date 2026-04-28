@@ -47,7 +47,7 @@
                     {
                         <div class="mb-2 text-dark">
                             @{
-                                var plainText = System.Text.RegularExpressions.Regex.Replace(latestVersion.HtmlInhalt ?? "", "<.*?>", String.Empty);
+                                var plainText = System.Net.WebUtility.HtmlDecode(System.Text.RegularExpressions.Regex.Replace(latestVersion.HtmlInhalt ?? "", "<.*?>", String.Empty));
                                 var snippet = plainText.Length > 200 ? plainText.Substring(0, 200) + "..." : plainText;
                             }
                             @snippet
