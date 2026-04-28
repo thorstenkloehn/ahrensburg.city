@@ -1,0 +1,21 @@
+baseURL: "/"
+languageCode: "de-de"
+title: "MeinCMS Handbuch"
+theme: "hyde"
+
+params:
+  description: "Installations- und Einrichtungshandbuch für MeinCMS"
+  themeColor: "theme-base-08"
+  copyright: "© 2026 Thorsten Klöhn – AGPL-3.0"
+
+menu:
+  main:
+    - name: "Startseite"
+      url: "/"
+      weight: 10
+    - name: "Entwicklungsrechner"
+      url: "/entwicklung"
+      weight: 20
+    - name: "Produktionsserver"
+      url: "/produktion"
+      weight: 30

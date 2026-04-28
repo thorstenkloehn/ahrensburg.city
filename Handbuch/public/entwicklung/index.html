@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de-de" lang="de-de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.154.5">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Entwicklungsrechner einrichten &middot; MeinCMS Handbuch</title>
+  <meta name="description" content="" />
+
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/print.css"
+    media="print" />
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/hyde-bundle.css"
+    media="all" />  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class="theme-base-08 ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="//localhost:1313/"><h1>MeinCMS Handbuch</h1></a>
+      <p class="lead">
+       Installations- und Einrichtungshandbuch für MeinCMS 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="//localhost:1313/">Home</a> </li>
+        <li><a href="/"> Startseite </a></li><li><a href="/entwicklung"> Entwicklungsrechner </a></li><li><a href="/produktion"> Produktionsserver </a></li>
+      </ul>
+    </nav>
+
+    <p>© 2026 Thorsten Klöhn – AGPL-3.0</p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Entwicklungsrechner einrichten</h1>
+  <time datetime=2026-04-28T00:00:00Z class="post-date">Tue, Apr 28, 2026</time>
+  <h1 id="entwicklungsrechner-einrichten">Entwicklungsrechner einrichten</h1>
+<p>Diese Anleitung richtet eine vollständige lokale Entwicklungsumgebung für MeinCMS ein.</p>
+<hr>
+<h2 id="voraussetzungen">Voraussetzungen</h2>
+<h3 id="software-installieren">Software installieren</h3>
+<p><strong>.NET 10 SDK</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Ubuntu/Debian</span>
+</span></span><span style="display:flex;"><span>sudo apt install -y dotnet-sdk-10.0
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Oder via Microsoft-Repository (empfohlen für neueste Version):</span>
+</span></span><span style="display:flex;"><span>wget https://packages.microsoft.com/config/ubuntu/24.04/packages-microsoft-prod.deb
+</span></span><span style="display:flex;"><span>sudo dpkg -i packages-microsoft-prod.deb
+</span></span><span style="display:flex;"><span>sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt install -y dotnet-sdk-10.0
+</span></span></code></pre></div><p><strong>PostgreSQL</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install -y postgresql postgresql-contrib
+</span></span></code></pre></div><p><strong>Entity Framework CLI-Tool</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet tool install --global dotnet-ef
+</span></span></code></pre></div><p><strong>Hugo</strong> (für diese Dokumentation)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install -y hugo
+</span></span></code></pre></div><hr>
+<h2 id="datenbank-einrichten">Datenbank einrichten</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo -u postgres psql
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> meincmsdb;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">USER</span> meincmsuser <span style="color:#66d9ef">WITH</span> PASSWORD <span style="color:#e6db74">&#39;lokalesPasswort&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> meincmsdb <span style="color:#66d9ef">TO</span> meincmsuser;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Ab PostgreSQL 15 zusätzlich:
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#66d9ef">c</span> meincmsdb
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">SCHEMA</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">TO</span> meincmsuser;
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">\</span>q
+</span></span></code></pre></div><hr>
+<h2 id="projekt-klonen-und-konfigurieren">Projekt klonen und konfigurieren</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone &lt;repository-url&gt;
+</span></span><span style="display:flex;"><span>cd ahrensburg.city
+</span></span></code></pre></div><p><strong>Konfiguration anlegen</strong> (aus der Vorlage):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp mvc/_appsettings.json mvc/appsettings.json
+</span></span></code></pre></div><p><code>mvc/appsettings.json</code> anpassen:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;ConnectionStrings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;DefaultConnection&#34;</span>: <span style="color:#e6db74">&#34;Host=localhost;Database=meincmsdb;Username=meincmsuser;Password=lokalesPasswort&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Tenants&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;localhost&#34;</span>: <span style="color:#e6db74">&#34;main&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;doc.localhost&#34;</span>: <span style="color:#e6db74">&#34;doc&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;TenantConfig&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;main&#34;</span>: { <span style="color:#f92672">&#34;Title&#34;</span>: <span style="color:#e6db74">&#34;ahrensburg.city (lokal)&#34;</span>, <span style="color:#f92672">&#34;Logo&#34;</span>: <span style="color:#e6db74">&#34;/logo.svg&#34;</span> },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;doc&#34;</span>:  { <span style="color:#f92672">&#34;Title&#34;</span>: <span style="color:#e6db74">&#34;Dokumentation (lokal)&#34;</span>, <span style="color:#f92672">&#34;Logo&#34;</span>: <span style="color:#e6db74">&#34;/logo-doc.svg&#34;</span> }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Kestrel&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;UnixSocket&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p>Den <code>UnixSocket</code>-Eintrag leer lassen – lokal hört Kestrel auf dem Standard-HTTP-Port.</p>
+</blockquote>
+<hr>
+<h2 id="datenbankmigrationen-ausführen">Datenbankmigrationen ausführen</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet ef database update --project mvc
+</span></span></code></pre></div><hr>
+<h2 id="anwendung-starten">Anwendung starten</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet run --project mvc
+</span></span></code></pre></div><p>Die Anwendung ist erreichbar unter:</p>
+<ul>
+<li><code>http://localhost:5000</code> → Mandant <code>main</code></li>
+<li><code>http://doc.localhost:5000</code> → Mandant <code>doc</code> (hosts-Eintrag nötig, siehe unten)</li>
+</ul>
+<p><strong>Optionaler hosts-Eintrag für zweiten Mandanten:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># /etc/hosts</span>
+</span></span><span style="display:flex;"><span>127.0.0.1   doc.localhost
+</span></span></code></pre></div><hr>
+<h2 id="ersten-administrator-anlegen">Ersten Administrator anlegen</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet run --project UserAdmin
+</span></span></code></pre></div><hr>
+<h2 id="entwicklungsworkflow">Entwicklungsworkflow</h2>
+<h3 id="build-prüfen">Build prüfen</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet build
+</span></span></code></pre></div><h3 id="tests-ausführen">Tests ausführen</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet test mvc.Tests
+</span></span><span style="display:flex;"><span>dotnet test Mardown.Tests
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Einzelne Testklasse</span>
+</span></span><span style="display:flex;"><span>dotnet test mvc.Tests --filter <span style="color:#e6db74">&#34;FullyQualifiedName~PageServiceTests&#34;</span>
+</span></span></code></pre></div><h3 id="neue-datenbankmigrierung-erstellen">Neue Datenbankmigrierung erstellen</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet ef migrations add &lt;MigrationName&gt; --project mvc
+</span></span><span style="display:flex;"><span>dotnet ef database update --project mvc
+</span></span></code></pre></div><h3 id="nach-parser-änderungen-html-aller-artikel-neu-generieren">Nach Parser-Änderungen: HTML aller Artikel neu generieren</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet run --project backup -- repair
+</span></span></code></pre></div><hr>
+<h2 id="backup--export-und-import">Backup – Export und Import</h2>
+<p>Das Backup-Tool speichert Artikelinhalt ohne gerendertes HTML (ca. 70 % Größenersparnis). Beim Import wird das HTML automatisch neu erzeugt. Unterstützte Formate: <strong>YAML</strong> und <strong>XML</strong> – die Erkennung erfolgt automatisch anhand der Dateiendung.</p>
+<h3 id="export">Export</h3>
+<p><strong>Alle Mandanten sichern (empfohlen):</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># YAML-Format</span>
+</span></span><span style="display:flex;"><span>dotnet run --project backup -- export mein_backup.yaml --full
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># XML-Format</span>
+</span></span><span style="display:flex;"><span>dotnet run --project backup -- export mein_backup.xml --full
+</span></span></code></pre></div><p><strong>Nur aktuellen Mandanten sichern</strong> (ohne <code>--full</code>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet run --project backup -- export mein_backup.yaml
+</span></span><span style="display:flex;"><span>dotnet run --project backup -- export mein_backup.xml
+</span></span></code></pre></div><p><strong>Automatischer Dateiname</strong> (Datum und Uhrzeit im Namen):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Erzeugt z. B.: backup_full_20260428_1430.yaml</span>
+</span></span><span style="display:flex;"><span>dotnet run --project backup -- export --full
+</span></span></code></pre></div><h3 id="import">Import</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Aus YAML</span>
+</span></span><span style="display:flex;"><span>dotnet run --project backup -- import mein_backup.yaml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Aus XML</span>
+</span></span><span style="display:flex;"><span>dotnet run --project backup -- import mein_backup.xml
+</span></span></code></pre></div><blockquote>
+<p>Beim Import wird das gespeicherte HTML für jeden Artikel neu generiert. Das kann bei großen Datenbeständen einige Minuten dauern.</p>
+</blockquote>
+<h3 id="html-nach-parser-änderungen-neu-generieren">HTML nach Parser-Änderungen neu generieren</h3>
+<p>Nach jeder Änderung am Markdown- oder WikiText-Parser muss das gespeicherte HTML aller Artikel neu erzeugt werden:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet run --project backup -- repair
+</span></span></code></pre></div><h3 id="backup-workflow-daten-auf-neuen-rechner-übertragen">Backup-Workflow: Daten auf neuen Rechner übertragen</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 1. Auf dem Quellrechner exportieren</span>
+</span></span><span style="display:flex;"><span>dotnet run --project backup -- export umzug.xml --full
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2. Datei auf Zielrechner kopieren (z. B. per scp oder USB)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 3. Auf dem Zielrechner importieren</span>
+</span></span><span style="display:flex;"><span>dotnet run --project backup -- import umzug.xml
+</span></span></code></pre></div><hr>
+<h2 id="ide-empfehlungen">IDE-Empfehlungen</h2>
+<table>
+  <thead>
+      <tr>
+          <th>IDE</th>
+          <th>Hinweis</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>JetBrains Rider</strong></td>
+          <td>Empfohlen; EF-Migrationen über UI möglich</td>
+      </tr>
+      <tr>
+          <td><strong>Visual Studio Code</strong></td>
+          <td>Mit <code>C# Dev Kit</code>-Extension</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="häufige-probleme">Häufige Probleme</h2>
+<p><strong><code>dotnet-ef</code> nicht gefunden nach Installation:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$PATH<span style="color:#e6db74">:</span>$HOME<span style="color:#e6db74">/.dotnet/tools&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Dauerhaft in ~/.bashrc oder ~/.zshrc eintragen</span>
+</span></span></code></pre></div><p><strong>PostgreSQL-Verbindungsfehler <code>peer authentication</code>:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># /etc/postgresql/*/main/pg_hba.conf anpassen:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Zeile für &#34;local&#34; von &#34;peer&#34; auf &#34;scram-sha-256&#34; ändern</span>
+</span></span><span style="display:flex;"><span>sudo systemctl restart postgresql
+</span></span></code></pre></div><p><strong>Port 5000 bereits belegt:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Anderen Port verwenden:</span>
+</span></span><span style="display:flex;"><span>ASPNETCORE_URLS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://localhost:5001&#34;</span> dotnet run --project mvc
+</span></span></code></pre></div>
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>

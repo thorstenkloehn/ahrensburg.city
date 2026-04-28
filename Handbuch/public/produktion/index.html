@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de-de" lang="de-de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.154.5">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Produktionsserver einrichten &middot; MeinCMS Handbuch</title>
+  <meta name="description" content="" />
+
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/print.css"
+    media="print" />
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/hyde-bundle.css"
+    media="all" />  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class="theme-base-08 ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="//localhost:1313/"><h1>MeinCMS Handbuch</h1></a>
+      <p class="lead">
+       Installations- und Einrichtungshandbuch für MeinCMS 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="//localhost:1313/">Home</a> </li>
+        <li><a href="/"> Startseite </a></li><li><a href="/entwicklung"> Entwicklungsrechner </a></li><li><a href="/produktion"> Produktionsserver </a></li>
+      </ul>
+    </nav>
+
+    <p>© 2026 Thorsten Klöhn – AGPL-3.0</p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Produktionsserver einrichten</h1>
+  <time datetime=2026-04-28T00:00:00Z class="post-date">Tue, Apr 28, 2026</time>
+  <h1 id="produktionsserver-einrichten">Produktionsserver einrichten</h1>
+<p>Diese Anleitung beschreibt das Deployment von MeinCMS auf <strong>Ubuntu Server 24.04</strong> mit Nginx als Reverse Proxy über Unix Domain Sockets.</p>
+<hr>
+<h2 id="voraussetzungen-auf-dem-server">Voraussetzungen auf dem Server</h2>
+<h3 id="system-aktualisieren">System aktualisieren</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt upgrade -y
+</span></span></code></pre></div><h3 id="net-10-runtime-installieren">.NET 10 Runtime installieren</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget https://packages.microsoft.com/config/ubuntu/24.04/packages-microsoft-prod.deb
+</span></span><span style="display:flex;"><span>sudo dpkg -i packages-microsoft-prod.deb
+</span></span><span style="display:flex;"><span>sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt install -y aspnetcore-runtime-10.0
+</span></span></code></pre></div><h3 id="postgresql-installieren">PostgreSQL installieren</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install -y postgresql postgresql-contrib
+</span></span></code></pre></div><h3 id="nginx-installieren">Nginx installieren</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install -y nginx
+</span></span></code></pre></div><h3 id="certbot-lets-encrypt-installieren">Certbot (Let&rsquo;s Encrypt) installieren</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install -y certbot python3-certbot-nginx
+</span></span></code></pre></div><hr>
+<h2 id="datenbank-einrichten">Datenbank einrichten</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo -u postgres psql
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> meincmsdb;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">USER</span> meincmsuser <span style="color:#66d9ef">WITH</span> PASSWORD <span style="color:#e6db74">&#39;SicheresProduktionspasswort&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">PRIVILEGES</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">DATABASE</span> meincmsdb <span style="color:#66d9ef">TO</span> meincmsuser;
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#66d9ef">c</span> meincmsdb
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">ALL</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">SCHEMA</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">TO</span> meincmsuser;
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">\</span>q
+</span></span></code></pre></div><hr>
+<h2 id="backup--export-und-import">Backup – Export und Import</h2>
+<p>Das Backup-Tool unterstützt <strong>YAML</strong> und <strong>XML</strong> – die Erkennung erfolgt automatisch anhand der Dateiendung. Gerendertes HTML wird nicht gespeichert (ca. 70 % Größenersparnis) und beim Import automatisch neu erzeugt.</p>
+<h3 id="export-auf-dem-entwicklungsrechner">Export auf dem Entwicklungsrechner</h3>
+<p><strong>Alle Mandanten sichern (empfohlen vor jedem Deployment):</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># YAML-Format</span>
+</span></span><span style="display:flex;"><span>dotnet run --project backup -- export mein_backup.yaml --full
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># XML-Format</span>
+</span></span><span style="display:flex;"><span>dotnet run --project backup -- export mein_backup.xml --full
+</span></span></code></pre></div><p><strong>Nur aktuellen Mandanten</strong> (ohne <code>--full</code>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet run --project backup -- export mein_backup.yaml
+</span></span><span style="display:flex;"><span>dotnet run --project backup -- export mein_backup.xml
+</span></span></code></pre></div><p><strong>Automatischer Dateiname:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Erzeugt z. B.: backup_full_20260428_1430.yaml</span>
+</span></span><span style="display:flex;"><span>dotnet run --project backup -- export --full
+</span></span></code></pre></div><h3 id="export-auf-dem-produktionsserver">Export auf dem Produktionsserver</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /var/www/ahrensburgcity
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># XML</span>
+</span></span><span style="display:flex;"><span>sudo ./backup export meine_sicherung.xml --full
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># YAML</span>
+</span></span><span style="display:flex;"><span>sudo ./backup export meine_sicherung.yaml --full
+</span></span></code></pre></div><h3 id="import-auf-dem-produktionsserver">Import auf dem Produktionsserver</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /var/www/ahrensburgcity
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Datei direkt im Verzeichnis</span>
+</span></span><span style="display:flex;"><span>sudo ./backup import thomas.xml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Datei in einem Unterordner</span>
+</span></span><span style="display:flex;"><span>sudo ./backup import thorsten/thomas.xml
+</span></span></code></pre></div><blockquote>
+<p>Beim Import wird das HTML für jeden Artikel neu generiert. Bei großen Datenbeständen kann das einige Minuten dauern.</p>
+</blockquote>
+<h3 id="html-nach-parser-änderungen-neu-generieren">HTML nach Parser-Änderungen neu generieren</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /var/www/ahrensburgcity
+</span></span><span style="display:flex;"><span>sudo ./backup repair
+</span></span></code></pre></div><hr>
+<h2 id="deployment-vom-entwicklungsrechner">Deployment vom Entwicklungsrechner</h2>
+<h3 id="1-backup-exportieren">1. Backup exportieren</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet run --project backup -- export meine_sicherung.xml --full
+</span></span></code></pre></div><h3 id="2-release-build-erstellen-und-übertragen">2. Release-Build erstellen und übertragen</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Zum Projektverzeichnis navigieren</span>
+</span></span><span style="display:flex;"><span>cd /home/thorsten/ahrensburg.city
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Release erstellen und veröffentlichen</span>
+</span></span><span style="display:flex;"><span>dotnet publish -c Release -r linux-x64 --self-contained false -o /home/thorsten/publis/ahrensburgcity/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Veröffentlichte Dateien zum Remote-Server synchronisieren</span>
+</span></span><span style="display:flex;"><span>rsync -avz --exclude <span style="color:#e6db74">&#39;bin&#39;</span> --exclude <span style="color:#e6db74">&#39;obj&#39;</span> --exclude <span style="color:#e6db74">&#39;config&#39;</span> /home/thorsten/publis/ahrensburgcity/ tt@ah.city:/var/www/ahrensburgcity/
+</span></span></code></pre></div><h3 id="3-datenbankmigrationen-auf-dem-server-anwenden">3. Datenbankmigrationen auf dem Server anwenden</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /var/www/ahrensburgcity
+</span></span><span style="display:flex;"><span>dotnet mvc.dll --migrate
+</span></span></code></pre></div><hr>
+<h2 id="einrichtung-auf-dem-server">Einrichtung auf dem Server</h2>
+<h3 id="1-deploypfad-vorbereiten">1. Deploypfad vorbereiten</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mkdir -p /var/www/ahrensburgcity
+</span></span><span style="display:flex;"><span>sudo chown www-data:www-data /var/www/ahrensburgcity
+</span></span></code></pre></div><h3 id="2-konfiguration-anlegen">2. Konfiguration anlegen</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /var/www/ahrensburgcity/appsettings.json
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;ConnectionStrings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;DefaultConnection&#34;</span>: <span style="color:#e6db74">&#34;Host=localhost;Database=meincmsdb;Username=meincmsuser;Password=SicheresProduktionspasswort&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Tenants&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ahrensburg.city&#34;</span>: <span style="color:#e6db74">&#34;main&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;doc.ahrensburg.city&#34;</span>: <span style="color:#e6db74">&#34;doc&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;TenantConfig&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;main&#34;</span>: { <span style="color:#f92672">&#34;Title&#34;</span>: <span style="color:#e6db74">&#34;ahrensburg.city&#34;</span>, <span style="color:#f92672">&#34;Logo&#34;</span>: <span style="color:#e6db74">&#34;/logo.svg&#34;</span> },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;doc&#34;</span>:  { <span style="color:#f92672">&#34;Title&#34;</span>: <span style="color:#e6db74">&#34;Dokumentation&#34;</span>, <span style="color:#f92672">&#34;Logo&#34;</span>: <span style="color:#e6db74">&#34;/logo-doc.svg&#34;</span> }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Kestrel&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;UnixSocket&#34;</span>: <span style="color:#e6db74">&#34;/var/www/ahrensburgcity/meincms.sock&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Logging&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;LogLevel&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Default&#34;</span>: <span style="color:#e6db74">&#34;Warning&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Microsoft.AspNetCore&#34;</span>: <span style="color:#e6db74">&#34;Warning&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;AllowedHosts&#34;</span>: <span style="color:#e6db74">&#34;ahrensburg.city;doc.ahrensburg.city&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="3-datenbankmigrationen-anwenden">3. Datenbankmigrationen anwenden</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /var/www/ahrensburgcity
+</span></span><span style="display:flex;"><span>dotnet mvc.dll --migrate
+</span></span></code></pre></div><h3 id="4-berechtigungen-setzen">4. Berechtigungen setzen</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo chown -R www-data:www-data /var/www/ahrensburgcity
+</span></span><span style="display:flex;"><span>sudo chmod <span style="color:#ae81ff">750</span> /var/www/ahrensburgcity
+</span></span></code></pre></div><hr>
+<h2 id="systemd-service-einrichten">systemd-Service einrichten</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/systemd/system/ahrensburgcity.service
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[Unit]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">MeinCMS Wiki (ahrensburg.city)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">After</span><span style="color:#f92672">=</span><span style="color:#e6db74">network.target postgresql.service</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Service]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">WorkingDirectory</span><span style="color:#f92672">=</span><span style="color:#e6db74">/var/www/ahrensburgcity</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ExecStart</span><span style="color:#f92672">=</span><span style="color:#e6db74">/usr/bin/dotnet /var/www/ahrensburgcity/mvc.dll</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Restart</span><span style="color:#f92672">=</span><span style="color:#e6db74">always</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">RestartSec</span><span style="color:#f92672">=</span><span style="color:#e6db74">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">KillSignal</span><span style="color:#f92672">=</span><span style="color:#e6db74">SIGINT</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">SyslogIdentifier</span><span style="color:#f92672">=</span><span style="color:#e6db74">meincms</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">User</span><span style="color:#f92672">=</span><span style="color:#e6db74">www-data</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Group</span><span style="color:#f92672">=</span><span style="color:#e6db74">www-data</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Environment</span><span style="color:#f92672">=</span><span style="color:#e6db74">ASPNETCORE_ENVIRONMENT=Production</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Install]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">WantedBy</span><span style="color:#f92672">=</span><span style="color:#e6db74">multi-user.target</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl daemon-reload
+</span></span><span style="display:flex;"><span>sudo systemctl enable ahrensburgcity.service
+</span></span><span style="display:flex;"><span>sudo systemctl start ahrensburgcity.service
+</span></span><span style="display:flex;"><span>sudo systemctl status ahrensburgcity.service
+</span></span></code></pre></div><hr>
+<h2 id="nginx-konfigurieren">Nginx konfigurieren</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /etc/nginx/conf.d/ahrensburgcity.conf
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span><span style="color:#75715e"># HTTP → HTTPS Weiterleitung
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">server</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">listen</span> <span style="color:#ae81ff">80</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">listen</span> <span style="color:#e6db74">[::]:80</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">server_name</span> <span style="color:#e6db74">ahrensburg.city</span> <span style="color:#e6db74">doc.ahrensburg.city</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">return</span> <span style="color:#ae81ff">301</span> <span style="color:#e6db74">https://</span>$host$request_uri;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># HTTPS
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">server</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">listen</span> <span style="color:#ae81ff">443</span> <span style="color:#e6db74">ssl</span> <span style="color:#e6db74">http2</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">listen</span> <span style="color:#e6db74">[::]:443</span> <span style="color:#e6db74">ssl</span> <span style="color:#e6db74">http2</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">server_name</span> <span style="color:#e6db74">ahrensburg.city</span> <span style="color:#e6db74">doc.ahrensburg.city</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ssl_certificate</span>     <span style="color:#e6db74">/etc/letsencrypt/live/ahrensburg.city/fullchain.pem</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ssl_certificate_key</span> <span style="color:#e6db74">/etc/letsencrypt/live/ahrensburg.city/privkey.pem</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Sicherheitsempfehlungen
+</span></span></span><span style="display:flex;"><span>    <span style="color:#f92672">ssl_protocols</span>       <span style="color:#e6db74">TLSv1.2</span> <span style="color:#e6db74">TLSv1.3</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ssl_prefer_server_ciphers</span> <span style="color:#66d9ef">on</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">location</span> <span style="color:#e6db74">/</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_pass</span>         <span style="color:#e6db74">http://unix:/var/www/ahrensburgcity/meincms.sock</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_http_version</span> <span style="color:#ae81ff">1</span><span style="color:#e6db74">.1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_set_header</span>   <span style="color:#e6db74">Upgrade</span> $http_upgrade;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_set_header</span>   <span style="color:#e6db74">Connection</span> <span style="color:#e6db74">keep-alive</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_set_header</span>   <span style="color:#e6db74">Host</span> $host;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_cache_bypass</span> $http_upgrade;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_set_header</span>   <span style="color:#e6db74">X-Forwarded-For</span> $proxy_add_x_forwarded_for;
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">proxy_set_header</span>   <span style="color:#e6db74">X-Forwarded-Proto</span> $scheme;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nginx -t
+</span></span><span style="display:flex;"><span>sudo systemctl reload nginx
+</span></span></code></pre></div><hr>
+<h2 id="ssl-zertifikat-ausstellen">SSL-Zertifikat ausstellen</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo certbot --nginx -d ahrensburg.city -d doc.ahrensburg.city
+</span></span></code></pre></div><p>Certbot trägt die Zertifikatspfade automatisch in die Nginx-Konfiguration ein.</p>
+<hr>
+<h2 id="ersten-administrator-anlegen">Ersten Administrator anlegen</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /var/www/ahrensburgcity
+</span></span><span style="display:flex;"><span>sudo ./UserAdmin
+</span></span></code></pre></div><hr>
+<h2 id="updates-einspielen">Updates einspielen</h2>
+<h3 id="auf-dem-entwicklungsrechner">Auf dem Entwicklungsrechner</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /home/thorsten/ahrensburg.city
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dotnet publish -c Release -r linux-x64 --self-contained false -o /home/thorsten/publis/ahrensburgcity/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>rsync -avz --exclude <span style="color:#e6db74">&#39;bin&#39;</span> --exclude <span style="color:#e6db74">&#39;obj&#39;</span> --exclude <span style="color:#e6db74">&#39;config&#39;</span> /home/thorsten/publis/ahrensburgcity/ tt@ah.city:/var/www/ahrensburgcity/
+</span></span></code></pre></div><h3 id="auf-dem-server">Auf dem Server</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /var/www/ahrensburgcity
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Datenbankmigrationen anwenden</span>
+</span></span><span style="display:flex;"><span>dotnet mvc.dll --migrate
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Service neu starten</span>
+</span></span><span style="display:flex;"><span>sudo systemctl restart ahrensburgcity.service
+</span></span><span style="display:flex;"><span>sudo systemctl status ahrensburgcity.service
+</span></span></code></pre></div><hr>
+<h2 id="betrieb-und-monitoring">Betrieb und Monitoring</h2>
+<h3 id="logs-anzeigen">Logs anzeigen</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Laufende Logs</span>
+</span></span><span style="display:flex;"><span>sudo journalctl -u ahrensburgcity.service -f
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Logs der letzten Stunde</span>
+</span></span><span style="display:flex;"><span>sudo journalctl -u ahrensburgcity.service --since <span style="color:#e6db74">&#34;1 hour ago&#34;</span>
+</span></span></code></pre></div><h3 id="service-status-prüfen">Service-Status prüfen</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl status ahrensburgcity.service
+</span></span></code></pre></div><hr>
+<h2 id="firewall">Firewall</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ufw allow OpenSSH
+</span></span><span style="display:flex;"><span>sudo ufw allow <span style="color:#e6db74">&#39;Nginx Full&#39;</span>
+</span></span><span style="display:flex;"><span>sudo ufw enable
+</span></span><span style="display:flex;"><span>sudo ufw status
+</span></span></code></pre></div><hr>
+<h2 id="häufige-probleme">Häufige Probleme</h2>
+<p><strong>Socket-Datei existiert beim Start bereits:</strong></p>
+<p>Das ist normal – <code>Program.cs</code> löscht eine vorhandene Socket-Datei automatisch beim Start.</p>
+<p><strong><code>www-data</code> hat keinen Schreibzugriff auf den Socket:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo chown www-data:www-data /var/www/ahrensburgcity
+</span></span><span style="display:flex;"><span>sudo chmod <span style="color:#ae81ff">750</span> /var/www/ahrensburgcity
+</span></span></code></pre></div><p><strong>Nginx-Fehler <code>connect() to unix:…/meincms.sock failed</code>:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Prüfen, ob der Service läuft</span>
+</span></span><span style="display:flex;"><span>sudo systemctl status ahrensburgcity.service
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Socket vorhanden?</span>
+</span></span><span style="display:flex;"><span>ls -la /var/www/ahrensburgcity/meincms.sock
+</span></span></code></pre></div><p><strong>Zertifikat läuft ab:</strong></p>
+<p>Certbot erneuert automatisch via systemd-Timer. Manuell prüfen:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo certbot renew --dry-run
+</span></span></code></pre></div>
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>

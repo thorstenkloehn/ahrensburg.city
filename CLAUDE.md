@@ -1,12 +1,18 @@
 # CLAUDE.md
 
-Diese Datei gibt Claude Code (claude.ai/code) Hinweise zur Arbeit mit diesem Repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Projektübersicht
 
 **MeinCMS** — ein mandantenfähiges Wiki/CMS auf Basis von ASP.NET Core 10 und PostgreSQL. Zwei Mandanten laufen auf derselben Instanz: `ahrensburg.city` (Stadtinhalte, `"main"`) und `doc.ahrensburg.city` (technische Dokumentation, `"doc"`).
 
 ## Befehle
+
+**Ersteinrichtung:**
+```bash
+cp mvc/_appsettings.json mvc/appsettings.json   # dann PostgreSQL-String und Mandanten-Mapping anpassen
+dotnet ef database update --project mvc
+```
 
 **Build & Starten:**
 ```bash
@@ -15,15 +21,16 @@ dotnet run --project mvc
 dotnet run --project mvc -- --migrate   # starten mit automatischer DB-Migration
 ```
 
-**Datenbankmigrationen:**
-```bash
-dotnet ef database update --project mvc
-```
-
 **Tests:**
 ```bash
 dotnet test mvc.Tests
 dotnet test Mardown.Tests
+dotnet test mvc.Tests --filter "FullyQualifiedName~PageServiceTests"   # einzelnen Test/Klasse ausführen
+```
+
+**Datenbankmigrationen:**
+```bash
+dotnet ef database update --project mvc
 ```
 
 **CLI-Tools:**
@@ -52,7 +59,13 @@ Zwei unabhängige Content-Parser teilen dieselbe Compiler-Architektur:
 - **MediaWiki-Parser** (`wikitext/`): verarbeitet WikiText-Syntax (Templates, Kategorien, Links, Inline-HTML). Pipeline: `MediaWikiTokenizer` → `MediaWikiASTBuilder` → `MediaWikiASTSerializer`
 - **Markdown-Parser** (`Mardown/`): unterstützt YAML-Frontmatter, Tabellen, Code-Blöcke. Pipeline: `MarkdownTokenizer` → `MarkdownASTBuilder` → `MarkdownASTSerializer`
 
-`PageService` erkennt das Format automatisch und rendert es vor Speicherung und Anzeige zu bereinigtem HTML via `HtmlSanitizer`.
+`PageService` erkennt das Format automatisch und rendert es vor Speicherung und Anzeige zu bereinigtem HTML via `HtmlSanitizer`. Gerenderte Artikel werden in `IMemoryCache` unter dem Schlüssel `wiki_{tenantId}_{slug}` gecacht; der Cache-Eintrag wird bei Schreib- und Wiederherstellungsoperationen invalidiert.
+
+### Routing
+
+- `PageController` verarbeitet alle Wiki-Pfade via Catch-all (`{*slug}`).
+- `BlogController` und `NewsController` haben dedizierte Routen; Inhalte werden über `IPageService.GetBlogArticlesAsync` / `GetNewsArticlesAsync` geladen.
+- Versionsvergleich (Diff) nutzt DiffPlex (`GenerateDiff` in `IPageService`).
 
 ### Projekte im Überblick
 
@@ -63,6 +76,7 @@ Zwei unabhängige Content-Parser teilen dieselbe Compiler-Architektur:
 | `wikitext/` | MediaWiki-WikiText-Parser-Bibliothek |
 | `Mardown/` | Markdown-Parser-Bibliothek |
 | `Mardown.Tests/` | xUnit-Tests für den Markdown-Parser |
+| `Services/` | Gemeinsame Service-Bibliothek (aktuell: `Blogs`-Stub) |
 | `backup/` | CLI: YAML/XML-Export, -Import und HTML-Reparatur |
 | `UserAdmin/` | CLI: Benutzer- und Rollenverwaltung |
 | `TempMigrate/` | Einmalige Mandanten-Migrationshilfe (nicht für neue Aufgaben verwenden) |
@@ -82,15 +96,16 @@ Der Unix Domain Socket für die Nginx-Integration wird über `Kestrel:UnixSocket
 
 - **CSRF**: `AutoValidateAntiforgeryTokenAttribute` global aktiviert
 - **HTML-Ausgabe**: wird immer über `HtmlSanitizer` bereinigt
-- **CSP / HSTS / X-Frame-Options**: gesetzt in der Middleware in `Program.cs`
+- **CSP / HSTS / X-Frame-Options / Referrer-Policy**: gesetzt in der Middleware in `Program.cs`
 - **Passwort-Richtlinie**: min. 12 Zeichen, Groß-/Kleinschreibung, Ziffer, Sonderzeichen
 - **Kontosperrung**: 5 Fehlversuche → 15 Minuten Sperre
+- **Caching**: Globale No-Cache-Middleware setzt `Cache-Control: no-cache, no-store` für alle Responses. `app.UseOutputCache()` ist auskommentiert und darf nicht aktiviert werden ohne die Tenant-Isolation sicherzustellen.
 
 ### Datenmodell
 
 - `WikiArtikel` — Artikel mit `Slug`, `TenantId`, `NamespaceId` und Navigation zu Versionen
 - `WikiArtikelVersion` — unveränderliche Versions-Snapshots (Inhalt + Zeitstempel)
-- `WikiNamespace` — Namespace-Enum (Main, Category, Template, …)
+- `WikiNamespace` — Namespace-Entität in der DB (Main, Category, Template, …); `NamespaceId` ist ein FK auf diese Tabelle
 - `WikiCategory` — hierarchische Kategorien, gefiltert nach `TenantId`
 
 ### Hinweise zum Backup-Tool
