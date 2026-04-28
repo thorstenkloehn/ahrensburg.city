@@ -238,18 +238,23 @@ class Program
         if (fileName.EndsWith(".xml", StringComparison.OrdinalIgnoreCase))
         {
             var content = await File.ReadAllTextAsync(fileName);
+            var xmlSettings = new System.Xml.XmlReaderSettings
+            {
+                DtdProcessing = System.Xml.DtdProcessing.Prohibit,
+                XmlResolver = null
+            };
             if (content.Contains("<BackupContainer"))
             {
                 var serializer = new System.Xml.Serialization.XmlSerializer(typeof(BackupContainer));
-                using var reader = new StringReader(content);
-                container = (BackupContainer?)serializer.Deserialize(reader);
+                using var xmlReader = System.Xml.XmlReader.Create(new StringReader(content), xmlSettings);
+                container = (BackupContainer?)serializer.Deserialize(xmlReader);
             }
             else
             {
                 // Altes Format (List<WikiArtikel>)
                 var serializer = new System.Xml.Serialization.XmlSerializer(typeof(List<WikiArtikel>));
-                using var reader = new StringReader(content);
-                var artikel = (List<WikiArtikel>?)serializer.Deserialize(reader);
+                using var xmlReader = System.Xml.XmlReader.Create(new StringReader(content), xmlSettings);
+                var artikel = (List<WikiArtikel>?)serializer.Deserialize(xmlReader);
                 if (artikel != null) container = new BackupContainer { Artikel = artikel };
             }
         }

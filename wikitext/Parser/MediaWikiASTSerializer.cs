@@ -58,8 +58,19 @@ public class MediaWikiASTSerializer : IMediaWikiASTSerializer
                 sb.Append($"</h{heading.Level}>");
                 break;
             case LinkNode link:
-                var url = link.IsExternal ? link.Target : $"/{link.Target}";
-                sb.Append($"<a href=\"{url}\" data-mw=\"link\">{link.Display}</a>");
+                string url;
+                if (link.IsExternal)
+                {
+                    url = Uri.TryCreate(link.Target, UriKind.Absolute, out var uri) &&
+                          (uri.Scheme == Uri.UriSchemeHttps || uri.Scheme == Uri.UriSchemeHttp)
+                        ? link.Target
+                        : "#";
+                }
+                else
+                {
+                    url = $"/{link.Target}";
+                }
+                sb.Append($"<a href=\"{System.Net.WebUtility.HtmlEncode(url)}\" data-mw=\"link\">{System.Net.WebUtility.HtmlEncode(link.Display ?? "")}</a>");
                 break;
             case CategoryNode:
                 // Categories are metadata and not part of the visible HTML content
@@ -76,38 +87,24 @@ public class MediaWikiASTSerializer : IMediaWikiASTSerializer
                 sb.Append("</li>");
                 break;
             case TableNode table:
-                var attributes = table.Attributes;
-                var finalClass = "table table-bordered table-striped";
-                
-                if (attributes.Contains("class=\""))
-                {
-                    // Merge class attribute
-                    attributes = attributes.Replace("class=\"", $"class=\"{finalClass} ");
-                }
-                else if (attributes.Contains("class='"))
-                {
-                    attributes = attributes.Replace("class='", $"class='{finalClass} ");
-                }
-                else
-                {
-                    attributes = $"class=\"{finalClass}\" " + attributes;
-                }
-
-                attributes = attributes.Trim();
-                sb.Append($"<table {attributes}>");
+                var userClass = ExtractClassAttribute(table.Attributes);
+                var finalClass = string.IsNullOrEmpty(userClass)
+                    ? "table table-bordered table-striped"
+                    : $"table table-bordered table-striped {System.Net.WebUtility.HtmlEncode(userClass)}";
+                sb.Append($"<table class=\"{finalClass}\">");
                 foreach (var child in table.Children) sb.Append(SerializeNodeToHtml(child));
                 sb.Append("</table>");
                 break;
             case TableRowNode row:
-                var rowAttr = row.Attributes.Trim();
-                sb.Append($"<tr{(string.IsNullOrEmpty(rowAttr) ? "" : " " + rowAttr)}>");
+                var rowSafeAttr = BuildSafeAttributes(row.Attributes);
+                sb.Append(string.IsNullOrEmpty(rowSafeAttr) ? "<tr>" : $"<tr {rowSafeAttr}>");
                 foreach (var child in row.Children) sb.Append(SerializeNodeToHtml(child));
                 sb.Append("</tr>");
                 break;
             case TableCellNode cell:
                 var cellTag = cell.IsHeader ? "th" : "td";
-                var cellAttr = cell.Attributes.Trim();
-                sb.Append($"<{cellTag}{(string.IsNullOrEmpty(cellAttr) ? "" : " " + cellAttr)}>");
+                var cellSafeAttr = BuildSafeAttributes(cell.Attributes);
+                sb.Append(string.IsNullOrEmpty(cellSafeAttr) ? $"<{cellTag}>" : $"<{cellTag} {cellSafeAttr}>");
                 foreach (var child in cell.Children) sb.Append(SerializeNodeToHtml(child));
                 sb.Append($"</{cellTag}>");
                 break;
@@ -144,6 +141,30 @@ public class MediaWikiASTSerializer : IMediaWikiASTSerializer
                 break;
         }
         return sb.ToString();
+    }
+
+    private static string ExtractClassAttribute(string attributes)
+    {
+        var m = System.Text.RegularExpressions.Regex.Match(attributes,
+            @"class=""([^""]*)""|class='([^']*)'",
+            System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+        return m.Success ? (m.Groups[1].Value + m.Groups[2].Value).Trim() : "";
+    }
+
+    // Allows only class and style, strips event handlers and all other attributes.
+    private static string BuildSafeAttributes(string rawAttributes)
+    {
+        var sb = new StringBuilder();
+        var rx = System.Text.RegularExpressions.Regex.Matches(rawAttributes,
+            @"(class|style)=""([^""]*)""|(?:class|style)='([^']*)'",
+            System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+        foreach (System.Text.RegularExpressions.Match m in rx)
+        {
+            var name = m.Value.StartsWith("class", StringComparison.OrdinalIgnoreCase) ? "class" : "style";
+            var val = m.Groups[2].Success ? m.Groups[2].Value : m.Groups[3].Value;
+            sb.Append($"{name}=\"{System.Net.WebUtility.HtmlEncode(val)}\" ");
+        }
+        return sb.ToString().Trim();
     }
 
     public string ToWikiText(WikiNode node)
