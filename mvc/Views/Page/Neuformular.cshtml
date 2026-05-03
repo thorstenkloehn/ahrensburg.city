@@ -7,13 +7,17 @@
     
     <div class="form-group mb-3">
         <label for="syntax">Syntax:</label>
+        @{
+            var isWikiNamespace = ((string)ViewBag.UrlSlug).StartsWith("News:", StringComparison.OrdinalIgnoreCase) || 
+                                 ((string)ViewBag.UrlSlug).StartsWith("Blog:", StringComparison.OrdinalIgnoreCase);
+        }
         <select name="syntax" id="syntax" class="form-select" onchange="toggleSyntax()">
-            <!option value="markdown" selected>Markdown</!option>
-            <!option value="mediawiki">MediaWiki</!option>
+            <!option value="markdown" @(isWikiNamespace ? "" : "selected")>Markdown</!option>
+            <!option value="mediawiki" @(isWikiNamespace ? "selected" : "")>MediaWiki</!option>
         </select>
     </div>
 
-    <div id="markdown-container" class="form-group">
+    <div id="markdown-container" class="form-group @(isWikiNamespace ? "d-none" : "")">
         <label for="markdownInhalt">Inhalt (Markdown):</label>
         <textarea name="markdownInhalt" id="markdownInhalt" class="form-control" rows="15" placeholder="Geben Sie hier Ihren Markdown-Inhalt ein..."></textarea>
         <small class="text-muted">
@@ -21,7 +25,7 @@
         </small>
     </div>
 
-    <div id="mediawiki-container" class="form-group d-none">
+    <div id="mediawiki-container" class="form-group @(isWikiNamespace ? "" : "d-none")">
         <label for="wikiTextInhalt">Inhalt (MediaWiki):</label>
         <textarea name="wikiTextInhalt" id="wikiTextInhalt" class="form-control" rows="15" placeholder="Geben Sie hier Ihren MediaWiki-Inhalt ein..."></textarea>
         <small class="text-muted">

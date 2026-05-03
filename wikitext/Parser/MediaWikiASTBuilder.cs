@@ -56,8 +56,8 @@ public class MediaWikiASTBuilder : IMediaWikiASTBuilder
 
             if (forceCloseParagraph)
             {
-                // Close Paragraph too
-                if (stack.Count > 1 && stack.Peek() is ParagraphNode)
+                // Close Paragraph and List too
+                while (stack.Count > 1 && (stack.Peek() is ParagraphNode || stack.Peek() is ListNode))
                 {
                     stack.Pop();
                 }
@@ -68,10 +68,8 @@ public class MediaWikiASTBuilder : IMediaWikiASTBuilder
         {
             if (isBlock)
             {
-                // Close existing paragraph if we start a block
-                if (stack.Peek() is ParagraphNode) stack.Pop();
-                // Ensure we are in RootNode or something that can contain blocks
-                while (stack.Count > 1 && (stack.Peek() is ParagraphNode || stack.Peek() is BoldNode || stack.Peek() is ItalicNode || stack.Peek() is HeadingNode || stack.Peek() is ListItemNode))
+                // Ensure we are in RootNode or something that can contain blocks (like TableCell)
+                while (stack.Count > 1 && (stack.Peek() is ParagraphNode || stack.Peek() is BoldNode || stack.Peek() is ItalicNode || stack.Peek() is HeadingNode || stack.Peek() is ListItemNode || stack.Peek() is ListNode))
                 {
                     stack.Pop();
                 }
@@ -80,11 +78,16 @@ public class MediaWikiASTBuilder : IMediaWikiASTBuilder
             else
             {
                 // Inline content
-                if (stack.Peek() is RootNode)
+                if (stack.Peek() is RootNode || stack.Peek() is ListNode)
                 {
-                    var p = new ParagraphNode();
-                    stack.Peek().Children.Add(p);
-                    stack.Push(p);
+                    if (stack.Peek() is ListNode) stack.Pop();
+                    
+                    if (stack.Peek() is RootNode)
+                    {
+                        var p = new ParagraphNode();
+                        stack.Peek().Children.Add(p);
+                        stack.Push(p);
+                    }
                 }
                 return stack.Peek();
             }
@@ -111,11 +114,9 @@ public class MediaWikiASTBuilder : IMediaWikiASTBuilder
                     // Single NewLine -> just close current ListItem/Heading
                     CloseInlineAndBlockIfNeeded(forceCloseParagraph: false);
                     
-                    // If we are in a paragraph, we might want to keep the \n as a space
-                    // or as a text node for the serializer to decide.
                     if (stack.Peek() is ParagraphNode)
                     {
-                        stack.Peek().Children.Add(new TextNode { Text = "\n" });
+                        stack.Peek().Children.Add(new TextNode { Text = " " });
                     }
                     else if (stack.Peek() is RootNode)
                     {

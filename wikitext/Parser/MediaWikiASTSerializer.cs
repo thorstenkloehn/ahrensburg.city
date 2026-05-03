@@ -40,7 +40,7 @@ public class MediaWikiASTSerializer : IMediaWikiASTSerializer
         switch (node)
         {
             case TextNode text:
-                sb.Append(System.Net.WebUtility.HtmlEncode(text.Text).Replace("\n", "<br />\n"));
+                sb.Append(System.Net.WebUtility.HtmlEncode(text.Text));
                 break;
             case BoldNode bold:
                 sb.Append("<b data-mw=\"bold\">");
@@ -115,7 +115,9 @@ public class MediaWikiASTSerializer : IMediaWikiASTSerializer
                 break;
             case ParagraphNode paragraph:
                 sb.Append("<p>");
-                foreach (var child in paragraph.Children) sb.Append(SerializeNodeToHtml(child));
+                var paragraphContent = new StringBuilder();
+                foreach (var child in paragraph.Children) paragraphContent.Append(SerializeNodeToHtml(child));
+                sb.Append(paragraphContent.ToString().TrimEnd());
                 sb.Append("</p>\n");
                 break;
             case HtmlTagNode htmlTag:
