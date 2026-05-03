@@ -96,7 +96,25 @@ namespace mvc.Controllers
             if (!_pageService.IstSlugGueltig(slug))
                 return InvalidSlugResult(slug);
 
-            var inhalt = syntax == "mediawiki" ? wikiTextInhalt : markdownInhalt;
+            // Robustere Bestimmung des Inhalts: Wir bevorzugen das Feld, das zur gewählten Syntax passt,
+            // schauen aber im anderen Feld nach, falls das primäre leer ist.
+            string? inhalt = null;
+            if (string.Equals(syntax, "mediawiki", StringComparison.OrdinalIgnoreCase))
+            {
+                inhalt = !string.IsNullOrWhiteSpace(wikiTextInhalt) ? wikiTextInhalt : markdownInhalt;
+                if (!string.IsNullOrWhiteSpace(markdownInhalt) && string.IsNullOrWhiteSpace(wikiTextInhalt))
+                {
+                    syntax = "markdown"; // Automatische Korrektur, falls im "falschen" Feld getippt wurde
+                }
+            }
+            else
+            {
+                inhalt = !string.IsNullOrWhiteSpace(markdownInhalt) ? markdownInhalt : wikiTextInhalt;
+                if (!string.IsNullOrWhiteSpace(wikiTextInhalt) && string.IsNullOrWhiteSpace(markdownInhalt))
+                {
+                    syntax = "mediawiki"; // Automatische Korrektur, falls im "falschen" Feld getippt wurde
+                }
+            }
 
             if (string.IsNullOrWhiteSpace(inhalt))
                 return BadRequest("Inhalt darf nicht leer sein.");
@@ -110,13 +128,13 @@ namespace mvc.Controllers
 
             try
             {
-                if (syntax == "mediawiki")
+                if (string.Equals(syntax, "mediawiki", StringComparison.OrdinalIgnoreCase))
                 {
-                    await _pageService.ErstelleOderAktualisiereWikiArtikelAsync(slug, wikiTextInhalt!, kategorien);
+                    await _pageService.ErstelleOderAktualisiereWikiArtikelAsync(slug, inhalt!, kategorien);
                 }
                 else
                 {
-                    await _pageService.ErstelleOderAktualisiereArtikelAsync(slug, markdownInhalt!, kategorien);
+                    await _pageService.ErstelleOderAktualisiereArtikelAsync(slug, inhalt!, kategorien);
                 }
             }
             catch (ArgumentException ex)
