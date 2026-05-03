@@ -95,11 +95,18 @@ Der Unix Domain Socket für die Nginx-Integration wird über `Kestrel:UnixSocket
 ### Sicherheits-Hardening (nicht abschwächen)
 
 - **CSRF**: `AutoValidateAntiforgeryTokenAttribute` global aktiviert
-- **HTML-Ausgabe**: wird immer über `HtmlSanitizer` bereinigt
-- **CSP / HSTS / X-Frame-Options / Referrer-Policy**: gesetzt in der Middleware in `Program.cs`
+- **HTML-Ausgabe**: wird immer über `HtmlSanitizer` bereigt
+- **CSP**: Strikte Content-Security-Policy; **keine Inline-Skripte** erlaubt (Logik in `site.js` / `editor.js`)
+- **HSTS / X-Frame-Options / Referrer-Policy**: gesetzt in der Middleware in `Program.cs`
 - **Passwort-Richtlinie**: min. 12 Zeichen, Groß-/Kleinschreibung, Ziffer, Sonderzeichen
 - **Kontosperrung**: 5 Fehlversuche → 15 Minuten Sperre
-- **Caching**: Globale No-Cache-Middleware setzt `Cache-Control: no-cache, no-store` für alle Responses. `app.UseOutputCache()` ist auskommentiert und darf nicht aktiviert werden ohne die Tenant-Isolation sicherzustellen.
+- **Caching**: Globale No-Cache-Middleware setzt `Cache-Control: no-cache, no-store` für alle Responses.
+
+### Dokumentation (`Anleitung/`)
+
+- `ErsteProduktionServer.md`: Schritt-für-Schritt Anleitung für das erste Deployment.
+- `Aktuallisieren.md`: Prozedur für Updates auf dem Server.
+- `ssh.md`: Befehle für SSH/SCP-basierte Backups.
 
 ### Datenmodell
 

@@ -2,31 +2,29 @@
 
 Dieses Projekt ist ein leichtgewichtiges Content-Management-System (CMS) mit Wiki-ähnlicher Funktionalität und nativer **Multi-Tenancy** (Mandantenfähigkeit), entwickelt mit ASP.NET Core MVC 10.0 und PostgreSQL.
 
-## Status (Stand 24.04.2026)
+## Status (Stand 03.05.2026)
 
-- **Streamlining:** Alle Kartendienste (Leaflet, GeoJSON, POI-Controller) wurden vollständig entfernt, um das System zu entschlacken und die Abhängigkeiten zu reduzieren.
 - **Go-Live bereit:** Das System hat das abschließende Sicherheits-Audit erfolgreich bestanden.
-- **Lizenz:** Das gesamte Projekt wurde unter die **GNU Affero General Public License v3.0 (AGPL-3.0)** gestellt. Alle Quellcodedateien wurden mit entsprechenden Lizenz-Headern versehen.
-- **Branding:** Hauptmandant wurde auf **ahrensburg.city** umgestellt.
-- **Multi-Tenancy:** Vollständig normalisierte Datenbank. Automatische Trennung von technischem Dokumentationsinhalt (`doc`) und Ahrensburg-spezifischen Inhalten (`main`) via Tenant-Migration-Tool durchgeführt.
-- **Suche:** Implementierung einer performanten **Volltextsuche** (Full-Text Search) in Wiki-Artikeln mit dedizierter Such-UI.
-- **MediaWiki Parser Pro:** Hochentwickelter Compiler-Parser (Tokenizer -> AST -> Serializer) für WikiText. 
-  - **Neu:** Unterstützung für echte Absätze (`<p>`), korrekte Listen-Verschachtelung und Inline-HTML-Tags (z.B. `<br>`, `<div>`).
-  - Unterstützung für Bold, Italic, Headings, Links, Templates und Kategorien.
-- **Markdown Parser:** Erweiterte Unterstützung für Inline- und Block-Code-Syntax.
-- **Markdown Metadaten:** Native Unterstützung für YAML-Frontmatter mit automatischer Extraktion von Kategorien und Filterung der Metadaten aus der HTML-Anzeige.
-- **Strukturierte Metadaten:** Native Unterstützung für hierarchische Kategorien und Namensräume (PostgreSQL).
-- **Slug-Validierung:** Unterstützung für Unicode, Leerzeichen und Sonderzeichen wie `&`, `:`, `(`, `)`, `!`, `"`, `,`, `` ` ``, und `–`. Dies ermöglicht natürliche Titel wie "Geschichte & Allgemeines".
-- **Backup & Repair 2.1:** 
-  - Unterstützung für **YAML** und **XML**.
-  - **Speichereffizient**: HTML-Inhalt wird beim Export weggelassen und beim Import regeneriert (ca. 70% Ersparnis).
-  - **Repair-Modus**: Tool zur automatischen Reparatur und Regeneration aller HTML-Inhalte in der Datenbank nach Parser-Updates.
-- **Deployment:** Unterstützung für **Unix Domain Sockets** (`/run/meincms.sock`) für hochperformanten Betrieb hinter Nginx.
-- **Sicherheit:** 
+- **Sicherheit & Hardening:** 
   - Integration von `HtmlSanitizer`.
   - Gehärtete Identity-Policies (inkl. Account-Lockout).
   - CSRF-Schutz und strikte Content-Security-Policy (CSP).
-  - Performance-Optimierung durch Datenbank-Indizes für Artikel und Kategorien.
+  - **Neu:** Vollständige Entfernung von Inline-Skripten zugunsten externer Dateien (`site.js`) zur Einhaltung strenger CSP-Richtlinien.
+- **MediaWiki Parser Pro:** Hochentwickelter Compiler-Parser (Tokenizer -> AST -> Serializer) für WikiText. 
+  - **Optimiert:** Verbesserte Textverarbeitung und stabilere Absatz-Generierung.
+  - Unterstützung für echte Absätze (`<p>`), korrekte Listen-Verschachtelung und Inline-HTML-Tags (z.B. `<br>`, `<div>`).
+- **Benutzerfreundlichkeit:** Verbesserte Syntaxauswahl und Inhaltsbestimmung im Editor-Formular.
+- **Dokumentation:** 
+  - Neue Anleitungen für den **Produktions-Server Setup** und **Daten-Sicherung via SSH/SCP** hinzugefügt (`Anleitung/`).
+- **Streamlining:** Alle Kartendienste (Leaflet, GeoJSON, POI-Controller) wurden vollständig entfernt, um das System zu entschlacken.
+- **Lizenz:** Das gesamte Projekt steht unter der **GNU Affero General Public License v3.0 (AGPL-3.0)**.
+- **Branding:** Hauptmandant ist **ahrensburg.city**.
+- **Multi-Tenancy:** Vollständig normalisierte Datenbank mit automatischer Trennung von technischem Dokumentationsinhalt (`doc`) und Stadt-spezifischen Inhalten (`main`).
+- **Suche:** Performante **Volltextsuche** (Full-Text Search) in Wiki-Artikeln.
+- **Markdown Metadaten:** Native Unterstützung für YAML-Frontmatter.
+- **Slug-Validierung:** Unterstützung für Unicode, Leerzeichen und Sonderzeichen (`&`, `:`, `(`, `)`, `!`, `"`, `,`, `` ` ``, `–`).
+- **Backup & Repair 2.1:** Unterstützung für YAML/XML, speichereffizienter Export und automatischer Repair-Modus zur HTML-Regeneration.
+- **Deployment:** Unterstützung für **Unix Domain Sockets** (`/run/meincms.sock`) für Nginx-Betrieb.
 
 ## Architektur
 
@@ -46,7 +44,8 @@ Dieses Projekt ist unter der **GNU Affero General Public License v3.0 (AGPL-3.0)
 
 - **Framework**: .NET 10.0 (ASP.NET Core)
 - **Datenbank**: PostgreSQL (via Npgsql)
-- **Bibliotheken**: Markdig, HtmlSanitizer, DiffPlex, YamlDotNet.
+- **Parser**: Eigene Compiler-basierte Implementierungen für **WikiText** und **Markdown** (keine externen Abhängigkeiten wie Markdig).
+- **Bibliotheken**: HtmlSanitizer, DiffPlex, YamlDotNet.
 
 ## Erstellen und Ausführen
 

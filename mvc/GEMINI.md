@@ -15,8 +15,9 @@ Dies ist die Haupt-Webanwendung für MeinCMS, entwickelt mit ASP.NET Core MVC 10
 - **Mandantentrennung**: Automatisches Filtern aller Inhalte basierend auf der Domain.
 - **Wiki-only Routing**: Der `PageController` verarbeitet alle Pfade via Catch-all (`{*slug}`).
 - **Versionierung & Diff**: Wiki-Artikel werden versioniert. Administratoren können Versionen vergleichen (Diff-Ansicht via DiffPlex) und wiederherstellen.
-- **Sicherheit**: `HtmlSanitizer` bereinigt alle Markdown-generierten HTML-Inhalte. CSRF-Schutz und Security Header (HSTS/CSP) sind konfiguriert.
-- **Metadaten**: Unterstützung für YAML Frontmatter innerhalb der Markdown-Dateien.
+- **Suche**: Performante Volltextsuche über alle Wiki-Inhalte.
+- **Sicherheit**: `HtmlSanitizer` bereigt alle generierten HTML-Inhalte. Strikte CSP ohne Inline-Skripte.
+- **Metadaten**: Native Unterstützung für YAML Frontmatter.
 
 ## Erstellen und Ausführen
 
@@ -29,12 +30,12 @@ Dies ist die Haupt-Webanwendung für MeinCMS, entwickelt mit ASP.NET Core MVC 10
 
 1.  **Konfiguration**: `cp _appsettings.json appsettings.json` und PostgreSQL-String sowie Mandanten-Mapping anpassen.
 2.  **Migrationen**: `dotnet ef database update` ausführen.
-3.  **Starten**: `dotnet run`
+3.  **Starten**: `dotnet run` (optional mit `--migrate` für automatische Migrationen).
 
 ## Entwicklungskonventionen
 
 - **Multi-Tenancy**: Die `TenantId` wird automatisch in `ApplicationDbContext` gesetzt und gefiltert.
-- **Slugs**: Dynamische Pfade werden mittels Regex (`^[a-zA-Z0-9/_-]+$`) validiert. Eindeutigkeit ist pro Mandant gegeben.
+- **Slugs**: Unterstützung für Unicode, Leerzeichen und Sonderzeichen (`&`, `:`, `(`, `)`, `!`, `"`, `,`, `` ` ``, `–`). Eindeutigkeit ist pro Mandant gegeben.
 - **Versionierung**: Jede Speicherung erzeugt eine neue `WikiArtikelVersion`.
 
 ## Wichtige Dateien
