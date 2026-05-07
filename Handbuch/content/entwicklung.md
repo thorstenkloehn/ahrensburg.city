@@ -68,7 +68,7 @@ GRANT ALL ON SCHEMA public TO meincmsuser;
 
 ```bash
 git clone <repository-url>
-cd wiki-ahrensburg.de
+cd wissen-ahrensburg.de
 ```
 
 **Konfiguration anlegen** (aus der Vorlage):
@@ -89,7 +89,7 @@ cp mvc/_appsettings.json mvc/appsettings.json
     "doc.localhost": "doc"
   },
   "TenantConfig": {
-    "main": { "Title": "wiki-ahrensburg.de (lokal)", "Logo": "/logo.svg" },
+    "main": { "Title": "wissen-ahrensburg.de (lokal)", "Logo": "/logo.svg" },
     "doc":  { "Title": "Dokumentation (lokal)", "Logo": "/logo-doc.svg" }
   },
   "Kestrel": {

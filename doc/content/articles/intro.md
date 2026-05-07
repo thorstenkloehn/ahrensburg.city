@@ -6,7 +6,7 @@ sources: [GEMINI.md, README.md]
 
 # Einführung in MeinCMS
 
-MeinCMS (wiki-ahrensburg.de) ist ein hochspezialisiertes, leichtgewichtiges Content-Management-System mit Wiki-Fokus. Es wurde entwickelt, um sowohl technische Dokumentation als auch regionale Inhalte (wie für die Stadt Ahrensburg) effizient und sicher zu verwalten.
+MeinCMS (wissen-ahrensburg.de) ist ein hochspezialisiertes, leichtgewichtiges Content-Management-System mit Wiki-Fokus. Es wurde entwickelt, um sowohl technische Dokumentation als auch regionale Inhalte (wie für die Stadt Ahrensburg) effizient und sicher zu verwalten.
 
 ## Kernphilosophie
 - **Einfachheit:** Verzicht auf komplexe Abhängigkeiten; Nutzung nativer .NET 10.0 Features.
@@ -20,4 +20,4 @@ MeinCMS (wiki-ahrensburg.de) ist ein hochspezialisiertes, leichtgewichtiges Cont
 - **Backup & Recovery:** Robuste Tools für den Datenexport und die automatische Regeneration von Inhalten.
 
 ## Zielsetzung
-Das System dient als zentraler Wissensknoten für **wiki-ahrensburg.de**, wobei es technische Flexibilität mit einfacher Bedienbarkeit kombiniert.
+Das System dient als zentraler Wissensknoten für **wissen-ahrensburg.de**, wobei es technische Flexibilität mit einfacher Bedienbarkeit kombiniert.

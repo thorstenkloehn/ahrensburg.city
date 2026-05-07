@@ -4,7 +4,7 @@
     <WikiArtikel>
       <Id>36</Id>
       <TenantId>main</TenantId>
-      <Slug>Wiki-Ahrensburg.de:Datenschutz</Slug>
+      <Slug>Wissen-Ahrensburg.de:Datenschutz</Slug>
       <NamespaceId>0</NamespaceId>
       <Versionen>
         <WikiArtikelVersion>
@@ -234,7 +234,7 @@ Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte eine E-Mail oder 
     <WikiArtikel>
       <Id>37</Id>
       <TenantId>main</TenantId>
-      <Slug>Wiki-Ahrensburg.de:Impressum</Slug>
+      <Slug>Wissen-Ahrensburg.de:Impressum</Slug>
       <NamespaceId>0</NamespaceId>
       <Versionen>
         <WikiArtikelVersion>
@@ -542,7 +542,7 @@ Die Kirche weist Elemente der Renaissance-Architektur auf und ist besonders für
           <VersionNummer>287</VersionNummer>
           <TenantId>main</TenantId>
           <MarkdownInhalt>- [ahrensburg-portal.de](https://ahrensburg-portal.de/) – Ein lokales Nachrichtenportal mit aktuellen Informationen, Veranstaltungen und Neuigkeiten aus Ahrensburg.
-- [wiki-ahrensburg.de](https://www.wiki-ahrensburg.de/) – Eine Website mit Stadtinformationen, Branchenverzeichnis und lokalen Angeboten für Ahrensburg.
+- [wissen-ahrensburg.de](https://www.wissen-ahrensburg.de/) – Eine Website mit Stadtinformationen, Branchenverzeichnis und lokalen Angeboten für Ahrensburg.
 - [ahrensburg.de](https://ahrensburg.de/) – Die offizielle Website der Stadt Ahrensburg mit amtlichen Bekanntmachungen, Bürgerservice und Informationen zur Stadtverwaltung.
 - [Presseportal](https://presseportal.de/blaulicht/r/Ahrensburg) – Aktuelle Polizeimeldungen und Blaulichtnachrichten aus Ahrensburg.
 - [LN-Online Ahrensburg](https://www.ln-online.de/themen/ahrensburg/) – Lokale Nachrichten und Berichte aus Ahrensburg von den Lübecker Nachrichten.

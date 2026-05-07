@@ -1,5 +1,5 @@
 /*
- * wiki-ahrensburg.de (MeinCMS) - A lightweight CMS with Wiki functionality and multi-tenancy.
+ * wissen-ahrensburg.de (MeinCMS) - A lightweight CMS with Wiki functionality and multi-tenancy.
  * Copyright (C) 2026 Thorsten
  *
  * This program is free software: you can redistribute it and/or modify

@@ -1,4 +1,4 @@
-# wiki-ahrensburg.de (MeinCMS) - Projektübersicht
+# wissen-ahrensburg.de (MeinCMS) - Projektübersicht
 
 Dieses Projekt ist ein leichtgewichtiges Content-Management-System (CMS) mit Wiki-ähnlicher Funktionalität und nativer **Multi-Tenancy** (Mandantenfähigkeit), entwickelt mit ASP.NET Core MVC 10.0 und PostgreSQL.
 
@@ -18,7 +18,7 @@ Dieses Projekt ist ein leichtgewichtiges Content-Management-System (CMS) mit Wik
   - Neue Anleitungen für den **Produktions-Server Setup** und **Daten-Sicherung via SSH/SCP** hinzugefügt (`Anleitung/`).
 - **Streamlining:** Alle Kartendienste (Leaflet, GeoJSON, POI-Controller) wurden vollständig entfernt, um das System zu entschlacken.
 - **Lizenz:** Das gesamte Projekt steht unter der **GNU Affero General Public License v3.0 (AGPL-3.0)**.
-- **Branding:** Hauptmandant ist **wiki-ahrensburg.de**.
+- **Branding:** Hauptmandant ist **wissen-ahrensburg.de**.
 - **Multi-Tenancy:** Vollständig normalisierte Datenbank mit automatischer Trennung von technischem Dokumentationsinhalt (`doc`) und Stadt-spezifischen Inhalten (`main`).
 - **Suche:** Performante **Volltextsuche** (Full-Text Search) in Wiki-Artikeln.
 - **Markdown Metadaten:** Native Unterstützung für YAML-Frontmatter.

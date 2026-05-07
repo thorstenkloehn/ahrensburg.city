@@ -27,7 +27,7 @@ In der Produktion nutzt die App einen **Unix Domain Socket** (`/run/meincms.sock
     ```nginx
     server {
         listen 80;
-        server_name wiki-ahrensburg.de;
+        server_name wissen-ahrensburg.de;
 
         location / {
             proxy_pass http://unix:/run/meincms.sock;

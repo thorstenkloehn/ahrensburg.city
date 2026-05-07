@@ -3,14 +3,14 @@
     "DefaultConnection": "Host=localhost;Database=meincmsdb;Username=meincmsuser;Password=IhrPasswort"
   },
   "Tenants": {
-    "wiki-ahrensburg.de": "main",
-    "doc.wiki-ahrensburg.de": "doc",
+    "wissen-ahrensburg.de": "main",
+    "doc.wissen-ahrensburg.de": "doc",
     "doc.localhost": "doc",
     "localhost": "main"
   },
   "TenantConfig": {
     "main": {
-      "Title": "wiki-ahrensburg.de",
+      "Title": "wissen-ahrensburg.de",
       "Logo": "/logo.svg"
     },
     "doc": {

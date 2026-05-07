@@ -1,12 +1,12 @@
 ```bash
 # Zum Projektverzeichnis navigieren
-cd /home/thorsten/wiki-ahrensburg.de
+cd /home/thorsten/wissen-ahrensburg.de
 
 # Release erstellen und veröffentlichen
-dotnet publish -c Release -r linux-x64 --self-contained false -o /home/thorsten/publis/wiki-ahrensburg-de/
+dotnet publish -c Release -r linux-x64 --self-contained false -o /home/thorsten/publis/wissen-ahrensburg-de/
 
 # Veröffentlichte Dateien zum Remote-Server synchronisieren
-rsync -avz --exclude 'bin' --exclude 'obj' --exclude 'config' /home/thorsten/publis/wiki-ahrensburg-de/ tt@ah.city:/var/www/wiki-ahrensburg-de/
+rsync -avz --exclude 'bin' --exclude 'obj' --exclude 'config' /home/thorsten/publis/wissen-ahrensburg-de/ tt@ah.city:/var/www/wissen-ahrensburg-de/
 
 dotnet mvc.dll --migrate
 ## Import

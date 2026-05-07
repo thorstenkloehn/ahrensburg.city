@@ -4,7 +4,7 @@ title: "MeinCMS Dokumentation"
 theme: "hyde"
 
 params:
-  description: "Zentrale Wissensdatenbank für wiki-ahrensburg.de"
+  description: "Zentrale Wissensdatenbank für wissen-ahrensburg.de"
   sidebar:
     - name: "Startseite"
       url: "/"
