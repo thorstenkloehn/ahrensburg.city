@@ -5340,9 +5340,9 @@
       Nach der Eingabe der obigen Befehle können Sie mit den folgenden Schritten fortfahren, um SSL-Zertifikate für Ihre Domains zu erstellen und Nginx wieder zu starten.
 
 
-      `sudo certbot certonly --standalone -d ahrensburg.city -d www.ahrensburg.city`  
+      `sudo certbot certonly --standalone -d wiki-ahrensburg.de -d www.wiki-ahrensburg.de`  
 
-      `sudo certbot certonly --standalone -d alterwiki.ahrensburg.city`  
+      `sudo certbot certonly --standalone -d alterwiki.wiki-ahrensburg.de`  
 
       `sudo systemctl start nginx`
 
@@ -5350,7 +5350,7 @@
       Um ein Wildcard-SSL-Zertifikat mit Certbot und Let's Encrypt zu erstellen, muss die DNS-01-Challenge verwendet werden. Beispiel:
 
 
-      `sudo certbot certonly --manual --preferred-challenges dns -d "*.ahrensburg.city" -d ahrensburg.city`
+      `sudo certbot certonly --manual --preferred-challenges dns -d "*.wiki-ahrensburg.de" -d wiki-ahrensburg.de`
 
 
       Sie werden aufgefordert, einen speziellen DNS-TXT-Eintrag für Ihre Domain zu setzen. Nach erfolgreicher Validierung wird das Zertifikat erstellt.
@@ -5359,7 +5359,7 @@
       Weitere Informationen: \[Let's Encrypt Wildcard-Zertifikate\](https://certbot.eff.org/docs/using.html#wildcard-certificates)
 
 
-      `ahrensburg.city-0002 Befehl`
+      `wiki-ahrensburg.de-0002 Befehl`
     Zeitpunkt: 2026-01-07T00:23:59.0000000Z
     Kategorie: []
     WikiArtikelId: 21
@@ -5397,13 +5397,13 @@
          listen \[::\]:443 ssl http2;
 
 
-         server_name ahrensburg.city;
+         server_name wiki-ahrensburg.de;
 
 
-         ssl_certificate /etc/letsencrypt/live/ahrensburg.city/fullchain.pem;
+         ssl_certificate /etc/letsencrypt/live/wiki-ahrensburg.de/fullchain.pem;
 
 
-         ssl_certificate_key /etc/letsencrypt/live/ahrensburg.city/privkey.pem;
+         ssl_certificate_key /etc/letsencrypt/live/wiki-ahrensburg.de/privkey.pem;
 
 
           root /var/www/mediawiki;
@@ -5487,7 +5487,7 @@
          listen \[::\]:80;
 
 
-         server_name ahrensburg.city;
+         server_name wiki-ahrensburg.de;
 
 
          return 301 https://\$host\$request_uri;
@@ -6022,7 +6022,7 @@
     WikiArtikelId: 38
 - Id: 39
   TenantId: main
-  Slug: Ahrensburg.city:Datenschutz
+  Slug: Wiki-Ahrensburg.de:Datenschutz
   Versionen:
   - VersionNummer: 478
     TenantId: main
@@ -6362,7 +6362,7 @@
     WikiArtikelId: 39
 - Id: 40
   TenantId: main
-  Slug: Ahrensburg.city:Impressum
+  Slug: Wiki-Ahrensburg.de:Impressum
   Versionen:
   - VersionNummer: 78
     TenantId: main
@@ -6578,7 +6578,7 @@
 
       |--------------------------------------|---------|------------------------------------------|---------------------------------------|-------------------------------------------------|
 
-      | [Mediawiki](https://ahrensburg.city) | PHP     | Wikipedia-Software, für sehr große Wikis | [Mediawiki](CMS/MediaWiki) | [Scribunto](CMS/MediaWiki/Scribunto) |
+      | [Mediawiki](https://wiki-ahrensburg.de) | PHP     | Wikipedia-Software, für sehr große Wikis | [Mediawiki](CMS/MediaWiki) | [Scribunto](CMS/MediaWiki/Scribunto) |
 
 
       ### 3 CMS-Werkzeuge
@@ -7673,7 +7673,7 @@
   Versionen:
   - VersionNummer: 95
     TenantId: main
-    MarkdownInhalt: "## Postgres Datenbank erstellen\n\n<code>`sudo -u postgres -i`  \n`createdb -E UTF8 -O thorsten mediawiki`  \n`psql -d mediawiki -c \"GRANT ALL PRIVILEGES ON DATABASE mediawiki TO thorsten`  \n  \n`exit`</code>\n\n## PHP installieren\n\n`sudo apt install php-fpm php-pgsql php-xml php-curl php-gd php-mbstring php-xmlrpc php-xmlrpc php-zip php-intl -y`\n\n## Mediawiki installieren\n\n<code>`cd /var/www`  \n`sudo git clone https://gerrit.wikimedia.org/r/mediawiki/core.git mediawiki`  \n`sudo cd mediawiki`  \n`sudo git tag -l | sort -V`  \n`sudo git checkout 1.41.0`  \n`sudo git submodule update --init --recursive`  \n`sudo chown -R www-data:www-data /var/www/mediawiki`  \n`sudo chmod -R 755 /var/www/mediawiki`</code>  \n\nHochladen der Konfiguration\n\n`sudo scp /home/thorsten/Downloads/LocalSettings.php thorsten@ahrensburg.city:/var/www/mediawiki/LocalSettings.php`\n\n## Lesbare URLs konfiguriern in mediawiki\n\n`sudo nano /var/www/mediawiki/LocalSettings.php`\n\n<code>`$wgScriptPath = \"\";`  \n`$wgArticlePath = \"/$1\";`  \n`$wgUsePathInfo = true;`</code>\n\n## Backup erstellen\n\n<code>`cd /home/thorsten`  \n`gh repo clone thorstenkloehn/Download`  \n`sudo chmod 777 -R Download`  \n`cd /home/thorsten/Download`  \n`sudo rm /home/thorsten/Download/pagedump.xml`  \n`sudo rm /home/thorsten/Download/doc.xml`  \n`ssh thorsten@ahrensburg.city \"php /var/www/mediawiki/maintenance/dumpBackup.php --full\" > /home/thorsten/Download/pagedump.xml`  \n`ssh thorsten@ahrensburg.city \"php /var/www/docs/maintenance/dumpBackup.php --full\" > /home/thorsten/Download/doc.xml`  \n`git add pagedump.xml`  \n`git add doc.xml`  \n`git commit -m \"Backup\"`  \n`git push`</code>\n\n## Wiederherstellen\n\n### MediaWiki-Dump importieren\n\n    php /var/www/mediawiki/maintenance/run.php importDump.php < pagedump.xml\n     php /var/www/mediawiki/maintenance/run.php rebuildrecentchanges.php\n     php /var/www/mediawiki/maintenance/run.php initSiteStats.php\n\n## Entwicklungsumgebung lokal einrichten\n\nErstelle eine Datei /etc/nginx/conf.d/mediawiki.conf mit folgendem Inhalt:\n\n     server {\n      listen 80;\n        listen [::]:80;\n        server_name localhost;\n        root /var/www/mediawiki;\n        index index.php index.html index.htm;\n\n     location / {\n            try_files $uri $uri/ /index.php?$args;\n        }\n        location ~ \\.php$ {\n            include snippets/fastcgi-php.conf;\n            fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;\n        }\n\n        location ~ /\\.ht {\n\n               deny all;\n        }\n\n    }"
+    MarkdownInhalt: "## Postgres Datenbank erstellen\n\n<code>`sudo -u postgres -i`  \n`createdb -E UTF8 -O thorsten mediawiki`  \n`psql -d mediawiki -c \"GRANT ALL PRIVILEGES ON DATABASE mediawiki TO thorsten`  \n  \n`exit`</code>\n\n## PHP installieren\n\n`sudo apt install php-fpm php-pgsql php-xml php-curl php-gd php-mbstring php-xmlrpc php-xmlrpc php-zip php-intl -y`\n\n## Mediawiki installieren\n\n<code>`cd /var/www`  \n`sudo git clone https://gerrit.wikimedia.org/r/mediawiki/core.git mediawiki`  \n`sudo cd mediawiki`  \n`sudo git tag -l | sort -V`  \n`sudo git checkout 1.41.0`  \n`sudo git submodule update --init --recursive`  \n`sudo chown -R www-data:www-data /var/www/mediawiki`  \n`sudo chmod -R 755 /var/www/mediawiki`</code>  \n\nHochladen der Konfiguration\n\n`sudo scp /home/thorsten/Downloads/LocalSettings.php thorsten@wiki-ahrensburg.de:/var/www/mediawiki/LocalSettings.php`\n\n## Lesbare URLs konfiguriern in mediawiki\n\n`sudo nano /var/www/mediawiki/LocalSettings.php`\n\n<code>`$wgScriptPath = \"\";`  \n`$wgArticlePath = \"/$1\";`  \n`$wgUsePathInfo = true;`</code>\n\n## Backup erstellen\n\n<code>`cd /home/thorsten`  \n`gh repo clone thorstenkloehn/Download`  \n`sudo chmod 777 -R Download`  \n`cd /home/thorsten/Download`  \n`sudo rm /home/thorsten/Download/pagedump.xml`  \n`sudo rm /home/thorsten/Download/doc.xml`  \n`ssh thorsten@wiki-ahrensburg.de \"php /var/www/mediawiki/maintenance/dumpBackup.php --full\" > /home/thorsten/Download/pagedump.xml`  \n`ssh thorsten@wiki-ahrensburg.de \"php /var/www/docs/maintenance/dumpBackup.php --full\" > /home/thorsten/Download/doc.xml`  \n`git add pagedump.xml`  \n`git add doc.xml`  \n`git commit -m \"Backup\"`  \n`git push`</code>\n\n## Wiederherstellen\n\n### MediaWiki-Dump importieren\n\n    php /var/www/mediawiki/maintenance/run.php importDump.php < pagedump.xml\n     php /var/www/mediawiki/maintenance/run.php rebuildrecentchanges.php\n     php /var/www/mediawiki/maintenance/run.php initSiteStats.php\n\n## Entwicklungsumgebung lokal einrichten\n\nErstelle eine Datei /etc/nginx/conf.d/mediawiki.conf mit folgendem Inhalt:\n\n     server {\n      listen 80;\n        listen [::]:80;\n        server_name localhost;\n        root /var/www/mediawiki;\n        index index.php index.html index.htm;\n\n     location / {\n            try_files $uri $uri/ /index.php?$args;\n        }\n        location ~ \\.php$ {\n            include snippets/fastcgi-php.conf;\n            fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;\n        }\n\n        location ~ /\\.ht {\n\n               deny all;\n        }\n\n    }"
     Zeitpunkt: 2026-01-17T05:54:17.0000000Z
     Kategorie: []
     WikiArtikelId: 57
@@ -7769,7 +7769,7 @@
   Versionen:
   - VersionNummer: 97
     TenantId: main
-    MarkdownInhalt: "**Wiki.js** ist eine moderne, quelloffene Wiki-Software, die auf Node.js basiert. Sie bietet eine benutzerfreundliche Oberfläche, unterstützt verschiedene Authentifizierungsmethoden und ermöglicht die Verwaltung von Inhalten über ein flexibles Rechtesystem.\n\n## Postgres-Datenbank erstellen\n\n    sudo -u postgres -i\n    createdb -E UTF8 -O thorsten wikijs\n    psql -d wikijs -c \"GRANT ALL PRIVILEGES ON DATABASE wikijs TO thorsten\"\n    exit\n\n## Wiki.js installieren\n\n### Herunterladen\n\nLade die neueste Version von Wiki.js von der offiziellen Website herunter:\n\n    sudo apt-get install nodejs  # sonst läuft Wiki.js nicht\n    mkdir /wikijsdownload\n    cd /wikijsdownload\n    wget https://github.com/Requarks/wiki/releases/latest/download/wiki-js.tar.gz\n    mkdir /var/www/wikijs/\n    sudo chown -R www-data:www-data /var/www/wikijs\n    tar xzf wiki-js.tar.gz -C /var/www/wikijs/\n    cd /var/www/wikijs/\n    mv config.sample.yml config.yml\n    nano config.yml\n    node server\n\n## Als Dienst ausführen\n\nEs gibt verschiedene Möglichkeiten, Wiki.js als Hintergrunddienst auszuführen. In dieser Anleitung konzentrieren wir uns auf systemd, da es in nahezu allen Linux-Distributionen verfügbar ist.\n\n### Systemd-Service erstellen\n\nErstelle eine neue Datei mit dem Namen `wiki.service` im Verzeichnis `/etc/systemd/system`:\n\n    sudo nano /etc/systemd/system/wiki.service\n\nFüge folgenden Inhalt ein (passe ggf. die Pfade und den Benutzer an):\n\n    [Unit]\n    Description=Wiki.js\n    After=network.target\n\n    [Service]\n    Type=simple\n    ExecStart=/usr/bin/node server\n    Restart=always\n    # Es wird empfohlen, einen eigenen Benutzer für Wiki.js anzulegen:\n    User=www-data\n    Environment=NODE_ENV=production\n    WorkingDirectory=/var/www/wikijs/\n    [Install]\n    WantedBy=multi-user.target\n\nSpeichere die Datei und lade systemd neu:\n\n    sudo systemctl daemon-reload\n    sudo systemctl enable wiki\n    sudo systemctl start wiki\n\nMit `sudo systemctl status wiki` kannst du den Status des Dienstes überprüfen.\n\nBackup erstellen\n\n    pg_dump -U thorsten -h localhost wikijs > wikijs_backup.sql\n    scp wikijs_backup.sql thorsten@localhost:/home/thorsten/wikijs_backup.sql\n\n## Produktionsserver nginx einrichten\n\n    sudo -u postgres -i\n    createdb -E UTF8 -O thorsten wikijs\n    psql -d wikijs -c \"GRANT ALL PRIVILEGES ON DATABASE wikijs TO thorsten\"\n    exit\n    psql -U thorsten -h localhost -d wikijs -f wikijs_backup.sql\n\n</pre>\n\n    nano /etc/nginx/conf.d/wiki.conf\n\nGib Folgendes ein\n\n    server {\n    listen 443 ssl http2;\n    listen [::]:443 ssl http2;\n    server_name wiki.ahrensburg.city;\n    ssl_certificate /etc/letsencrypt/live/ahrensburg.city/fullchain.pem;\n    ssl_certificate_key /etc/letsencrypt/live/ahrensburg.city/privkey.pem;\n\n        location / {\n     \n            proxy_pass http://localhost:3000;\n            proxy_set_header Host $host;\n            proxy_set_header X-Real-IP $remote_addr;\n            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\n            proxy_set_header X-Forwarded-Proto $scheme;\n        }\n    }"
+    MarkdownInhalt: "**Wiki.js** ist eine moderne, quelloffene Wiki-Software, die auf Node.js basiert. Sie bietet eine benutzerfreundliche Oberfläche, unterstützt verschiedene Authentifizierungsmethoden und ermöglicht die Verwaltung von Inhalten über ein flexibles Rechtesystem.\n\n## Postgres-Datenbank erstellen\n\n    sudo -u postgres -i\n    createdb -E UTF8 -O thorsten wikijs\n    psql -d wikijs -c \"GRANT ALL PRIVILEGES ON DATABASE wikijs TO thorsten\"\n    exit\n\n## Wiki.js installieren\n\n### Herunterladen\n\nLade die neueste Version von Wiki.js von der offiziellen Website herunter:\n\n    sudo apt-get install nodejs  # sonst läuft Wiki.js nicht\n    mkdir /wikijsdownload\n    cd /wikijsdownload\n    wget https://github.com/Requarks/wiki/releases/latest/download/wiki-js.tar.gz\n    mkdir /var/www/wikijs/\n    sudo chown -R www-data:www-data /var/www/wikijs\n    tar xzf wiki-js.tar.gz -C /var/www/wikijs/\n    cd /var/www/wikijs/\n    mv config.sample.yml config.yml\n    nano config.yml\n    node server\n\n## Als Dienst ausführen\n\nEs gibt verschiedene Möglichkeiten, Wiki.js als Hintergrunddienst auszuführen. In dieser Anleitung konzentrieren wir uns auf systemd, da es in nahezu allen Linux-Distributionen verfügbar ist.\n\n### Systemd-Service erstellen\n\nErstelle eine neue Datei mit dem Namen `wiki.service` im Verzeichnis `/etc/systemd/system`:\n\n    sudo nano /etc/systemd/system/wiki.service\n\nFüge folgenden Inhalt ein (passe ggf. die Pfade und den Benutzer an):\n\n    [Unit]\n    Description=Wiki.js\n    After=network.target\n\n    [Service]\n    Type=simple\n    ExecStart=/usr/bin/node server\n    Restart=always\n    # Es wird empfohlen, einen eigenen Benutzer für Wiki.js anzulegen:\n    User=www-data\n    Environment=NODE_ENV=production\n    WorkingDirectory=/var/www/wikijs/\n    [Install]\n    WantedBy=multi-user.target\n\nSpeichere die Datei und lade systemd neu:\n\n    sudo systemctl daemon-reload\n    sudo systemctl enable wiki\n    sudo systemctl start wiki\n\nMit `sudo systemctl status wiki` kannst du den Status des Dienstes überprüfen.\n\nBackup erstellen\n\n    pg_dump -U thorsten -h localhost wikijs > wikijs_backup.sql\n    scp wikijs_backup.sql thorsten@localhost:/home/thorsten/wikijs_backup.sql\n\n## Produktionsserver nginx einrichten\n\n    sudo -u postgres -i\n    createdb -E UTF8 -O thorsten wikijs\n    psql -d wikijs -c \"GRANT ALL PRIVILEGES ON DATABASE wikijs TO thorsten\"\n    exit\n    psql -U thorsten -h localhost -d wikijs -f wikijs_backup.sql\n\n</pre>\n\n    nano /etc/nginx/conf.d/wiki.conf\n\nGib Folgendes ein\n\n    server {\n    listen 443 ssl http2;\n    listen [::]:443 ssl http2;\n    server_name wiki.wiki-ahrensburg.de;\n    ssl_certificate /etc/letsencrypt/live/wiki-ahrensburg.de/fullchain.pem;\n    ssl_certificate_key /etc/letsencrypt/live/wiki-ahrensburg.de/privkey.pem;\n\n        location / {\n     \n            proxy_pass http://localhost:3000;\n            proxy_set_header Host $host;\n            proxy_set_header X-Real-IP $remote_addr;\n            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\n            proxy_set_header X-Forwarded-Proto $scheme;\n        }\n    }"
     Zeitpunkt: 2026-01-29T13:48:12.0000000Z
     Kategorie: []
     WikiArtikelId: 59
@@ -7996,7 +7996,7 @@
       Die folgende Konfiguration für den Nginx-Webserver ist für die Bereitstellung von Moodle
 
           sudo systemctl stop nginx
-          sudo certbot certonly --standalone -d lernen.ahrensburg.city
+          sudo certbot certonly --standalone -d lernen.wiki-ahrensburg.de
 
           Moodle Einstellungen für Nginx auf dem Server Rechner
           Ein Beispiel für eine einfache Nginx-Konfiguration für Moodle auf einem Server Rechner:
@@ -8006,11 +8006,11 @@
           server {
               listen 443 ssl http2;
               listen [::]:443 ssl http2;
-              server_name  lernen.ahrensburg.city;
+              server_name  lernen.wiki-ahrensburg.de;
               root /var/www/moodle/moodle/public;
               index index.php index.html index.htm;
-              ssl_certificate /etc/letsencrypt/live/lernen.ahrensburg.city/fullchain.pem;
-              ssl_certificate_key /etc/letsencrypt/live/lernen.ahrensburg.city/privkey.pem;
+              ssl_certificate /etc/letsencrypt/live/lernen.wiki-ahrensburg.de/fullchain.pem;
+              ssl_certificate_key /etc/letsencrypt/live/lernen.wiki-ahrensburg.de/privkey.pem;
 
             location / {
               try_files $uri $uri/ =404;
@@ -8129,7 +8129,7 @@
   Versionen:
   - VersionNummer: 102
     TenantId: main
-    MarkdownInhalt: "## Entwicklung Server\n\n    sudo apt-get install php-mysql\n\n### Mysql Datenbank Einrichten\n\n    sudo mysql\n    CREATE DATABASE bookstack CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\n    CREATE USER 'thorsten'@'localhost' IDENTIFIED BY 'DEIN_STARKES_PASSWORT';\n    GRANT ALL PRIVILEGES ON bookstack.* TO 'thorsten'@'localhost';\n    FLUSH PRIVILEGES;\n\n### BookStack herunterladen\n\n    sudo git clone https://source.bookstackapp.com/bookstack.git --branch release --single-branch bookstack\n    cd bookstack\n    sudo composer install --no-dev\n    sudo cp .env.example .env\n\n### Konfiguration von BookStack\n\n    sudo nano .env\n\n### Dateiberechtigungen setzen\n\n    sudo chmod 777 -R storage\n    sudo chmod 777 -R bootstrap/cache\n    sudo chmod 777 -R public/uploads\n    sudo chown -R www-data:www-data storage bootstrap/cache\n\n### Artisan Nutzen\n\n    php artisan key:generate --force --no-interaction\n    php artisan migrate --force --no-interaction\n\n### Nginx Einstellung\n\n    sudo nano /etc/nginx/conf.d/bookstack.conf\n\nGeben Sie Folgendes in die Datei \\`/etc/nginx/conf.d/bookstack.conf\\` ein:\n\n\n    server {\n      listen 80;\n      listen [::]:80;\n\n      server_name bookstack.localhost;\n\n      root /var/www/bookstack/public;\n      index index.php index.html;\n\n      location / {\n        try_files $uri $uri/ /index.php?$query_string;\n      }\n      \n      location ~ \\.php$ {\n        include snippets/fastcgi-php.conf;\n        fastcgi_pass unix:/run/php/php8.4-fpm.sock;\n      }\n    }\n\n## Datenbank Übertragen auf dem Server\n\n### Auf dem Server\n\n    mysql -u root -p\n    CREATE USER 'BENUTZERNAME'@'localhost' IDENTIFIED BY 'DEIN_STARKES_PASSWORT'; \n    CREATE DATABASE DATENBANKNAME CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\n    GRANT PROCESS ON *.* TO 'BENUTZERNAME'@'localhost';\n    FLUSH PRIVILEGES;\n\n### Auf dem Entwicklungsserver\n\n    mysqldump -u BENUTZERNAME -p DATENBANKNAME > backup.sql\n    scp backup.sql thorsten@Servername:/home/thorsten/backup.sql\n    rsync -avz  --exclude '.env' --exclude 'vendor/' /var/www/bookstack/ user@prod:/var/www/bookstack/\n    composer install\n    sudo cp .env.example .env\n    sudo nano .env\n\n### Auf dem Server\n\n    mysql -u thorsten -p DATENBANKNAME < backup.sql\n\n### Nginx Einstellung\n\n    sudo nano /etc/nginx/conf.d/bookstack.conf\n\nGeben Sie Folgendes in die Datei \\`/etc/nginx/conf.d/bookstack.conf\\` ein:\n\n\n    server {\n        listen 443 ssl http2;\n        listen [::]:443 ssl http2;\n\n      server_name bookstack.ahrensburg.city\n        root /var/www/bookstack/public;\n      index index.php index.html;\n      ssl_certificate /etc/letsencrypt/live/ahrensburg.city/fullchain.pem;\n      ssl_certificate_key /etc/letsencrypt/live/ahrensburg.city/privkey.pem;\n\n      location / {\n        try_files $uri $uri/ /index.php?$query_string;\n      }\n      \n      location ~ \\.php$ {\n        include snippets/fastcgi-php.conf;\n        fastcgi_pass unix:/run/php/php8.3-fpm.sock;\n      }\n    }"
+    MarkdownInhalt: "## Entwicklung Server\n\n    sudo apt-get install php-mysql\n\n### Mysql Datenbank Einrichten\n\n    sudo mysql\n    CREATE DATABASE bookstack CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\n    CREATE USER 'thorsten'@'localhost' IDENTIFIED BY 'DEIN_STARKES_PASSWORT';\n    GRANT ALL PRIVILEGES ON bookstack.* TO 'thorsten'@'localhost';\n    FLUSH PRIVILEGES;\n\n### BookStack herunterladen\n\n    sudo git clone https://source.bookstackapp.com/bookstack.git --branch release --single-branch bookstack\n    cd bookstack\n    sudo composer install --no-dev\n    sudo cp .env.example .env\n\n### Konfiguration von BookStack\n\n    sudo nano .env\n\n### Dateiberechtigungen setzen\n\n    sudo chmod 777 -R storage\n    sudo chmod 777 -R bootstrap/cache\n    sudo chmod 777 -R public/uploads\n    sudo chown -R www-data:www-data storage bootstrap/cache\n\n### Artisan Nutzen\n\n    php artisan key:generate --force --no-interaction\n    php artisan migrate --force --no-interaction\n\n### Nginx Einstellung\n\n    sudo nano /etc/nginx/conf.d/bookstack.conf\n\nGeben Sie Folgendes in die Datei \\`/etc/nginx/conf.d/bookstack.conf\\` ein:\n\n\n    server {\n      listen 80;\n      listen [::]:80;\n\n      server_name bookstack.localhost;\n\n      root /var/www/bookstack/public;\n      index index.php index.html;\n\n      location / {\n        try_files $uri $uri/ /index.php?$query_string;\n      }\n      \n      location ~ \\.php$ {\n        include snippets/fastcgi-php.conf;\n        fastcgi_pass unix:/run/php/php8.4-fpm.sock;\n      }\n    }\n\n## Datenbank Übertragen auf dem Server\n\n### Auf dem Server\n\n    mysql -u root -p\n    CREATE USER 'BENUTZERNAME'@'localhost' IDENTIFIED BY 'DEIN_STARKES_PASSWORT'; \n    CREATE DATABASE DATENBANKNAME CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\n    GRANT PROCESS ON *.* TO 'BENUTZERNAME'@'localhost';\n    FLUSH PRIVILEGES;\n\n### Auf dem Entwicklungsserver\n\n    mysqldump -u BENUTZERNAME -p DATENBANKNAME > backup.sql\n    scp backup.sql thorsten@Servername:/home/thorsten/backup.sql\n    rsync -avz  --exclude '.env' --exclude 'vendor/' /var/www/bookstack/ user@prod:/var/www/bookstack/\n    composer install\n    sudo cp .env.example .env\n    sudo nano .env\n\n### Auf dem Server\n\n    mysql -u thorsten -p DATENBANKNAME < backup.sql\n\n### Nginx Einstellung\n\n    sudo nano /etc/nginx/conf.d/bookstack.conf\n\nGeben Sie Folgendes in die Datei \\`/etc/nginx/conf.d/bookstack.conf\\` ein:\n\n\n    server {\n        listen 443 ssl http2;\n        listen [::]:443 ssl http2;\n\n      server_name bookstack.wiki-ahrensburg.de\n        root /var/www/bookstack/public;\n      index index.php index.html;\n      ssl_certificate /etc/letsencrypt/live/wiki-ahrensburg.de/fullchain.pem;\n      ssl_certificate_key /etc/letsencrypt/live/wiki-ahrensburg.de/privkey.pem;\n\n      location / {\n        try_files $uri $uri/ /index.php?$query_string;\n      }\n      \n      location ~ \\.php$ {\n        include snippets/fastcgi-php.conf;\n        fastcgi_pass unix:/run/php/php8.3-fpm.sock;\n      }\n    }"
     Zeitpunkt: 2026-01-26T23:53:02.0000000Z
     Kategorie: []
     WikiArtikelId: 64
@@ -8283,10 +8283,10 @@
           listen 443 ssl http2;
           listen [::]:443 ssl http2;
 
-          server_name wordpress.ahrensburg.city;
+          server_name wordpress.wiki-ahrensburg.de;
           root /var/www/wordpress;
-          ssl_certificate /etc/letsencrypt/live/ahrensburg.city/fullchain.pem;
-          ssl_certificate_key /etc/letsencrypt/live/ahrensburg.city/privkey.pem;
+          ssl_certificate /etc/letsencrypt/live/wiki-ahrensburg.de/fullchain.pem;
+          ssl_certificate_key /etc/letsencrypt/live/wiki-ahrensburg.de/privkey.pem;
 
           index index.php index.html index.htm;
 
@@ -10354,7 +10354,7 @@
   - VersionNummer: 131
     TenantId: main
     MarkdownInhalt: >-
-      Willkommen im **ASP.NET Core Tutorial**! Dieses Tutorial führt dich schrittweise durch alle relevanten Themen der modernen Webentwicklung mit ASP.NET Core. Die Inhalte basieren auf der offiziellen Struktur der [Webframeworkk-Dokumentation](https://docs.ahrensburg.city/Webframeworkk/ASP.NET_Core). Diese Übersicht dient als Einstiegspunkt und Lernpfad. Arbeite die Themen am besten der Reihe nach ab, da sie logisch aufeinander aufbauen.
+      Willkommen im **ASP.NET Core Tutorial**! Dieses Tutorial führt dich schrittweise durch alle relevanten Themen der modernen Webentwicklung mit ASP.NET Core. Die Inhalte basieren auf der offiziellen Struktur der [Webframeworkk-Dokumentation](https://docs.wiki-ahrensburg.de/Webframeworkk/ASP.NET_Core). Diese Übersicht dient als Einstiegspunkt und Lernpfad. Arbeite die Themen am besten der Reihe nach ab, da sie logisch aufeinander aufbauen.
 
 
       ## Modul 1: [Grundlagen und Struktur](ASP_NET_Core/Grundlagen_und_Struktur)
@@ -23591,9 +23591,9 @@
       Nach der Eingabe der obigen Befehle können Sie mit den folgenden Schritten fortfahren, um SSL-Zertifikate für Ihre Domains zu erstellen und Nginx wieder zu starten.
 
 
-      `sudo certbot certonly --standalone -d ahrensburg.city -d www.ahrensburg.city`  
+      `sudo certbot certonly --standalone -d wiki-ahrensburg.de -d www.wiki-ahrensburg.de`  
 
-      `sudo certbot certonly --standalone -d alterwiki.ahrensburg.city`  
+      `sudo certbot certonly --standalone -d alterwiki.wiki-ahrensburg.de`  
 
       `sudo systemctl start nginx`
 
@@ -23601,7 +23601,7 @@
       Um ein Wildcard-SSL-Zertifikat mit Certbot und Let's Encrypt zu erstellen, muss die DNS-01-Challenge verwendet werden. Beispiel:
 
 
-      `sudo certbot certonly --manual --preferred-challenges dns -d "*.ahrensburg.city" -d ahrensburg.city`
+      `sudo certbot certonly --manual --preferred-challenges dns -d "*.wiki-ahrensburg.de" -d wiki-ahrensburg.de`
 
 
       Sie werden aufgefordert, einen speziellen DNS-TXT-Eintrag für Ihre Domain zu setzen. Nach erfolgreicher Validierung wird das Zertifikat erstellt.
@@ -23610,7 +23610,7 @@
       Weitere Informationen: \[Let's Encrypt Wildcard-Zertifikate\](https://certbot.eff.org/docs/using.html#wildcard-certificates)
 
 
-      `ahrensburg.city-0002 Befehl`
+      `wiki-ahrensburg.de-0002 Befehl`
     Zeitpunkt: 2026-01-07T00:23:59.0000000Z
     Kategorie: []
     WikiArtikelId: 188
@@ -23648,13 +23648,13 @@
          listen \[::\]:443 ssl http2;
 
 
-         server_name ahrensburg.city;
+         server_name wiki-ahrensburg.de;
 
 
-         ssl_certificate /etc/letsencrypt/live/ahrensburg.city/fullchain.pem;
+         ssl_certificate /etc/letsencrypt/live/wiki-ahrensburg.de/fullchain.pem;
 
 
-         ssl_certificate_key /etc/letsencrypt/live/ahrensburg.city/privkey.pem;
+         ssl_certificate_key /etc/letsencrypt/live/wiki-ahrensburg.de/privkey.pem;
 
 
           root /var/www/mediawiki;
@@ -23738,7 +23738,7 @@
          listen \[::\]:80;
 
 
-         server_name ahrensburg.city;
+         server_name wiki-ahrensburg.de;
 
 
          return 301 https://\$host\$request_uri;
@@ -24273,7 +24273,7 @@
     WikiArtikelId: 205
 - Id: 206
   TenantId: doc
-  Slug: Ahrensburg.city:Datenschutz
+  Slug: Wiki-Ahrensburg.de:Datenschutz
   Versionen:
   - VersionNummer: 254
     TenantId: doc
@@ -24445,7 +24445,7 @@
     WikiArtikelId: 206
 - Id: 207
   TenantId: doc
-  Slug: Ahrensburg.city:Impressum
+  Slug: Wiki-Ahrensburg.de:Impressum
   Versionen:
   - VersionNummer: 255
     TenantId: doc
@@ -24592,7 +24592,7 @@
 
       |--------------------------------------|---------|------------------------------------------|---------------------------------------|-------------------------------------------------|
 
-      | [Mediawiki](https://ahrensburg.city) | PHP     | Wikipedia-Software, für sehr große Wikis | [Mediawiki](CMS/MediaWiki) | [Scribunto](CMS/MediaWiki/Scribunto) |
+      | [Mediawiki](https://wiki-ahrensburg.de) | PHP     | Wikipedia-Software, für sehr große Wikis | [Mediawiki](CMS/MediaWiki) | [Scribunto](CMS/MediaWiki/Scribunto) |
 
 
       ### 3 CMS-Werkzeuge
@@ -25687,7 +25687,7 @@
   Versionen:
   - VersionNummer: 272
     TenantId: doc
-    MarkdownInhalt: "## Postgres Datenbank erstellen\n\n<code>`sudo -u postgres -i`  \n`createdb -E UTF8 -O thorsten mediawiki`  \n`psql -d mediawiki -c \"GRANT ALL PRIVILEGES ON DATABASE mediawiki TO thorsten`  \n  \n`exit`</code>\n\n## PHP installieren\n\n`sudo apt install php-fpm php-pgsql php-xml php-curl php-gd php-mbstring php-xmlrpc php-xmlrpc php-zip php-intl -y`\n\n## Mediawiki installieren\n\n<code>`cd /var/www`  \n`sudo git clone https://gerrit.wikimedia.org/r/mediawiki/core.git mediawiki`  \n`sudo cd mediawiki`  \n`sudo git tag -l | sort -V`  \n`sudo git checkout 1.41.0`  \n`sudo git submodule update --init --recursive`  \n`sudo chown -R www-data:www-data /var/www/mediawiki`  \n`sudo chmod -R 755 /var/www/mediawiki`</code>  \n\nHochladen der Konfiguration\n\n`sudo scp /home/thorsten/Downloads/LocalSettings.php thorsten@ahrensburg.city:/var/www/mediawiki/LocalSettings.php`\n\n## Lesbare URLs konfiguriern in mediawiki\n\n`sudo nano /var/www/mediawiki/LocalSettings.php`\n\n<code>`$wgScriptPath = \"\";`  \n`$wgArticlePath = \"/$1\";`  \n`$wgUsePathInfo = true;`</code>\n\n## Backup erstellen\n\n<code>`cd /home/thorsten`  \n`gh repo clone thorstenkloehn/Download`  \n`sudo chmod 777 -R Download`  \n`cd /home/thorsten/Download`  \n`sudo rm /home/thorsten/Download/pagedump.xml`  \n`sudo rm /home/thorsten/Download/doc.xml`  \n`ssh thorsten@ahrensburg.city \"php /var/www/mediawiki/maintenance/dumpBackup.php --full\" > /home/thorsten/Download/pagedump.xml`  \n`ssh thorsten@ahrensburg.city \"php /var/www/docs/maintenance/dumpBackup.php --full\" > /home/thorsten/Download/doc.xml`  \n`git add pagedump.xml`  \n`git add doc.xml`  \n`git commit -m \"Backup\"`  \n`git push`</code>\n\n## Wiederherstellen\n\n### MediaWiki-Dump importieren\n\n    php /var/www/mediawiki/maintenance/run.php importDump.php < pagedump.xml\n     php /var/www/mediawiki/maintenance/run.php rebuildrecentchanges.php\n     php /var/www/mediawiki/maintenance/run.php initSiteStats.php\n\n## Entwicklungsumgebung lokal einrichten\n\nErstelle eine Datei /etc/nginx/conf.d/mediawiki.conf mit folgendem Inhalt:\n\n     server {\n      listen 80;\n        listen [::]:80;\n        server_name localhost;\n        root /var/www/mediawiki;\n        index index.php index.html index.htm;\n\n     location / {\n            try_files $uri $uri/ /index.php?$args;\n        }\n        location ~ \\.php$ {\n            include snippets/fastcgi-php.conf;\n            fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;\n        }\n\n        location ~ /\\.ht {\n\n               deny all;\n        }\n\n    }"
+    MarkdownInhalt: "## Postgres Datenbank erstellen\n\n<code>`sudo -u postgres -i`  \n`createdb -E UTF8 -O thorsten mediawiki`  \n`psql -d mediawiki -c \"GRANT ALL PRIVILEGES ON DATABASE mediawiki TO thorsten`  \n  \n`exit`</code>\n\n## PHP installieren\n\n`sudo apt install php-fpm php-pgsql php-xml php-curl php-gd php-mbstring php-xmlrpc php-xmlrpc php-zip php-intl -y`\n\n## Mediawiki installieren\n\n<code>`cd /var/www`  \n`sudo git clone https://gerrit.wikimedia.org/r/mediawiki/core.git mediawiki`  \n`sudo cd mediawiki`  \n`sudo git tag -l | sort -V`  \n`sudo git checkout 1.41.0`  \n`sudo git submodule update --init --recursive`  \n`sudo chown -R www-data:www-data /var/www/mediawiki`  \n`sudo chmod -R 755 /var/www/mediawiki`</code>  \n\nHochladen der Konfiguration\n\n`sudo scp /home/thorsten/Downloads/LocalSettings.php thorsten@wiki-ahrensburg.de:/var/www/mediawiki/LocalSettings.php`\n\n## Lesbare URLs konfiguriern in mediawiki\n\n`sudo nano /var/www/mediawiki/LocalSettings.php`\n\n<code>`$wgScriptPath = \"\";`  \n`$wgArticlePath = \"/$1\";`  \n`$wgUsePathInfo = true;`</code>\n\n## Backup erstellen\n\n<code>`cd /home/thorsten`  \n`gh repo clone thorstenkloehn/Download`  \n`sudo chmod 777 -R Download`  \n`cd /home/thorsten/Download`  \n`sudo rm /home/thorsten/Download/pagedump.xml`  \n`sudo rm /home/thorsten/Download/doc.xml`  \n`ssh thorsten@wiki-ahrensburg.de \"php /var/www/mediawiki/maintenance/dumpBackup.php --full\" > /home/thorsten/Download/pagedump.xml`  \n`ssh thorsten@wiki-ahrensburg.de \"php /var/www/docs/maintenance/dumpBackup.php --full\" > /home/thorsten/Download/doc.xml`  \n`git add pagedump.xml`  \n`git add doc.xml`  \n`git commit -m \"Backup\"`  \n`git push`</code>\n\n## Wiederherstellen\n\n### MediaWiki-Dump importieren\n\n    php /var/www/mediawiki/maintenance/run.php importDump.php < pagedump.xml\n     php /var/www/mediawiki/maintenance/run.php rebuildrecentchanges.php\n     php /var/www/mediawiki/maintenance/run.php initSiteStats.php\n\n## Entwicklungsumgebung lokal einrichten\n\nErstelle eine Datei /etc/nginx/conf.d/mediawiki.conf mit folgendem Inhalt:\n\n     server {\n      listen 80;\n        listen [::]:80;\n        server_name localhost;\n        root /var/www/mediawiki;\n        index index.php index.html index.htm;\n\n     location / {\n            try_files $uri $uri/ /index.php?$args;\n        }\n        location ~ \\.php$ {\n            include snippets/fastcgi-php.conf;\n            fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;\n        }\n\n        location ~ /\\.ht {\n\n               deny all;\n        }\n\n    }"
     Zeitpunkt: 2026-01-17T05:54:17.0000000Z
     Kategorie: []
     WikiArtikelId: 224
@@ -25783,7 +25783,7 @@
   Versionen:
   - VersionNummer: 274
     TenantId: doc
-    MarkdownInhalt: "**Wiki.js** ist eine moderne, quelloffene Wiki-Software, die auf Node.js basiert. Sie bietet eine benutzerfreundliche Oberfläche, unterstützt verschiedene Authentifizierungsmethoden und ermöglicht die Verwaltung von Inhalten über ein flexibles Rechtesystem.\n\n## Postgres-Datenbank erstellen\n\n    sudo -u postgres -i\n    createdb -E UTF8 -O thorsten wikijs\n    psql -d wikijs -c \"GRANT ALL PRIVILEGES ON DATABASE wikijs TO thorsten\"\n    exit\n\n## Wiki.js installieren\n\n### Herunterladen\n\nLade die neueste Version von Wiki.js von der offiziellen Website herunter:\n\n    sudo apt-get install nodejs  # sonst läuft Wiki.js nicht\n    mkdir /wikijsdownload\n    cd /wikijsdownload\n    wget https://github.com/Requarks/wiki/releases/latest/download/wiki-js.tar.gz\n    mkdir /var/www/wikijs/\n    sudo chown -R www-data:www-data /var/www/wikijs\n    tar xzf wiki-js.tar.gz -C /var/www/wikijs/\n    cd /var/www/wikijs/\n    mv config.sample.yml config.yml\n    nano config.yml\n    node server\n\n## Als Dienst ausführen\n\nEs gibt verschiedene Möglichkeiten, Wiki.js als Hintergrunddienst auszuführen. In dieser Anleitung konzentrieren wir uns auf systemd, da es in nahezu allen Linux-Distributionen verfügbar ist.\n\n### Systemd-Service erstellen\n\nErstelle eine neue Datei mit dem Namen `wiki.service` im Verzeichnis `/etc/systemd/system`:\n\n    sudo nano /etc/systemd/system/wiki.service\n\nFüge folgenden Inhalt ein (passe ggf. die Pfade und den Benutzer an):\n\n    [Unit]\n    Description=Wiki.js\n    After=network.target\n\n    [Service]\n    Type=simple\n    ExecStart=/usr/bin/node server\n    Restart=always\n    # Es wird empfohlen, einen eigenen Benutzer für Wiki.js anzulegen:\n    User=www-data\n    Environment=NODE_ENV=production\n    WorkingDirectory=/var/www/wikijs/\n    [Install]\n    WantedBy=multi-user.target\n\nSpeichere die Datei und lade systemd neu:\n\n    sudo systemctl daemon-reload\n    sudo systemctl enable wiki\n    sudo systemctl start wiki\n\nMit `sudo systemctl status wiki` kannst du den Status des Dienstes überprüfen.\n\nBackup erstellen\n\n    pg_dump -U thorsten -h localhost wikijs > wikijs_backup.sql\n    scp wikijs_backup.sql thorsten@localhost:/home/thorsten/wikijs_backup.sql\n\n## Produktionsserver nginx einrichten\n\n    sudo -u postgres -i\n    createdb -E UTF8 -O thorsten wikijs\n    psql -d wikijs -c \"GRANT ALL PRIVILEGES ON DATABASE wikijs TO thorsten\"\n    exit\n    psql -U thorsten -h localhost -d wikijs -f wikijs_backup.sql\n\n</pre>\n\n    nano /etc/nginx/conf.d/wiki.conf\n\nGib Folgendes ein\n\n    server {\n    listen 443 ssl http2;\n    listen [::]:443 ssl http2;\n    server_name wiki.ahrensburg.city;\n    ssl_certificate /etc/letsencrypt/live/ahrensburg.city/fullchain.pem;\n    ssl_certificate_key /etc/letsencrypt/live/ahrensburg.city/privkey.pem;\n\n        location / {\n     \n            proxy_pass http://localhost:3000;\n            proxy_set_header Host $host;\n            proxy_set_header X-Real-IP $remote_addr;\n            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\n            proxy_set_header X-Forwarded-Proto $scheme;\n        }\n    }"
+    MarkdownInhalt: "**Wiki.js** ist eine moderne, quelloffene Wiki-Software, die auf Node.js basiert. Sie bietet eine benutzerfreundliche Oberfläche, unterstützt verschiedene Authentifizierungsmethoden und ermöglicht die Verwaltung von Inhalten über ein flexibles Rechtesystem.\n\n## Postgres-Datenbank erstellen\n\n    sudo -u postgres -i\n    createdb -E UTF8 -O thorsten wikijs\n    psql -d wikijs -c \"GRANT ALL PRIVILEGES ON DATABASE wikijs TO thorsten\"\n    exit\n\n## Wiki.js installieren\n\n### Herunterladen\n\nLade die neueste Version von Wiki.js von der offiziellen Website herunter:\n\n    sudo apt-get install nodejs  # sonst läuft Wiki.js nicht\n    mkdir /wikijsdownload\n    cd /wikijsdownload\n    wget https://github.com/Requarks/wiki/releases/latest/download/wiki-js.tar.gz\n    mkdir /var/www/wikijs/\n    sudo chown -R www-data:www-data /var/www/wikijs\n    tar xzf wiki-js.tar.gz -C /var/www/wikijs/\n    cd /var/www/wikijs/\n    mv config.sample.yml config.yml\n    nano config.yml\n    node server\n\n## Als Dienst ausführen\n\nEs gibt verschiedene Möglichkeiten, Wiki.js als Hintergrunddienst auszuführen. In dieser Anleitung konzentrieren wir uns auf systemd, da es in nahezu allen Linux-Distributionen verfügbar ist.\n\n### Systemd-Service erstellen\n\nErstelle eine neue Datei mit dem Namen `wiki.service` im Verzeichnis `/etc/systemd/system`:\n\n    sudo nano /etc/systemd/system/wiki.service\n\nFüge folgenden Inhalt ein (passe ggf. die Pfade und den Benutzer an):\n\n    [Unit]\n    Description=Wiki.js\n    After=network.target\n\n    [Service]\n    Type=simple\n    ExecStart=/usr/bin/node server\n    Restart=always\n    # Es wird empfohlen, einen eigenen Benutzer für Wiki.js anzulegen:\n    User=www-data\n    Environment=NODE_ENV=production\n    WorkingDirectory=/var/www/wikijs/\n    [Install]\n    WantedBy=multi-user.target\n\nSpeichere die Datei und lade systemd neu:\n\n    sudo systemctl daemon-reload\n    sudo systemctl enable wiki\n    sudo systemctl start wiki\n\nMit `sudo systemctl status wiki` kannst du den Status des Dienstes überprüfen.\n\nBackup erstellen\n\n    pg_dump -U thorsten -h localhost wikijs > wikijs_backup.sql\n    scp wikijs_backup.sql thorsten@localhost:/home/thorsten/wikijs_backup.sql\n\n## Produktionsserver nginx einrichten\n\n    sudo -u postgres -i\n    createdb -E UTF8 -O thorsten wikijs\n    psql -d wikijs -c \"GRANT ALL PRIVILEGES ON DATABASE wikijs TO thorsten\"\n    exit\n    psql -U thorsten -h localhost -d wikijs -f wikijs_backup.sql\n\n</pre>\n\n    nano /etc/nginx/conf.d/wiki.conf\n\nGib Folgendes ein\n\n    server {\n    listen 443 ssl http2;\n    listen [::]:443 ssl http2;\n    server_name wiki.wiki-ahrensburg.de;\n    ssl_certificate /etc/letsencrypt/live/wiki-ahrensburg.de/fullchain.pem;\n    ssl_certificate_key /etc/letsencrypt/live/wiki-ahrensburg.de/privkey.pem;\n\n        location / {\n     \n            proxy_pass http://localhost:3000;\n            proxy_set_header Host $host;\n            proxy_set_header X-Real-IP $remote_addr;\n            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\n            proxy_set_header X-Forwarded-Proto $scheme;\n        }\n    }"
     Zeitpunkt: 2026-01-29T13:48:12.0000000Z
     Kategorie: []
     WikiArtikelId: 226
@@ -26010,7 +26010,7 @@
       Die folgende Konfiguration für den Nginx-Webserver ist für die Bereitstellung von Moodle
 
           sudo systemctl stop nginx
-          sudo certbot certonly --standalone -d lernen.ahrensburg.city
+          sudo certbot certonly --standalone -d lernen.wiki-ahrensburg.de
 
           Moodle Einstellungen für Nginx auf dem Server Rechner
           Ein Beispiel für eine einfache Nginx-Konfiguration für Moodle auf einem Server Rechner:
@@ -26020,11 +26020,11 @@
           server {
               listen 443 ssl http2;
               listen [::]:443 ssl http2;
-              server_name  lernen.ahrensburg.city;
+              server_name  lernen.wiki-ahrensburg.de;
               root /var/www/moodle/moodle/public;
               index index.php index.html index.htm;
-              ssl_certificate /etc/letsencrypt/live/lernen.ahrensburg.city/fullchain.pem;
-              ssl_certificate_key /etc/letsencrypt/live/lernen.ahrensburg.city/privkey.pem;
+              ssl_certificate /etc/letsencrypt/live/lernen.wiki-ahrensburg.de/fullchain.pem;
+              ssl_certificate_key /etc/letsencrypt/live/lernen.wiki-ahrensburg.de/privkey.pem;
 
             location / {
               try_files $uri $uri/ =404;
@@ -26143,7 +26143,7 @@
   Versionen:
   - VersionNummer: 279
     TenantId: doc
-    MarkdownInhalt: "## Entwicklung Server\n\n    sudo apt-get install php-mysql\n\n### Mysql Datenbank Einrichten\n\n    sudo mysql\n    CREATE DATABASE bookstack CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\n    CREATE USER 'thorsten'@'localhost' IDENTIFIED BY 'DEIN_STARKES_PASSWORT';\n    GRANT ALL PRIVILEGES ON bookstack.* TO 'thorsten'@'localhost';\n    FLUSH PRIVILEGES;\n\n### BookStack herunterladen\n\n    sudo git clone https://source.bookstackapp.com/bookstack.git --branch release --single-branch bookstack\n    cd bookstack\n    sudo composer install --no-dev\n    sudo cp .env.example .env\n\n### Konfiguration von BookStack\n\n    sudo nano .env\n\n### Dateiberechtigungen setzen\n\n    sudo chmod 777 -R storage\n    sudo chmod 777 -R bootstrap/cache\n    sudo chmod 777 -R public/uploads\n    sudo chown -R www-data:www-data storage bootstrap/cache\n\n### Artisan Nutzen\n\n    php artisan key:generate --force --no-interaction\n    php artisan migrate --force --no-interaction\n\n### Nginx Einstellung\n\n    sudo nano /etc/nginx/conf.d/bookstack.conf\n\nGeben Sie Folgendes in die Datei \\`/etc/nginx/conf.d/bookstack.conf\\` ein:\n\n\n    server {\n      listen 80;\n      listen [::]:80;\n\n      server_name bookstack.localhost;\n\n      root /var/www/bookstack/public;\n      index index.php index.html;\n\n      location / {\n        try_files $uri $uri/ /index.php?$query_string;\n      }\n      \n      location ~ \\.php$ {\n        include snippets/fastcgi-php.conf;\n        fastcgi_pass unix:/run/php/php8.4-fpm.sock;\n      }\n    }\n\n## Datenbank Übertragen auf dem Server\n\n### Auf dem Server\n\n    mysql -u root -p\n    CREATE USER 'BENUTZERNAME'@'localhost' IDENTIFIED BY 'DEIN_STARKES_PASSWORT'; \n    CREATE DATABASE DATENBANKNAME CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\n    GRANT PROCESS ON *.* TO 'BENUTZERNAME'@'localhost';\n    FLUSH PRIVILEGES;\n\n### Auf dem Entwicklungsserver\n\n    mysqldump -u BENUTZERNAME -p DATENBANKNAME > backup.sql\n    scp backup.sql thorsten@Servername:/home/thorsten/backup.sql\n    rsync -avz  --exclude '.env' --exclude 'vendor/' /var/www/bookstack/ user@prod:/var/www/bookstack/\n    composer install\n    sudo cp .env.example .env\n    sudo nano .env\n\n### Auf dem Server\n\n    mysql -u thorsten -p DATENBANKNAME < backup.sql\n\n### Nginx Einstellung\n\n    sudo nano /etc/nginx/conf.d/bookstack.conf\n\nGeben Sie Folgendes in die Datei \\`/etc/nginx/conf.d/bookstack.conf\\` ein:\n\n\n    server {\n        listen 443 ssl http2;\n        listen [::]:443 ssl http2;\n\n      server_name bookstack.ahrensburg.city\n        root /var/www/bookstack/public;\n      index index.php index.html;\n      ssl_certificate /etc/letsencrypt/live/ahrensburg.city/fullchain.pem;\n      ssl_certificate_key /etc/letsencrypt/live/ahrensburg.city/privkey.pem;\n\n      location / {\n        try_files $uri $uri/ /index.php?$query_string;\n      }\n      \n      location ~ \\.php$ {\n        include snippets/fastcgi-php.conf;\n        fastcgi_pass unix:/run/php/php8.3-fpm.sock;\n      }\n    }"
+    MarkdownInhalt: "## Entwicklung Server\n\n    sudo apt-get install php-mysql\n\n### Mysql Datenbank Einrichten\n\n    sudo mysql\n    CREATE DATABASE bookstack CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\n    CREATE USER 'thorsten'@'localhost' IDENTIFIED BY 'DEIN_STARKES_PASSWORT';\n    GRANT ALL PRIVILEGES ON bookstack.* TO 'thorsten'@'localhost';\n    FLUSH PRIVILEGES;\n\n### BookStack herunterladen\n\n    sudo git clone https://source.bookstackapp.com/bookstack.git --branch release --single-branch bookstack\n    cd bookstack\n    sudo composer install --no-dev\n    sudo cp .env.example .env\n\n### Konfiguration von BookStack\n\n    sudo nano .env\n\n### Dateiberechtigungen setzen\n\n    sudo chmod 777 -R storage\n    sudo chmod 777 -R bootstrap/cache\n    sudo chmod 777 -R public/uploads\n    sudo chown -R www-data:www-data storage bootstrap/cache\n\n### Artisan Nutzen\n\n    php artisan key:generate --force --no-interaction\n    php artisan migrate --force --no-interaction\n\n### Nginx Einstellung\n\n    sudo nano /etc/nginx/conf.d/bookstack.conf\n\nGeben Sie Folgendes in die Datei \\`/etc/nginx/conf.d/bookstack.conf\\` ein:\n\n\n    server {\n      listen 80;\n      listen [::]:80;\n\n      server_name bookstack.localhost;\n\n      root /var/www/bookstack/public;\n      index index.php index.html;\n\n      location / {\n        try_files $uri $uri/ /index.php?$query_string;\n      }\n      \n      location ~ \\.php$ {\n        include snippets/fastcgi-php.conf;\n        fastcgi_pass unix:/run/php/php8.4-fpm.sock;\n      }\n    }\n\n## Datenbank Übertragen auf dem Server\n\n### Auf dem Server\n\n    mysql -u root -p\n    CREATE USER 'BENUTZERNAME'@'localhost' IDENTIFIED BY 'DEIN_STARKES_PASSWORT'; \n    CREATE DATABASE DATENBANKNAME CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\n    GRANT PROCESS ON *.* TO 'BENUTZERNAME'@'localhost';\n    FLUSH PRIVILEGES;\n\n### Auf dem Entwicklungsserver\n\n    mysqldump -u BENUTZERNAME -p DATENBANKNAME > backup.sql\n    scp backup.sql thorsten@Servername:/home/thorsten/backup.sql\n    rsync -avz  --exclude '.env' --exclude 'vendor/' /var/www/bookstack/ user@prod:/var/www/bookstack/\n    composer install\n    sudo cp .env.example .env\n    sudo nano .env\n\n### Auf dem Server\n\n    mysql -u thorsten -p DATENBANKNAME < backup.sql\n\n### Nginx Einstellung\n\n    sudo nano /etc/nginx/conf.d/bookstack.conf\n\nGeben Sie Folgendes in die Datei \\`/etc/nginx/conf.d/bookstack.conf\\` ein:\n\n\n    server {\n        listen 443 ssl http2;\n        listen [::]:443 ssl http2;\n\n      server_name bookstack.wiki-ahrensburg.de\n        root /var/www/bookstack/public;\n      index index.php index.html;\n      ssl_certificate /etc/letsencrypt/live/wiki-ahrensburg.de/fullchain.pem;\n      ssl_certificate_key /etc/letsencrypt/live/wiki-ahrensburg.de/privkey.pem;\n\n      location / {\n        try_files $uri $uri/ /index.php?$query_string;\n      }\n      \n      location ~ \\.php$ {\n        include snippets/fastcgi-php.conf;\n        fastcgi_pass unix:/run/php/php8.3-fpm.sock;\n      }\n    }"
     Zeitpunkt: 2026-01-26T23:53:02.0000000Z
     Kategorie: []
     WikiArtikelId: 231
@@ -26297,10 +26297,10 @@
           listen 443 ssl http2;
           listen [::]:443 ssl http2;
 
-          server_name wordpress.ahrensburg.city;
+          server_name wordpress.wiki-ahrensburg.de;
           root /var/www/wordpress;
-          ssl_certificate /etc/letsencrypt/live/ahrensburg.city/fullchain.pem;
-          ssl_certificate_key /etc/letsencrypt/live/ahrensburg.city/privkey.pem;
+          ssl_certificate /etc/letsencrypt/live/wiki-ahrensburg.de/fullchain.pem;
+          ssl_certificate_key /etc/letsencrypt/live/wiki-ahrensburg.de/privkey.pem;
 
           index index.php index.html index.htm;
 
@@ -28368,7 +28368,7 @@
   - VersionNummer: 308
     TenantId: doc
     MarkdownInhalt: >-
-      Willkommen im **ASP.NET Core Tutorial**! Dieses Tutorial führt dich schrittweise durch alle relevanten Themen der modernen Webentwicklung mit ASP.NET Core. Die Inhalte basieren auf der offiziellen Struktur der [Webframeworkk-Dokumentation](https://docs.ahrensburg.city/Webframeworkk/ASP.NET_Core). Diese Übersicht dient als Einstiegspunkt und Lernpfad. Arbeite die Themen am besten der Reihe nach ab, da sie logisch aufeinander aufbauen.
+      Willkommen im **ASP.NET Core Tutorial**! Dieses Tutorial führt dich schrittweise durch alle relevanten Themen der modernen Webentwicklung mit ASP.NET Core. Die Inhalte basieren auf der offiziellen Struktur der [Webframeworkk-Dokumentation](https://docs.wiki-ahrensburg.de/Webframeworkk/ASP.NET_Core). Diese Übersicht dient als Einstiegspunkt und Lernpfad. Arbeite die Themen am besten der Reihe nach ab, da sie logisch aufeinander aufbauen.
 
 
       ## Modul 1: [Grundlagen und Struktur](ASP_NET_Core/Grundlagen_und_Struktur)
@@ -42098,7 +42098,7 @@
     MarkdownInhalt: >-
       - [ahrensburg-portal.de](https://ahrensburg-portal.de/) – Ein lokales Nachrichtenportal mit aktuellen Informationen, Veranstaltungen und Neuigkeiten aus Ahrensburg.
 
-      - [ahrensburg.city](https://www.ahrensburg.city/) – Eine Website mit Stadtinformationen, Branchenverzeichnis und lokalen Angeboten für Ahrensburg.
+      - [wiki-ahrensburg.de](https://www.wiki-ahrensburg.de/) – Eine Website mit Stadtinformationen, Branchenverzeichnis und lokalen Angeboten für Ahrensburg.
 
       - [ahrensburg.de](https://ahrensburg.de/) – Die offizielle Website der Stadt Ahrensburg mit amtlichen Bekanntmachungen, Bürgerservice und Informationen zur Stadtverwaltung.
 
@@ -42148,7 +42148,7 @@
   Versionen:
   - VersionNummer: 480
     TenantId: main
-    MarkdownInhalt: ahrensburg.city \| Kartendaten © [OpenStreetMap-Autoren](https://www.openstreetmap.org/copyright)
+    MarkdownInhalt: wiki-ahrensburg.de \| Kartendaten © [OpenStreetMap-Autoren](https://www.openstreetmap.org/copyright)
     Zeitpunkt: 2026-01-12T07:25:36.0000000Z
     Kategorie: []
     WikiArtikelId: 375

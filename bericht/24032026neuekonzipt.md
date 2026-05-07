@@ -21,7 +21,7 @@ Dieser Bericht bewertet den aktuellen Sicherheitsstatus nach der Umstellung auf 
 
 ### 2.2 Fehlende Mandanten-Trennung bei Administratoren - *Status: Akzeptabel*
 - **Problem:** Die Identity-Datenbank (Benutzerkonten) ist global. Ein Admin-Account gilt für das gesamte System (alle Mandanten).
-- **Bewertung:** Da das System aktuell als Zentralinstanz für `ahrensburg.city` betrieben wird, ist dies ein gewünschtes Verhalten. Für den Betrieb von komplett fremden Mandanten wäre jedoch eine Isolation der Benutzerdaten notwendig.
+- **Bewertung:** Da das System aktuell als Zentralinstanz für `wiki-ahrensburg.de` betrieben wird, ist dies ein gewünschtes Verhalten. Für den Betrieb von komplett fremden Mandanten wäre jedoch eine Isolation der Benutzerdaten notwendig.
 
 ### 2.3 Content Security Policy (CSP) - *Status: Bekanntes Restrisiko*
 - **Problem:** `'unsafe-inline'` wird weiterhin benötigt.
@@ -30,7 +30,7 @@ Dieser Bericht bewertet den aktuellen Sicherheitsstatus nach der Umstellung auf 
 ## 3. Fehlerbehebung & Stabilität
 
 - **Slug-Kollisionen:** Vollständig behoben. Identische Seitennamen (z.B. "Impressum") führen nicht mehr zu Datenbankfehlern.
-- **Subdomain-Matching:** Durch die Einführung des "Best-Match"-Algorithmus im `TenantService` werden Subdomains (z.B. `doc.ahrensburg.city`) jetzt immer korrekt vor den Hauptdomains erkannt.
+- **Subdomain-Matching:** Durch die Einführung des "Best-Match"-Algorithmus im `TenantService` werden Subdomains (z.B. `doc.wiki-ahrensburg.de`) jetzt immer korrekt vor den Hauptdomains erkannt.
 
 ## 4. Abschließende Bewertung: Go-Live Empfehlung
 

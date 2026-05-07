@@ -3,14 +3,14 @@
     "DefaultConnection": "Host=localhost;Database=meincmsdb;Username=meincmsuser;Password=IhrPasswort"
   },
   "Tenants": {
-    "ahrensburg.city": "main",
-    "doc.ahrensburg.city": "doc",
+    "wiki-ahrensburg.de": "main",
+    "doc.wiki-ahrensburg.de": "doc",
     "doc.localhost": "doc",
     "localhost": "main"
   },
   "TenantConfig": {
     "main": {
-      "Title": "ahrensburg.city",
+      "Title": "wiki-ahrensburg.de",
       "Logo": "/logo.svg"
     },
     "doc": {

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Projektübersicht
 
-**MeinCMS** — ein mandantenfähiges Wiki/CMS auf Basis von ASP.NET Core 10 und PostgreSQL. Zwei Mandanten laufen auf derselben Instanz: `ahrensburg.city` (Stadtinhalte, `"main"`) und `doc.ahrensburg.city` (technische Dokumentation, `"doc"`).
+**MeinCMS** — ein mandantenfähiges Wiki/CMS auf Basis von ASP.NET Core 10 und PostgreSQL. Zwei Mandanten laufen auf derselben Instanz: `wiki-ahrensburg.de` (Stadtinhalte, `"main"`) und `doc.wiki-ahrensburg.de` (technische Dokumentation, `"doc"`).
 
 ## Befehle
 

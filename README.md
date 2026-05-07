@@ -1,10 +1,10 @@
-# ahrensburg.city - MeinCMS
+# wiki-ahrensburg.de - MeinCMS
 
 Ein Mandantenfähiges (Multi-Tenancy) Wiki-CMS System entwickelt mit ASP.NET Core 10 und PostgreSQL.
 
 ## Features
 
-- **Mandantenfähigkeit**: Unterstützung für mehrere Domains/Mandanten (z.B. `ahrensburg.city` für Stadtinhalte und `doc.ahrensburg.city` für technische Dokumentation).
+- **Mandantenfähigkeit**: Unterstützung für mehrere Domains/Mandanten (z.B. `wiki-ahrensburg.de` für Stadtinhalte und `doc.wiki-ahrensburg.de` für technische Dokumentation).
 - **MediaWiki Support**: Hochperformanter, compiler-basierter Parser für MediaWiki WikiText (Tokenizer -> AST -> Serializer). Optimiert für stabile Textverarbeitung und korrekte HTML-Struktur.
 - **Sicherheit**:
   - Erfolgreich bestandenes Sicherheits-Audit.

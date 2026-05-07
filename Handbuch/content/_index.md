@@ -29,5 +29,5 @@ Das System betreibt zwei Mandanten auf einer Instanz:
 
 | Domain | Mandanten-ID |
 |---|---|
-| `ahrensburg.city` | `main` |
-| `doc.ahrensburg.city` | `doc` |
+| `wiki-ahrensburg.de` | `main` |
+| `doc.wiki-ahrensburg.de` | `doc` |

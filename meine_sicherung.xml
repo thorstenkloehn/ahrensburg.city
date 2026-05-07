@@ -4004,19 +4004,19 @@ Diese Schritte bereiten das System darauf vor, SSL-Zertifikate mit Certbot für 
 
 Nach der Eingabe der obigen Befehle können Sie mit den folgenden Schritten fortfahren, um SSL-Zertifikate für Ihre Domains zu erstellen und Nginx wieder zu starten.
 
-`sudo certbot certonly --standalone -d ahrensburg.city -d www.ahrensburg.city`  
-`sudo certbot certonly --standalone -d alterwiki.ahrensburg.city`  
+`sudo certbot certonly --standalone -d wiki-ahrensburg.de -d www.wiki-ahrensburg.de`  
+`sudo certbot certonly --standalone -d alterwiki.wiki-ahrensburg.de`  
 `sudo systemctl start nginx`
 
 Um ein Wildcard-SSL-Zertifikat mit Certbot und Let's Encrypt zu erstellen, muss die DNS-01-Challenge verwendet werden. Beispiel:
 
-`sudo certbot certonly --manual --preferred-challenges dns -d "*.ahrensburg.city" -d ahrensburg.city`
+`sudo certbot certonly --manual --preferred-challenges dns -d "*.wiki-ahrensburg.de" -d wiki-ahrensburg.de`
 
 Sie werden aufgefordert, einen speziellen DNS-TXT-Eintrag für Ihre Domain zu setzen. Nach erfolgreicher Validierung wird das Zertifikat erstellt.
 
 Weitere Informationen: \[Let's Encrypt Wildcard-Zertifikate\](https://certbot.eff.org/docs/using.html#wildcard-certificates)
 
-`ahrensburg.city-0002 Befehl`</MarkdownInhalt>
+`wiki-ahrensburg.de-0002 Befehl`</MarkdownInhalt>
         <Zeitpunkt>2026-01-07T00:23:59Z</Zeitpunkt>
         <Kategorie />
         <WikiArtikelId>21</WikiArtikelId>
@@ -4049,11 +4049,11 @@ server {
 
    listen \[::\]:443 ssl http2;
 
-   server_name ahrensburg.city;
+   server_name wiki-ahrensburg.de;
 
-   ssl_certificate /etc/letsencrypt/live/ahrensburg.city/fullchain.pem;
+   ssl_certificate /etc/letsencrypt/live/wiki-ahrensburg.de/fullchain.pem;
 
-   ssl_certificate_key /etc/letsencrypt/live/ahrensburg.city/privkey.pem;
+   ssl_certificate_key /etc/letsencrypt/live/wiki-ahrensburg.de/privkey.pem;
 
     root /var/www/mediawiki;
 
@@ -4109,7 +4109,7 @@ server {
 
    listen \[::\]:80;
 
-   server_name ahrensburg.city;
+   server_name wiki-ahrensburg.de;
 
    return 301 https://\$host\$request_uri;
 
@@ -4570,7 +4570,7 @@ Kriterien
   <WikiArtikel>
     <Id>39</Id>
     <TenantId>main</TenantId>
-    <Slug>Ahrensburg.city:Datenschutz</Slug>
+    <Slug>Wiki-Ahrensburg.de:Datenschutz</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>478</VersionNummer>
@@ -4799,7 +4799,7 @@ Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte eine E-Mail oder 
   <WikiArtikel>
     <Id>40</Id>
     <TenantId>main</TenantId>
-    <Slug>Ahrensburg.city:Impressum</Slug>
+    <Slug>Wiki-Ahrensburg.de:Impressum</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>78</VersionNummer>
@@ -4967,7 +4967,7 @@ Impressum vom [Impressum Generator](https://www.impressum-generator.de) der \[Ka
 
 | Name                                 | Sprache | Beschreibung                             | Doc                                   | Skriptsprachen in Wiki-Seiten einzubetten       |
 |--------------------------------------|---------|------------------------------------------|---------------------------------------|-------------------------------------------------|
-| [Mediawiki](https://ahrensburg.city) | PHP     | Wikipedia-Software, für sehr große Wikis | [Mediawiki](CMS/MediaWiki) | [Scribunto](CMS/MediaWiki/Scribunto) |
+| [Mediawiki](https://wiki-ahrensburg.de) | PHP     | Wikipedia-Software, für sehr große Wikis | [Mediawiki](CMS/MediaWiki) | [Scribunto](CMS/MediaWiki/Scribunto) |
 
 ### 3 CMS-Werkzeuge
 
@@ -5902,7 +5902,7 @@ besonders hibernate.cfg.xml und xwiki.properties), damit du im Notfall weißt, w
 
 Hochladen der Konfiguration
 
-`sudo scp /home/thorsten/Downloads/LocalSettings.php thorsten@ahrensburg.city:/var/www/mediawiki/LocalSettings.php`
+`sudo scp /home/thorsten/Downloads/LocalSettings.php thorsten@wiki-ahrensburg.de:/var/www/mediawiki/LocalSettings.php`
 
 ## Lesbare URLs konfiguriern in mediawiki
 
@@ -5920,8 +5920,8 @@ Hochladen der Konfiguration
 `cd /home/thorsten/Download`  
 `sudo rm /home/thorsten/Download/pagedump.xml`  
 `sudo rm /home/thorsten/Download/doc.xml`  
-`ssh thorsten@ahrensburg.city "php /var/www/mediawiki/maintenance/dumpBackup.php --full" &gt; /home/thorsten/Download/pagedump.xml`  
-`ssh thorsten@ahrensburg.city "php /var/www/docs/maintenance/dumpBackup.php --full" &gt; /home/thorsten/Download/doc.xml`  
+`ssh thorsten@wiki-ahrensburg.de "php /var/www/mediawiki/maintenance/dumpBackup.php --full" &gt; /home/thorsten/Download/pagedump.xml`  
+`ssh thorsten@wiki-ahrensburg.de "php /var/www/docs/maintenance/dumpBackup.php --full" &gt; /home/thorsten/Download/doc.xml`  
 `git add pagedump.xml`  
 `git add doc.xml`  
 `git commit -m "Backup"`  
@@ -6117,9 +6117,9 @@ Gib Folgendes ein
     server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
-    server_name wiki.ahrensburg.city;
-    ssl_certificate /etc/letsencrypt/live/ahrensburg.city/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/ahrensburg.city/privkey.pem;
+    server_name wiki.wiki-ahrensburg.de;
+    ssl_certificate /etc/letsencrypt/live/wiki-ahrensburg.de/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/wiki-ahrensburg.de/privkey.pem;
 
         location / {
      
@@ -6316,7 +6316,7 @@ rsync -avz --delete \
 Die folgende Konfiguration für den Nginx-Webserver ist für die Bereitstellung von Moodle
 
     sudo systemctl stop nginx
-    sudo certbot certonly --standalone -d lernen.ahrensburg.city
+    sudo certbot certonly --standalone -d lernen.wiki-ahrensburg.de
 
     Moodle Einstellungen für Nginx auf dem Server Rechner
     Ein Beispiel für eine einfache Nginx-Konfiguration für Moodle auf einem Server Rechner:
@@ -6326,11 +6326,11 @@ Die folgende Konfiguration für den Nginx-Webserver ist für die Bereitstellung 
     server {
         listen 443 ssl http2;
         listen [::]:443 ssl http2;
-        server_name  lernen.ahrensburg.city;
+        server_name  lernen.wiki-ahrensburg.de;
         root /var/www/moodle/moodle/public;
         index index.php index.html index.htm;
-        ssl_certificate /etc/letsencrypt/live/lernen.ahrensburg.city/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/lernen.ahrensburg.city/privkey.pem;
+        ssl_certificate /etc/letsencrypt/live/lernen.wiki-ahrensburg.de/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/lernen.wiki-ahrensburg.de/privkey.pem;
 
       location / {
         try_files $uri $uri/ =404;
@@ -6538,11 +6538,11 @@ Geben Sie Folgendes in die Datei \`/etc/nginx/conf.d/bookstack.conf\` ein:
         listen 443 ssl http2;
         listen [::]:443 ssl http2;
 
-      server_name bookstack.ahrensburg.city
+      server_name bookstack.wiki-ahrensburg.de
         root /var/www/bookstack/public;
       index index.php index.html;
-      ssl_certificate /etc/letsencrypt/live/ahrensburg.city/fullchain.pem;
-      ssl_certificate_key /etc/letsencrypt/live/ahrensburg.city/privkey.pem;
+      ssl_certificate /etc/letsencrypt/live/wiki-ahrensburg.de/fullchain.pem;
+      ssl_certificate_key /etc/letsencrypt/live/wiki-ahrensburg.de/privkey.pem;
 
       location / {
         try_files $uri $uri/ /index.php?$query_string;
@@ -6670,10 +6670,10 @@ server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
 
-    server_name wordpress.ahrensburg.city;
+    server_name wordpress.wiki-ahrensburg.de;
     root /var/www/wordpress;
-    ssl_certificate /etc/letsencrypt/live/ahrensburg.city/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/ahrensburg.city/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/wiki-ahrensburg.de/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/wiki-ahrensburg.de/privkey.pem;
 
     index index.php index.html index.htm;
 
@@ -8518,7 +8518,7 @@ end return p</MarkdownInhalt>
       <WikiArtikelVersion>
         <VersionNummer>131</VersionNummer>
         <TenantId>doc</TenantId>
-        <MarkdownInhalt>Willkommen im **ASP.NET Core Tutorial**! Dieses Tutorial führt dich schrittweise durch alle relevanten Themen der modernen Webentwicklung mit ASP.NET Core. Die Inhalte basieren auf der offiziellen Struktur der [Webframeworkk-Dokumentation](https://docs.ahrensburg.city/Webframeworkk/ASP.NET_Core). Diese Übersicht dient als Einstiegspunkt und Lernpfad. Arbeite die Themen am besten der Reihe nach ab, da sie logisch aufeinander aufbauen.
+        <MarkdownInhalt>Willkommen im **ASP.NET Core Tutorial**! Dieses Tutorial führt dich schrittweise durch alle relevanten Themen der modernen Webentwicklung mit ASP.NET Core. Die Inhalte basieren auf der offiziellen Struktur der [Webframeworkk-Dokumentation](https://docs.wiki-ahrensburg.de/Webframeworkk/ASP.NET_Core). Diese Übersicht dient als Einstiegspunkt und Lernpfad. Arbeite die Themen am besten der Reihe nach ab, da sie logisch aufeinander aufbauen.
 
 ## Modul 1: [Grundlagen und Struktur](ASP_NET_Core/Grundlagen_und_Struktur)
 
@@ -19798,19 +19798,19 @@ Diese Schritte bereiten das System darauf vor, SSL-Zertifikate mit Certbot für 
 
 Nach der Eingabe der obigen Befehle können Sie mit den folgenden Schritten fortfahren, um SSL-Zertifikate für Ihre Domains zu erstellen und Nginx wieder zu starten.
 
-`sudo certbot certonly --standalone -d ahrensburg.city -d www.ahrensburg.city`  
-`sudo certbot certonly --standalone -d alterwiki.ahrensburg.city`  
+`sudo certbot certonly --standalone -d wiki-ahrensburg.de -d www.wiki-ahrensburg.de`  
+`sudo certbot certonly --standalone -d alterwiki.wiki-ahrensburg.de`  
 `sudo systemctl start nginx`
 
 Um ein Wildcard-SSL-Zertifikat mit Certbot und Let's Encrypt zu erstellen, muss die DNS-01-Challenge verwendet werden. Beispiel:
 
-`sudo certbot certonly --manual --preferred-challenges dns -d "*.ahrensburg.city" -d ahrensburg.city`
+`sudo certbot certonly --manual --preferred-challenges dns -d "*.wiki-ahrensburg.de" -d wiki-ahrensburg.de`
 
 Sie werden aufgefordert, einen speziellen DNS-TXT-Eintrag für Ihre Domain zu setzen. Nach erfolgreicher Validierung wird das Zertifikat erstellt.
 
 Weitere Informationen: \[Let's Encrypt Wildcard-Zertifikate\](https://certbot.eff.org/docs/using.html#wildcard-certificates)
 
-`ahrensburg.city-0002 Befehl`</MarkdownInhalt>
+`wiki-ahrensburg.de-0002 Befehl`</MarkdownInhalt>
         <Zeitpunkt>2026-01-07T00:23:59Z</Zeitpunkt>
         <Kategorie />
         <WikiArtikelId>188</WikiArtikelId>
@@ -19843,11 +19843,11 @@ server {
 
    listen \[::\]:443 ssl http2;
 
-   server_name ahrensburg.city;
+   server_name wiki-ahrensburg.de;
 
-   ssl_certificate /etc/letsencrypt/live/ahrensburg.city/fullchain.pem;
+   ssl_certificate /etc/letsencrypt/live/wiki-ahrensburg.de/fullchain.pem;
 
-   ssl_certificate_key /etc/letsencrypt/live/ahrensburg.city/privkey.pem;
+   ssl_certificate_key /etc/letsencrypt/live/wiki-ahrensburg.de/privkey.pem;
 
     root /var/www/mediawiki;
 
@@ -19903,7 +19903,7 @@ server {
 
    listen \[::\]:80;
 
-   server_name ahrensburg.city;
+   server_name wiki-ahrensburg.de;
 
    return 301 https://\$host\$request_uri;
 
@@ -20364,7 +20364,7 @@ Kriterien
   <WikiArtikel>
     <Id>206</Id>
     <TenantId>main</TenantId>
-    <Slug>Ahrensburg.city:Datenschutz</Slug>
+    <Slug>Wiki-Ahrensburg.de:Datenschutz</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>254</VersionNummer>
@@ -20482,7 +20482,7 @@ Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte eine E-Mail oder 
   <WikiArtikel>
     <Id>207</Id>
     <TenantId>main</TenantId>
-    <Slug>Ahrensburg.city:Impressum</Slug>
+    <Slug>Wiki-Ahrensburg.de:Impressum</Slug>
     <Versionen>
       <WikiArtikelVersion>
         <VersionNummer>255</VersionNummer>
@@ -20602,7 +20602,7 @@ Impressum vom [Impressum Generator](https://www.impressum-generator.de) der \[Ka
 
 | Name                                 | Sprache | Beschreibung                             | Doc                                   | Skriptsprachen in Wiki-Seiten einzubetten       |
 |--------------------------------------|---------|------------------------------------------|---------------------------------------|-------------------------------------------------|
-| [Mediawiki](https://ahrensburg.city) | PHP     | Wikipedia-Software, für sehr große Wikis | [Mediawiki](CMS/MediaWiki) | [Scribunto](CMS/MediaWiki/Scribunto) |
+| [Mediawiki](https://wiki-ahrensburg.de) | PHP     | Wikipedia-Software, für sehr große Wikis | [Mediawiki](CMS/MediaWiki) | [Scribunto](CMS/MediaWiki/Scribunto) |
 
 ### 3 CMS-Werkzeuge
 
@@ -21537,7 +21537,7 @@ besonders hibernate.cfg.xml und xwiki.properties), damit du im Notfall weißt, w
 
 Hochladen der Konfiguration
 
-`sudo scp /home/thorsten/Downloads/LocalSettings.php thorsten@ahrensburg.city:/var/www/mediawiki/LocalSettings.php`
+`sudo scp /home/thorsten/Downloads/LocalSettings.php thorsten@wiki-ahrensburg.de:/var/www/mediawiki/LocalSettings.php`
 
 ## Lesbare URLs konfiguriern in mediawiki
 
@@ -21555,8 +21555,8 @@ Hochladen der Konfiguration
 `cd /home/thorsten/Download`  
 `sudo rm /home/thorsten/Download/pagedump.xml`  
 `sudo rm /home/thorsten/Download/doc.xml`  
-`ssh thorsten@ahrensburg.city "php /var/www/mediawiki/maintenance/dumpBackup.php --full" &gt; /home/thorsten/Download/pagedump.xml`  
-`ssh thorsten@ahrensburg.city "php /var/www/docs/maintenance/dumpBackup.php --full" &gt; /home/thorsten/Download/doc.xml`  
+`ssh thorsten@wiki-ahrensburg.de "php /var/www/mediawiki/maintenance/dumpBackup.php --full" &gt; /home/thorsten/Download/pagedump.xml`  
+`ssh thorsten@wiki-ahrensburg.de "php /var/www/docs/maintenance/dumpBackup.php --full" &gt; /home/thorsten/Download/doc.xml`  
 `git add pagedump.xml`  
 `git add doc.xml`  
 `git commit -m "Backup"`  
@@ -21752,9 +21752,9 @@ Gib Folgendes ein
     server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
-    server_name wiki.ahrensburg.city;
-    ssl_certificate /etc/letsencrypt/live/ahrensburg.city/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/ahrensburg.city/privkey.pem;
+    server_name wiki.wiki-ahrensburg.de;
+    ssl_certificate /etc/letsencrypt/live/wiki-ahrensburg.de/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/wiki-ahrensburg.de/privkey.pem;
 
         location / {
      
@@ -21951,7 +21951,7 @@ rsync -avz --delete \
 Die folgende Konfiguration für den Nginx-Webserver ist für die Bereitstellung von Moodle
 
     sudo systemctl stop nginx
-    sudo certbot certonly --standalone -d lernen.ahrensburg.city
+    sudo certbot certonly --standalone -d lernen.wiki-ahrensburg.de
 
     Moodle Einstellungen für Nginx auf dem Server Rechner
     Ein Beispiel für eine einfache Nginx-Konfiguration für Moodle auf einem Server Rechner:
@@ -21961,11 +21961,11 @@ Die folgende Konfiguration für den Nginx-Webserver ist für die Bereitstellung 
     server {
         listen 443 ssl http2;
         listen [::]:443 ssl http2;
-        server_name  lernen.ahrensburg.city;
+        server_name  lernen.wiki-ahrensburg.de;
         root /var/www/moodle/moodle/public;
         index index.php index.html index.htm;
-        ssl_certificate /etc/letsencrypt/live/lernen.ahrensburg.city/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/lernen.ahrensburg.city/privkey.pem;
+        ssl_certificate /etc/letsencrypt/live/lernen.wiki-ahrensburg.de/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/lernen.wiki-ahrensburg.de/privkey.pem;
 
       location / {
         try_files $uri $uri/ =404;
@@ -22173,11 +22173,11 @@ Geben Sie Folgendes in die Datei \`/etc/nginx/conf.d/bookstack.conf\` ein:
         listen 443 ssl http2;
         listen [::]:443 ssl http2;
 
-      server_name bookstack.ahrensburg.city
+      server_name bookstack.wiki-ahrensburg.de
         root /var/www/bookstack/public;
       index index.php index.html;
-      ssl_certificate /etc/letsencrypt/live/ahrensburg.city/fullchain.pem;
-      ssl_certificate_key /etc/letsencrypt/live/ahrensburg.city/privkey.pem;
+      ssl_certificate /etc/letsencrypt/live/wiki-ahrensburg.de/fullchain.pem;
+      ssl_certificate_key /etc/letsencrypt/live/wiki-ahrensburg.de/privkey.pem;
 
       location / {
         try_files $uri $uri/ /index.php?$query_string;
@@ -22305,10 +22305,10 @@ server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
 
-    server_name wordpress.ahrensburg.city;
+    server_name wordpress.wiki-ahrensburg.de;
     root /var/www/wordpress;
-    ssl_certificate /etc/letsencrypt/live/ahrensburg.city/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/ahrensburg.city/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/wiki-ahrensburg.de/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/wiki-ahrensburg.de/privkey.pem;
 
     index index.php index.html index.htm;
 
@@ -24153,7 +24153,7 @@ end return p</MarkdownInhalt>
       <WikiArtikelVersion>
         <VersionNummer>308</VersionNummer>
         <TenantId>doc</TenantId>
-        <MarkdownInhalt>Willkommen im **ASP.NET Core Tutorial**! Dieses Tutorial führt dich schrittweise durch alle relevanten Themen der modernen Webentwicklung mit ASP.NET Core. Die Inhalte basieren auf der offiziellen Struktur der [Webframeworkk-Dokumentation](https://docs.ahrensburg.city/Webframeworkk/ASP.NET_Core). Diese Übersicht dient als Einstiegspunkt und Lernpfad. Arbeite die Themen am besten der Reihe nach ab, da sie logisch aufeinander aufbauen.
+        <MarkdownInhalt>Willkommen im **ASP.NET Core Tutorial**! Dieses Tutorial führt dich schrittweise durch alle relevanten Themen der modernen Webentwicklung mit ASP.NET Core. Die Inhalte basieren auf der offiziellen Struktur der [Webframeworkk-Dokumentation](https://docs.wiki-ahrensburg.de/Webframeworkk/ASP.NET_Core). Diese Übersicht dient als Einstiegspunkt und Lernpfad. Arbeite die Themen am besten der Reihe nach ab, da sie logisch aufeinander aufbauen.
 
 ## Modul 1: [Grundlagen und Struktur](ASP_NET_Core/Grundlagen_und_Struktur)
 
@@ -35672,7 +35672,7 @@ Viele Anliegen können bequem über das [Bürgerportal](https://ahrensburg.buerg
         <VersionNummer>477</VersionNummer>
         <TenantId>main</TenantId>
         <MarkdownInhalt>- [ahrensburg-portal.de](https://ahrensburg-portal.de/) – Ein lokales Nachrichtenportal mit aktuellen Informationen, Veranstaltungen und Neuigkeiten aus Ahrensburg.
-- [ahrensburg.city](https://www.ahrensburg.city/) – Eine Website mit Stadtinformationen, Branchenverzeichnis und lokalen Angeboten für Ahrensburg.
+- [wiki-ahrensburg.de](https://www.wiki-ahrensburg.de/) – Eine Website mit Stadtinformationen, Branchenverzeichnis und lokalen Angeboten für Ahrensburg.
 - [ahrensburg.de](https://ahrensburg.de/) – Die offizielle Website der Stadt Ahrensburg mit amtlichen Bekanntmachungen, Bürgerservice und Informationen zur Stadtverwaltung.
 - [Presseportal](https://presseportal.de/blaulicht/r/Ahrensburg) – Aktuelle Polizeimeldungen und Blaulichtnachrichten aus Ahrensburg.
 - [LN-Online Ahrensburg](https://www.ln-online.de/themen/ahrensburg/) – Lokale Nachrichten und Berichte aus Ahrensburg von den Lübecker Nachrichten.
@@ -35710,7 +35710,7 @@ Viele Anliegen können bequem über das [Bürgerportal](https://ahrensburg.buerg
       <WikiArtikelVersion>
         <VersionNummer>480</VersionNummer>
         <TenantId>doc</TenantId>
-        <MarkdownInhalt>ahrensburg.city \| Kartendaten © [OpenStreetMap-Autoren](https://www.openstreetmap.org/copyright)</MarkdownInhalt>
+        <MarkdownInhalt>wiki-ahrensburg.de \| Kartendaten © [OpenStreetMap-Autoren](https://www.openstreetmap.org/copyright)</MarkdownInhalt>
         <Zeitpunkt>2026-01-12T07:25:36Z</Zeitpunkt>
         <Kategorie />
         <WikiArtikelId>375</WikiArtikelId>

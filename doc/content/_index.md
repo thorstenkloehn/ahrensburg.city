@@ -1,6 +1,6 @@
 # MeinCMS Wissensdatenbank
 
-Willkommen in der zentralen Wissensdatenbank für **ahrensburg.city**. Dieses Wiki wird vom KI-Wiki-Manager verwaltet und basiert auf den aktuellen Projektdaten und Quellcodes.
+Willkommen in der zentralen Wissensdatenbank für **wiki-ahrensburg.de**. Dieses Wiki wird vom KI-Wiki-Manager verwaltet und basiert auf den aktuellen Projektdaten und Quellcodes.
 
 ## Projektübersicht
 - [Einführung in MeinCMS](articles/intro.md) - Kernphilosophie und Merkmale.

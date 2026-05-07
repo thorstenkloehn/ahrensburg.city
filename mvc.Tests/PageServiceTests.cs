@@ -1,5 +1,5 @@
 /*
- * ahrensburg.city (MeinCMS) - A lightweight CMS with Wiki functionality and multi-tenancy.
+ * wiki-ahrensburg.de (MeinCMS) - A lightweight CMS with Wiki functionality and multi-tenancy.
  * Copyright (C) 2026 Thorsten
  *
  * This program is free software: you can redistribute it and/or modify
@@ -66,7 +66,7 @@ public class PageServiceTests
     [InlineData("SlugMit/Slash", true)]
     [InlineData("Geschichte_&_Allgemeines", true)]
     [InlineData("mit spaces", true)]
-    [InlineData("Ahrensburg.city:Datenschutz", true)]
+    [InlineData("Wiki-Ahrensburg.de:Datenschutz", true)]
     [InlineData("CMS/Eleventy (11ty)", true)]
     [InlineData("Rust/\"Hello World!\" Programm", true)]
     [InlineData("Blog:03.02.2026 – Inhalt verwalten", true)]
