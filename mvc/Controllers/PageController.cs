@@ -96,23 +96,37 @@ namespace mvc.Controllers
             if (!_pageService.IstSlugGueltig(slug))
                 return InvalidSlugResult(slug);
 
-            // Robustere Bestimmung des Inhalts: Wir bevorzugen das Feld, das zur gewählten Syntax passt,
-            // schauen aber im anderen Feld nach, falls das primäre leer ist.
+            // Robustere Bestimmung des Inhalts: Wir bevorzugen das Feld, das zur gewählten Syntax passt.
             string? inhalt = null;
             if (string.Equals(syntax, "mediawiki", StringComparison.OrdinalIgnoreCase))
             {
-                inhalt = !string.IsNullOrWhiteSpace(wikiTextInhalt) ? wikiTextInhalt : markdownInhalt;
-                if (!string.IsNullOrWhiteSpace(markdownInhalt) && string.IsNullOrWhiteSpace(wikiTextInhalt))
+                // Wenn MediaWiki gewählt ist, nehmen wir primär das MediaWiki-Feld.
+                // Nur wenn das leer ist, schauen wir aus Kulanz im Markdown-Feld nach.
+                if (!string.IsNullOrWhiteSpace(wikiTextInhalt))
                 {
-                    syntax = "markdown"; // Automatische Korrektur, falls im "falschen" Feld getippt wurde
+                    inhalt = wikiTextInhalt;
+                    markdownInhalt = null; // Eindeutigkeit schaffen für den Service
+                }
+                else if (!string.IsNullOrWhiteSpace(markdownInhalt))
+                {
+                    inhalt = markdownInhalt;
+                    syntax = "markdown"; // Auto-Korrektur der Syntax-Angabe
+                    wikiTextInhalt = null;
                 }
             }
             else
             {
-                inhalt = !string.IsNullOrWhiteSpace(markdownInhalt) ? markdownInhalt : wikiTextInhalt;
-                if (!string.IsNullOrWhiteSpace(wikiTextInhalt) && string.IsNullOrWhiteSpace(markdownInhalt))
+                // Wenn Markdown gewählt ist (Standard), nehmen wir primär das Markdown-Feld.
+                if (!string.IsNullOrWhiteSpace(markdownInhalt))
                 {
-                    syntax = "mediawiki"; // Automatische Korrektur, falls im "falschen" Feld getippt wurde
+                    inhalt = markdownInhalt;
+                    wikiTextInhalt = null; // Eindeutigkeit schaffen für den Service
+                }
+                else if (!string.IsNullOrWhiteSpace(wikiTextInhalt))
+                {
+                    inhalt = wikiTextInhalt;
+                    syntax = "mediawiki"; // Auto-Korrektur der Syntax-Angabe
+                    markdownInhalt = null;
                 }
             }
 

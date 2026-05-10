@@ -2,8 +2,13 @@
 
 Dieses Projekt ist ein leichtgewichtiges Content-Management-System (CMS) mit Wiki-ähnlicher Funktionalität und nativer **Multi-Tenancy** (Mandantenfähigkeit), entwickelt mit ASP.NET Core MVC 10.0 und PostgreSQL.
 
-## Status (Stand 03.05.2026)
+## Status (Stand 10.05.2026)
 
+- **Editor-Stabilität:** Kritische Fixes für die Syntax-Umschaltung (Markdown/MediaWiki) implementiert.
+  - **Bidirektionale Konvertierung:** Automatischer Transfer und Übersetzung von Inhalten beim Wechsel der Syntax im Editor.
+  - **Robustes Toggling:** Verwendung von `style.display` und `DOMContentLoaded`-Event-Listenern für garantierte UI-Synchronisation.
+- **Razor-Kompatibilität:** Korrekte Verwendung von `<!option>` Tags zur Vermeidung von Tag-Helper-Konflikten (RZ1031).
+- **Standard-Syntax:** MediaWiki ist nun der Standard-Typ für alle neuen Artikel.
 - **Go-Live bereit:** Das System hat das abschließende Sicherheits-Audit erfolgreich bestanden.
 - **Sicherheit & Hardening:** 
   - Integration von `HtmlSanitizer`.
@@ -60,6 +65,13 @@ Dieses Projekt ist unter der **GNU Affero General Public License v3.0 (AGPL-3.0)
 - **Multi-Tenancy**: Jede Abfrage wird automatisch nach dem aktuellen Mandanten gefiltert. Die `TenantId` wird dynamisch pro Request ermittelt.
 - **Normalisierung**: Standard-Mandant ist `"main"`. Technischer Content wird dem Mandanten `"doc"` zugeordnet.
 - **Sicherheit**: Alle Markdown-Inhalte werden vor der Anzeige via `HtmlSanitizer` bereigt. CSRF-Schutz ist global aktiviert.
+
+### Wichtige Fehlervermeidung (Lessons Learned)
+
+- **Razor-Tags:** Bei `<option>`-Tags in Razor-Views, die C#-Attribute (z.B. `@(selected)`) verwenden, muss zwingend das Ausrufezeichen-Präfix `<!option>` genutzt werden, um den `RZ1031`-Fehler zu vermeiden.
+- **Editor-Sichtbarkeit:** Sichtbarkeits-Toggling im Editor darf sich nicht nur auf CSS-Klassen (`d-none`) verlassen. Zusätzlich muss `style.display` direkt via JavaScript gesetzt werden, um CSS-Spezifitäts-Konflikte zu vermeiden.
+- **Syntax-Eindeutigkeit:** Der Server (`PageController`) muss beim Speichern explizit prüfen, welches Inhaltsfeld (Markdown vs. MediaWiki) zur gewählten Syntax passt, und das jeweils andere Feld leeren, um Inkonsistenzen in der Datenbank zu verhindern.
+- **JS-Initialisierung:** Skripte wie `editor.js` müssen ihre Initialisierung (z.B. `toggleSyntax()`) sowohl über `DOMContentLoaded` als auch über explizite Event-Listener absichern.
 
 ## TODO / Roadmap
 
