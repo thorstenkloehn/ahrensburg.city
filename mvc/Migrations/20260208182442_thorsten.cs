@@ -25,7 +25,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace mvc.Migrations
 {
     /// <inheritdoc />
-    public partial class thorsten : Migration
+    public partial class Thorsten : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -23,7 +23,7 @@
 namespace mvc.Migrations
 {
     /// <inheritdoc />
-    public partial class tt : Migration
+    public partial class Tt : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

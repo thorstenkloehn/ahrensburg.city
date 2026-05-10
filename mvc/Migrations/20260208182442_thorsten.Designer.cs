@@ -13,7 +13,7 @@ namespace mvc.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20260208182442_thorsten")]
-    partial class thorsten
+    partial class Thorsten
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

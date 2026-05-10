@@ -4,6 +4,10 @@ Dieses Projekt ist ein leichtgewichtiges Content-Management-System (CMS) mit Wik
 
 ## Status (Stand 10.05.2026)
 
+- **Wartung & Hygiene:** 
+  - Alle NuGet-Sicherheitsanfälligkeiten (NU1901, NU1903) behoben durch Updates auf sichere Versionen (z.B. `System.Security.Cryptography.Xml` 10.0.7).
+  - C#-Naming-Warnings (CS8981) in den Migrationen durch Umbenennung behoben.
+  - Bereinigung der Build-Warnungen für einen "Green Build".
 - **Editor-Stabilität:** Kritische Fixes für die Syntax-Umschaltung (Markdown/MediaWiki) implementiert.
   - **Bidirektionale Konvertierung:** Automatischer Transfer und Übersetzung von Inhalten beim Wechsel der Syntax im Editor.
   - **Robustes Toggling:** Verwendung von `style.display` und `DOMContentLoaded`-Event-Listenern für garantierte UI-Synchronisation.
